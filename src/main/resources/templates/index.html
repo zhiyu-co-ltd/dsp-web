@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1,  user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8" />
+		<title>首页</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/init.css" />
+		<link rel="stylesheet" href="css/menu.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		 <!--[if lt IE 9]>
+      <script src="js/respond.src.js"></script>
+           <!--<![endif]-->
+          <!-- <script type="text/javascript" src="js/jquery.flexslider-min.js" ></script>-->
+           <script type="text/javascript" src="js/responsiveslides.min.js" ></script>
+              <script type="text/javascript">
+// You can also use "$(window).load(function() {"
+$(function () {
+
+  // Slideshow 4
+  $("#slider4").responsiveSlides({
+	auto: true,
+	pager: true,
+	nav: true,
+	speed: 500,
+	namespace: "callbacks",
+	before: function () {
+	  $('.events').append("<li>before event fired.</li>");
+	},
+	after: function () {
+	  $('.events').append("<li>after event fired.</li>");
+	}
+  });
+ 
+   
+});
+
+</script>
+	</head>
+	<body>
+		<div class="head">
+			<div class="container clearfix">
+			<div class="right">
+				<!--登录前-->
+				<a href="javascript:;" class="left lgbtn">登录</a>
+				<span class="left">&nbsp;|&nbsp;</span>
+				<a href="javascript:;" class="left regbtn">注册</a>
+				<!--登录后-->
+				<!--<div class="left login_hou">
+					<p class="login_per">
+						<a href="#">zhaojianfan  </a>
+					</p>
+					<div class="login_hou_yin">
+						<p>
+							<a href="#" class="out">退出</a>
+						</p>
+					</div>
+				</div>-->
+				<div class="left language clearfix">
+					<div class="clearfix lang"><span class="left">简体中文</span><em class="left"></em></div>
+					<div class="language_con">
+						<p>
+							<a href="#">English</a>
+						</p>
+						<p>
+							<a href="#">简体中文</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	    <div class="menu">
+	    	<div class="container clearfix">
+	    		<a href="#" class="left logo">
+	    			<img src="images/index_07.png" />
+	    		</a>
+	    		<div class="right col-md-5 col-sm-6 col-xs-4 menu_main">
+	    			<nav class="navbar navbar-default equinav" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<span class="navbar-brand">Menu</span>
+				</div>
+				<!-- /.navbar-header -->
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav clearfix">
+						<li><a href="index.html" class="ahover">
+							+ 首页                                                                                                     
+						</a></li>
+						<li><a href="ad.html">
+							+ 广告主                
+						</a></li>
+						<li><a href="feed.html">
+							+ 媒体主
+						</a></li>
+						<li><a href="about.html">
+							+ 关于我们
+						</a></li>
+						
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</nav>
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="banner">
+	    	
+                            	<ul class="slides">
+                                	<li style="background: url(images/index_10.png) no-repeat center;background-size:cover;">
+                                    	
+                                    </li>
+                                    
+                                  
+                                </ul>
+                         
+	        <div class="zhuce">
+	        <a href="#">立即注册</a>
+	        </div>
+	    </div>
+	    <div class="sy1">
+	    	<div class="sy_tl_big">移动广告平台</div>
+	    	<div class="sy_tl_small">· Mobile Advertising Platform · </div>
+	    	<div class="container clearfix">
+	    		<div class="col-md-3 col-sm-3 col-xs-6 p_div">
+	    			<div class="p_div_img">
+	    				<div  class="p_div_img_q">
+	    				<img src="images/ico_07.png" />
+	    				</div>
+	    				<div class="p_div_img_h">
+	    				<img src="images/index_13.png" />
+	    				</div>
+	    			</div>
+	    			<div class="p_div_big">全球流量</div>
+	    			<div class="p_div_text">
+	    				<p>· 全球超过4.4亿月活跃用户</p>
+	    				<p>· 高粘度用户带来更佳表现</p>
+	    			</div>
+	    		</div>
+	    	    <div class="col-md-3 col-sm-3 col-xs-6 p_div">
+	    			<div class="p_div_img">
+	    				<div  class="p_div_img_q">
+	    				<img src="images/index_15.png" />
+	    				</div>
+	    				<div class="p_div_img_h">
+	    				<img src="images/ico_09.png" />
+	    				</div>
+	    			</div>
+	    			<div class="p_div_big">数据驱动  智能投放</div>
+	    			<div class="p_div_text">
+	    				<p>· 巧用大数据，保持高留存</p>
+	    				<p>· 基于用户APP使用行为的精准定位</p>
+	    				<p>· 智能优化，提升投资回报率</p>
+	    			</div>
+	    		</div>
+	    	     <div class="col-md-3 col-sm-3 col-xs-6 p_div">
+	    			<div class="p_div_img">
+	    				<div  class="p_div_img_q">
+	    				<img src="images/index_17.png" />
+	    				</div>
+	    				<div class="p_div_img_h">
+	    				<img src="images/ico_11.png" />
+	    				</div>
+	    			</div>
+	    			<div class="p_div_big">流程透明 智能匹配</div>
+	    			<div class="p_div_text">
+	    				<p>· 多种原生广告形式，在不打扰用户体验下大幅提升转化</p>
+	    				<p>· 不论投放品牌广告、效果广告，都值得您信赖</p>
+	    				
+	    			</div>
+	    		</div>
+	    	     <div class="col-md-3 col-sm-3 col-xs-6 p_div">
+	    			<div class="p_div_img">
+	    				<div  class="p_div_img_q">
+	    				<img src="images/index_19.png" />
+	    				</div>
+	    				<div class="p_div_img_h">
+	    				<img src="images/ico_13.png" />
+	    				</div>
+	    			</div>
+	    			<div class="p_div_big">ROI数据监控</div>
+	    			<div class="p_div_text">
+	    				<p>· 多种原生广告形式，在不打扰用户体验下大幅提升转化</p>
+	    				
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+        
+
+         <div class="sy2">
+        	<div class="callbacks_container">
+	<ul class="rslides" id="slider4">
+		<li class="clearfix slide" style="background: url(images/banner1.jpg) no-repeat center;background-size: cover;">
+
+		</li>
+		<li class="clearfix slide" style="background: url(images/banner2.jpg) no-repeat center;background-size: cover;">
+
+		</li>
+		<li class="clearfix slide" style="background: url(images/banner3.jpg) no-repeat center;background-size: cover;">
+
+		</li>
+		<li class="clearfix slide" style="background: url(images/banner4.jpg) no-repeat center;background-size: cover;">
+
+		</li>
+		<li class="clearfix slide" style="background: url(images/banner5.jpg) no-repeat center;background-size: cover;">
+
+		</li>
+		<li class="clearfix slide" style="background: url(images/banner6.jpg) no-repeat center;background-size: cover;">
+
+		</li>
+
+	</ul>
+</div>
+        </div>
+	    <div class="sy3">
+	    	<div class="container clearfix">
+	    		<div class="col-md-3 col-sm-3 col-xs-12 pnone sy3_img" style="padding-left: 0px;">
+	    			<div class="sy3_tp active">
+	    			<img src="images/index_28.png" />
+	    			</div>
+	    			<div class="sy3_tp">
+	    			<img src="images/cha.jpg" />
+	    			</div>
+	    			<div class="sy3_tp">
+	    			<img src="images/video.jpg" />
+	    			</div>
+	    			<div class="sy3_tp">
+	    			<img src="images/yiy_03.jpg" />
+	    			</div>
+	    			<div class="sy3_tp">
+	    			<img src="images/tj.jpg" />
+	    			</div>
+	    			<div class="sy3_tp">
+	    			<img src="images/ss_03.jpg" />
+	    			</div>
+	    			<div class="sy3_tp">
+	    			<img src="images/feed.jpg" />
+	    			</div>
+	    		</div>
+	    	    <div class="col-md-9 col-sm-9 col-xs-12 pnone sy3_con" style="padding-right: 0px;">
+	    	    	<div class="sy3_tl">广告形式</div>
+	    	    	<div class="sy3_text">
+	    	    		<div class="sy3_text_con active">
+	    	    			<p style="font-size: 18px;">Banner广告</p>
+	    	    			<p>Banner广告是一个表现商家广告内容的图片，放置在广告商。的页面上，是互联网广告中最基本的广告形式</p>
+	    	    		    <ul>
+	    	    		    	<li>. 高填充率</li>
+	    	    		    	<li>. 快速,容易整合</li>
+	    	    		    	<li>. 提高广告位置收入</li>
+	    	    		    </ul>
+	    	    		</div>
+	    	    		<div class="sy3_text_con">
+	    	    			<p style="font-size: 18px;">插屏广告</p>
+	    	    			<p>智能手机的全屏幕广告，具有强烈的视觉冲击效果，推动更高
+的接触和转换</p>
+	    	    		    <ul>
+	    	    		    	
+	    	    		    	<li>. 高填充率和点击率(CTR)</li>
+	    	    		    	<li>. 更高大垂直，充分曝光</li>
+	    	    		    	<li>. 提升广告主品牌效果</li>
+	    	    		    </ul>
+	    	    		</div>
+	    	    		<div class="sy3_text_con">
+	    	    			<p style="font-size: 18px;">video广告</p>
+	    	    			<p>身临其境的广告体验，推动高层次的用户参与，分为贴
+片广告和In-App视频广告</p>
+	    	    		    <ul>
+	    	    		    	<li>. 全屏幕视频吸引消费者关注。</li>
+	    	    		    	<li>. 一个有效受众只计费第一次的广告抵达</li>
+	    	    		    	<li>. 如果用户没有完整播放视频而中途退出，系统将不会计费。</li>
+	    	    		    
+	    	    		    </ul>
+	    	    		</div>
+	    	    		<div class="sy3_text_con">
+	    	    			<p style="font-size: 18px;">应用墙广告</p>
+	    	    			<p>AppWall能够实现应用墙的效果，所有应用都用小图标展示在一面墙上,适合应用内推广,满足native展现效果</p>
+	    	    		    <ul>
+	    	    		    	
+	    	    		    	<li> . 全屏幕广告显示推荐应用程序列表。</li>
+	    	    		    	<li>. 可自定义，具有多个广告皮肤。</li>
+	    	    		    
+	    	    		    </ul>
+	    	    		</div>
+	    	    		<div class="sy3_text_con">
+	    	    			<p style="font-size: 18px;">推荐广告</p>
+	    	    			<p>可定制的广告内容，在相关的应用程序展现时被自动 显示，嵌入在内容里面。</p>
+	    	    		    <ul>
+	    	    		    	<li>. 有效点击率最高的展现形式。</li>
+	    	    		    	<li> . 100%可自定义多个广告皮肤。</li>
+	    	    		    	<li>. 能够快容易的整合在资源内容里面</li>
+	    	    		    
+	    	    		    </ul>
+	    	    		</div>
+	    	    		<div class="sy3_text_con">
+	    	    			<p style="font-size: 18px;">搜索广告</p>
+	    	    			<p>搜索引擎根据客户需求,给出相应结果，广告投放完全是精确匹配，直接针对有需求的客户。</p>
+	    	    		    <ul>
+	    	    		    	
+	    	    		    	<li>. 主动搜索场景，推荐效果为高点击率。</li>
+	    	    		    	<li>. 广告具有极强的针对性，受众广泛</li>
+	    	    		        <li>. Native的展示效果，完美用户体验</li>
+	    	    		    </ul>
+	    	    		</div>
+	    	    		<div class="sy3_text_con">
+	    	    			<p style="font-size: 18px;">Feed流广告</p>
+	    	    			<p>高度可定制的流广告形式，很自然地出现在一个应用程序的内容流，而不影响用户体</p>
+	    	    		    <ul>
+	    	    		    	<li> . 100%可定制的应用程序的用户界面。</li>
+	    	    		    	<li>. 高用户参与度和品牌曝光率</li>
+	    	    		        <li>. 带来高CTR，高eCPM</li>
+	    	    		    </ul>
+	    	    		</div>
+	    	    	</div>
+	    	        <div class="sy3_btn">
+	    	        	<div class="sy3_btn_con sy3_btn_con_mainh">
+	    	        		<div class="sy3_btn_con_main">
+	    	        		<p>Banner广告</p>
+	    	        		<img src="images/index_31.png" />
+	    	        		</div>
+	    	        	</div>
+	    	        	<div class="sy3_btn_con">
+	    	        		<div class="sy3_btn_con_main">
+	    	        		<p>插屏广告</p>
+	    	        		<img src="images/index_33.png" />
+	    	        		</div>
+	    	        	</div>
+	    	        	<div class="sy3_btn_con">
+	    	        		<div class="sy3_btn_con_main">
+	    	        		<p>video广告</p>
+	    	        		<img src="images/index_35.png" />
+	    	        		</div>
+	    	        	</div>
+	    	        	<div class="sy3_btn_con">
+	    	        		<div class="sy3_btn_con_main">
+	    	        		<p>应用墙广告</p>
+	    	        		<img src="images/qq.jpg" />
+	    	        		</div>
+	    	        	</div>
+	    	        	<div class="sy3_btn_con">
+	    	        		<div class="sy3_btn_con_main">
+	    	        		<p>推荐广告</p>
+	    	        		<img src="images/index_39.png" />
+	    	        		</div>
+	    	        	</div>
+	    	        	<div class="sy3_btn_con">
+	    	        		<div class="sy3_btn_con_main">
+	    	        		<p>搜索广告</p>
+	    	        		<img src="images/index_41.png" />
+	    	        		</div>
+	    	        	</div>
+	    	        	<div class="sy3_btn_con">
+	    	        		<div class="sy3_btn_con_main">
+	    	        		<p>Feed流广告</p>
+	    	        		<img src="images/index_43.png" />
+	    	        		</div>
+	    	        	</div>
+	    	        </div>
+	    	    </div>
+	    	</div>
+	    </div>
+
+
+
+
+
+
+
+              <div class="sy4">
+	    	<div class="sy_tl_big">技术优势</div>
+	    	<div class="sy_tl_small">· Technology Advantage · </div>
+	    	<div class="container clearfix">
+	    		<div class="col-md-6 col-sm-6 col-xs-12 clearfix pnone sy_main" style="padding-left: 0px;">
+	    			<div class="left col-md-3 col-sm-3 col-xs-3 pnone sy4_img"  style="padding-left: 0px;">
+	    				<img src="images/index_54.png" />
+	    			</div>
+	    			<div class="left col-md-9 col-sm-9 col-xs-9 pnone sy4_con"  style="padding-right: 0px;">
+	    				<h2>用户属性标签</h2>
+	    				<p>通过知渔大数据平台，分析用户点击和浏览日志，分析用户行为，结合广告平台的标签数据分类，通过机器学习，完成用户标签的标注。通过用户标签，对于受众用户进行分类,包括年龄，性别，区域，爱好，收入等，满足广告主对于投放受众的选择，提高广告与用户的匹配度，进而提升广告投放的CTR,以及提升广告平台的eCPM。</p>
+	    			</div>
+	    		</div>
+	    	    <div class="col-md-6 col-sm-6 col-xs-12 clearfix pnone sy_main" style="padding-right: 0px;">
+	    			<div class="left col-md-3 col-sm-3 col-xs-3 pnone sy4_img"  style="padding-right: 0px;">
+	    				<img src="images/jian.png" />
+	    			</div>
+	    			<div class="left col-md-9 col-sm-9 col-xs-9 pnone sy4_con"  style="padding-right: 0px;">
+	    				<h2>内容定向</h2>
+	    				<p>通过知渔大数据平台，对于展现的内容进行标识，不同访问的url 会代表不同的内容标识。结合用户属性标签，对于广告定向投放提供双向支持。有效的帮助广告主优化媒体投放效果，提升广告曝光效果，和用户转化效果。结合上下文场景的数据分析，帮助广告投放引擎在最合适的场景下，匹配最合适的广告，展现给最有购买需求的用户。</p>
+	    				
+	    			</div>
+	    		</div>
+	    		<div class="col-md-6 col-sm-6 col-xs-12 clearfix pnone sy_main" style="padding-left: 0px;">
+	    			<div class="left col-md-3 col-sm-3 col-xs-3 pnone sy4_img"  style="padding-left: 0px;">
+	    				<img src="images/index_65.png" />
+	    			</div>
+	    			<div class="left col-md-9 col-sm-9 col-xs-9 pnone sy4_con"  style="padding-right: 0px;">
+	    				<h2>人工智能平台</h2>
+	    				<p>人工智能实现的更高级别的定向是对用户所浏览内容的深度挖掘，根据语境和内容，以及产品相关的环境来分析用户需求，找到匹配的广告campaign,在合适的时间推送给用户。所谓合适的时间，就是并不是在了解了这个需求之后，就在任何场合进行反复推送，比如你看严肃的政治新闻时，这些内容就不会出现，不会打扰你的阅读。在你浏览轻松的内容时才会看到广告。</p>
+	    			</div>
+	    		</div>
+	    	    <div class="col-md-6 col-sm-6 col-xs-12 clearfix pnone sy_main" style="padding-right: 0px;">
+	    			<div class="left col-md-3 col-sm-3 col-xs-3 pnone sy4_img"  style="padding-right: 0px;">
+	    				<img src="images/index_62.png" />
+	    			</div>
+	    			<div class="left col-md-9 col-sm-9 col-xs-9 pnone sy4_con"  style="padding-right: 0px;">
+	    				<h2>广告效果跟踪</h2>
+	    				<p>
+	    					知渔移动广告平台对于媒体主的关键保证是提供高转换率，对于广告主的关键保证是不断优化广告的投放效果。知渔移动广告平台可以监控到每一个广告的事件，如填充，曝光，点击，激活等各种状态。通过事件分析各类媒体资源，及时选择最优质的媒体资源，为广告主提供最好的用户和投资回报率。
+	    				</p>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="sy5">
+	    	<div class="sy_tl_big">解决方案</div>
+	    	<div class="sy_tl_small">· Our Solutions · </div>
+	    	<div class="container clearfix">
+	    		<div class="sy5_a">
+	    			<a href="javascript:;" class="ahover">移动终端广告 </a>
+	    			<a href="javascript:;">APP下载推广</a>
+	    			<a href="javascript:;">LBS定位营销</a>
+	    			<a href="javascript:;">人工智能场景分析</a>
+	    		</div>
+	    	    <div class="sy5_main">
+	    	    	<div class="sy5_con active">
+	    	    		<p class="p">知渔广告平台整合了海量WAP网站和APP媒体资源，利用高效广告形式，结合先进定向技术，针对广告主需求，提供量身定制的移动互联网广告投放方案。</p>
+	    	    		<ul>
+	    	    			<li>
+	    	    				·&nbsp;广泛覆盖全球领先WAP网站与海量APP媒体资源，连接数亿级别的移动用户资源
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp;丰富广告形式,支持在WAP网站和APP应用中投放多种类型的手机广告，所有广告形式均根据手机屏幕分辨率自动尺寸适配
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp;高效广告投放,多种高效广告形式和丰富广告互动，配合内容定向和用户定向等多种定向技术，帮助广告主实现高效营销。
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp;权威有效的数据监控，整合第三方监控平台，保证广告主资金投放的安全透明。
+	    	    			</li>
+	    	    		</ul>
+	    	    	</div>
+	    	        <div class="sy5_con">
+	    	        		<p class="p">知渔广告平台拥有APP开发和设计团队，可帮助APP推广广告主进行宣传物料的创意设计以及多语言版本的本地化服务。</p>
+	    	    		<ul>
+	    	    			<li>
+	    	    				·&nbsp; 广泛覆盖全球领先WAP网站与海量APP媒体资源，连接数亿级别的移动用户资源
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp;丰富广告形式,支持在WAP网站和APP应用中投放多种类型的手机广告，所有广告形式均根据手机屏幕分辨率自动尺寸适配
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp;高效广告投放,多种高效广告形式和丰富广告互动，配合内容定向和用户定向等多种定向技术，帮助广告主实现高效营销。
+
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp;权威有效的数据监控，整合第三方监控平台，保证广告主资金投放的安全透明。
+	    	    			</li>
+	    	    		</ul>
+	    	        </div>
+	    	        <div class="sy5_con">
+	    	        	<p class="p">“移动终端广告 + LBS ”整合营销，最大化利用手机媒体和位置定向的广告投放需求，在时效性和场景交互当中达到最佳展现，成功的将线上资源转入线下互动，提升广告主的ROI.
+</p>
+	    	    		<ul>
+	    	    			<li>
+	    	    				·&nbsp; 知渔移动广告平台有效展示营销活动创意，筛选和引导目标受众参与。
+
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp; 门店资源可以动态展示，有效地将线上流量成功导入线下，完成到店咨询和购买环节
+
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp;人工智能平台会依据广告主的投放需求，精准找到线上用户，提升到店购买的转化率
+
+
+	    	    			</li>
+	    	    			
+	    	    		</ul>
+	    	        </div>
+	    	        <div class="sy5_con">
+	    	        	<p class="p">知渔广告平台自主搭建深度学习引擎，利用图像识别技术、语义分析技术和原生广告展示技术，用人工智能和深度学习更进一步拉近互联网与人的距离，创造出原生广告的展现场景和互联网内容地完美结合。
+
+</p>
+	    	    		<ul>
+	    	    			<li>
+	    	    				·&nbsp; 精准图像识别，智能分析图片中的场景和物体，让计算机读懂图片及视频内容
+
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp; 自然语言处理，分析互联网网页内容文字中的语义结构，智能抽取相关的关键词。
+
+
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp;智能广告匹配，基于深度学习算法，基于知识的结构化数据库引擎，从海量的互联网页面中提取了数亿条知识，帮助广告系统做出精确推荐。
+
+
+	    	    			</li>
+	    	    			<li>
+	    	    				·&nbsp;高性能并行计算，支撑大规模、高并行、高实时性广告匹配，自主研发hadoop大数据平台，满足需要实时处理的数据流服务。
+
+
+	    	    			</li>
+	    	    			
+	    	    			
+	    	    		</ul>
+	    	        </div>
+	    	    </div>
+	    	</div>
+	    </div>
+	    <div class="sy6">
+	    	<div class="sy_tl_big">客户服务</div>
+	    	<div class="sy_tl_small">· Customer Service · </div>
+	    	<div class="container clearfix">
+	    		<div class="col-md-3 col-sm-6 col-xs-12 sy6_con pnone">
+	    			<img src="images/index_69.png" />
+	    			<div class="sy6_tl">
+	    				专属您的客户服务团队
+	    			</div>
+	    			<div class="sy6_text">从投放策略到营销及技术支持，提供一站式服务</div>
+	    		</div>
+	    		<div class="col-md-3 col-sm-6 col-xs-12 sy6_con pnone">
+	    			<img src="images/zhi_03.png" />
+	    			<div class="sy6_tl">
+	    				本地化队伍
+	    			</div>
+	    			<div class="sy6_text">分布全球十余家办事处让全球化营销没有语言及空间障碍</div>
+	    		</div>
+	    	    <div class="col-md-3 col-sm-6 col-xs-12 sy6_con pnone">
+	    			<img src="images/zhi__05.png" />
+	    			<div class="sy6_tl">
+	    				人工辅助，捕捉潜在用户
+	    			</div>
+	    			<div class="sy6_text">通过自身的生态系统和算法优势，捕捉到潜在用户的兴趣，帮助你捕捉到向潜在用户推广的最佳时机</div>
+	    		</div>
+	    	    <div class="col-md-3 col-sm-6 col-xs-12 sy6_con pnone">
+	    			<img src="images/zhi__07.png" />
+	    			<div class="sy6_tl">
+	    				每日报表和分析
+	    			</div>
+	    			<div class="sy6_text">监控、咨询、效果评估、优化建议和数据报告，我们提供最完善可靠的服务</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="sy6" style="background: none;">
+	    	<div class="sy_tl_big">全球办事处</div>
+	    	<div class="sy_tl_small">· Global Office ·</div>
+	    	<p class="p container">知渔移动广告平台在全球主要市场设有办事处，服务于我们的客户和我们的媒体合作伙伴。我们对当地的市场动态、媒体资源及受众了解，以确保我们的客户在他们的移动营销投资上得到一个特殊的回报。
+</p>
+	    	<div class="container clearfix">
+	    		<div class="col-md-3 col-sm-6 col-xs-12 sy6_con pnone">
+	    			<img src="images/zhi_13.png" />
+	    			
+	    		</div>
+	    		<div class="col-md-3 col-sm-6 col-xs-12 sy6_con pnone">
+	    			<img src="images/zhi_3-05.png" />
+	    			
+	    		</div>
+	    	    <div class="col-md-3 col-sm-6 col-xs-12 sy6_con pnone">
+	    			<img src="images/zhi_17.png" />
+	    			
+	    		</div>
+	    	    <div class="col-md-3 col-sm-6 col-xs-12 sy6_con pnone">
+	    			<img src="images/zhi__19.png" />
+	    			
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="sy7">
+	    	<div class="container clearfix">
+	    		<div class="col-md-3 col-sm-3 col-xs-12 pnone" style="padding-left: 0px;">
+	    			<p class="mine_name">我们是谁</p>
+	    			<div class="sy7_logo">
+	    				<img src="images/index_07.png" />
+	    			</div>
+	    			<div>知渔广告平台整合了海量WAP网站和APP媒体资源，利用高效广告形式，结合先进定向技术，针对广告主需求，提供量身定制的移动互联网广告投放方案。</div>
+	    		    <div class="clearfix">
+	    		    	<a href="#" class="right">了解详情 →</a>
+	    		    </div>
+	    		</div>
+	    	    <div class="col-md-9 col-sm-9 col-xs-12 pnone phone" style="padding-right: 0px;">
+	    	    	<p class="mine_name">联系我们</p>
+	    	    	<div style="margin-bottom: 20px;">知渔移动广告平台在全球主要市场设有办事处，服务于我们的客户和我们的媒体合作伙伴。我们对当地的市场动态、媒体资源及受众了解，以确保我们的客户在他们的移动营销投资上得到一个特殊的回报。</div>
+	    	        <div class="clearfix">
+	    	        	<div class="col-md-8 col-sm-8 col-xs-12 pnone phone">
+	    	        		<p class="place">地址：北京市通州区新仓路25号2单元5层502号</p>
+	    	        		<p class="tel">电话：010-69513939</p>
+	    	        		<p class="email">邮箱：service@zhiyu001.com</p>
+	    	        	</div>
+	    	        	<div class="col-md-4 col-sm-4 col-xs-12 pnone ew clearfix">
+	    	        		<div class="ew_con">
+	    	        			<img src="images/index_81.png" />
+	    	        			<p>关注“知渔科技”</p>
+	    	        		</div>
+	    	        	</div>
+	    	        </div>
+	    	    </div>
+	    	</div>
+	    </div>
+	    <div class="footer">
+	    	<div class="container clearfix">
+	    		<div class="col-md-6 col-sm-6 col-xs-12 pnone" style="padding-left: 0px;">
+	    			© Copyright @2016-2018  知渔科技 All Rights Reserved
+	    		</div>
+	    		<div class="col-md-6 col-sm-6 col-xs-12 pnone clearfix" style="padding-right: 0px;">
+	    			<div class="foot_a">
+	    				<a href="#">关于我们        </a>
+	    				<a href="#">联系我们</a>
+	    				<a href="#">微信平台</a>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <!--弹窗-->
+	    
+	    <div class="huibg">  </div>
+	    	<!--登录-->
+	    <div class="alert login_alert">
+	    	<div class="alert_img">
+	    		<img src="images/lg_03.jpg" />
+	    	</div>
+	    	<form>
+	    		<div class="lg_gp clearfix">
+	    			<img src="images/lg07.jpg" class="left" />
+	    			<div class="lg_input">
+	    				<input type="text" placeholder="邮箱地址" />
+	    			</div>
+	    		</div>
+	    		<div class="erro">请输入正确的邮箱</div>
+	    		<div class="lg_gp clearfix">
+	    			<img src="images/lg08.jpg" class="left" />
+	    			<div class="lg_input">
+	    				<input type="text" placeholder="密码" />
+	    			</div>
+	    		</div>
+	    		<div class="erro">请输入密码</div>
+	    		<div class="lg_btn">
+	    			<input type="button" value="登录" />
+	    		</div>
+	    		<div class="clearfix lg_link">
+	    			<a href="javascript:;" class="left ljzc">立即注册 >></a>
+	    			<a href="javascript:;" class="right wangmi">忘记密码？</a>
+	    		</div>
+	    	</form>
+	    </div>
+	   <!-- 注册-->
+	   <div class="alert rg_alert">
+	    	<div class="alert_img">
+	    		<img src="images/lg_03.jpg" />
+	    	</div>
+	    	<form>
+	    		<div class="lg_gp clearfix">
+	    			<img src="images/lg03.jpg" class="left" />
+	    			<div class="lg_input">
+	    				<input type="text" placeholder="用户名" />
+	    			</div>
+	    		</div>
+	    		<div class="erro">请输入正确的用户名</div>
+	    		<div class="lg_gp clearfix">
+	    			<img src="images/lg07.jpg" class="left" />
+	    			<div class="lg_input">
+	    				<input type="text" placeholder="邮箱地址" />
+	    			</div>
+	    		</div>
+	    		<div class="erro">请输入邮箱</div>
+	    		<div class="lg_gp clearfix">
+	    			<img src="images/lg08.jpg" class="left" />
+	    			<div class="lg_input">
+	    				<input type="text" placeholder="输入密码" />
+	    			</div>
+	    		</div>
+	    		<div class="erro">请输入邮箱</div>
+	    		<div class="lg_gp clearfix">
+	    			<img src="images/lg_10.jpg" class="left" />
+	    			<div class="lg_input">
+	    				<input type="text" placeholder="确认密码" />
+	    			</div>
+	    		</div>
+	    		<div class="erro">请输入邮箱</div>
+	    		
+	    		
+	    		<div class="lg_btn">
+	    			<input type="button" value="注册" />
+	    		</div>
+	    		<div class="clearfix lg_link">
+	    			<a href="javascript:;" class="left yiyou">已有账号，快速登录</a>
+	    		</div>
+	    	</form>
+	    </div>
+	    <!--找回密码-->
+	    <div class="alert find_alert">
+	    	<div class="alert_img">
+	    		<img src="images/lg_03.jpg" />
+	    	</div>
+	    	<form>
+	    		<div class="lg_gp clearfix">
+	    			<img src="images/lg07.jpg" class="left" />
+	    			<div class="lg_input">
+	    				<input type="text" placeholder="邮箱地址" />
+	    			</div>
+	    		</div>
+	    		<div class="tishi">请输入邮箱，我们会发送重置密码链接到您的邮箱</div>
+	    		<!--<div class="erro">请输入正确的邮箱</div>-->
+	    	
+	    		<div class="lg_btn">
+	    			<input type="button" value="确定" />
+	    		</div>
+	    		<div class="clearfix lg_link">
+	    			<a href="javascript:;" class="left yiyou">已有账号，快速登录</a>
+	    		</div>
+	    	</form>
+	    </div>
+	  
+          <script type="text/javascript" src="js/index.js" ></script>
+	     <script type="text/javascript" src="js/head.js" ></script>
+	</body>
+</html>

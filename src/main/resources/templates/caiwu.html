@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>财务</title>
+		<link rel="stylesheet" href="css/init.css" />
+		<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="css/houtai.css" />
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="js/select.js"></script>
+	</head>
+
+	<body>
+		<div class="tj_main">
+			<div class="tj_main_lf">
+				<div class="tj_main_lf_tl clearfix">
+					<img src="images/gaikuang_03.png" />
+
+				</div>
+				<div class="tj_main_lf_tx">
+					<div class="tj_main_lf_tx_main">
+						<a href="per.html">
+						<img src="images/tx.jpg" />
+						</a>
+					</div>
+					<div class="tj_main_lf_text">
+						<p class="per_a">
+							<a href="per.html">
+							John Smith
+							</a>
+						</p>
+						
+					</div>
+				</div>
+				<div class="tj_main_lf_menu">
+
+					<ul>
+						<li>
+							<a href="gaikuang.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang-06.png" /> 概况
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="tuiguang.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_25.png" /> 推广计划
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="guanggao.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_42.png" /> 创意广告
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="caiwu.html" class="clearfix ahover">
+								<div class="left">
+									<img src="images/gaikuang_49.png" /> 财务
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="tj_main_rt">
+				<div class="tj_main_rt_con">
+					<div class="tj_main_rt_tl clearfix">
+						<em class="tj_head_btn left"></em>
+						<a href="#" class="tj_out right" onclick="">注销</a>
+						<div class="right clearfix tj_head_tx">
+							<a href="per.html">
+							<img src="images/tx.jpg" class="left" />
+							</a>
+							<span class="left"><a href="per.html">John Smith</a></span>
+							<span class="left head_link"><a href="index.html">首页</a></span>
+							<span class="left head_link"><a href="feed.html">媒体主</a></span>
+						</div>
+					</div>
+
+					<div class="gankuang_two" style="margin-top: 20px;">
+						<div class="caiwu_tl clearfix">
+							<a href="javascript:;" class="ahover"><span>财务记录</span></a>
+							<a href="javascript:;"><span>充值</span></a>
+						</div>
+						<div class="caiwu_main">
+							<div class="caiwu_con active">
+								<div class="gankuang_two_con">
+									<div class="clearfix caiwu_one">
+										<div class="left caiwu_one_lf">
+											<p class="tj_suoming" style="margin-left: 0px;">
+												统计说明：今日花费数据可能会在次日核算后有变动，历史花费数据已累计更新至2016-11-05 23:59.
+											</p>
+											<div class="caiwu_huaifei">
+												<span>现金账户余额：0.00 元</span>
+												<span>历史花费：0.00 元</span>
+												<span>今日花费：0.00 元</span>
+											</div>
+										</div>
+										<div class="left caiwu_one_rt">
+											<p>近 <span class="color_lan">7 </span>日消费（元）</p>
+											<p class="caiwu_one_rt_num">0.00</p>
+										</div>
+									</div>
+									<div class="clearfix gankuang_two_tl caiwu_two">
+										<input type="text" class="left rili" id="datepicker" />
+										<span class="left zhi">至</span>
+										<input type="text" class="left rili" id="datepicker1" />
+										<input type="button" class="left" value="查询" />
+										<a href="#" class="right down">下载报表</a>
+									</div>
+									<p class="caiwu_leiji">
+										查询区间内，累计充值 <span>1200.00</span> 元，累计花费<span> 1200.00 </span>元
+									</p>
+									<div class="caiwu_table">
+										<table cellpadding="0px" cellspacing="0px" width="100%">
+											<tr>
+												<th>操作日期</th>
+												<th>
+													<div class="jiaoy">
+														<div class="model-select-box">
+															<div class="model-select-text" data-value="1">交易类型</div>
+															<ul class="model-select-option" style="display: none;">
+																<li data-option="1" class="seleced data-selected">交易类型</li>
+																<li data-option="2">充值</li>
+																<li data-option="3">消耗</li>
+															</ul>
+														</div>
+													</div>
+												</th>
+												<th>交易金额（元）</th>
+												<th>说明</th>
+											</tr>
+											<tr>
+												<td>2016-11-08 09:48:14</td>
+												<td>消耗</td>
+												<td>1000.00</td>
+												<td>无</td>
+											</tr>
+											<tr>
+												<td>2016-11-08 09:48:14</td>
+												<td>消耗</td>
+												<td>1000.00</td>
+												<td>无</td>
+											</tr>
+											<tr>
+												<td>2016-11-08 09:48:14</td>
+												<td>消耗</td>
+												<td>1000.00</td>
+												<td>无</td>
+											</tr>
+											<tr>
+												<td>2016-11-08 09:48:14</td>
+												<td>消耗</td>
+												<td>1000.00</td>
+												<td>无</td>
+											</tr>
+											<tr>
+												<td>2016-11-08 09:48:14</td>
+												<td>消耗</td>
+												<td>1000.00</td>
+												<td>无</td>
+											</tr>
+											<tr>
+												<td>2016-11-08 09:48:14</td>
+												<td>消耗</td>
+												<td>1000.00</td>
+												<td>无</td>
+											</tr>
+											<tr>
+												<td>2016-11-08 09:48:14</td>
+												<td>消耗</td>
+												<td>1000.00</td>
+												<td>无</td>
+											</tr>
+											<tr>
+												<td>2016-11-08 09:48:14</td>
+												<td>消耗</td>
+												<td>1000.00</td>
+												<td>无</td>
+											</tr>
+											<tr>
+												<td>2016-11-08 09:48:14</td>
+												<td>消耗</td>
+												<td>1000.00</td>
+												<td>无</td>
+											</tr>
+											<tr>
+												<td>2016-11-08 09:48:14</td>
+												<td>消耗</td>
+												<td>1000.00</td>
+												<td>无</td>
+											</tr>
+										</table>
+										<div class="clearfix table_page">
+											<span class="left table_page_lf">显示 1-10 条数据 ；总记录数为 36 条</span>
+											<div class="right table_page_rt">
+												<a href="#" style="background: #6495ed;color: #fff;">&lt;</a>
+												<a href="#">1</a>
+												<a href="#">2</a>
+												<a href="#">3</a>
+												<a href="#">4</a>
+												<a href="#">5</a>
+												<a href="#">6</a>
+												<a href="#">...</a>
+												<a href="#">31</a>
+												<a href="#" style="background: #6495ed;color: #fff;">&gt;</a>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="caiwu_con">
+								<div class="gankuang_two_con">
+									<div class="caiwu_one">
+
+										<!--未通过审核-->
+										<!--<p class="tj_suoming" style="margin-left: 0px;">
+								您的账户尚未审核通过，暂时无法查看充值的账号信息。
+							</p>-->
+										<!--已通过审核-->
+										<p class="tj_suoming" style="margin-left: 0px;">
+											知渔广告平台目前仅支持银行卡、微信、支付宝转账。请在转账备注中写明公司或者个人名称。转账完成后请联系商务同学核对。
+										</p>
+										<div class="chongzhi">
+											<p class="chongzhi_lianxi">
+												商务联系方式:
+											</p>
+											<div class="chongzhi_lianxi_con">
+												<span>
+							    			<img src="images/chongzhi_03.png" />QQ：12356985 
+							    		</span>
+												<span>
+							    			<img src="images/chongzhi_05.png" />微信：15695265412
+							    		</span>
+												<span>
+							    			<img src="images/chongzhi_11.png" />商务邮箱：1256859@163.com   
+							    		</span>
+												<span>
+							    			<img src="images/chongzhi_12.png" />联系电话：15629526210
+							    		</span>
+											</div>
+											<ul class="clearfix chongzhi_ul">
+												<li>
+													<div class="chongzhi_ul_main">
+														<img src="images/chongzhi_20.png" />
+														<p class="chongzhi_name">银行卡</p>
+														<div class="chongzhi_mess">
+															<p>开户行：中国工商银行人民路支行</p>
+															<p>开户行所在地：北京</p>
+															<p>开户名：张三</p>
+															<p>账号：6222 0215 9856 2412</p>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="chongzhi_ul_main">
+														<img src="images/chongzhi_19.png" />
+														<p class="chongzhi_name">微信</p>
+														<div class="chongzhi_mess">
+															<p>微信账号：15269565231</p>
+															<p>微信名称：张三</p>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="chongzhi_ul_main">
+														<img src="images/chongzhi_22.png" />
+														<p class="chongzhi_name">支付宝</p>
+														<div class="chongzhi_mess">
+															<p>支付宝账号：15269632541</p>
+															<p>支付宝名称：张三</p>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="banquan">© Copyright @2016-2018 广州真境信息科技有限公司 All Rights Reserved</div>
+				</div>
+			</div>
+			<script type="text/javascript" src="js/houtai.js"></script>
+			<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+			<script type="text/javascript" src="js/bootstrap-datepicker.zh-CN.js"></script>
+			<script type="text/javascript">
+				$('#datepicker').datepicker({
+					show: true,
+					format: 'yyyy-mm-dd',
+					language: 'zh-CN',
+					weekStart: 1,
+					autoclose: true,
+					todayHighlight: true,
+					todayBtn: 'linked'
+
+				});
+				$('#datepicker1').datepicker({
+					show: true,
+					format: 'yyyy-mm-dd',
+					language: 'zh-CN',
+					weekStart: 1,
+					autoclose: true,
+					todayHighlight: true,
+					todayBtn: 'linked'
+
+				});
+			</script>
+	</body>
+
+</html>

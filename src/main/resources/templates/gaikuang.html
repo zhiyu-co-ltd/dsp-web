@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>概况</title>
+		<link rel="stylesheet" href="css/init.css" />
+		<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="css/amazeui.css" />
+		<link rel="stylesheet" href="css/houtai.css" />
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<script type="text/javascript">
+			// 路径配置
+			require.config({
+				paths: {
+					echarts: 'js'
+				}
+			});
+		</script>
+		<script type="text/javascript" src="js/jquery.circliful.js"></script>
+	</head>
+
+	<body>
+		<div class="tj_main">
+			<div class="tj_main_lf">
+				<div class="tj_main_lf_tl clearfix">
+					<img src="images/gaikuang_03.png" />
+
+				</div>
+				<div class="tj_main_lf_tx">
+					<div class="tj_main_lf_tx_main">
+						<a href="per.html">
+						<img src="images/tx.jpg" />
+						</a>
+					</div>
+					<div class="tj_main_lf_text">
+						<p class="per_a">
+							<a href="per.html">
+							John Smith
+							</a>
+						</p>
+						
+					</div>
+				</div>
+				<div class="tj_main_lf_menu">
+
+					<ul>
+						<li>
+							<a href="gaikuang.html" class="clearfix ahover">
+								<div class="left">
+									<img src="images/gaikuang-06.png" /> 概况
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="tuiguang.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_25.png" /> 推广计划
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="guanggao.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_42.png" /> 创意广告
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="caiwu.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_49.png" /> 财务
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="tj_main_rt">
+				<div class="tj_main_rt_con">
+					<div class="tj_main_rt_tl clearfix">
+						<em class="tj_head_btn left"></em>
+						<a href="#" class="tj_out right" onclick="">注销</a>
+						<div class="right clearfix tj_head_tx">
+							<a href="per.html">
+							<img src="images/tx.jpg" class="left" />
+							</a>
+							<span class="left"><a href="per.html">John Smith</a></span>
+							<span class="left head_link"><a href="index.html">首页</a></span>
+							<span class="left head_link"><a href="feed.html">媒体主</a></span>
+						</div>
+					</div>
+					<ul class="clearfix gankuang_one">
+						<li>
+							<div class="gankuang_one_main gankuang_one_one clearfix">
+								<img src="images/gaikuang.png" class="left" />
+								<div class="left">
+									<p class="gankuang_one_name">现金账户</p>
+									<p class="color_red gankuang_one_num">5236.00元</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="gankuang_one_main gankuang_one_two clearfix">
+								<div class="clearfix">
+									<img src="images/gaikuang_10.png" class="left" />
+									<div class="left">
+										<p class="gankuang_one_name">今日消耗<span class="color_blue gankuang_one_num">&nbsp;5236.00元</span></p>		
+									    <div class="xiane clearfix">
+									<span class="left">日限额</span>
+									<input type="text" value="100000.00" class="left" />
+									<span class="left">元/天</span>
+									<a href="javascript:;" class="xianebtn left" title="提交"></a>
+								</div>
+									</div>
+								</div>
+								
+							</div>
+						</li>
+						<li>
+							<div class="gankuang_one_main gankuang_one_two clearfix">
+								<div class="clearfix">
+									<img src="images/gaikuang_09.png" class="left" />
+									<div class="left">
+										<p class="gankuang_one_name">广告统计</p>
+										<div class="clearfix gankuang_zhuangtai">
+											未审核&nbsp;<a href="guanggao.html" class="color_lan">1</a>&nbsp;&nbsp; 投放中广告&nbsp;
+											<a href="guanggao.html" class="color_lan">0</a>&nbsp;&nbsp; 未通过&nbsp;
+											<a href="guanggao.html" class="color_lan">0</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="gankuang_two">
+						<div class="gankuang_two_tl clearfix">
+							<a href="#" class="ahover">今天</a>
+							<a href="#">昨天</a>
+							<a href="#">过去7天</a>
+							<a href="#">过去30天</a>
+							<input type="text" class="left rili" id="datepicker" />
+							<span class="left zhi">至</span>
+							<input type="text" class="left rili" id="datepicker1" />
+							<input type="button" class="left" value="查询" />
+							<a href="#" class="right down">下载报表</a>
+						</div>
+						<div class="gankuang_two_con">
+							<div class="gankuang_two_con_tl">
+								整体情况
+							</div>
+							<p class="tj_suoming">
+								统计说明：数据已完成核对至2016-11-05 23:59，一下数据有近1小时的统计延迟仅供参考，请以次日完成核对的数据为准。下载量为0，说明目前广告主没有下载类广告投放。
+							</p>
+							<ul class="tj_org_ul1 clearfix">
+								<li>
+									<div class="org1 clearfix" style="background: #fa9169;">
+										<div class="left org1_con">
+											<span style="border-right: 1px solid #ff9f7b;">
+					        		<img src="images/gaikuang-11.png">
+					        	</span>
+										</div>
+										<div class="left org1_rt">
+											<span style="border-left: 1px solid #ef7a4d;text-align: center;">
+					        		<p>曝光量(次)</p>
+                                    <p class="org1_num">1200</p>
+					        	</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="org1 clearfix" style="background: #a3da2c;">
+										<div class="left org1_con">
+											<span style="border-right: 1px solid #ace139;">
+					        		<img src="images/gaikuang_33.png">
+					        	</span>
+										</div>
+										<div class="left org1_rt">
+											<span style="border-left: 1px solid #90cd0c;text-align: center;">
+					        	<p>下载量(次)</p>
+                                <p class="org1_num">1200</p>
+					        	</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="org1 clearfix" style="background: #78b2ed;">
+										<div class="left org1_con">
+											<span style="border-right: 1px solid #8cc5ff;">
+					        		<img src="images/gaikuang_30.png">
+					        	</span>
+										</div>
+										<div class="left org1_rt">
+											<span style="border-left: 1px solid #5d9ddf;text-align: center;">
+					        		<p>点击量(次)</p>
+                                <p class="org1_num">1200</p>
+					        	</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="org1 clearfix" style="background: #f1d348;">
+										<div class="left org1_con">
+											<span style="border-right: 1px solid #fcdf5b;">
+					        		<img src="images/gaikuang_28.png">
+					        	</span>
+										</div>
+										<div class="left org1_rt">
+											<span style="border-left: 1px solid #e4c431;text-align: center;">
+					        		<p>花费(元)</p>
+                                <p class="org1_num">1200</p>
+					        	</span>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<div class="gaikuang_biaoge">
+								<div id="biaoge9" style="width: 100%;height: 100%;"></div>
+							</div>
+							<div class="jindu">
+								<ul class="clearfix">
+									<li>
+										<div class="jindu_main jindu_1 have_children">
+											<div class="progress">
+												<!-- 调用数据时，只需要把data-text 和 data-percent 替换为投资进度值即可 -->
+												<div class=" am-prgoress-circle progress-layout" data-dimension="196" data-text="75%" data-width="8" data-fontsize="18" data-percent="75" data-fgcolor="#ffa400" data-bgcolor="#fff"></div>
+											</div>
+										</div>
+										<p class="jindu_name">平均点击率（%）</p>
+									</li>
+									<li>
+										<div class="jindu_main jindu_2">
+											<div class="progress">
+												<!-- 调用数据时，只需要把data-text 和 data-percent 替换为投资进度值即可 -->
+												<div class=" am-prgoress-circle progress-layout" data-dimension="196" data-text="85%" data-width="8" data-fontsize="18" data-percent="85" data-fgcolor="#786cbc" data-bgcolor="#fff"></div>
+											</div>
+										</div>
+										<p class="jindu_name">平均下载转换率（%）</p>
+									</li>
+									<li>
+										<div class="jindu_main jindu_3">
+											<div class="progress">
+												<!-- 调用数据时，只需要把data-text 和 data-percent 替换为投资进度值即可 -->
+												<div class=" am-prgoress-circle progress-layout" data-dimension="196" data-text="23元" data-width="8" data-fontsize="18" data-percent="23" data-fgcolor="#a1afc9" data-bgcolor="#fff"></div>
+											</div>
+										</div>
+										<p class="jindu_name">点击均价(元)</p>
+									</li>
+									<li>
+										<div class="jindu_main jindu_4">
+											<div class="progress">
+												<!-- 调用数据时，只需要把data-text 和 data-percent 替换为投资进度值即可 -->
+												<div class=" am-prgoress-circle progress-layout" data-dimension="196" data-text="75元" data-width="8" data-fontsize="18" data-percent="75" data-fgcolor="#21a675" data-bgcolor="#fff"></div>
+											</div>
+										</div>
+										<p class="jindu_name">下载均价(元)</p>
+									</li>
+
+								</ul>
+
+							</div>
+						</div>
+
+					</div>
+
+					<div class="banquan">© Copyright @2016-2018 广州真境信息科技有限公司 All Rights Reserved</div>
+				</div>
+			</div>
+			<script type="text/javascript" src="js/houtai.js"></script>
+			<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+			<script type="text/javascript" src="js/bootstrap-datepicker.zh-CN.js"></script>
+			<script type="text/javascript">
+				$('#datepicker').datepicker({
+					show: true,
+					format: 'yyyy-mm-dd',
+					language: 'zh-CN',
+					weekStart: 1,
+					autoclose: true,
+					todayHighlight: true,
+					todayBtn: 'linked'
+
+				});
+				$('#datepicker1').datepicker({
+					show: true,
+					format: 'yyyy-mm-dd',
+					language: 'zh-CN',
+					weekStart: 1,
+					autoclose: true,
+					todayHighlight: true,
+					todayBtn: 'linked'
+
+				});
+			</script>
+			<script type="text/javascript" src="js/gaikuang.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>广告内容</title>
+		<link rel="stylesheet" href="css/init.css" />
+		<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="css/zTreeStyle.css" />
+		<link rel="stylesheet" href="css/houtai.css" />
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="js/select.js"></script>
+		<script type="text/javascript" src="js/jquery-ztree-2.5.js"></script>
+		<script type="text/javascript">
+			//全局变量,树1 , 树2
+			var Tree1, Tree2;
+
+			//JSON 数据  属于标准格式... 包含关系..
+			//树节点 是根据 code 的规律分支的,包含关系如下,具体形成在JAVA 里面处理..然后使用JSON jar转换
+			//12-10			根
+			//12-10-10	叶
+			//12-10-20	叶
+			//12-10-30	叶
+			//12-10-40			根
+			//12-10-40-10	叶
+			//12-10-40-20	叶
+			//12-10-40-30	叶
+			//12-10-40-40	叶
+			var datad = [{
+				"code": "12-10",
+				"id": 1200001,
+				"name": "资金业务",
+				"nodes": [{
+					"code": "12-10-10",
+					"id": 1200015,
+					"name": "资金划拨策略定义",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v001.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-20",
+					"id": 1200014,
+					"name": "资金上划设置",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v013.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-30",
+					"id": 1200021,
+					"name": "资金下拨设置",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v052.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-40",
+					"id": 1200018,
+					"name": "手动上划",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v030.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-50",
+					"id": 1200022,
+					"name": "手动下拨",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v040.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-60",
+					"id": 1200019,
+					"name": "划拨结果查询",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v060.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-70",
+					"id": 1200017,
+					"name": "银行调账",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v020.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-100",
+				"id": 1200180,
+				"name": "业务处理",
+				"nodes": [{
+					"code": "12-100-10",
+					"id": 1200181,
+					"name": "放款合同导入",
+					"nodes": [],
+					"privilegeUrl": "/bussiness/view/v100.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-100-20",
+					"id": 1200182,
+					"name": "贷款合同及账号文件导入",
+					"nodes": [],
+					"privilegeUrl": "/bussiness/view/v201.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-100-30",
+					"id": 1200183,
+					"name": "DPDLIST文件导入",
+					"nodes": [],
+					"privilegeUrl": "/bussiness/view/v300.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-100-40",
+					"id": 1200184,
+					"name": "扣款结果文件导入",
+					"nodes": [],
+					"privilegeUrl": "/bussiness/view/v400.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-100-50",
+					"id": 1200185,
+					"name": "还款计划核对",
+					"nodes": [],
+					"privilegeUrl": "/sbussiness/view/v500.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-200",
+				"id": 1200190,
+				"name": "GL接口文件处理",
+				"nodes": [],
+				"privilegeUrl": null,
+				"systemModuleID": 12
+			}, {
+				"code": "12-30",
+				"id": 1200030,
+				"name": "账户管理",
+				"nodes": [{
+					"code": "12-30-10",
+					"id": 1200031,
+					"name": "银行账户维护",
+					"nodes": [{
+						"code": "12-30-10-10",
+						"id": 1200032,
+						"name": "银行账户设置",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v001.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-10-20",
+						"id": 1200033,
+						"name": "银行账户审核",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v010.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-10-30",
+						"id": 1200034,
+						"name": "银行账户销户",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v020.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-10-40",
+						"id": 1200050,
+						"name": "银行账户销户审核",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v250.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-10-50",
+						"id": 1200052,
+						"name": "账号升级查询",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v240.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-120",
+					"id": 1200049,
+					"name": "交易信息补录",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v230.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-20",
+					"id": 1200035,
+					"name": "余额查询",
+					"nodes": [{
+						"code": "12-30-20-10",
+						"id": 1200036,
+						"name": "当日余额查询",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v030.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-20-20",
+						"id": 1200037,
+						"name": "历史余额查询",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v040.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-30",
+					"id": 1200038,
+					"name": "交易明细查询",
+					"nodes": [{
+						"code": "12-30-30-10",
+						"id": 1200039,
+						"name": "当日交易查询",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v050.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-30-20",
+						"id": 1200040,
+						"name": "历史交易查询",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v060.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-50",
+					"id": 1200042,
+					"name": "汇率查询",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v100.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-60",
+					"id": 1200043,
+					"name": "对账单功能",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v090.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-70",
+					"id": 1200044,
+					"name": "交易汇总清单",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v111.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-80",
+					"id": 1200045,
+					"name": "入账交易清单",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v211.jsp?init=1",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-90",
+					"id": 1200046,
+					"name": "资金计划查询",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v221.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-910",
+					"id": 1200047,
+					"name": "账户基础信息查询",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v070.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-920",
+					"id": 1200048,
+					"name": "账户归集关系查询",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v080.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-930",
+					"id": 1200051,
+					"name": "系统外银行账户查询",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v244.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-300",
+				"id": 1200200,
+				"name": "业务查询",
+				"nodes": [{
+					"code": "12-300-10",
+					"id": 1200201,
+					"name": "贷款合同查询",
+					"nodes": [],
+					"privilegeUrl": "/query/view/v100.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-300-20",
+					"id": 1200202,
+					"name": "扣款结果文件查询",
+					"nodes": [],
+					"privilegeUrl": "/query/view/v200.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-400",
+				"id": 1200300,
+				"name": "报表查询",
+				"nodes": [],
+				"privilegeUrl": null,
+				"systemModuleID": -1
+			}, {
+				"code": "12-500",
+				"id": 1200500,
+				"name": "基础设置",
+				"nodes": [{
+					"code": "12-500-10",
+					"id": 1200501,
+					"name": "银行还款日设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v100.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-500-20",
+					"id": 1200502,
+					"name": "年度工作日设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v200.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-500-30",
+					"id": 1200503,
+					"name": "基准利率设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v300.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-500-40",
+					"id": 1200504,
+					"name": "银行信息设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v400.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-500-50",
+					"id": 1200505,
+					"name": "用户信息设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v500.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-500-60",
+					"id": 1200506,
+					"name": "用户组信息设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v600.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-60",
+				"id": 1200100,
+				"name": "数据维护",
+				"nodes": [{
+					"code": "12-60-10",
+					"id": 1200101,
+					"name": "直联账户",
+					"nodes": [{
+						"code": "12-60-10-10",
+						"id": 1200114,
+						"name": "直联账户当日余额查询",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v201.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-10-20",
+						"id": 1200115,
+						"name": "直联账户当日交易明细查询",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v210.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-10-30",
+						"id": 1200116,
+						"name": "自动导入设置",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v130.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-10-40",
+						"id": 1200117,
+						"name": "自动核对设置",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v140.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-10-50",
+						"id": 1200104,
+						"name": "手工核对数据",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v061.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-60-20",
+					"id": 1200106,
+					"name": "非直联账户",
+					"nodes": [{
+						"code": "12-60-20-10",
+						"id": 1200107,
+						"name": "导入当日数据文件",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v001.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-20-20",
+						"id": 1200108,
+						"name": "导入历史数据文件",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v011.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-20-30",
+						"id": 1200109,
+						"name": "核对账户数据",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v081.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-60-30",
+					"id": 1200110,
+					"name": "核对结果查询",
+					"nodes": [],
+					"privilegeUrl": "/datamaintain/view/v021.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-600",
+				"id": 1200507,
+				"name": "系统管理",
+				"nodes": [{
+					"code": "12-600-10",
+					"id": 1200510,
+					"name": "用户维护",
+					"nodes": [{
+						"code": "12-600-10-10",
+						"id": 1200509,
+						"name": "用户查询",
+						"nodes": [],
+						"privilegeUrl": "/sysmanage/view/v200.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-600-10-20",
+						"id": 1200508,
+						"name": "用户新增",
+						"nodes": [],
+						"privilegeUrl": "/sysmanage/view/v100.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-600-20",
+					"id": 1200511,
+					"name": "权限组新增",
+					"nodes": [],
+					"privilegeUrl": "/sysmanage/view/v300.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-600-30",
+					"id": 1200512,
+					"name": "权限查询及分配",
+					"nodes": [],
+					"privilegeUrl": "/sysmanage/view/v400.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-70",
+				"id": 1200120,
+				"name": "银企接口",
+				"nodes": [{
+					"code": "12-70-10",
+					"id": 1200121,
+					"name": "指令查询",
+					"nodes": [],
+					"privilegeUrl": "/bankinterface/view/v001.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-70-20",
+					"id": 1200122,
+					"name": "指令维护",
+					"nodes": [],
+					"privilegeUrl": "/bankinterface/view/v010.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-70-30",
+					"id": 1200123,
+					"name": "指令导出",
+					"nodes": [],
+					"privilegeUrl": "/bankinterface/view/v020.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-70-40",
+					"id": 1200124,
+					"name": "指令状态维护",
+					"nodes": [],
+					"privilegeUrl": "/bankinterface/view/v030.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-80",
+				"id": 1200130,
+				"name": "设置及维护",
+				"nodes": [{
+					"code": "12-80-20",
+					"id": 1200131,
+					"name": "客户设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v002.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-30",
+					"id": 1200133,
+					"name": "币种设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v030.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-40",
+					"id": 1200134,
+					"name": "汇率设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v050.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-50",
+					"id": 1200135,
+					"name": "银行设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v008.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-60",
+					"id": 1200136,
+					"name": "国家设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v011.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-70",
+					"id": 1200132,
+					"name": "关联设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v005.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-71",
+					"id": 1200147,
+					"name": "调账关联设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v100.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-80",
+					"id": 1200139,
+					"name": "币种转换设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v040.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-940",
+					"id": 1200144,
+					"name": "账户属性一设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v014.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-950",
+					"id": 1200145,
+					"name": "账户属性二设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v017.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-960",
+					"id": 1200146,
+					"name": "账户属性三设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v020.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-90",
+				"id": 1209000,
+				"name": "自动入账",
+				"nodes": [{
+					"code": "12-90-10",
+					"id": 1209010,
+					"name": "自动入账手工处理",
+					"nodes": [],
+					"privilegeUrl": "/transnotice/view/v001.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}];
+
+			//ztree 的设置.对于标准格式数据.不需要设置我注释的那部分.
+			//那部分属于简单格式数据需要设置的...不清楚去看ztree demo
+			var setting = {
+				checkable: true
+					//isSimpleData: true,
+					//treeNodeKey: "id",
+					//treeNodeParentKey: "pId",
+					//showLine: true,
+					//root:{ 
+					//	isRoot:true,
+					//	nodes:[]
+					//},
+			};
+
+			//数据右移动
+			function addRole() {
+				//移动方法
+				//右移时Tree1 在第一个参数,Tree2第二个参数
+				//表示Tree1移动致Tree2
+				moveTreeNode(Tree1, Tree2);
+
+			}
+
+			//数据左移动
+			function delRole() {
+				//移动方法 参数相反
+				moveTreeNode(Tree2, Tree1);
+			}
+
+			function moveTreeNode(zTree1, zTree2) {
+				var nodes = zTree1.getCheckedNodes(); //获取选中需要移动的数据
+				for(var i = 0; i < nodes.length; i++) { //把选中的数据从根开始一条一条往右添加
+					var node = nodes[i];
+
+					var strs = {}; //新建一个JSON 格式数据,表示为一个节点,可以是根也可以是叶
+					strs.id = node.id;
+					strs.name = node.name;
+					strs.code = node.code;
+					strs.nodes = new Array(); //树节点里面有个 nodes 集合,用来存储父子之间的包涵关系
+
+					//调用添加方法
+					//strs : json 格式..拼装成树的一个节点
+					//zTree2: 表示需要添加节点的树
+					zTreeDataAddNode(strs, zTree2);
+
+					//获取这个被添加的code 如果是右增加  用来把它从左边移除掉
+					var scode = strs.code;
+					scode = scode.substring(0, scode.lastIndexOf("-"));
+
+					//使用递归移除 移除的时候从叶子开始找  和增加的时候刚好相反
+					//参数1就是数组最后一个数据  
+					//scode  : 上面截取的code 表示父亲节点 
+					//zTree1 : 需要移除的树,在zTree1 里面移除此对象
+					zTreeDataDelete(nodes[nodes.length - (i + 1)], scode, zTree1);
+				}
+				//把选中状态改为未选择
+				zTree2.checkAllNodes(false);
+				zTree1.checkAllNodes(false);
+
+				//刷新
+				zTree2.refresh();
+				zTree1.refresh();
+			}
+
+			//树数据移动方法
+			function zTreeDataAddNode(strs, zTree2) {
+				var nodes = zTree2.transformToArray(zTree2.getNodes()); //获取需要添加数据的树下面所有节点数据
+
+				//如果有多个数据需要遍历,找到strs 属于那个父亲节点下面的元素.然后把自己添加进去
+				if(nodes.length > 0) {
+
+					//这个循环判断是否已经存在,true表示不存在可以添加,false存在不能添加
+					var isadd = true;
+					for(var j = 0; j < nodes.length; j++) {
+						if(strs.code == nodes[j].code) {
+							isadd = false;
+							break;
+						}
+					}
+
+					//找到父亲节点
+					var scode = strs.code;
+					scode = scode.substring(0, scode.lastIndexOf("-"));
+					var i = 0;
+					var flag = false;
+					for(i; i < nodes.length; i++) {
+						if(scode == nodes[i].code) {
+							flag = true;
+							break;
+						}
+					}
+
+					//同时满足两个条件就加进去,就是加到父亲节点下面去
+					if(flag && isadd) {
+						var treeNode1 = nodes[i];
+						treeNode1.nodes[treeNode1.nodes.length <= 0 ? 0 : treeNode1.nodes.length++] = strs;
+
+						//如果zTree2 里面找不到,也找不到父亲节点.就把自己作为一个根add进去
+					} else if(isadd) {
+						zTree2.addNodes(null, strs);
+					}
+				} else {
+					//树没任何数据时,第一个被加进来的元素
+					zTree2.addNodes(null, strs);
+				}
+			}
+
+			//数据移除
+			function zTreeDataDelete(node, scode, zTree1) {
+				if(node.isParent) { //判断是不是一个根节点,如果是一个根几点从叶子开始遍历寻找
+
+					//如果是个根就检测nodes里面是否有数据
+					if(node.nodes.length > 0) {
+						//取出来
+						var fnodes = node.nodes;
+						for(var x = 0; x < fnodes.length; x++) {
+							//不是根节点.并且code 相当就是需要移除的元素
+							if(!(fnodes[x].isParent) && fnodes[x].code == scode) {
+								//调用ztree 的移除方法,参数是一个节点json格式数据
+								zTree1.removeNode(fnodes[x]);
+
+								//如果当前这个节点又是个根节点.开始递归
+							} else if(fnodes[x].isParent) {
+								zTreeDataDelete(fnodes[x], scode);
+							}
+						}
+					} else {
+						//如果是个根,但是下面的元素没有了.就把这个根移除掉
+						zTree1.removeNode(node);
+					}
+				} else {
+					//不是就直接移除
+					zTree1.removeNode(node);
+				}
+			}
+
+			//zTree说明:
+			//这里没有样式之类的东西,需要看到还需要引人几个css 和 imp 之类的东西.
+			//可以去看zTree的demo 和 API 
+
+			//初始化方法
+			$(document).ready(function() {
+				//树1 数据 生成
+				Tree1 = $("#srcTree").zTree(setting, datad);
+				//树2 数据null
+				Tree2 = $("#tarTree").zTree(setting, null);
+			});
+		</script>
+	    <script type="text/javascript">
+			//全局变量,树1 , 树2
+			var aTree1, aTree2;
+
+			//JSON 数据  属于标准格式... 包含关系..
+			//树节点 是根据 code 的规律分支的,包含关系如下,具体形成在JAVA 里面处理..然后使用JSON jar转换
+			//12-10			根
+			//12-10-10	叶
+			//12-10-20	叶
+			//12-10-30	叶
+			//12-10-40			根
+			//12-10-40-10	叶
+			//12-10-40-20	叶
+			//12-10-40-30	叶
+			//12-10-40-40	叶
+			var adatad = [{
+				"code": "12-10",
+				"id": 1200001,
+				"name": "资金业务啦啦",
+				"nodes": [{
+					"code": "12-10-10",
+					"id": 1200015,
+					"name": "资金划拨策略定义",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v001.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-20",
+					"id": 1200014,
+					"name": "资金上划设置",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v013.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-30",
+					"id": 1200021,
+					"name": "资金下拨设置",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v052.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-40",
+					"id": 1200018,
+					"name": "手动上划",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v030.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-50",
+					"id": 1200022,
+					"name": "手动下拨",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v040.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-60",
+					"id": 1200019,
+					"name": "划拨结果查询",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v060.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-10-70",
+					"id": 1200017,
+					"name": "银行调账",
+					"nodes": [],
+					"privilegeUrl": "/gather/view/v020.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-100",
+				"id": 1200180,
+				"name": "业务处理",
+				"nodes": [{
+					"code": "12-100-10",
+					"id": 1200181,
+					"name": "放款合同导入",
+					"nodes": [],
+					"privilegeUrl": "/bussiness/view/v100.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-100-20",
+					"id": 1200182,
+					"name": "贷款合同及账号文件导入",
+					"nodes": [],
+					"privilegeUrl": "/bussiness/view/v201.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-100-30",
+					"id": 1200183,
+					"name": "DPDLIST文件导入",
+					"nodes": [],
+					"privilegeUrl": "/bussiness/view/v300.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-100-40",
+					"id": 1200184,
+					"name": "扣款结果文件导入",
+					"nodes": [],
+					"privilegeUrl": "/bussiness/view/v400.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-100-50",
+					"id": 1200185,
+					"name": "还款计划核对",
+					"nodes": [],
+					"privilegeUrl": "/sbussiness/view/v500.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-200",
+				"id": 1200190,
+				"name": "GL接口文件处理",
+				"nodes": [],
+				"privilegeUrl": null,
+				"systemModuleID": 12
+			}, {
+				"code": "12-30",
+				"id": 1200030,
+				"name": "账户管理",
+				"nodes": [{
+					"code": "12-30-10",
+					"id": 1200031,
+					"name": "银行账户维护",
+					"nodes": [{
+						"code": "12-30-10-10",
+						"id": 1200032,
+						"name": "银行账户设置",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v001.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-10-20",
+						"id": 1200033,
+						"name": "银行账户审核",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v010.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-10-30",
+						"id": 1200034,
+						"name": "银行账户销户",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v020.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-10-40",
+						"id": 1200050,
+						"name": "银行账户销户审核",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v250.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-10-50",
+						"id": 1200052,
+						"name": "账号升级查询",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v240.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-120",
+					"id": 1200049,
+					"name": "交易信息补录",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v230.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-20",
+					"id": 1200035,
+					"name": "余额查询",
+					"nodes": [{
+						"code": "12-30-20-10",
+						"id": 1200036,
+						"name": "当日余额查询",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v030.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-20-20",
+						"id": 1200037,
+						"name": "历史余额查询",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v040.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-30",
+					"id": 1200038,
+					"name": "交易明细查询",
+					"nodes": [{
+						"code": "12-30-30-10",
+						"id": 1200039,
+						"name": "当日交易查询",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v050.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-30-30-20",
+						"id": 1200040,
+						"name": "历史交易查询",
+						"nodes": [],
+						"privilegeUrl": "/account/view/v060.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-50",
+					"id": 1200042,
+					"name": "汇率查询",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v100.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-60",
+					"id": 1200043,
+					"name": "对账单功能",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v090.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-70",
+					"id": 1200044,
+					"name": "交易汇总清单",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v111.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-80",
+					"id": 1200045,
+					"name": "入账交易清单",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v211.jsp?init=1",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-90",
+					"id": 1200046,
+					"name": "资金计划查询",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v221.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-910",
+					"id": 1200047,
+					"name": "账户基础信息查询",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v070.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-920",
+					"id": 1200048,
+					"name": "账户归集关系查询",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v080.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-30-930",
+					"id": 1200051,
+					"name": "系统外银行账户查询",
+					"nodes": [],
+					"privilegeUrl": "/account/view/v244.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-300",
+				"id": 1200200,
+				"name": "业务查询",
+				"nodes": [{
+					"code": "12-300-10",
+					"id": 1200201,
+					"name": "贷款合同查询",
+					"nodes": [],
+					"privilegeUrl": "/query/view/v100.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-300-20",
+					"id": 1200202,
+					"name": "扣款结果文件查询",
+					"nodes": [],
+					"privilegeUrl": "/query/view/v200.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-400",
+				"id": 1200300,
+				"name": "报表查询",
+				"nodes": [],
+				"privilegeUrl": null,
+				"systemModuleID": -1
+			}, {
+				"code": "12-500",
+				"id": 1200500,
+				"name": "基础设置",
+				"nodes": [{
+					"code": "12-500-10",
+					"id": 1200501,
+					"name": "银行还款日设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v100.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-500-20",
+					"id": 1200502,
+					"name": "年度工作日设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v200.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-500-30",
+					"id": 1200503,
+					"name": "基准利率设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v300.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-500-40",
+					"id": 1200504,
+					"name": "银行信息设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v400.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-500-50",
+					"id": 1200505,
+					"name": "用户信息设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v500.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-500-60",
+					"id": 1200506,
+					"name": "用户组信息设置",
+					"nodes": [],
+					"privilegeUrl": "/set/view/v600.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-60",
+				"id": 1200100,
+				"name": "数据维护",
+				"nodes": [{
+					"code": "12-60-10",
+					"id": 1200101,
+					"name": "直联账户",
+					"nodes": [{
+						"code": "12-60-10-10",
+						"id": 1200114,
+						"name": "直联账户当日余额查询",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v201.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-10-20",
+						"id": 1200115,
+						"name": "直联账户当日交易明细查询",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v210.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-10-30",
+						"id": 1200116,
+						"name": "自动导入设置",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v130.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-10-40",
+						"id": 1200117,
+						"name": "自动核对设置",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v140.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-10-50",
+						"id": 1200104,
+						"name": "手工核对数据",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v061.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-60-20",
+					"id": 1200106,
+					"name": "非直联账户",
+					"nodes": [{
+						"code": "12-60-20-10",
+						"id": 1200107,
+						"name": "导入当日数据文件",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v001.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-20-20",
+						"id": 1200108,
+						"name": "导入历史数据文件",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v011.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-60-20-30",
+						"id": 1200109,
+						"name": "核对账户数据",
+						"nodes": [],
+						"privilegeUrl": "/datamaintain/view/v081.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-60-30",
+					"id": 1200110,
+					"name": "核对结果查询",
+					"nodes": [],
+					"privilegeUrl": "/datamaintain/view/v021.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-600",
+				"id": 1200507,
+				"name": "系统管理",
+				"nodes": [{
+					"code": "12-600-10",
+					"id": 1200510,
+					"name": "用户维护",
+					"nodes": [{
+						"code": "12-600-10-10",
+						"id": 1200509,
+						"name": "用户查询",
+						"nodes": [],
+						"privilegeUrl": "/sysmanage/view/v200.jsp",
+						"systemModuleID": 12
+					}, {
+						"code": "12-600-10-20",
+						"id": 1200508,
+						"name": "用户新增",
+						"nodes": [],
+						"privilegeUrl": "/sysmanage/view/v100.jsp",
+						"systemModuleID": 12
+					}],
+					"privilegeUrl": "",
+					"systemModuleID": 12
+				}, {
+					"code": "12-600-20",
+					"id": 1200511,
+					"name": "权限组新增",
+					"nodes": [],
+					"privilegeUrl": "/sysmanage/view/v300.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-600-30",
+					"id": 1200512,
+					"name": "权限查询及分配",
+					"nodes": [],
+					"privilegeUrl": "/sysmanage/view/v400.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-70",
+				"id": 1200120,
+				"name": "银企接口",
+				"nodes": [{
+					"code": "12-70-10",
+					"id": 1200121,
+					"name": "指令查询",
+					"nodes": [],
+					"privilegeUrl": "/bankinterface/view/v001.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-70-20",
+					"id": 1200122,
+					"name": "指令维护",
+					"nodes": [],
+					"privilegeUrl": "/bankinterface/view/v010.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-70-30",
+					"id": 1200123,
+					"name": "指令导出",
+					"nodes": [],
+					"privilegeUrl": "/bankinterface/view/v020.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-70-40",
+					"id": 1200124,
+					"name": "指令状态维护",
+					"nodes": [],
+					"privilegeUrl": "/bankinterface/view/v030.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-80",
+				"id": 1200130,
+				"name": "设置及维护",
+				"nodes": [{
+					"code": "12-80-20",
+					"id": 1200131,
+					"name": "客户设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v002.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-30",
+					"id": 1200133,
+					"name": "币种设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v030.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-40",
+					"id": 1200134,
+					"name": "汇率设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v050.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-50",
+					"id": 1200135,
+					"name": "银行设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v008.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-60",
+					"id": 1200136,
+					"name": "国家设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v011.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-70",
+					"id": 1200132,
+					"name": "关联设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v005.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-71",
+					"id": 1200147,
+					"name": "调账关联设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v100.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-80",
+					"id": 1200139,
+					"name": "币种转换设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v040.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-940",
+					"id": 1200144,
+					"name": "账户属性一设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v014.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-950",
+					"id": 1200145,
+					"name": "账户属性二设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v017.jsp",
+					"systemModuleID": 12
+				}, {
+					"code": "12-80-960",
+					"id": 1200146,
+					"name": "账户属性三设置",
+					"nodes": [],
+					"privilegeUrl": "/setting/view/v020.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}, {
+				"code": "12-90",
+				"id": 1209000,
+				"name": "自动入账",
+				"nodes": [{
+					"code": "12-90-10",
+					"id": 1209010,
+					"name": "自动入账手工处理",
+					"nodes": [],
+					"privilegeUrl": "/transnotice/view/v001.jsp",
+					"systemModuleID": 12
+				}],
+				"privilegeUrl": "",
+				"systemModuleID": 12
+			}];
+
+			//ztree 的设置.对于标准格式数据.不需要设置我注释的那部分.
+			//那部分属于简单格式数据需要设置的...不清楚去看ztree demo
+			var setting = {
+				checkable: true
+					//isSimpleData: true,
+					//treeNodeKey: "id",
+					//treeNodeParentKey: "pId",
+					//showLine: true,
+					//root:{ 
+					//	isRoot:true,
+					//	nodes:[]
+					//},
+			};
+
+			//数据右移动
+			function aaddRole() {
+				//移动方法
+				//右移时Tree1 在第一个参数,Tree2第二个参数
+				//表示Tree1移动致Tree2
+				amoveTreeNode(aTree1, aTree2);
+
+			}
+
+			//数据左移动
+			function adelRole() {
+				//移动方法 参数相反
+				amoveTreeNode(aTree2, aTree1);
+			}
+
+			function amoveTreeNode(zTree1, zTree2) {
+				var nodes = zTree1.getCheckedNodes(); //获取选中需要移动的数据
+				for(var i = 0; i < nodes.length; i++) { //把选中的数据从根开始一条一条往右添加
+					var node = nodes[i];
+
+					var strs = {}; //新建一个JSON 格式数据,表示为一个节点,可以是根也可以是叶
+					strs.id = node.id;
+					strs.name = node.name;
+					strs.code = node.code;
+					strs.nodes = new Array(); //树节点里面有个 nodes 集合,用来存储父子之间的包涵关系
+
+					//调用添加方法
+					//strs : json 格式..拼装成树的一个节点
+					//zTree2: 表示需要添加节点的树
+					zTreeDataAddNode(strs, zTree2);
+
+					//获取这个被添加的code 如果是右增加  用来把它从左边移除掉
+					var scode = strs.code;
+					scode = scode.substring(0, scode.lastIndexOf("-"));
+
+					//使用递归移除 移除的时候从叶子开始找  和增加的时候刚好相反
+					//参数1就是数组最后一个数据  
+					//scode  : 上面截取的code 表示父亲节点 
+					//zTree1 : 需要移除的树,在zTree1 里面移除此对象
+					zTreeDataDelete(nodes[nodes.length - (i + 1)], scode, zTree1);
+				}
+				//把选中状态改为未选择
+				zTree2.checkAllNodes(false);
+				zTree1.checkAllNodes(false);
+
+				//刷新
+				zTree2.refresh();
+				zTree1.refresh();
+			}
+
+			//树数据移动方法
+			function zTreeDataAddNode(strs, zTree2) {
+				var nodes = zTree2.transformToArray(zTree2.getNodes()); //获取需要添加数据的树下面所有节点数据
+
+				//如果有多个数据需要遍历,找到strs 属于那个父亲节点下面的元素.然后把自己添加进去
+				if(nodes.length > 0) {
+
+					//这个循环判断是否已经存在,true表示不存在可以添加,false存在不能添加
+					var isadd = true;
+					for(var j = 0; j < nodes.length; j++) {
+						if(strs.code == nodes[j].code) {
+							isadd = false;
+							break;
+						}
+					}
+
+					//找到父亲节点
+					var scode = strs.code;
+					scode = scode.substring(0, scode.lastIndexOf("-"));
+					var i = 0;
+					var flag = false;
+					for(i; i < nodes.length; i++) {
+						if(scode == nodes[i].code) {
+							flag = true;
+							break;
+						}
+					}
+
+					//同时满足两个条件就加进去,就是加到父亲节点下面去
+					if(flag && isadd) {
+						var treeNode1 = nodes[i];
+						treeNode1.nodes[treeNode1.nodes.length <= 0 ? 0 : treeNode1.nodes.length++] = strs;
+
+						//如果zTree2 里面找不到,也找不到父亲节点.就把自己作为一个根add进去
+					} else if(isadd) {
+						zTree2.addNodes(null, strs);
+					}
+				} else {
+					//树没任何数据时,第一个被加进来的元素
+					zTree2.addNodes(null, strs);
+				}
+			}
+
+			//数据移除
+			function zTreeDataDelete(node, scode, zTree1) {
+				if(node.isParent) { //判断是不是一个根节点,如果是一个根几点从叶子开始遍历寻找
+
+					//如果是个根就检测nodes里面是否有数据
+					if(node.nodes.length > 0) {
+						//取出来
+						var fnodes = node.nodes;
+						for(var x = 0; x < fnodes.length; x++) {
+							//不是根节点.并且code 相当就是需要移除的元素
+							if(!(fnodes[x].isParent) && fnodes[x].code == scode) {
+								//调用ztree 的移除方法,参数是一个节点json格式数据
+								zTree1.removeNode(fnodes[x]);
+
+								//如果当前这个节点又是个根节点.开始递归
+							} else if(fnodes[x].isParent) {
+								zTreeDataDelete(fnodes[x], scode);
+							}
+						}
+					} else {
+						//如果是个根,但是下面的元素没有了.就把这个根移除掉
+						zTree1.removeNode(node);
+					}
+				} else {
+					//不是就直接移除
+					zTree1.removeNode(node);
+				}
+			}
+
+			//zTree说明:
+			//这里没有样式之类的东西,需要看到还需要引人几个css 和 imp 之类的东西.
+			//可以去看zTree的demo 和 API 
+
+			//初始化方法
+			$(document).ready(function() {
+				//树1 数据 生成
+				aTree1 = $("#asrcTree").zTree(setting, adatad);
+				//树2 数据null
+				aTree2 = $("#atarTree").zTree(setting, null);
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="tj_main">
+			<div class="tj_main_lf">
+				<div class="tj_main_lf_tl clearfix">
+					<img src="images/gaikuang_03.png" />
+
+				</div>
+				<div class="tj_main_lf_tx">
+					<div class="tj_main_lf_tx_main">
+						<a href="per.html">
+							<img src="images/tx.jpg" />
+						</a>
+					</div>
+					<div class="tj_main_lf_text">
+						<p class="per_a">
+							<a href="per.html">
+								John Smith
+							</a>
+						</p>
+
+					</div>
+				</div>
+				<div class="tj_main_lf_menu">
+
+					<ul>
+						<li>
+							<a href="gaikuang.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang-06.png" /> 概况
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="tuiguang.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_25.png" /> 推广计划
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="guanggao.html" class="clearfix ahover">
+								<div class="left">
+									<img src="images/gaikuang_42.png" /> 创意广告
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="caiwu.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_49.png" /> 财务
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="tj_main_rt">
+				<div class="tj_main_rt_con">
+					<div class="tj_main_rt_tl clearfix">
+						<em class="tj_head_btn left"></em>
+						<a href="#" class="tj_out right" onclick="">注销</a>
+						<div class="right clearfix tj_head_tx">
+							<a href="per.html">
+							<img src="images/tx.jpg" class="left" />
+							</a>
+							<span class="left"><a href="per.html">John Smith</a></span>
+							<span class="left head_link"><a href="index.html">首页</a></span>
+							<span class="left head_link"><a href="feed.html">媒体主</a></span>
+						</div>
+					</div>
+
+					<div class="gankuang_two" style="margin-top: 20px;">
+						<div class="caiwu_tl clearfix">
+							<a href="javascript:;" class="ahover"><span>新建广告</span></a>
+							<a href="gg_guige.html" class="right xinjian blubtn">返回</a>
+						</div>
+						<div class="caiwu_main">
+
+							<div class="gankuang_two_con">
+								<div class="gg_xinjian_zt">
+									<img src="images/dx_03.jpg" />
+								</div>
+								<div class="dx">
+									<div class="dx_one">
+										<div class="clearfix">
+											<div class="left yonghu">
+												预计最大覆盖用户数 <span class="num">9,790</span>人
+											</div>
+											<div class="left">
+												预计最大日曝光量 <span class="num">87,554</span>次
+											</div>
+										</div>
+										<div class="clearfix yixuan">
+											<span class="left yixuan_name">已选条件：</span>
+											<div class="yixuan_rt">
+												操作系统：不限；联网方式：WiFi、3G、4G；运营商：移动、联通、电信；地域：北京、沈阳市、大连市；商业兴趣：游戏人群、亲子早教；性别：女；
+											</div>
+										</div>
+									</div>
+									<div class="dx_two">
+										<div class="clearfix yixuan dx_two_main">
+											<span class="left yixuan_name">基本定向</span>
+											<div class="yixuan_rt">
+												<div class="clearfix gx_gp">
+													<span class="left" style="color: #333;">
+												操作系统： 
+											</span>
+													<div class="left clearfix dx_duoxuan">
+														<a href="javascript:;">
+															<em></em>
+															<span>不限</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span>Windows</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span>Android</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span> IOS</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span>其他</span>
+														</a>
+													</div>
+												</div>
+												<div class="clearfix gx_gp">
+													<span class="left" style="color: #333;">
+												联网方式：  
+											</span>
+													<div class="left clearfix dx_duoxuan">
+														<a href="javascript:;">
+															<em></em>
+															<span>不限</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span>WIFI</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span>3G </span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span> 4G</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span>其他</span>
+														</a>
+													</div>
+												</div>
+												<div class="clearfix gx_gp">
+													<span class="left" style="color: #333;">
+												运营商：
+											</span>
+													<div class="left clearfix dx_duoxuan">
+														<a href="javascript:;">
+															<em></em>
+															<span>不限</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span>移动</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span>联通</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span>电信</span>
+														</a>
+														<a href="javascript:;">
+															<em></em>
+															<span>其他</span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="clearfix yixuan dx_two_main">
+											<span class="left yixuan_name">投放区域</span>
+											<div class="yixuan_rt">
+												<div class="clearfix danxuan">
+													<a href="javascript:;" class="shengshibuxian">
+														<em></em> 不限
+													</a>
+													<a href="javascript:;" class="shengshibtn">
+														<em></em> 省市
+													</a>
+												</div>
+											    <div class="clearfix yincang_quyu shengshi">
+											<div class="left quyu">
+												<p class="quyu_tl">
+													地域
+												</p>
+												<div class="quyu_main">
+													<ul id="srcTree" class="tree" style="width:100%;"></ul>
+												</div>
+											</div>
+											<div class="left quyubtn">
+												<button id="btnadd" onclick="addRole()"></button>
+												<button id="bendel" onclick="delRole()"></button>
+											</div>
+											<div class="left quyu">
+												<div class="quyu_tl clearfix baohan">
+													<div class="right clearfix">
+														<div class="left clearfix">
+															<input type="radio" class="left" checked="checked" />
+															<span class="left">包含</span>
+														</div>
+														<div class="left clearfix">
+															<input type="radio" class="left" />
+															<span class="left">不包含</span>
+														</div>
+													</div>
+												</div>
+												<div class="quyu_main">
+													<ul id="tarTree" class="tree" style="width:100%;"></ul>
+												</div>
+											</div>
+										</div>
+											</div>
+										</div>
+										
+										<div class="clearfix yixuan dx_two_main">
+											<span class="left yixuan_name">人群定向</span>
+											<div class="yixuan_rt">
+												<div class="clearfix">
+													<span class="left" style="display: block;width: 54px;margin-right: 30px;">商业兴趣</span>
+													<div class="clearfix danxuan left">
+														<a href="javascript:;" class="xingqubuxian">
+															<em></em> 不限
+														</a>
+														<a href="javascript:;" class="xingqu_dy">
+															<em></em> 自定义
+														</a>
+													</div>
+												</div>
+												<div class="clearfix yincang_quyu xingqu">
+											<div class="left quyu">
+												<p class="quyu_tl">
+													商业兴趣
+												</p>
+												<div class="quyu_main">
+													<ul id="asrcTree" class="tree" style="width:100%;"></ul>
+												</div>
+											</div>
+											<div class="left quyubtn">
+												<button id="btnadd" onclick="aaddRole()"></button>
+												<button id="bendel" onclick="adelRole()"></button>
+											</div>
+											<div class="left quyu">
+												<div class="quyu_tl clearfix baohan">
+													<div class="right clearfix">
+														<div class="left clearfix">
+															<input type="radio" class="left" checked="checked" />
+															<span class="left">包含</span>
+														</div>
+														<div class="left clearfix">
+															<input type="radio" class="left" />
+															<span class="left">不包含</span>
+														</div>
+													</div>
+												</div>
+												<div class="quyu_main">
+													<ul id="atarTree" class="tree" style="width:100%;"></ul>
+												</div>
+											</div>
+										</div>
+												<div class="clearfix">
+													<span class="left" style="display: block;width: 54px;margin-right: 30px;">性别</span>
+													<div class="clearfix danxuan left">
+														<a href="javascript:;">
+															<em></em> 不限
+														</a>
+														<a href="javascript:;">
+															<em></em> 女
+														</a>
+														<a href="javascript:;">
+															<em></em> 男
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="clearfix yixuan dx_two_main">
+											<span class="left yixuan_name">付费模式</span>
+											<div class="yixuan_rt">
+												<div class="clearfix danxuan">
+													<a href="javascript:;">
+														<em></em> CPC
+													</a>
+													<a href="javascript:;">
+														<em></em> CPM
+													</a>
+													<a href="javascript:;">
+														<em></em> CPT
+													</a>
+													<a href="javascript:;">
+														<em></em> CPA
+													</a>
+													<a href="javascript:;">
+														<em></em> CPS
+													</a>
+													<a href="javascript:;">
+														<em></em> CPD
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="clearfix yixuan dx_two_main">
+											<span class="left yixuan_name">PDB</span>
+											<div class="yixuan_rt">
+												<div class="clearfix danxuan">
+													<a href="javascript:;">
+														<em></em> 流量包
+													</a>
+													<a href="javascript:;">
+														<em></em> 听歌包
+													</a>
+													<a href="javascript:;">
+														<em></em> 游戏包
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="clearfix yixuan dx_two_main">
+											<span class="left yixuan_name">广告出价</span>
+											<div class="yixuan_rt clearfix">
+												<input type="text" class="left jiaqian_input" />
+												<div class="left clearfix">
+													<span class="left">&nbsp;&nbsp;元/</span>
+													<a href="#">点击</a>
+												</div>
+												<div class="left jianyi">
+													建议出价0.5~0.81元/
+													<a href="#">点击</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="gg_btn">
+										<a href="#">取消</a>
+										<a href="gg_guige.html">上一步</a>
+										<a href="gg_tijiao.html" class="btn_blue">下一步</a>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+
+					<div class="banquan">© Copyright @2016-2018 广州真境信息科技有限公司 All Rights Reserved</div>
+				</div>
+			</div>
+			<!-- 弹窗-->
+			<div class="huibg">
+			</div>
+			<div class="tjgg_alert">
+
+				<div class="tjgg_alert_tl">
+					<p class="tjgg_alert_tl_big">提交成功</p>
+					<p>您还可以
+						<a href="#">复制广告</a> 或
+						<a href="#">新建广告</a>
+					</p>
+				</div>
+				<div class="ggtj_btn tjgg_success">
+					<a href="#" class="btn_blue">查看广告</a>
+					<a href="#">关闭</a>
+				</div>
+			</div>
+
+			<script type="text/javascript" src="js/houtai.js"></script>
+
+	</body>
+
+</html>

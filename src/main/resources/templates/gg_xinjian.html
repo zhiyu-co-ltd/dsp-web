@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>广告内容</title>
+		<link rel="stylesheet" href="css/init.css" />
+		<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="css/houtai.css" />
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="js/select.js"></script>
+	</head>
+
+	<body>
+		<div class="tj_main">
+			<div class="tj_main_lf">
+				<div class="tj_main_lf_tl clearfix">
+					<img src="images/gaikuang_03.png" />
+
+				</div>
+				<div class="tj_main_lf_tx">
+					<div class="tj_main_lf_tx_main">
+						<a href="per.html">
+							<img src="images/tx.jpg" />
+						</a>
+					</div>
+					<div class="tj_main_lf_text">
+						<p class="per_a">
+							<a href="per.html">
+								John Smith
+							</a>
+						</p>
+
+					</div>
+				</div>
+				<div class="tj_main_lf_menu">
+
+					<ul>
+						<li>
+							<a href="gaikuang.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang-06.png" /> 概况
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="tuiguang.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_25.png" /> 推广计划
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="guanggao.html" class="clearfix ahover">
+								<div class="left">
+									<img src="images/gaikuang_42.png" /> 创意广告
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="caiwu.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_49.png" /> 财务
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="tj_main_rt">
+				<div class="tj_main_rt_con">
+					<div class="tj_main_rt_tl clearfix">
+						<em class="tj_head_btn left"></em>
+						<a href="#" class="tj_out right" onclick="">注销</a>
+						<div class="right clearfix tj_head_tx">
+							<a href="per.html">
+							<img src="images/tx.jpg" class="left" />
+							</a>
+							<span class="left"><a href="per.html">John Smith</a></span>
+							<span class="left head_link"><a href="index.html">首页</a></span>
+							<span class="left head_link"><a href="feed.html">媒体主</a></span>
+						</div>
+					</div>
+
+					<div class="gankuang_two" style="margin-top: 20px;">
+						<div class="caiwu_tl clearfix">
+							<a href="javascript:;" class="ahover"><span>新建广告</span></a>
+							<a href="guanggao.html" class="right xinjian blubtn">返回</a>
+						</div>
+						<div class="caiwu_main">
+
+							<div class="gankuang_two_con">
+								<div class="gg_xinjian_zt">
+									<img src="images/chuangjian_03.jpg" />
+								</div>
+								<form>
+									<div class="gg_xj_form">
+										<div class="clearfix gg_xj_gp">
+											<span class="left gg_xj_gp_name">推广计划</span>
+											<select class="left">
+												<option>--请选择--</option>
+												<option>推广计划一</option>
+												<option>推广计划二</option>
+												<option>推广计划三</option>
+											</select>
+											<a href="javascript:;" class="left xinjiantuig">新建推广计划</a>
+										</div>
+										<div class="clearfix gg_xj_gp">
+											<span class="left gg_xj_gp_name">广告名称</span>
+											<input type="text" class="left" placeholder="请输入广告名称" />
+											<span class="left zishu">0/30</span>
+										</div>
+										<div class="clearfix gg_xj_gp">
+											<span class="left gg_xj_gp_name">日限额</span>
+											<div class="checkboxFive left gx">
+					       <input id="checkboxFiveInput1" name="checkname" type="checkbox">
+					       <label for="checkboxFiveInput1"></label>
+				        </div>
+											<span class="left noxian">不限定</span>
+											
+											<input type="text" class="left pinci" />
+											<span class="left noxian">元</span>
+										</div>
+									    <div class="clearfix gg_xj_gp gg_xj_date">
+											<span class="left gg_xj_gp_name">投放日期</span>
+											<input type="text" class="left"  id="datepicker"/>
+											<span class="left riqilianjie">至</span>
+											<input type="text" class="left"  id="datepicker1"/>
+										</div>
+									    <div class="clearfix gg_xj_gp">
+											<span class="left gg_xj_gp_name">投放时间</span>
+											<div class="clearfix shijianduan left shijianduan_h">
+											<em class="left"></em>
+											<span class="left noxian">全时间段</span>
+											</div>
+											<div class="clearfix shijianduan left teding_anniu">
+											<em class="left"></em>
+											<span class="left noxian">特定时间段</span>
+											</div>
+											<div class="clearfix shijianduan left gj_anniu">
+												<em class="left"></em>
+											<span class="left noxian">高级设置</span>
+											</div>
+										</div>
+									    <div class="clearfix gg_xj_gp">
+											<span class="left gg_xj_gp_name">展示频次</span>
+											<div class="checkboxFive left gx">
+					       <input id="checkboxFiveInput2" name="checkname" type="checkbox">
+					       <label for="checkboxFiveInput2"></label>
+				        </div>
+											<span class="left noxian">不限定</span>
+											<input type="text" class="left pinci" />
+											<span class="left noxian">次</span>
+										</div>
+										 <div class="clearfix gg_xj_gp">
+											<span class="left gg_xj_gp_name">推广商品</span>
+											<div class="checkboxFive left yx">
+					       <input id="checkboxFiveInput2" name="checkname" type="checkbox">
+					       <label for="checkboxFiveInput2"></label>
+				        </div>
+				                            <span class="left noxian">网页链接</span>
+											<span class="left noxian" style="color: #999;">链接地址：</span>
+											<input type="text" class="left lianjie" />
+											
+										</div>
+									     <div class="clearfix gg_xj_gp">
+											<span class="left gg_xj_gp_name">转化跟踪</span>
+											<span class="left noxian" style="color: #999;margin-left: 0px;">Feedback URL：</span>
+											<input type="text" class="left genzong" />
+											
+										</div>
+									     <div class="gg_btn">
+									     	<a href="#">取消</a>
+									     	<a href="gg_guige.html" class="btn_blue">下一步</a>
+									     </div>
+									</div>
+								</form>
+								
+								
+								
+								
+								
+								
+							</div>
+
+						</div>
+					</div>
+
+					<div class="banquan">© Copyright @2016-2018 广州真境信息科技有限公司 All Rights Reserved</div>
+				</div>
+			</div>
+           <!-- 弹窗-->
+           <div class="huibg">
+           </div>
+          <!-- 特定时间段-->
+           <div class="teding">
+           		<div class="clearfix teding_main">
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>0点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>1点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>2点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>3点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>4点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>5点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>6点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>7点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>8点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>9点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>10点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>11点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>12点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>13点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>14点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>15点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>16点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>17点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>18点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>19点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>20点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>21点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>22点</span>
+           			</a>
+           			<a href="javascript:;" class="teding_dian">
+           				<em></em>
+           				<span>23点</span>
+           			</a>
+           		</div>
+           		<div class="clearfix teding_btn">
+           			<div class="left">
+           				<a href="javascript:;" class="quanxuan">全选</a>
+           				<a href="javascript:;" class="qingchu">清除</a>
+           			</div>
+           			<div class="right td_btn">
+           				<a href="javascript:;" class="btn_blue">确认</a>
+           				<a href="javascript:;">取消</a>
+           			</div>
+           		</div>
+           	</div>
+			<!--高级设置-->
+			<div class="gaoji_alert">
+				<div class="caiwu_tl clearfix">
+					<a href="javascript:;" class="ahover"><span>高级排期 （请点击选择排期时间）</span></a>
+				</div>
+				<em class="cha"></em>
+				<div class="gaoji_con">
+					<table width="100%" cellpadding="0px" cellspacing="0px" class="gaoji_table">
+						<tr>
+							<th>
+								<a href="javascript:;" class="gj_all">全选</a>
+							</th>
+							<th>1</th>
+							<th>2</th>
+							<th>3</th>
+							<th>4</th>
+							<th>5</th>
+							<th>6</th>
+							<th>7</th>
+							<th>8</th>
+							<th>9</th>
+							<th>10</th>
+							<th>11</th>
+							<th>12</th>
+							<th>13</th>
+							<th>14</th>
+							<th>15</th>
+							<th>16</th>
+							<th>17</th>
+							<th>18</th>
+							<th>19</th>
+							<th>20</th>
+							<th>21</th>
+							<th>22</th>
+							<th>23</th>
+						</tr>
+					    <tr>
+					    <td>
+					    	<span>周一</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    </tr>
+					     <tr>
+					    <td>
+					    	<span>周二</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    </tr>
+					     <tr>
+					    <td>
+					    	<span>周三</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    </tr>
+					      <tr>
+					    <td>
+					    	<span>周四</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    </tr>
+					      <tr>
+					    <td>
+					    	<span>周五</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    </tr>
+					       <tr>
+					    <td>
+					    	<span>周六</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    </tr>
+					       <tr>
+					    <td>
+					    	<span>周日</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    <td>
+					    	<span class="duihao">√</span>
+					    </td>
+					    </tr>
+					</table>
+				</div>
+			</div>
+			<!--弹窗-->
+		
+			<div class="tuiguang_alert">
+	       	<div class="caiwu_tl clearfix">
+							<a href="javascript:;" class="ahover"><span>创建新推广计划</span></a>
+			</div>
+	       <em class="cha"></em>
+	       
+	       <form class="tuiguang_form">
+	        	<div class="geren_form">
+	        		<div class="clearfix geren_gp tuiguang_gp">
+	        			<span class="left geren_gp_name">
+	        				推广计划名称
+	        			</span>
+	        			<div class="geren_rt tuiguang_input">
+	        				<input type="text" />
+	        			</div>
+	        			<span class="tuiguang_danwei">0/30</span>
+	        		</div>
+	        		<div class="clearfix geren_gp tuiguang_gp">
+	        			<span class="left geren_gp_name">
+	        				设定投放限额
+	        			</span>
+	        			<div class="geren_rt tuiguang_input">
+	        				<input type="text" />
+	        			</div>
+	        			<span class="tuiguang_danwei">元/天</span>
+	        		</div>
+	        	    
+	        		
+	        	    
+	        	    <div class="geren_btn">
+	        	    	<input type="submit" value="提交" class="blubtn" />
+	        	    	<input type="reset" value="取消" class="quxiao" />
+	        	    </div>
+	        	</div>
+	        </form>
+	       </div>
+			
+			<script type="text/javascript" src="js/houtai.js"></script>
+			<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+			<script type="text/javascript" src="js/bootstrap-datepicker.zh-CN.js"></script>
+			<script type="text/javascript">
+				$('#datepicker').datepicker({
+					show: true,
+					format: 'yyyy-mm-dd',
+					language: 'zh-CN',
+					weekStart: 1,
+					autoclose: true,
+					todayHighlight: true,
+					todayBtn: 'linked'
+
+				});
+				$('#datepicker1').datepicker({
+					show: true,
+					format: 'yyyy-mm-dd',
+					language: 'zh-CN',
+					weekStart: 1,
+					autoclose: true,
+					todayHighlight: true,
+					todayBtn: 'linked'
+
+				});
+			</script>
+	</body>
+
+</html>

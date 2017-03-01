@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>推广</title>
+		<link rel="stylesheet" href="css/init.css" />
+		<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="css/houtai.css" />
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="js/select.js"></script>
+	</head>
+
+	<body>
+		<div class="tj_main">
+			<div class="tj_main_lf">
+				<div class="tj_main_lf_tl clearfix">
+					<img src="images/gaikuang_03.png" />
+
+				</div>
+				<div class="tj_main_lf_tx">
+					<div class="tj_main_lf_tx_main">
+						<a href="per.html">
+						<img src="images/tx.jpg" />
+						</a>
+					</div>
+					<div class="tj_main_lf_text">
+						<p class="per_a">
+							<a href="per.html">
+							John Smith
+							</a>
+						</p>
+						
+					</div>
+				</div>
+				<div class="tj_main_lf_menu">
+
+					<ul>
+						<li>
+							<a href="gaikuang.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang-06.png" /> 概况
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="tuiguang.html" class="clearfix ahover">
+								<div class="left">
+									<img src="images/gaikuang_25.png" /> 推广计划
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="guanggao.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_42.png" /> 创意广告
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="caiwu.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_49.png" /> 财务
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="tj_main_rt">
+				<div class="tj_main_rt_con">
+					<div class="tj_main_rt_tl clearfix">
+						<em class="tj_head_btn left"></em>
+						<a href="#" class="tj_out right" onclick="">注销</a>
+						<div class="right clearfix tj_head_tx">
+							<a href="per.html">
+							<img src="images/tx.jpg" class="left" />
+							</a>
+							<span class="left"><a href="per.html">John Smith</a></span>
+							<span class="left head_link"><a href="index.html">首页</a></span>
+							<span class="left head_link"><a href="feed.html">媒体主</a></span>
+						</div>
+					</div>
+
+					<div class="gankuang_two" style="margin-top: 20px;">
+						<div class="caiwu_tl clearfix">
+							<a href="javascript:;" class="ahover"><span>推广计划</span></a>
+							<a href="javascript:;" class="right xinjian xinjian_tg blubtn">新建广告计划</a>
+						</div>
+						<div class="caiwu_main">
+
+							<div class="gankuang_two_con">
+								<p class="tj_suoming" style="margin-left: 0px;">
+									统计说明：数据已完成核对至2016-11-07 23:59 。以下数据有近1小时的统计延迟（实时余额除外）仅供参考，请以次日完成核对的数据为准。
+								</p>
+								<div class="gankuang_two_tl clearfix">
+									<div class="clearfix ss left">
+										<input type="text" class="left" placeholder="请输入计划名称" />
+										<input type="button" class="right" />
+									</div>
+									<a href="#" class="ahover">今天</a>
+									<a href="#">昨天</a>
+									<a href="#">过去7天</a>
+									<a href="#">过去30天</a>
+									<input class="left rili" id="datepicker" type="text">
+									<span class="left zhi">至</span>
+									<input class="left rili" id="datepicker1" type="text">
+									<input class="left" value="查询" type="button">
+									<a href="#" class="right down">下载报表</a>
+								</div>
+								<div class="caiwu_table tuiguang_table">
+									<table cellpadding="0px" cellspacing="0px" width="100%">
+										<tr>
+											<th>推广计划</th>
+											<th>
+												<div class="jiaoy">
+													<div class="model-select-box">
+														<div class="model-select-text" data-value="1">全部状态</div>
+														<ul class="model-select-option" style="display: none;">
+															<li data-option="1" class="seleced data-selected">全部状态</li>
+															<li data-option="2">开启</li>
+															<li data-option="3">关闭</li>
+														</ul>
+													</div>
+												</div>
+											</th>
+											<th>日限额(元)</th>
+											<th>实时余额(元)</th>
+											<th>曝光量(次)</th>
+											<th>点击量(次)</th>
+											<th>点击率(%)</th>
+											<th>花费(元)</th>
+											<th>点击均价(元)</th>
+											<th>下载量(次)</th>
+											<th>下载均价(元)</th>
+										</tr>
+										<tr>
+											<td>
+												<div class="tuiguang_name">
+													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
+												</div>
+											</td>
+											<td>
+												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
+											</td>
+											<td>1.000.00</td>
+											<td>1.000.00</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0</td>
+											<td>0.00</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="tuiguang_name">
+													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
+												</div>
+											</td>
+											<td>
+												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
+											</td>
+											<td>1.000.00</td>
+											<td>1.000.00</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0</td>
+											<td>0.00</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="tuiguang_name">
+													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
+												</div>
+											</td>
+											<td>
+												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
+											</td>
+											<td>1.000.00</td>
+											<td>1.000.00</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0</td>
+											<td>0.00</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="tuiguang_name">
+													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
+												</div>
+											</td>
+											<td>
+												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
+											</td>
+											<td>1.000.00</td>
+											<td>1.000.00</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0</td>
+											<td>0.00</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="tuiguang_name">
+													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
+												</div>
+											</td>
+											<td>
+												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
+											</td>
+											<td>1.000.00</td>
+											<td>1.000.00</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0</td>
+											<td>0.00</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="tuiguang_name">
+													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
+												</div>
+											</td>
+											<td>
+												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
+											</td>
+											<td>1.000.00</td>
+											<td>1.000.00</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0</td>
+											<td>0.00</td>
+										</tr>
+										<tr class="heji">
+											<td>
+												本页合计
+											</td>
+											<td>
+												&nbsp;
+											</td>
+											<td>1.000.00</td>
+											<td>1.000.00</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0</td>
+											<td>0.00</td>
+										</tr>
+										<tr class="quanbuheji">
+											<td>
+												全部合计
+											</td>
+											<td>
+												&nbsp;
+											</td>
+											<td>1.000.00</td>
+											<td>1.000.00</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0.00</td>
+											<td>0</td>
+											<td>0.00</td>
+										</tr>
+									</table>
+									<div class="clearfix table_page">
+										<span class="left table_page_lf">显示 1-10 条数据 ；总记录数为 36 条</span>
+										<div class="right table_page_rt">
+											<a href="#" style="background: #6495ed;color: #fff;">&lt;</a>
+											<a href="#">1</a>
+											<a href="#">2</a>
+											<a href="#">3</a>
+											<a href="#">4</a>
+											<a href="#">5</a>
+											<a href="#">6</a>
+											<a href="#">...</a>
+											<a href="#">31</a>
+											<a href="#" style="background: #6495ed;color: #fff;">&gt;</a>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="banquan">© Copyright @2016-2018 广州真境信息科技有限公司 All Rights Reserved</div>
+				</div>
+			</div>
+			<!--弹窗-->
+			<div class="huibg">  </div>
+			<div class="tuiguang_alert">
+	       	<div class="caiwu_tl clearfix">
+							<a href="javascript:;" class="ahover"><span>创建新推广计划</span></a>
+			</div>
+	       <em class="cha"></em>
+	       
+	       <form class="tuiguang_form">
+	        	<div class="geren_form">
+	        		<div class="clearfix geren_gp tuiguang_gp">
+	        			<span class="left geren_gp_name">
+	        				推广计划名称
+	        			</span>
+	        			<div class="geren_rt tuiguang_input">
+	        				<input type="text" />
+	        			</div>
+	        			<span class="tuiguang_danwei">0/30</span>
+	        		</div>
+	        		<div class="clearfix geren_gp tuiguang_gp">
+	        			<span class="left geren_gp_name">
+	        				设定投放限额
+	        			</span>
+	        			<div class="geren_rt tuiguang_input">
+	        				<input type="text" />
+	        			</div>
+	        			<span class="tuiguang_danwei">元/天</span>
+	        		</div>
+	        	    
+	        		
+	        	    
+	        	    <div class="geren_btn">
+	        	    	<input type="submit" value="提交" class="blubtn" />
+	        	    	<input type="reset" value="取消" class="quxiao" />
+	        	    </div>
+	        	</div>
+	        </form>
+	       </div>
+			
+			<script type="text/javascript" src="js/houtai.js"></script>
+			<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+			<script type="text/javascript" src="js/bootstrap-datepicker.zh-CN.js"></script>
+			<script type="text/javascript">
+				$('#datepicker').datepicker({
+					show: true,
+					format: 'yyyy-mm-dd',
+					language: 'zh-CN',
+					weekStart: 1,
+					autoclose: true,
+					todayHighlight: true,
+					todayBtn: 'linked'
+
+				});
+				$('#datepicker1').datepicker({
+					show: true,
+					format: 'yyyy-mm-dd',
+					language: 'zh-CN',
+					weekStart: 1,
+					autoclose: true,
+					todayHighlight: true,
+					todayBtn: 'linked'
+
+				});
+			</script>
+	</body>
+
+</html>

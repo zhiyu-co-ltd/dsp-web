@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>广告内容</title>
+		<link rel="stylesheet" href="css/init.css" />
+		<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="css/houtai.css" />
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+		<script type="text/javascript" src="js/select.js"></script>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<script type="text/javascript">
+			// 路径配置
+			require.config({
+				paths: {
+					echarts: 'js'
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="tj_main">
+			<div class="tj_main_lf">
+				<div class="tj_main_lf_tl clearfix">
+					<img src="images/gaikuang_03.png" />
+
+				</div>
+				<div class="tj_main_lf_tx">
+					<div class="tj_main_lf_tx_main">
+						<a href="per.html">
+							<img src="images/tx.jpg" />
+						</a>
+					</div>
+					<div class="tj_main_lf_text">
+						<p class="per_a">
+							<a href="per.html">
+								John Smith
+							</a>
+						</p>
+
+					</div>
+				</div>
+				<div class="tj_main_lf_menu">
+
+					<ul>
+						<li>
+							<a href="gaikuang.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang-06.png" /> 概况
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="tuiguang.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_25.png" /> 推广计划
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="guanggao.html" class="clearfix ahover">
+								<div class="left">
+									<img src="images/gaikuang_42.png" /> 创意广告
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+						<li>
+							<a href="caiwu.html" class="clearfix">
+								<div class="left">
+									<img src="images/gaikuang_49.png" /> 财务
+								</div>
+								<em class="right"></em>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="tj_main_rt">
+				<div class="tj_main_rt_con">
+					<div class="tj_main_rt_tl clearfix">
+						<em class="tj_head_btn left"></em>
+						<a href="#" class="tj_out right" onclick="">注销</a>
+						<div class="right clearfix tj_head_tx">
+							<a href="per.html">
+							<img src="images/tx.jpg" class="left" />
+							</a>
+							<span class="left"><a href="per.html">John Smith</a></span>
+							<span class="left head_link"><a href="index.html">首页</a></span>
+							<span class="left head_link"><a href="feed.html">媒体主</a></span>
+						</div>
+					</div>
+
+					<div class="gankuang_two" style="margin-top: 20px;">
+						<div class="caiwu_tl clearfix">
+							<a href="javascript:;" class="ahover"><span>11111</span></a>
+							<a href="guanggao.html" class="right xinjian blubtn">返回</a>
+						</div>
+						<div class="caiwu_main">
+
+							<div class="gankuang_two_con">
+								<p class="tj_suoming" style="margin-left: 0px;">
+									统计说明：数据已完成核对至2016-11-07 23:59 。以下数据有近1小时的统计延迟（实时余额除外）仅供参考，请以次日完成核对的数据为准。
+								</p>
+								<div class="gankuang_two_tl clearfix">
+									<div class="clearfix ss left">
+										<input type="text" class="left" placeholder="请输入广告名称" />
+										<input type="button" class="right" />
+									</div>
+									<a href="#" class="ahover">今天</a>
+									<a href="#">昨天</a>
+									<a href="#">过去7天</a>
+									<a href="#">过去30天</a>
+									<input class="left rili" id="datepicker" type="text">
+									<span class="left zhi">至</span>
+									<input class="left rili" id="datepicker1" type="text">
+									<input class="left" value="查询" type="button">
+									<a href="#" class="right down">下载报表</a>
+								</div>
+								<div class="ggtl">
+									<div class="gankuang_two_con_tl">
+										效果走势
+									</div>
+								</div>
+								<div class="guanggao_echarts">
+									<div class="guanggao_echarts_tl">
+										<a href="javascript:;" class="ahover">曝光量</a>
+										<a href="javascript:;">点击量</a>
+										<a href="javascript:;">点击率</a>
+										<a href="javascript:;">下载量</a>
+										<a href="javascript:;">下载率 </a>
+										<a href="javascript:;">花费</a>
+									</div>
+									<div class="guanggao_echarts_main">
+										<div class="guanggao_echarts_con xianshi">
+											<div id="biaoge10" style="width: 100%;height: 100%;"></div>
+										</div>
+										<div class="guanggao_echarts_con">
+											<div id="biaoge11" style="width: 100%;height: 100%;"></div>
+										</div>
+										<div class="guanggao_echarts_con">
+											<div id="biaoge12" style="width: 100%;height: 100%;"></div>
+										</div>
+										<div class="guanggao_echarts_con">
+											<div id="biaoge13" style="width: 100%;height: 100%;"></div>
+										</div>
+										<div class="guanggao_echarts_con">
+											<div id="biaoge14" style="width: 100%;height: 100%;"></div>
+										</div>
+										<div class="guanggao_echarts_con">
+											<div id="biaoge15" style="width: 100%;height: 100%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="ggtl" style="margin-bottom: 20px;">
+									<div class="gankuang_two_con_tl">
+										全部创意
+									</div>
+								</div>
+								<div class="caiwu_table tuiguang_table">
+									<div class="guangao_table">
+										<table cellpadding="0px" cellspacing="0px" width="100%">
+											<tr>
+												<th>创意名称</th>
+												<th>操作</th>
+												<th>
+													<div class="jiaoy">
+														<div class="model-select-box">
+															<div class="model-select-text" data-value="1">全部状态</div>
+															<ul class="model-select-option" style="display: none;">
+																<li data-option="1" class="seleced data-selected">全部状态</li>
+																<li data-option="2">未审核</li>
+																<li data-option="3">暂停</li>
+																<li data-option="4">投放结束</li>
+																<li data-option="5">待投放</li>
+																<li data-option="6">投放中</li>
+																<li data-option="7">审核不通过</li>
+																<li data-option="8">审核中</li>
+															</ul>
+														</div>
+													</div>
+												</th>
+												<th>曝光量(次)</th>
+												<th>点击量(次)</th>
+												<th>点击率(%)</th>
+												<th>下载量(次)</th>
+												<th>下载率(%)</th>
+												<th>花费(元)</th>
+											</tr>
+											<tr>
+												<td>
+													<a href="guangao_con.html">111111</a>
+												</td>
+
+												<td>
+													<a href="#">审核</a>
+
+												</td>
+												<td>未审核</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0.00</td>
+												<td>0</td>
+												<td>0.00</td>
+												<td>0.00</td>
+											</tr>
+											<tr>
+												<td>
+													<a href="guangao_con.html">111111</a>
+												</td>
+
+												<td>
+													<a href="#">审核</a>
+
+												</td>
+												<td>未审核</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0.00</td>
+												<td>0</td>
+												<td>0.00</td>
+												<td>0.00</td>
+											</tr>
+											<tr class="heji">
+												<td>
+													本页合计
+												</td>
+												<td>
+													——
+												</td>
+												<td>——</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0.00</td>
+												<td>0</td>
+												<td>0.00</td>
+												<td>0.00</td>
+											</tr>
+											<tr class="quanbuheji">
+												<td>
+													全部合计
+												</td>
+												<td>
+													——
+												</td>
+												<td>——</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0.00</td>
+												<td>0</td>
+												<td>0.00</td>
+												<td>0.00</td>
+											</tr>
+										</table>
+									</div>
+									<div class="clearfix table_page">
+										<span class="left table_page_lf">显示 1-10 条数据 ；总记录数为 36 条</span>
+										<div class="right table_page_rt">
+											<a href="#" style="background: #6495ed;color: #fff;">&lt;</a>
+											<a href="#">1</a>
+											<a href="#">2</a>
+											<a href="#">3</a>
+											<a href="#">4</a>
+											<a href="#">5</a>
+											<a href="#">6</a>
+											<a href="#">...</a>
+											<a href="#">31</a>
+											<a href="#" style="background: #6495ed;color: #fff;">&gt;</a>
+
+										</div>
+									</div>
+								</div>
+								<div class="ggtl" style="margin-bottom: 20px;">
+									<div class="gankuang_two_con_tl">
+										广告详情
+										<a href="gg_xinjian.html">编辑 </a>
+									</div>
+								</div>
+								<div class="clearfix gg_con_main">
+									<div class="left gg_con_main_lf">
+										<div class="clearfix gg_con_gp">
+											<span class="left gg_con_gp_name">广告名称</span>
+											<div class="gg_con_gp_rt">
+												<input type="text" value="111111111111" />
+												<a href="javascript:;" title="提交" class="bi"></a>
+											</div>
+										</div>
+										<div class="clearfix gg_con_gp">
+											<span class="left gg_con_gp_name">日限额</span>
+											<div class="gg_con_gp_rt">
+												<input type="text" value="不限定" />
+												<a href="javascript:;" title="提交" class="bi"></a>
+											</div>
+										</div>
+										<div class="clearfix gg_con_gp">
+											<span class="left gg_con_gp_name">推广计划</span>
+											<div class="gg_con_gp_rt">
+												测试2
+											</div>
+										</div>
+										<div class="clearfix gg_con_gp">
+											<span class="left gg_con_gp_name">投放日期</span>
+											<div class="gg_con_gp_rt">
+												2016-11-09 ~ 2016-11-10
+											</div>
+										</div>
+										<div class="clearfix gg_con_gp">
+											<span class="left gg_con_gp_name">投放时间</span>
+											<div class="gg_con_gp_rt">
+												全天候投放
+											</div>
+										</div>
+										<div class="clearfix gg_con_gp">
+											<span class="left gg_con_gp_name">展示频次</span>
+											<div class="gg_con_gp_rt">
+												<input type="text" value="不限定" />
+												<a href="javascript:;" title="提交" class="bi"></a>
+											</div>
+										</div>
+										<div class="clearfix gg_con_gp">
+											<span class="left gg_con_gp_name">投放平台</span>
+											<div class="gg_con_gp_rt">
+												搜狐网
+											</div>
+										</div>
+										<div class="clearfix gg_con_gp">
+											<span class="left gg_con_gp_name">定向用户</span>
+											<div class="gg_con_gp_rt">
+												<p>
+													地域： 北京 沈阳市 大连市；
+												</p>
+												<p>
+													商业兴趣： 游戏人群 亲子早教；
+												</p>
+												<p>
+													性别： 女性
+												</p>
+												<p>
+													操作系统： 不限
+												</p>
+												<p>
+													联网方式： WiFi 3G 4G
+												</p>
+												<p>
+													运营商： 移动 联通 电信
+												</p>
+											</div>
+										</div>
+										<div class="clearfix gg_con_gp">
+											<span class="left gg_con_gp_name">广告出价</span>
+											<div class="gg_con_gp_rt">
+												<input type="text" value="CPC0.50元" />
+												<a href="javascript:;" title="提交" class="bi"></a>
+											</div>
+										</div>
+									</div>
+									<div class="right gg_con_main_lf">
+										<div class="gg_ban">
+											<div class="block_home_slider">
+												<div id="home_slider" class="flexslider">
+													<ul class="slides">
+														<li>
+															<div class="slide">
+																<a href="#">
+																	<p class="wenzinr">广告文字内容广告文字内容广告文字内容广告文字内容广告文字内容广告文字内容</p>
+																</a>
+																<p class="gg_img_tl">
+																	<a href="#">广告图片名称</a>
+																</p>
+															</div>
+														</li>
+
+														<li>
+															<div class="slide">
+																<a href="#">
+																	<p class="wenzinr">广告文字内容广告文字内容广告文字内容广告文字内容广告文字内容广告文字内容</p>
+																</a>
+																<p class="gg_img_tl">
+																	<a href="#">广告图片名称</a>
+																</p>
+
+															</div>
+														</li>
+
+													</ul>
+												</div>
+
+												<script type="text/javascript">
+													$(function() {
+														$('#home_slider').flexslider({
+															animation: 'slide',
+															controlNav: false,
+															directionNav: true,
+															animationLoop: true,
+															slideshow: true,
+															useCSS: false
+														});
+
+													});
+												</script>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="banquan">© Copyright @2016-2018 广州真境信息科技有限公司 All Rights Reserved</div>
+				</div>
+			</div>
+
+			<script type="text/javascript" src="js/houtai.js"></script>
+			<script type="text/javascript" src="js/guanggao.js"></script>
+			<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+			<script type="text/javascript" src="js/bootstrap-datepicker.zh-CN.js"></script>
+			<script type="text/javascript">
+				$('#datepicker').datepicker({
+					show: true,
+					format: 'yyyy-mm-dd',
+					language: 'zh-CN',
+					weekStart: 1,
+					autoclose: true,
+					todayHighlight: true,
+					todayBtn: 'linked'
+
+				});
+				$('#datepicker1').datepicker({
+					show: true,
+					format: 'yyyy-mm-dd',
+					language: 'zh-CN',
+					weekStart: 1,
+					autoclose: true,
+					todayHighlight: true,
+					todayBtn: 'linked'
+
+				});
+			</script>
+	</body>
+
+</html>
