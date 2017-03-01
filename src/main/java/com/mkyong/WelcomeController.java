@@ -11,9 +11,19 @@ public class WelcomeController {
 
 
 
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	public String welcome(Map<String, Object> model) {
 		return "index";
 	}
-
+	@RequestMapping("/ad")
+	public String ad(Map<String, Object> model) {
+		return "ad";
+	}
+	@RequestMapping("/feed")
+	public String feed(Map<String, Object> model) {
+		return "feed";
+	}
+	@RequestMapping("/about")
+	public String about(Map<String, Object> model) {return "about";
+	}
 }
