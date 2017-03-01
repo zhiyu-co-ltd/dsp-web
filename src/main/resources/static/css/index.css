@@ -299,3 +299,6 @@ input:focus{outline: none;}
 	.erro{line-height: 18px;}
 	.find_alert{margin-top: -128px;}
 }
+.cha{display: block;background: url(../images/renzheng_03.jpg) no-repeat;width: 28px;height: 28px;right: 25px;top: 10px;position: absolute;cursor: pointer;}
+.success_alert{padding: 60px 30px;text-align: center;font-size: 24px;top: 50%;margin-top: -186px;}
+.success_alert img{margin-bottom: 20px;}

@@ -20,39 +20,56 @@ $(function() {
 		$(".login_alert").show();
 		$(".rg_alert").hide();
 		$(".find_alert").hide();
+	
 	});
 	$('.regbtn').click(function(){
 		$(".huibg").show();
 		$(".rg_alert").show();
 		$(".login_alert").hide();
 		$(".find_alert").hide();
+	
 	});
 	$('.yiyou').click(function(){
 		$(".login_alert").show();
 		$(".rg_alert").hide();
 		$(".find_alert").hide();
+	
 	});
 	$('.ljzc').click(function(){
 		$(".login_alert").hide();
 		$(".rg_alert").show();
 		$(".find_alert").hide();
+	
 	});
 	$('.wangmi').click(function(){
 		$(".find_alert").show();
 		$(".login_alert").hide();
 		$(".rg_alert").hide();
+
 	});
 	$('.lg_btn input').click(function(){
 		$(".huibg").hide();
 		$(".login_alert").hide();
 		$(".rg_alert").hide();
 		$(".find_alert").hide();
+
 	});
 	$('.huibg').click(function(){
 		$(".huibg").hide();
 		$(".login_alert").hide();
 		$(".rg_alert").hide();
 		$(".find_alert").hide();
+		$(".success_alert").hide();
+	});
+	$('.huibg').click(function(){
+		$(".huibg").hide();
+		$(".login_alert").hide();
+		$(".rg_alert").hide();
+		$(".find_alert").hide();
+		$(".success_alert").hide();
+	});
+	$('.cha').click(function(){
+		$(".success_alert").hide();
 	});
 	});
 	

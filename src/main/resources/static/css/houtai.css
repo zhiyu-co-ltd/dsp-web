@@ -435,3 +435,5 @@ body{background: #f2f4f8;}
 .ggcontwoh .flex-direction-nav a {top: 100px;}
 .ggconthreeh .flex-direction-nav a {top: 160px;}
 .kplb .kp_img img{width: 100%;vertical-align: middle;height: auto;}
+.success_alert{padding: 60px 30px;text-align: center;font-size: 24px;top: 50%;margin-top: -186px;}
+.success_alert img{margin-bottom: 20px;}
