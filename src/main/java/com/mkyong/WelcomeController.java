@@ -13,6 +13,7 @@ public class WelcomeController {
 
 	@RequestMapping("/index")
 	public String welcome(Map<String, Object> model) {
+		model.put("hello","1111");
 		return "index";
 	}
 	@RequestMapping("/ad")
