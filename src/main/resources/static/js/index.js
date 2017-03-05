@@ -57,7 +57,8 @@ $(function() {
 		// $(".huibg").hide();
 		// $(".login_alert").hide();
 		// $(".rg_alert").hide();
-		 $(".find_alert").hide();
+		//   $(".find_alert").hide();
+		//   $(".success_alert").show();
 
 	});
 	$('.huibg').click(function(){
