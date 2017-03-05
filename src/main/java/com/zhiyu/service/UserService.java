@@ -34,6 +34,8 @@ public interface UserService {
 
     public  User findUserByEmail(String email);
 
+    public  User findUserByEmailAndPassword(String email,String password);
+
     public User getById(Integer id) ;
 
     public void deleteById(Integer id) ;

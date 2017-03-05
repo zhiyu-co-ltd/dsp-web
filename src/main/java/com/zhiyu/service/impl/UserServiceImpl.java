@@ -28,7 +28,6 @@ import com.zhiyu.mapper.UserMapper;
 import com.zhiyu.model.User;
 import com.zhiyu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,6 +44,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByEmail(String email) {
         return UserMapper.findUserByEmail(email);
+    }
+
+    @Override
+    public User findUserByEmailAndPassword(String email,String password) {
+
+        return UserMapper.findUserByEmailAndPassword(email, password);
     }
 
     public User getById(Integer id) {

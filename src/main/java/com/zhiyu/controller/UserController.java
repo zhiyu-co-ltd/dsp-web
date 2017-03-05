@@ -25,9 +25,15 @@ public class UserController {
 	public String login(Map<String, Object> model,HttpServletRequest request) {
         String email = request.getParameter("email") ;
 		String password = request.getParameter("password");
-		User user =  userService.findUserByEmail(email);
-		log.info(">>>>>>>>"+user.getEmail()+"  "+user.getName());
-		model.put("loginStatus","true");
+		User user =  userService.findUserByEmailAndPassword(email,password);
+		if(user == null ){
+
+		}else{
+			log.info(">>>>>>>>"+user.getEmail()+"  "+user.getName());
+			model.put("loginStatus","true");
+			model.put("userName",user.getName());
+		}
+
 //		String email=httpRequest.
 //		String password=httpRequest.getParameter("password");
 //		System.out.println("email="+email);
