@@ -8,11 +8,13 @@ import org.apache.catalina.connector.Request;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Cookie;
+
 import java.util.Map;
 
 @Controller
@@ -23,27 +25,27 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping("/login")
-	public String login(Map<String, Object> model,HttpServletRequest request) {
+	public String login(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
         String email = request.getParameter("email") ;
 		String password = request.getParameter("password");
 		User user =  userService.findUserByEmailAndPassword(email,password);
+
 		if(user == null ){
 
+
 		}else{
-			log.info(">>>>>>>>"+user.getEmail()+"  "+user.getName());
+			log.info(">>>>>>>>"+user.getEmail()+"  "+user.getName()+user.getUserId());
 			model.put("loginStatus","true");
 			model.put("userName",user.getName());
+            Cookie Usercookie = new Cookie("userId",user.getUserId());
+            Usercookie.setMaxAge(60*60*24*7);//保留7天
+            response.addCookie(Usercookie);
 		}
-
-//		String email=httpRequest.
-//		String password=httpRequest.getParameter("password");
-//		System.out.println("email="+email);
-//		System.out.println("password="+password);
 		return "index";
 	}
 	@RequestMapping("/register")
-	public String register(Map<String, Object> model,HttpServletRequest request) {
-       String userName = request.getParameter("username");
+	public String register(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
+        String userName = request.getParameter("username");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 
@@ -51,11 +53,14 @@ public class UserController {
 		user.setName(userName);
 		user.setPassword(password);
 		user.setEmail(email);
-		user.setUserId(MyUUID.getUUID());
+		user.setUser_Id(MyUUID.getUUID());
 		userService.save(user);
 		log.info(">>>>>>>>"+email+"  "+userName);
 		model.put("loginStatus","true");
 		model.put("userName",userName);
+        Cookie Usercookie = new Cookie("userId",user.getUserId());
+        Usercookie.setMaxAge(60*60*24*7);//保留7天
+        response.addCookie(Usercookie);
 		return "index";
 	}
 	@RequestMapping("/checkEmail")
@@ -63,8 +68,29 @@ public class UserController {
 		return "feed";
 	}
 
-	@RequestMapping("/findPassword/{email}")
-	public String findPassword(Map<String, Object> model) {
+	@RequestMapping("/findPassword")
+	public String findPassword(Map<String, Object> model,HttpServletRequest request) {
+		String email = request.getParameter("email");
+        log.info(">>>>>>>>"+email+"  "+email);
 		model.put("hello","from TemplateController.helloFtl");
-		return "index";}
+		return "index";
+	}
+
+    @RequestMapping("/signout")
+    public String signout(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
+        Cookie[] cookie = request.getCookies();
+        if(cookie!=null) {
+            for (int i = 0; i < cookie.length; i++) {
+                Cookie cook = cookie[i];
+                if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+                    String userId = cook.getValue().toString();
+                    cook.setMaxAge(0);//清除cookie
+                    cook.setPath("/");
+                    response.addCookie(cook);
+                    break;
+                }
+            }
+        }
+        return "index";
+    }
 }

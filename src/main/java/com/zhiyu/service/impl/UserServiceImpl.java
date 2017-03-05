@@ -51,6 +51,11 @@ public class UserServiceImpl implements UserService {
 
         return UserMapper.findUserByEmailAndPassword(email, password);
     }
+    @Override
+     public User findUserByUserId(String UserId) {
+
+        return UserMapper.findUserByUserId(UserId);
+    }
 
     public User getById(Integer id) {
         return UserMapper.selectByPrimaryKey(id);

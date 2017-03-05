@@ -38,6 +38,8 @@ public interface UserService {
 
     public User getById(Integer id) ;
 
+    public User findUserByUserId(String UserId) ;
+
     public void deleteById(Integer id) ;
 
     public void save(User user) ;

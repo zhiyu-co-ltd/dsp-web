@@ -38,6 +38,8 @@ public interface UserMapper extends MyMapper<User>{
 
       User findUserByEmail(@Param("Email") String email);
 
+      User findUserByUserId(@Param("UserId") String UserId);
+
       User findUserByEmailAndPassword(@Param("Email") String email,@Param("Password") String password);
 
 }

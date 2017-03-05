@@ -31,5 +31,8 @@
     <select id="findUserByEmailAndPassword" resultType="com.zhiyu.model.User" >
         select * from T_User where email=#{Email}  and password=#{Password}
     </select>
+    <select id="findUserByUserId" resultType="com.zhiyu.model.User" >
+        select * from T_User where user_id=#{UserId}
+    </select>
 
 </mapper>

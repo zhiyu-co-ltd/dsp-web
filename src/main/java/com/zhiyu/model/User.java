@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Table(name="T_User")
 public class User extends BaseEntity{
 
-    private String UserId;
+    private String User_Id;//与数据库对应字段名称
     private String Email;
     private String Qq;
     private String Password;
@@ -24,11 +24,11 @@ public class User extends BaseEntity{
 
 
     public String getUserId() {
-        return UserId;
+        return User_Id;
     }
 
-    public void setUserId(String userId) {
-        UserId = userId;
+    public void setUser_Id(String userId) {
+        User_Id = userId;
     }
 
     public String getEmail() {
