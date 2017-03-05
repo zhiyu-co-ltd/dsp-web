@@ -47,11 +47,17 @@ $(function() {
 		$(".rg_alert").hide();
 
 	});
-	$('.lg_btn input').click(function(){
-		$(".huibg").hide();
+	$('.findPassword').show(function(){
+		$(".success_alert").show();
 		$(".login_alert").hide();
 		$(".rg_alert").hide();
-		$(".find_alert").hide();
+
+	});
+	$('.lg_btn input').click(function(){
+		// $(".huibg").hide();
+		// $(".login_alert").hide();
+		// $(".rg_alert").hide();
+		 $(".find_alert").hide();
 
 	});
 	$('.huibg').click(function(){

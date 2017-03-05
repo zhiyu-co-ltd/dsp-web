@@ -3,6 +3,7 @@ package com.mkyong;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,7 +14,11 @@ public class WelcomeController {
 
 	@RequestMapping("/index")
 	public String welcome(Map<String, Object> model) {
-		model.put("hello","1111");
+
+		//model.put("loginStatus","true");
+
+		//System.out.println("loginStatus"+model.get("loginStatus"));
+
 		return "index";
 	}
 	@RequestMapping("/ad")
@@ -26,5 +31,8 @@ public class WelcomeController {
 	}
 	@RequestMapping("/about")
 	public String about(Map<String, Object> model) {return "about";
+	}
+	@RequestMapping("/gaikuang")
+	public String gaikuang(Map<String, Object> model) {return "gaikuang";
 	}
 }
