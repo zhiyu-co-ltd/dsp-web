@@ -15,10 +15,10 @@ public class User extends BaseEntity{
     private String Name;
     private String Phone;
     private String Weixin;
-    private String Type;
+    private String Type="0";
     private String CompanyType;
-    private String AdAccountMoney;
-    private String CostToday;
+    private String AdAccountMoney="0";
+    private String CostToday="0";
     private int UpdateStatus;
     private String  UpdateTime;
 

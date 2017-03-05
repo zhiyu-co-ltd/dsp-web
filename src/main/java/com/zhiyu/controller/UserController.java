@@ -3,6 +3,7 @@ package com.zhiyu.controller;
 import com.zhiyu.model.User;
 import com.zhiyu.service.UserService;
 import com.zhiyu.service.impl.UserServiceImpl;
+import com.zhiyu.util.MyUUID;
 import org.apache.catalina.connector.Request;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +42,21 @@ public class UserController {
 		return "index";
 	}
 	@RequestMapping("/register")
-	public String register(Map<String, Object> model) {
+	public String register(Map<String, Object> model,HttpServletRequest request) {
+       String userName = request.getParameter("username");
+		String password = request.getParameter("password");
+		String email = request.getParameter("email");
 
-		return "ad";
+		User user = new User();
+		user.setName(userName);
+		user.setPassword(password);
+		user.setEmail(email);
+		user.setUserId(MyUUID.getUUID());
+		userService.save(user);
+		log.info(">>>>>>>>"+email+"  "+userName);
+		model.put("loginStatus","true");
+		model.put("userName",userName);
+		return "index";
 	}
 	@RequestMapping("/checkEmail")
 	public String checkEmail(Map<String, Object> model) {

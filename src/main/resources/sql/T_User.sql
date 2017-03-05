@@ -26,7 +26,7 @@ CREATE TABLE `T_User` (
   `email` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '注册email',
   `password` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户密码',
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户昵称',
-  `createtime` datetime NOT NULL COMMENT '注册时间',
+  `createtime` TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
   `phone` varchar(20) DEFAULT NULL COMMENT '用户手机号',
   `qq` varchar(255) DEFAULT NULL COMMENT '用户qq号',
   `weixin` varchar(255) DEFAULT NULL COMMENT '用户微信号',
