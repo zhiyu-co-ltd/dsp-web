@@ -1,9 +1,11 @@
 package com.zhiyu.controller;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import com.zhiyu.model.User;
 import com.zhiyu.service.UserService;
 import com.zhiyu.service.impl.UserServiceImpl;
 import com.zhiyu.util.MyUUID;
+import com.zhiyu.util.SendMail;
 import org.apache.catalina.connector.Request;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +42,7 @@ public class UserController {
             Cookie Usercookie = new Cookie("userId",user.getUserId());
             Usercookie.setMaxAge(60*60*24*7);//保留7天
             response.addCookie(Usercookie);
-		}
+        }
 		return "index";
 	}
 	@RequestMapping("/register")
@@ -64,15 +66,27 @@ public class UserController {
 		return "index";
 	}
 	@RequestMapping("/checkEmail")
-	public String checkEmail(Map<String, Object> model) {
-		return "feed";
+	public String checkEmail(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
+        String email = request.getParameter("email");
+        log.info(">>>>>>>>"+email+"  "+email);
+        User user =  userService.findUserByEmail(email);
+        if(user!=null) {
+            log.info(">>>>>>>>" + user + "用户名:" + user.getName() + "密码" + user.getPassword());
+        }
+        return "index";
 	}
 
 	@RequestMapping("/findPassword")
 	public String findPassword(Map<String, Object> model,HttpServletRequest request) {
 		String email = request.getParameter("email");
         log.info(">>>>>>>>"+email+"  "+email);
-		model.put("hello","from TemplateController.helloFtl");
+		User user =  userService.findUserByEmail(email);
+        if(user!=null) {
+            log.info(">>>>>>>>" + user + "用户名:" + user.getName() + "密码" + user.getPassword());
+            SendMail sendMail = new SendMail();
+            sendMail.setAddress("zjf198100@163.com", email, "知渔广告平台注册密码");
+            sendMail.send("smtp.163.com", "zjf198100@163.com", "982001", "亲爱的用户:" + user.getName() + "您好!感谢您使用知渔移动广告平台!您的注册密码是:" + user.getPassword());
+        }
 		return "index";
 	}
 
