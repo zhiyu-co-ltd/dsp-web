@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1,  user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -14,27 +14,199 @@
 		 <!--[if lt IE 9]>
       <script src="js/respond.src.js"></script>
            <!--<![endif]-->
-           
+		<script>
+		//登录js
+		function login(){
+		//alert("login");
+		var _form = document.getElementById("login_alert");
+		var _inputs = _form.getElementsByTagName("input");
+		var email;
+		var password;
+		var path="/login";
+		var flagEmail=true;
+		var flagPassword=true;
+		for (var i = 0; i < _inputs.length; i++) {
+		if(_inputs[i].name.toString()=="email"){
+		email=_inputs[i].value;
+		if(email==null){
+		flagEmail=false;
+		}  else{
+		if(email.indexOf("@")<=-1){
+		flagEmail=false;
+		}
+		}
+
+		}
+		if(_inputs[i].name.toString()=="password"){
+		password=_inputs[i].value;
+		if(password==null||password==""){
+		flagPassword=false;
+		}
+		}
+		}
+		//alert("flagPassword="+flagPassword);
+		//alert("flagEmail="+flagEmail);
+		if(flagEmail==false){
+		document.getElementById("loginEmail").style.display="";
+		}else{
+		document.getElementById("loginEmail").style.display="none";
+		}
+		if(flagPassword==false){
+		document.getElementById("loginPassword").style.display="";
+		}else{
+		document.getElementById("loginPassword").style.display="none";
+		}
+		if(flagEmail&&flagPassword) {
+		_form.action = path + "?email=" + email + "&password=" + password;
+		_form.submit();
+		}
+
+		}
+		//注册js
+		function register(){
+		//alert("register");
+		var _form = document.getElementById("rg_alert");
+		var _inputs = _form.getElementsByTagName("input");
+		var email;
+		var password;
+		var Confirmpassword;
+		var username;
+		var path="/register";
+		var flagEmail=true;
+		var flagPassword=true;
+		var flagUsername=true;
+		var flagConfirmPassword=true;
+
+		for (var i = 0; i < _inputs.length; i++) {
+		if(_inputs[i].name.toString()=="email"){
+		email=_inputs[i].value;
+		if(email==null){
+		flagEmail=false;
+		}  else{
+		if(email.indexOf("@")<=-1){
+		flagEmail=false;
+		}
+		}
+		}
+		if(_inputs[i].name.toString()=="password"){
+		password=_inputs[i].value;
+		if(password==null||password==""){
+		flagPassword=false;
+		}
+		}
+		if(_inputs[i].name.toString()=="Confirmpassword"){
+		Confirmpassword=_inputs[i].value;
+		if(Confirmpassword==null||Confirmpassword==""){
+		flagConfirmPassword=false;
+		}if(password!=Confirmpassword){
+		flagConfirmPassword=false;
+		}
+		}
+		if(_inputs[i].name.toString()=="username"){
+		username=_inputs[i].value;
+		if(username==null||username==""){
+		flagUsername=false;
+		}
+		}
+		}
+		//alert("flagPassword="+flagPassword);
+		//alert("flagEmail="+flagEmail);
+		if(flagEmail==false){
+		document.getElementById("regEmail").style.display="";
+		}else{
+		document.getElementById("regEmail").style.display="none";
+		}
+		if(flagPassword==false){
+		document.getElementById("regPassword").style.display="";
+		}else{
+		document.getElementById("regPassword").style.display="none";
+		}
+		if(flagUsername==false){
+		document.getElementById("regUsername").style.display="";
+		}else{
+		document.getElementById("regUsername").style.display="none";
+		}
+		if(flagConfirmPassword==false){
+		document.getElementById("regConfirmPassword").style.display="";
+		}else{
+		document.getElementById("regConfirmPassword").style.display="none";
+		}
+		if(flagEmail&&flagPassword&&flagUsername&&flagConfirmPassword) {
+		_form.action = path + "?email=" + email + "&password=" + password+"&username="+username;
+		_form.submit();
+		}
+		}
+		//登录js
+		function findPassword(){
+		//alert("findPassword");
+		var _form = document.getElementById("find_alert");
+		var _inputs = _form.getElementsByTagName("input");
+		var email;
+		var path="/findPassword";
+		var flagEmail=true;
+		for (var i = 0; i < _inputs.length; i++) {
+		if(_inputs[i].name.toString()=="email"){
+		email=_inputs[i].value;
+		if(email==null){
+		flagEmail=false;
+		}  else{
+		if(email.indexOf("@")<=-1){
+		flagEmail=false;
+		}
+		}
+
+		}
+		}
+		//alert("flagPassword="+flagPassword);
+		//alert("flagEmail="+flagEmail);
+		if(flagEmail==false){
+		document.getElementById("findPassword").style.display="";
+		}else{
+		document.getElementById("findPassword").style.display="none";
+		}
+		if(flagEmail) {
+		$(".find_alert").hide();
+		$(".success_alert").show();
+		setTimeout(function(){
+		_form.action = path + "?email=" + email;
+		_form.submit();
+		},1000);
+		}
+
+		}
+		</script>
+
 	</head>
 	<body>
 		<div class="head">
 			<div class="container clearfix">
 			<div class="right">
+				<span  th:if="${#lists.isEmpty(loginStatus)}">
 				<!--登录前-->
 				<a href="javascript:;" class="left lgbtn">登录</a>
 				<span class="left">&nbsp;|&nbsp;</span>
 				<a href="javascript:;" class="left regbtn">注册</a>
+                </span>
+
+				<span  th:if="${not #lists.isEmpty(loginStatus)}">
 				<!--登录后-->
-				<!--<div class="left login_hou">
+				<div class="left login_hou">
 					<p class="login_per">
-						<a href="#">zhaojianfan  </a>
+						<a href="#"><span th:text="${userName}"></span></a>
 					</p>
 					<div class="login_hou_yin">
 						<p>
-							<a href="#" class="out">退出</a>
+							<a href="gaikuang.html" class="out">广告平台</a>
+						</p>
+                        <p>
+							<a href="#" class="out">媒体平台</a>
+						</p>
+                        <p>
+							<a href="/signout" class="out">退出</a>
 						</p>
 					</div>
-				</div>-->
+				</div>
+                 </span>
 				<div class="left language clearfix">
 					<div class="clearfix lang"><span class="left">简体中文</span><em class="left"></em></div>
 					<div class="language_con">
@@ -500,106 +672,111 @@
 	    		</div>
 	    	</div>
 	    </div>
-	     <!--弹窗-->
-	    
-	    <div class="huibg">  </div>
-	    	<!--登录-->
-	    <div class="alert login_alert">
-	    	<div class="alert_img">
-	    		<img src="images/lg_03.jpg" />
-	    	</div>
-	    	<form>
-	    		<div class="lg_gp clearfix">
-	    			<img src="images/lg07.jpg" class="left" />
-	    			<div class="lg_input">
-	    				<input type="text" placeholder="邮箱地址" />
-	    			</div>
-	    		</div>
-	    		<div class="erro">请输入正确的邮箱</div>
-	    		<div class="lg_gp clearfix">
-	    			<img src="images/lg08.jpg" class="left" />
-	    			<div class="lg_input">
-	    				<input type="text" placeholder="密码" />
-	    			</div>
-	    		</div>
-	    		<div class="erro">请输入密码</div>
-	    		<div class="lg_btn">
-	    			<input type="button" value="登录" />
-	    		</div>
-	    		<div class="clearfix lg_link">
-	    			<a href="javascript:;" class="left ljzc">立即注册 >></a>
-	    			<a href="javascript:;" class="right wangmi">忘记密码？</a>
-	    		</div>
-	    	</form>
-	    </div>
-	   <!-- 注册-->
-	   <div class="alert rg_alert">
-	    	<div class="alert_img">
-	    		<img src="images/lg_03.jpg" />
-	    	</div>
-	    	<form>
-	    		<div class="lg_gp clearfix">
-	    			<img src="images/lg03.jpg" class="left" />
-	    			<div class="lg_input">
-	    				<input type="text" placeholder="用户名" />
-	    			</div>
-	    		</div>
-	    		<div class="erro">请输入正确的用户名</div>
-	    		<div class="lg_gp clearfix">
-	    			<img src="images/lg07.jpg" class="left" />
-	    			<div class="lg_input">
-	    				<input type="text" placeholder="邮箱地址" />
-	    			</div>
-	    		</div>
-	    		<div class="erro">请输入邮箱</div>
-	    		<div class="lg_gp clearfix">
-	    			<img src="images/lg08.jpg" class="left" />
-	    			<div class="lg_input">
-	    				<input type="text" placeholder="输入密码" />
-	    			</div>
-	    		</div>
-	    		<div class="erro">请输入邮箱</div>
-	    		<div class="lg_gp clearfix">
-	    			<img src="images/lg_10.jpg" class="left" />
-	    			<div class="lg_input">
-	    				<input type="text" placeholder="确认密码" />
-	    			</div>
-	    		</div>
-	    		<div class="erro">请输入邮箱</div>
-	    		
-	    		
-	    		<div class="lg_btn">
-	    			<input type="button" value="注册" />
-	    		</div>
-	    		<div class="clearfix lg_link">
-	    			<a href="javascript:;" class="left yiyou">已有账号，快速登录</a>
-	    		</div>
-	    	</form>
-	    </div>
-	    <!--找回密码-->
-	    <div class="alert find_alert">
-	    	<div class="alert_img">
-	    		<img src="images/lg_03.jpg" />
-	    	</div>
-	    	<form>
-	    		<div class="lg_gp clearfix">
-	    			<img src="images/lg07.jpg" class="left" />
-	    			<div class="lg_input">
-	    				<input type="text" placeholder="邮箱地址" />
-	    			</div>
-	    		</div>
-	    		<div class="tishi">请输入邮箱，我们会发送重置密码链接到您的邮箱</div>
-	    		<!--<div class="erro">请输入正确的邮箱</div>-->
-	    	
-	    		<div class="lg_btn">
-	    			<input type="button" value="确定" />
-	    		</div>
-	    		<div class="clearfix lg_link">
-	    			<a href="javascript:;" class="left yiyou">已有账号，快速登录</a>
-	    		</div>
-	    	</form>
-	    </div>
-	    <script type="text/javascript" src="js/index.js" ></script>
+		<!--成功-->
+		<div class="alert success_alert">
+			<em class="cha"></em>
+			<img src="images/tjgg_03.jpg" />
+			<p>已成功发送!</p>
+		</div>
+
+
+		<div class="huibg">  </div>
+		<!--登录-->
+		<div class="alert login_alert" id="login">
+			<div class="alert_img">
+				<img src="images/lg_03.jpg" />
+			</div>
+			<form id="login_alert">
+				<div class="lg_gp clearfix">
+					<img src="images/lg07.jpg" class="left" />
+					<div class="lg_input">
+						<input type="text" name="email" placeholder="邮箱地址" />
+					</div>
+				</div>
+				<div class="erro" id="loginEmail" style="display:none;">请输入正确的邮箱</div>
+				<div class="lg_gp clearfix">
+					<img src="images/lg08.jpg" class="left" />
+					<div class="lg_input">
+						<input type="password" name="password" placeholder="密码" />
+					</div>
+				</div>
+				<div class="erro" id="loginPassword" style="display:none;">请输入密码</div>
+				<div class="lg_btn">
+					<input type="button" value="登录" onclick="login()"/>
+				</div>
+				<div class="clearfix lg_link">
+					<a href="javascript:;" class="left ljzc">立即注册 >></a>
+					<a href="javascript:;" class="right wangmi">忘记密码？</a>
+				</div>
+			</form>
+		</div>
+		<!-- 注册-->
+		<div class="alert rg_alert">
+			<div class="alert_img">
+				<img src="images/lg_03.jpg" />
+			</div>
+			<form id="rg_alert" action="/register">
+				<div class="lg_gp clearfix">
+					<img src="images/lg03.jpg" class="left" />
+					<div class="lg_input">
+						<input type="text" name="username" placeholder="用户名"/>
+					</div>
+				</div>
+				<div class="erro" id="regUsername" style="display: none">请输入正确的用户名</div>
+				<div class="lg_gp clearfix">
+					<img src="images/lg07.jpg" class="left" />
+					<div class="lg_input">
+						<input type="text" name="email" placeholder="邮箱地址" />
+					</div>
+				</div>
+				<div class="erro" id="regEmail" style="display: none">请输入邮箱</div>
+				<div class="lg_gp clearfix">
+					<img src="images/lg08.jpg" class="left" />
+					<div class="lg_input">
+						<input type="password" name="password" placeholder="输入密码" />
+					</div>
+				</div>
+				<div class="erro" id="regPassword"style="display: none">请输入密码</div>
+				<div class="lg_gp clearfix">
+					<img src="images/lg_10.jpg" class="left" />
+					<div class="lg_input">
+						<input type="password" name="Confirmpassword" placeholder="确认密码" />
+					</div>
+				</div>
+
+				<div class="erro" id="regConfirmPassword" style="display: none">请输入相同密码</div>
+				<div class="lg_btn">
+					<input type="button" value="注册" onclick="register()"/>
+				</div>
+				<div class="clearfix lg_link">
+					<a href="javascript:;" class="left yiyou">已有账号，快速登录</a>
+				</div>
+			</form>
+		</div>
+		<!--找回密码-->
+		<div class="alert find_alert">
+			<div class="alert_img">
+				<img src="images/lg_03.jpg" />
+			</div>
+			<form id="find_alert">
+				<div class="lg_gp clearfix">
+					<img src="images/lg07.jpg" class="left" />
+					<div class="lg_input">
+						<input type="text" name="email" placeholder="邮箱地址" />
+					</div>
+				</div>
+				<div class="tishi">请输入邮箱，我们会发送重置密码链接到您的邮箱</div>
+				<div class="erro" id="findPassword" style="display: none">请输入正确的邮箱</div>
+
+				<div class="lg_btn">
+					<input type="button" value="确定" onclick="findPassword()"/>
+				</div>
+				<div class="clearfix lg_link">
+					<a href="javascript:;" class="left yiyou">已有账号，快速登录</a>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript" src="js/index.js" ></script>
 	   
 	     <script type="text/javascript" src="js/head.js" ></script>
 	</body>

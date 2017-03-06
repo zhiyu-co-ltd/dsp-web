@@ -42,15 +42,56 @@ public class WelcomeController {
 		return "index";
 	}
 	@RequestMapping("/ad")
-	public String ad(Map<String, Object> model) {
+	public String ad(Map<String, Object> model,HttpServletRequest request) {
+		Cookie[] cookie = request.getCookies();
+		if(cookie!=null) {
+			for (int i = 0; i < cookie.length; i++) {
+				Cookie cook = cookie[i];
+				if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+					String userId = cook.getValue().toString();
+					User user = userService.findUserByUserId(userId);
+					model.put("loginStatus", "true");
+					model.put("userName", user.getName());
+					break;
+				}
+			}
+		}
 		return "ad";
 	}
+
 	@RequestMapping("/feed")
-	public String feed(Map<String, Object> model) {
+	public String feed(Map<String, Object> model,HttpServletRequest request) {
+		Cookie[] cookie = request.getCookies();
+		if(cookie!=null) {
+			for (int i = 0; i < cookie.length; i++) {
+				Cookie cook = cookie[i];
+				if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+					String userId = cook.getValue().toString();
+					User user = userService.findUserByUserId(userId);
+					model.put("loginStatus", "true");
+					model.put("userName", user.getName());
+					break;
+				}
+			}
+		}
 		return "feed";
 	}
 	@RequestMapping("/about")
-	public String about(Map<String, Object> model) {return "about";
+	public String about(Map<String, Object> model,HttpServletRequest request) {
+		Cookie[] cookie = request.getCookies();
+		if(cookie!=null) {
+			for (int i = 0; i < cookie.length; i++) {
+				Cookie cook = cookie[i];
+				if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+					String userId = cook.getValue().toString();
+					User user = userService.findUserByUserId(userId);
+					model.put("loginStatus", "true");
+					model.put("userName", user.getName());
+					break;
+				}
+			}
+		}
+		return "about";
 	}
 	@RequestMapping("/gaikuang")
 	public String gaikuang(Map<String, Object> model) {return "gaikuang";
