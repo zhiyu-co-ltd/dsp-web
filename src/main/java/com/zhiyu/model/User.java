@@ -1,5 +1,6 @@
 package com.zhiyu.model;
 
+import javax.persistence.Column;
 import javax.persistence.Table;
 
 /**
@@ -7,19 +8,31 @@ import javax.persistence.Table;
  */
 @Table(name="T_User")
 public class User extends BaseEntity{
-
+    @Column(name="user_id")
     private String User_Id;//与数据库对应字段名称
+    @Column(name="email")
     private String Email;
+    @Column(name="qq")
     private String Qq;
+    @Column(name="password")
     private String Password;
+    @Column(name="name")
     private String Name;
+    @Column(name="phone")
     private String Phone;
+    @Column(name="weixin")
     private String Weixin;
+    @Column(name="type")
     private String Type="0";
+    @Column(name="company_type")
     private String CompanyType;
+    @Column(name="ad_account_money")
     private String AdAccountMoney="0";
+    @Column(name="cost_today")
     private String CostToday="0";
+    @Column(name="update_status")
     private int UpdateStatus;
+    @Column(name="update_time")
     private String  UpdateTime;
 
 
