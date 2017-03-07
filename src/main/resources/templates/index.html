@@ -135,8 +135,13 @@ function register(){
 	//alert("flagEmail="+flagEmail);
 	if(flagEmail==false){
 		document.getElementById("regEmail").style.display="";
+        document.getElementById("regEmailExist").style.display = "none";
 	}else{
 		document.getElementById("regEmail").style.display="none";
+        var ss=document.getElementById("regEmailExist").style.display;
+        if(ss==""){
+            flagEmail=false;
+        }
 	}
 	if(flagPassword==false){
 		document.getElementById("regPassword").style.display="";
@@ -159,23 +164,38 @@ function register(){
 	}
 }
 //检验注册邮箱js
-function check(){
-    alert("checkEmail");
-    var email=document.getElementById("checkEmail").value;
-    alert("email="+email);
+function check(flag){
+  // alert("checkEmail");
+    if(flag=="regEmail") {
+        var email = document.getElementById("checkEmail").value;
+    }
+    if(flag=="findPassword") {
+        var email = document.getElementById("findPasswordEmail").value;
+    }
+   // alert("email="+email);
     $.ajax({
         type:"GET",
         url:"/checkEmail",
-        dataType:"html",
+        dataType:"json",
         data:"email="+email,
         success:function(data) {
-            alert("data="+data);
-            if (data == "true") {
-               alert("已存在注册邮箱");
-            } else {
-                alert("可以注册");
+            // alert("userId="+data.userId);
+                if (data.userId != null&& data.userId != "") {
+                    if(flag=="regEmail") {
+                        document.getElementById("regEmailExist").style.display = "";
+                        document.getElementById("regEmail").style.display="none";
+                    }else if(flag=="findPassword"){
+                        document.getElementById("findPasswordExist").style.display = "none";
+                    }
+                } else{
+                    if(flag=="regEmail") {
+                        document.getElementById("regEmailExist").style.display = "none";
+                    }else if(flag=="findPassword"){
+                        document.getElementById("findPasswordExist").style.display = "";
+                        document.getElementById("findPassword").style.display = "none";
+                    }
+                }
             }
-        }
 });
 }
 //找回密码js
@@ -203,8 +223,13 @@ function findPassword(){
 	//alert("flagEmail="+flagEmail);
 	if(flagEmail==false){
 		document.getElementById("findPassword").style.display="";
+        document.getElementById("findPasswordExist").style.display = "none";
 	}else{
 		document.getElementById("findPassword").style.display="none";
+        var findPasswordExistFlag=document.getElementById("findPasswordExist").style.display;
+        if(findPasswordExistFlag==""){
+            flagEmail=false;
+        }
 	}
 	if(flagEmail) {
 		$(".find_alert").hide();
@@ -212,7 +237,7 @@ function findPassword(){
 		setTimeout(function(){
 			_form.action = path + "?email=" + email;
 			_form.submit();
-		},1000);
+		},200);
 	}
 
 }
@@ -858,10 +883,11 @@ function findPassword(){
 	    		<div class="lg_gp clearfix">
 	    			<img src="images/lg07.jpg" class="left" />
 	    			<div class="lg_input">
-	    				<input type="text" name="email" placeholder="邮箱地址" id="checkEmail" onchange="check()"/>
+	    				<input type="text" name="email" placeholder="邮箱地址" id="checkEmail" onchange="check('regEmail')"/>
 	    			</div>
 	    		</div>
 	    		<div class="erro" id="regEmail" style="display: none">请输入邮箱</div>
+                <div class="erro" id="regEmailExist" style="display: none">此邮箱已经被注册,请输入新邮箱</div>
 	    		<div class="lg_gp clearfix">
 	    			<img src="images/lg08.jpg" class="left" />
 	    			<div class="lg_input">
@@ -894,11 +920,12 @@ function findPassword(){
 	    		<div class="lg_gp clearfix">
 	    			<img src="images/lg07.jpg" class="left" />
 	    			<div class="lg_input">
-	    				<input type="text" name="email" placeholder="邮箱地址" />
+	    				<input type="text" id="findPasswordEmail"  name="email" placeholder="邮箱地址" onchange="check('findPassword')"/>
 	    			</div>
 	    		</div>
 	    		<div class="tishi">请输入邮箱，我们会发送重置密码链接到您的邮箱</div>
 	    		<div class="erro" id="findPassword" style="display: none">请输入正确的邮箱</div>
+                <div class="erro" id="findPasswordExist" style="display: none">您输入的注册邮箱不存在,请重新输入</div>
 	    	
 	    		<div class="lg_btn">
 	    			<input type="button" value="确定" onclick="findPassword()"/>

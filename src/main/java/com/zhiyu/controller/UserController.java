@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -65,15 +66,19 @@ public class UserController {
         response.addCookie(Usercookie);
 		return "index";
 	}
-	@RequestMapping("/checkEmail")
-	public String checkEmail(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
+    @ResponseBody
+    @RequestMapping("/checkEmail")
+	public User checkEmail(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
         String email = request.getParameter("email");
         log.info(">>>>>>>>"+email+"  "+email);
         User user =  userService.findUserByEmail(email);
         if(user!=null) {
             log.info(">>>>>>>>" + user + "用户名:" + user.getName() + "密码" + user.getPassword());
+        }else{
+            user=new User();
         }
-        return "index";
+        log.info("user=" + user);
+        return user;
 	}
 
 	@RequestMapping("/findPassword")
