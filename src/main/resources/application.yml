@@ -2,6 +2,7 @@ server:
     port: 8080
     context-path: #/zhiyu/
 
+
 logging:
     level:
         tk.mybatis: DEBUG
@@ -9,9 +10,9 @@ logging:
 spring:
     datasource:
         name: dsp
-        url: jdbc:mysql://127.0.0.1:3306/dsp
-        username: dsp
-        password: dsp
+        url: jdbc:mysql://127.0.0.1:3306/zhiyu?useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password:
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver

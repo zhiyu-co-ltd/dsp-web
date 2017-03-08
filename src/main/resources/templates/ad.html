@@ -15,53 +15,6 @@
       <script src="js/respond.src.js"></script>
            <!--<![endif]-->
 		<script>
-		//登录js
-		function login(){
-		//alert("login");
-		var _form = document.getElementById("login_alert");
-		var _inputs = _form.getElementsByTagName("input");
-		var email;
-		var password;
-		var path="/login";
-		var flagEmail=true;
-		var flagPassword=true;
-		for (var i = 0; i < _inputs.length; i++) {
-		if(_inputs[i].name.toString()=="email"){
-		email=_inputs[i].value;
-		if(email==null){
-		flagEmail=false;
-		}  else{
-		if(email.indexOf("@")<=-1){
-		flagEmail=false;
-		}
-		}
-
-		}
-		if(_inputs[i].name.toString()=="password"){
-		password=_inputs[i].value;
-		if(password==null||password==""){
-		flagPassword=false;
-		}
-		}
-		}
-		//alert("flagPassword="+flagPassword);
-		//alert("flagEmail="+flagEmail);
-		if(flagEmail==false){
-		document.getElementById("loginEmail").style.display="";
-		}else{
-		document.getElementById("loginEmail").style.display="none";
-		}
-		if(flagPassword==false){
-		document.getElementById("loginPassword").style.display="";
-		}else{
-		document.getElementById("loginPassword").style.display="none";
-		}
-		if(flagEmail&&flagPassword) {
-		_form.action = path + "?email=" + email + "&password=" + password;
-		_form.submit();
-		}
-
-		}
 		//注册js
 		function register(){
 		//alert("register");
@@ -113,8 +66,13 @@
 		//alert("flagEmail="+flagEmail);
 		if(flagEmail==false){
 		document.getElementById("regEmail").style.display="";
+		document.getElementById("regEmailExist").style.display = "none";
 		}else{
 		document.getElementById("regEmail").style.display="none";
+		var ss=document.getElementById("regEmailExist").style.display;
+		if(ss==""){
+		flagEmail=false;
+		}
 		}
 		if(flagPassword==false){
 		document.getElementById("regPassword").style.display="";
@@ -135,6 +93,41 @@
 		_form.action = path + "?email=" + email + "&password=" + password+"&username="+username;
 		_form.submit();
 		}
+		}
+		//检验注册邮箱js
+		function check(flag){
+		// alert("checkEmail");
+		if(flag=="regEmail") {
+		var email = document.getElementById("checkEmail").value;
+		}
+		if(flag=="findPassword") {
+		var email = document.getElementById("findPasswordEmail").value;
+		}
+		// alert("email="+email);
+		$.ajax({
+		type:"GET",
+		url:"/checkEmail",
+		dataType:"json",
+		data:"email="+email,
+		success:function(data) {
+		// alert("userId="+data.userId);
+		if (data.userId != null&& data.userId != "") {
+		if(flag=="regEmail") {
+		document.getElementById("regEmailExist").style.display = "";
+		document.getElementById("regEmail").style.display="none";
+		}else if(flag=="findPassword"){
+		document.getElementById("findPasswordExist").style.display = "none";
+		}
+		} else{
+		if(flag=="regEmail") {
+		document.getElementById("regEmailExist").style.display = "none";
+		}else if(flag=="findPassword"){
+		document.getElementById("findPasswordExist").style.display = "";
+		document.getElementById("findPassword").style.display = "none";
+		}
+		}
+		}
+		});
 		}
 		//找回密码js
 		function findPassword(){
@@ -161,8 +154,13 @@
 		//alert("flagEmail="+flagEmail);
 		if(flagEmail==false){
 		document.getElementById("findPassword").style.display="";
+		document.getElementById("findPasswordExist").style.display = "none";
 		}else{
 		document.getElementById("findPassword").style.display="none";
+		var findPasswordExistFlag=document.getElementById("findPasswordExist").style.display;
+		if(findPasswordExistFlag==""){
+		flagEmail=false;
+		}
 		}
 		if(flagEmail) {
 		$(".find_alert").hide();
@@ -170,7 +168,7 @@
 		setTimeout(function(){
 		_form.action = path + "?email=" + email;
 		_form.submit();
-		},1000);
+		},200);
 		}
 
 		}
@@ -672,7 +670,6 @@
 	    		</div>
 	    	</div>
 	    </div>
-		<!--成功-->
 		<div class="alert success_alert">
 			<em class="cha"></em>
 			<img src="images/tjgg_03.jpg" />
@@ -726,10 +723,11 @@
 				<div class="lg_gp clearfix">
 					<img src="images/lg07.jpg" class="left" />
 					<div class="lg_input">
-						<input type="text" name="email" placeholder="邮箱地址" />
+						<input type="text" name="email" placeholder="邮箱地址" id="checkEmail" onchange="check('regEmail')"/>
 					</div>
 				</div>
 				<div class="erro" id="regEmail" style="display: none">请输入邮箱</div>
+				<div class="erro" id="regEmailExist" style="display: none">此邮箱已经被注册,请输入新邮箱</div>
 				<div class="lg_gp clearfix">
 					<img src="images/lg08.jpg" class="left" />
 					<div class="lg_input">
@@ -762,11 +760,12 @@
 				<div class="lg_gp clearfix">
 					<img src="images/lg07.jpg" class="left" />
 					<div class="lg_input">
-						<input type="text" name="email" placeholder="邮箱地址" />
+						<input type="text" id="findPasswordEmail"  name="email" placeholder="邮箱地址" onchange="check('findPassword')"/>
 					</div>
 				</div>
 				<div class="tishi">请输入邮箱，我们会发送重置密码链接到您的邮箱</div>
 				<div class="erro" id="findPassword" style="display: none">请输入正确的邮箱</div>
+				<div class="erro" id="findPasswordExist" style="display: none">您输入的注册邮箱不存在,请重新输入</div>
 
 				<div class="lg_btn">
 					<input type="button" value="确定" onclick="findPassword()"/>
