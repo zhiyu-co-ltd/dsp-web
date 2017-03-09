@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta charset="utf-8" />
@@ -25,9 +25,7 @@
 					</div>
 					<div class="tj_main_lf_text">
 						<p class="per_a">
-							<a href="per.html">
-							John Smith
-							</a>
+							<a href="per.html"><span th:text="${userName}"></span>
 						</p>
 						
 					</div>
@@ -75,14 +73,14 @@
 				<div class="tj_main_rt_con">
 					<div class="tj_main_rt_tl clearfix">
 						<em class="tj_head_btn left"></em>
-						<a href="#" class="tj_out right" onclick="">注销</a>
+						<a href="/signout" class="tj_out right" >注销</a>
 						<div class="right clearfix tj_head_tx">
 							<a href="per.html">
 							<img src="images/tx.jpg" class="left" />
 							</a>
-							<span class="left"><a href="per.html">John Smith</a></span>
-							<span class="left head_link"><a href="index.html">首页</a></span>
-							<span class="left head_link"><a href="feed.html">媒体主</a></span>
+							<span class="left"><a href="per.html"><span th:text="${userName}"></span></a></span>
+							<span class="left head_link"><a href="gaikuang.html">返回</a></span>
+							<!--<span class="left head_link"><a href="feed.html">媒体主</a></span>-->
 						</div>
 					</div>
 
