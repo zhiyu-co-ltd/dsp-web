@@ -109,8 +109,8 @@ public class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
-                    model.put("ad_account_money", "9999");
-                    model.put("cost_today", "3241");
+                    model.put("ad_account_money", "999932");
+                    model.put("cost_today", "3241999");
                     model.put("pv", "212111111");
                     model.put("download", "2121111112");
                     model.put("click", "2121111113");
@@ -310,7 +310,7 @@ public class WelcomeController {
 
     @ResponseBody
     @RequestMapping("/getLastDay")
-    public Object getLastDay(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
+    public String getLastDay(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
         String past = request.getParameter("past");
         if(past==null||"".equals(past)){
             past="0";
@@ -323,6 +323,6 @@ public class WelcomeController {
         }
         log.info(pastDay+":"+day);
 
-        return "{\"pastDay\":"+pastDay+",\"day\":"+day+"}";
+        return "{\"pastDay\":"+"\""+pastDay+"\",\"day\":\""+day+"\"}";
     }
 }

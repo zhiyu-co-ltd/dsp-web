@@ -19,6 +19,50 @@
 			});
 		</script>
 		<script type="text/javascript" src="js/jquery.circliful.js"></script>
+
+        <script>
+            //检验注册邮箱js
+            function getLastDay(past){
+              //  alert("past="+past);
+                $.ajax({
+                    type:"GET",
+                    url:"/getLastDay",
+                    dataType:"json",
+                    data:"past="+past,
+                    success:function(data) {
+                        //alert("data="+data)
+                        //alert("day="+data.day);
+                        //alert("pastDay="+data.pastDay);
+                        document.getElementById("datepicker").value=data.pastDay;
+                        document.getElementById("datepicker1").value=data.day;
+                        if(past=="0") {
+                            document.getElementById("day0").className = "ahover";
+                            document.getElementById("day1").className = "";
+                            document.getElementById("day7").className = "";
+                            document.getElementById("day30").className = "";
+                        }
+                        if(past=="1"){
+                            document.getElementById("day1").className="ahover";
+                            document.getElementById("day0").className="";
+                            document.getElementById("day7").className="";
+                            document.getElementById("day30").className="";
+                        }
+                        if(past=="7"){
+                            document.getElementById("day7").className="ahover";
+                            document.getElementById("day0").className="";
+                            document.getElementById("day1").className="";
+                            document.getElementById("day30").className="";
+                        }
+                        if(past=="30"){
+                            document.getElementById("day30").className="ahover";
+                            document.getElementById("day0").className="";
+                            document.getElementById("day1").className="";
+                            document.getElementById("day7").className="";
+                        }
+                    }
+                });
+            }
+        </script>
 	</head>
 
 	<body>
@@ -140,10 +184,10 @@
 					</ul>
 					<div class="gankuang_two">
 						<div class="gankuang_two_tl clearfix">
-							<a href="#" class="ahover">今天</a>
-							<a href="#">昨天</a>
-							<a href="#">过去7天</a>
-							<a href="#">过去30天</a>
+							<a href="javascript:void(0)" onClick="getLastDay('0')" id="day0" class="ahover">今天</a>
+                            <a href="javascript:void(0)" onClick="getLastDay('1')" id="day1"  >昨天</a>
+                            <a href="javascript:void(0)" onClick="getLastDay('7')" id="day7" >过去7天</a>
+                            <a href="javascript:void(0)" onClick="getLastDay('30')" id="day30" >过去30天</a>
 							<input type="text" class="left rili" id="datepicker" th:value="${day}"/>
 							<span class="left zhi">至</span>
 							<input type="text" class="left rili" id="datepicker1" th:value="${day}"/>
