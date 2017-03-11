@@ -21,7 +21,7 @@
 		<script type="text/javascript" src="js/jquery.circliful.js"></script>
 
         <script>
-            //检验注册邮箱js
+            //获取查询时间
             function getLastDay(past){
               //  alert("past="+past);
                 $.ajax({
@@ -62,6 +62,23 @@
                     }
                 });
             }
+			//根据查询时间查找数据
+			function search(){
+				alert("search");
+                var startDate=document.getElementById("datepicker").value;
+                var endDate=document.getElementById("datepicker1").value;
+                alert("startDate="+startDate);
+                alert("endDate="+endDate);
+				$.ajax({
+					type:"GET",
+					url:"/searchForGaiKuang",
+					dataType:"json",
+					data:"startDate="+sratrDate+"&endDate="+endDate,
+					success:function(data) {
+						alert("data="+data);
+					}
+				});
+			}
         </script>
 	</head>
 
@@ -191,7 +208,7 @@
 							<input type="text" class="left rili" id="datepicker" th:value="${day}"/>
 							<span class="left zhi">至</span>
 							<input type="text" class="left rili" id="datepicker1" th:value="${day}"/>
-							<input type="button" class="left" value="查询" />
+							<input type="button" class="left" value="查询" onclick="search()"/>
 							<a href="#" class="right down">下载报表</a>
 						</div>
 						<div class="gankuang_two_con">

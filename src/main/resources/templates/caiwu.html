@@ -8,6 +8,66 @@
 		<link rel="stylesheet" href="css/houtai.css" />
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 		<script type="text/javascript" src="js/select.js"></script>
+		<script>
+			//获取查询时间
+			function getLastDay(past){
+				//  alert("past="+past);
+				$.ajax({
+					type:"GET",
+					url:"/getLastDay",
+					dataType:"json",
+					data:"past="+past,
+					success:function(data) {
+						//alert("data="+data)
+						//alert("day="+data.day);
+						//alert("pastDay="+data.pastDay);
+						document.getElementById("datepicker").value=data.pastDay;
+						document.getElementById("datepicker1").value=data.day;
+						if(past=="0") {
+							document.getElementById("day0").className = "ahover";
+							document.getElementById("day1").className = "";
+							document.getElementById("day7").className = "";
+							document.getElementById("day30").className = "";
+						}
+						if(past=="1"){
+							document.getElementById("day1").className="ahover";
+							document.getElementById("day0").className="";
+							document.getElementById("day7").className="";
+							document.getElementById("day30").className="";
+						}
+						if(past=="7"){
+							document.getElementById("day7").className="ahover";
+							document.getElementById("day0").className="";
+							document.getElementById("day1").className="";
+							document.getElementById("day30").className="";
+						}
+						if(past=="30"){
+							document.getElementById("day30").className="ahover";
+							document.getElementById("day0").className="";
+							document.getElementById("day1").className="";
+							document.getElementById("day7").className="";
+						}
+					}
+				});
+			}
+			//根据查询时间查找数据
+			function search(){
+				alert("search");
+				var startDate=document.getElementById("datepicker").value;
+				var endDate=document.getElementById("datepicker1").value;
+				alert("startDate="+startDate);
+				alert("endDate="+endDate);
+				$.ajax({
+					type:"GET",
+					url:"/searchForGaiKuang",
+					dataType:"json",
+					data:"startDate="+sratrDate+"&endDate="+endDate,
+					success:function(data) {
+						alert("data="+data);
+					}
+				});
+			}
+		</script>
 	</head>
 
 	<body>
@@ -98,21 +158,25 @@
 												统计说明：今日花费数据可能会在次日核算后有变动，历史花费数据已累计更新至2016-11-05 23:59.
 											</p>
 											<div class="caiwu_huaifei">
-												<span>现金账户余额：0.00 元</span>
-												<span>历史花费：0.00 元</span>
-												<span>今日花费：0.00 元</span>
+												<span>现金账户余额：<span th:text="${ad_account_money}"></span> 元</span>
+												<span>历史花费：<span th:text="${historical_cost}"></span>元</span>
+												<span>今日花费：<span th:text="${today_cost}"></span>元</span>
 											</div>
 										</div>
 										<div class="left caiwu_one_rt">
 											<p>近 <span class="color_lan">7 </span>日消费（元）</p>
-											<p class="caiwu_one_rt_num">0.00</p>
+											<p class="caiwu_one_rt_num"><span th:text="${seven_day_cost}"></span></p>
 										</div>
 									</div>
 									<div class="clearfix gankuang_two_tl caiwu_two">
-										<input type="text" class="left rili" id="datepicker" />
+										<a href="javascript:void(0)" onClick="getLastDay('0')" id="day0" class="ahover">今天</a>
+										<a href="javascript:void(0)" onClick="getLastDay('1')" id="day1"  >昨天</a>
+										<a href="javascript:void(0)" onClick="getLastDay('7')" id="day7" >过去7天</a>
+										<a href="javascript:void(0)" onClick="getLastDay('30')" id="day30" >过去30天</a>
+										<input type="text" class="left rili" id="datepicker" th:value="${day}"/>
 										<span class="left zhi">至</span>
-										<input type="text" class="left rili" id="datepicker1" />
-										<input type="button" class="left" value="查询" />
+										<input type="text" class="left rili" id="datepicker1" th:value="${day}"/>
+										<input type="button" class="left" value="查询" onclick="search()"/>
 										<a href="#" class="right down">下载报表</a>
 									</div>
 									<p class="caiwu_leiji">

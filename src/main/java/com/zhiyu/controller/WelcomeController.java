@@ -144,6 +144,7 @@ public class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+                    model.put("day", DateUtil.getDay());
                     returnUrl="tuiguang";
                     break;
                 }
@@ -163,6 +164,7 @@ public class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+                    model.put("day", DateUtil.getDay());
                     returnUrl="guanggao";
                     break;
                 }
@@ -186,6 +188,7 @@ public class WelcomeController {
                     model.put("historical_cost", "10000");
                     model.put("today_cost", "200");
                     model.put("seven_day_cost", "3000");
+                    model.put("day", DateUtil.getDay());
                     returnUrl="caiwu";
                     break;
                 }
@@ -324,5 +327,16 @@ public class WelcomeController {
         log.info(pastDay+":"+day);
 
         return "{\"pastDay\":"+"\""+pastDay+"\",\"day\":\""+day+"\"}";
+    }
+
+    @ResponseBody
+    @RequestMapping("/searchForGaiKuang")
+    public String searchForGuaiKuang(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
+        String startDate = request.getParameter("startDate");
+        String endDate = request.getParameter("endDate");
+        log.info(">>>>>>>>startDate="+startDate+"; endDate"+endDate);
+
+        return "";
+        //return "{\"pastDay\":"+"\""+pastDay+"\",\"day\":\""+day+"\"}";
     }
 }
