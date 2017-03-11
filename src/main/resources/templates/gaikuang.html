@@ -144,9 +144,9 @@
 							<a href="#">昨天</a>
 							<a href="#">过去7天</a>
 							<a href="#">过去30天</a>
-							<input type="text" class="left rili" id="datepicker" />
+							<input type="text" class="left rili" id="datepicker" th:value="${day}"/>
 							<span class="left zhi">至</span>
-							<input type="text" class="left rili" id="datepicker1" />
+							<input type="text" class="left rili" id="datepicker1" th:value="${day}"/>
 							<input type="button" class="left" value="查询" />
 							<a href="#" class="right down">下载报表</a>
 						</div>
@@ -155,7 +155,7 @@
 								整体情况
 							</div>
 							<p class="tj_suoming">
-								统计说明：数据已完成核对至2016-11-05 23:59，一下数据有近1小时的统计延迟仅供参考，请以次日完成核对的数据为准。下载量为0，说明目前广告主没有下载类广告投放。
+								统计说明：数据已完成核对至<span th:text="${time}"></span>，以下数据有近1小时的统计延迟仅供参考，请以次日完成核对的数据为准。下载量为0，说明目前广告主没有下载类广告投放。
 							</p>
 							<ul class="tj_org_ul1 clearfix">
 								<li>

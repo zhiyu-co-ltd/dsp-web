@@ -5,6 +5,7 @@ import java.util.Map;
 import com.zhiyu.model.User;
 import com.zhiyu.service.UserService;
 
+import com.zhiyu.util.DateUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,9 +13,12 @@ import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class WelcomeController {
@@ -119,6 +123,8 @@ public class WelcomeController {
                     model.put("Average_download_conversion_rate", "65");
                     model.put("Click_average_price", "2.5");
                     model.put("Download_average_price", "6.0");
+                    model.put("time", DateUtil.getLastDay()+" 23:59:59");
+                    model.put("day", DateUtil.getDay());
                     returnUrl="gaikuang";
                     break;
                 }
@@ -176,6 +182,10 @@ public class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+                    model.put("ad_account_money", "1200");
+                    model.put("historical_cost", "10000");
+                    model.put("today_cost", "200");
+                    model.put("seven_day_cost", "3000");
                     returnUrl="caiwu";
                     break;
                 }
@@ -296,5 +306,23 @@ public class WelcomeController {
             }
         }
         return returnUrl;
+    }
+
+    @ResponseBody
+    @RequestMapping("/getLastDay")
+    public Object getLastDay(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
+        String past = request.getParameter("past");
+        if(past==null||"".equals(past)){
+            past="0";
+        }
+        log.info(">>>>>>>>"+past+"  "+past);
+        String pastDay=DateUtil.getPastDate(Integer.parseInt(past));
+        String day=DateUtil.getDay();
+        if(!past.equals("0")){
+            day=DateUtil.getLastDay();
+        }
+        log.info(pastDay+":"+day);
+
+        return "{\"pastDay\":"+pastDay+",\"day\":"+day+"}";
     }
 }
