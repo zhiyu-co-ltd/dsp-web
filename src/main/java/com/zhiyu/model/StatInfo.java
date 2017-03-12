@@ -10,6 +10,7 @@ public class StatInfo {
     private String userEmail;
     private String userName;
     private String userId;
+
     private List<StatAdInfo> adInfoList= new ArrayList<>();
 
     public String getUserEmail() {
