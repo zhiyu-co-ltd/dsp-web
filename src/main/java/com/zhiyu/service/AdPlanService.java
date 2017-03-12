@@ -33,7 +33,7 @@ public interface AdPlanService {
 
     public  List<AdPlan> findAdPlanByUserId(String userId);
 
-    public  List<AdPlan> findAdPlanByName(String userId);
+    public  List<AdPlan> findAdPlanByName(String name,String userId);
 
     public AdPlan getById(Integer id) ;
 

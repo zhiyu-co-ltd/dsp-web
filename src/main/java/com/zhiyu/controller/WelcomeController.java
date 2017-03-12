@@ -111,6 +111,8 @@ public class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    log.info("---userid="+model.get("userId"));
                     model.put("ad_account_money", "999932");
                     model.put("cost_today", "3241999");
                     model.put("pv", "212111111");
@@ -146,6 +148,8 @@ public class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    log.info("---userid="+model.get("userId"));
                     model.put("day", DateUtil.getDay());
                     returnUrl="tuiguang";
                     break;

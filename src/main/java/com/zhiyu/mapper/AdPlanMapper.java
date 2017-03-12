@@ -35,6 +35,6 @@ public interface AdPlanMapper  extends MyMapper<AdPlan> {
 
      List<AdPlan> findAdPlanByUserId(@Param("UserId") String UserId);
 
-     List<AdPlan> findAdPlanByName(@Param("name") String name);
+     List<AdPlan> findAdPlanByName(@Param("name") String name,@Param("UserId") String UserId);
 
 }

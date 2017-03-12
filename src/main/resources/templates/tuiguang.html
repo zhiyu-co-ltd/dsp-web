@@ -71,20 +71,20 @@
 
 		//新增推广计划js
 		function addAdPlan(){
-			//alert("addAdPlan");
 			var _form = document.getElementById("adPaln_add");
 			var _inputs = _form.getElementsByTagName("input");
-			var name;
+			var adplanname;
 			var dayconst;
+            var userid;
 			var path="/addAdPlan";
 			var flagname=true;
 			var flagdayconst=true;
 			for (var i = 0; i < _inputs.length; i++) {
-				if(_inputs[i].name.toString()=="adname"){
-                    alert("adname");
-                    name=_inputs[i].value;
-                    alert("name="+name);
-					if(name==null||name==""){
+				if(_inputs[i].name.toString()=="adplanname"){
+                    alert("adplanname");
+                    adplanname=_inputs[i].value;
+                    alert("adplanname="+adplanname);
+					if(adplanname==null||adplanname==""){
                         flagname=false;
 					}
 
@@ -96,6 +96,10 @@
                         flagdayconst=false;
 					}
 				}
+                if(_inputs[i].name.toString()=="userid"){
+                    userid=_inputs[i].value;
+                    alert("userid="+userid);
+                }
 			}
 //			alert("flagdayconst="+flagdayconst);
 //			alert("flagname="+flagname);
@@ -117,11 +121,54 @@
 //            $(".tuiguang_alert").show();
 
 			if(flagname&&flagdayconst) {
-				_form.action = path + "?name=" + name + "&daycost=" + dayconst;
+				alert("adplanname="+adplanname)
+				_form.action = path + "?adplanname="+adplanname + "&daycost=" + dayconst+"&userid="+userid;
 				_form.submit();
 			}
 
 		}
+
+
+        //查询推广计划js
+        function findAdPlanName(){
+            var _form = document.getElementById("findAdPlanByNameForm");
+            var _inputs = _form.getElementsByTagName("input");
+            var adplanname;
+            var userid;
+            var path="/findAdPlanByName";
+            var flagname=true;
+            for (var i = 0; i < _inputs.length; i++) {
+                if(_inputs[i].name.toString()=="adplanname"){
+                    alert("adplanname");
+                    adplanname=_inputs[i].value;
+                    alert("adplanname="+adplanname);
+                    if(adplanname==null||adplanname==""){
+                        flagname=false;
+                    }
+
+                }
+                if(_inputs[i].name.toString()=="userid"){
+                    userid=_inputs[i].value;
+                    alert("userid="+userid);
+                }
+            }
+
+//            if(flagname==false){
+//                // alert("11111="+111111);
+//                document.getElementById("AdPlan_name").style.display="none";
+//                // alert("ssss="+document.getElementById("AdPlan_name").style.display);
+//            }
+
+
+            if(flagname) {
+                alert("adplanname="+adplanname)
+                alert("userid="+userid)
+                _form.action = path + "?adplanname="+adplanname+"&userid="+userid;
+                _form.submit();
+            }
+
+        }
+
 
 		</script>
 	</head>
@@ -211,11 +258,17 @@
 								<p class="tj_suoming" style="margin-left: 0px;">
 									统计说明：数据已完成核对至2016-11-07 23:59 。以下数据有近1小时的统计延迟（实时余额除外）仅供参考，请以次日完成核对的数据为准。
 								</p>
+
 								<div class="gankuang_two_tl clearfix">
+
+                                    <form class="findAdPlanByNameForm" id="findAdPlanByNameForm">
 									<div class="clearfix ss left">
-										<input type="text" class="left" placeholder="请输入计划名称" />
-										<input type="button" class="right" />
+										<input type="text" class="left" id="searchAdPlanName" name="adplanname" placeholder="请输入计划名称" />
+                                        <input type="hidden" name="userid" th:value="${userId}" />
+										<input type="button" class="right" onclick="findAdPlanName()"/>
 									</div>
+                                    </form>
+
 									<a href="javascript:void(0)" onClick="getLastDay('0')" id="day0" class="ahover">今天</a>
 									<a href="javascript:void(0)" onClick="getLastDay('1')" id="day1"  >昨天</a>
 									<a href="javascript:void(0)" onClick="getLastDay('7')" id="day7" >过去7天</a>
@@ -316,7 +369,7 @@
 												</div>
 											</td>
 											<td>
-												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
+												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button>
 											</td>
 											<td>1.000.00</td>
 											<td>1.000.00</td>
@@ -441,7 +494,7 @@
 	        				推广计划名称
 	        			</span>
 	        			<div class="geren_rt tuiguang_input">
-	        				<input type="text" name="adname"/>
+	        				<input type="text" name="adplanname"/>
 	        			</div>
 	        			<span class="tuiguang_danwei">0/30</span>
 	        		</div>
@@ -456,6 +509,7 @@
 	        			</div>
 	        			<span class="tuiguang_danwei">元/天</span>
                          <div class="erro" id="AdPlan_daycost" style="display:none">请输入推广计划日限额</div>
+                        <input type="hidden" name="userid" th:value="${userId}" />
 	        		</div>
 	        	    
 	        		

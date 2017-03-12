@@ -46,8 +46,8 @@ public class AdPlanServiceImpl implements AdPlanService {
         return adPlanMapper.findAdPlanByUserId(userId);
     }
     @Override
-    public  List<AdPlan> findAdPlanByName(String name){
-        return adPlanMapper.findAdPlanByName(name);
+    public  List<AdPlan> findAdPlanByName(String name,String userid){
+        return adPlanMapper.findAdPlanByName(name,userid);
     }
 
     public AdPlan getById(Integer id) {
