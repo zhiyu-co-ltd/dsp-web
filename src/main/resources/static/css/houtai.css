@@ -20,6 +20,7 @@ body{background: #f2f4f8;}
 .gankuang_one li{float: left;width: 33.3%;font-size: 14px;color: #333333;}
 .gankuang_one_main{margin: 0px 20px;border: 1px solid #cccccc;background: #fff;padding: 20px 0px;}
 .color_red{color: #ff0000;}
+.erro{color: red;line-height: 25px;}
 .gankuang_one_one{padding-left: 25%;line-height: 25px;}
 .gankuang_one_num{font-size: 18px;}
 .gankuang_one img{margin-right: 15px;}

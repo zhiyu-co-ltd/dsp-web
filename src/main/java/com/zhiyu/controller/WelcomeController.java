@@ -30,6 +30,7 @@ public class WelcomeController {
 
 	@RequestMapping("/index")
 	public String welcome(Map<String, Object> model,HttpServletRequest request) {
+
 		Cookie[] cookie = request.getCookies();
 		if(cookie!=null) {
 			for (int i = 0; i < cookie.length; i++) {
@@ -43,6 +44,7 @@ public class WelcomeController {
 				}
 			}
 		}
+
 		return "index";
 	}
 	@RequestMapping("/ad")

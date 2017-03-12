@@ -25,13 +25,10 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zhiyu.mapper.AdPlanMapper" >
-<select id="query1" resultType="com.zhiyu.model.AdPlan" >
-    select id,user_id,name,status,day_const,realtime_money,adplan_id from t_adplan where 1=1
-    <if test="userId != null">
-        AND user_id like CONCAT('%',#{userId},'%')
-    </if>
-    <if test="name != null">
-        AND name like CONCAT('%',#{name},'%')
-    </if>
-</select>
+    <select id="findAdPlanByUserId" resultType="com.zhiyu.model.AdPlan" >
+        select * from T_User where user_id=#{user_id}
+    </select>
+    <select id="findAdPlanByName" resultType="com.zhiyu.model.AdPlan" >
+        select * from T_User where name like %#{name}%
+    </select>
 </mapper>

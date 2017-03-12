@@ -41,17 +41,13 @@ public class AdPlanServiceImpl implements AdPlanService {
     Logger log = Logger.getLogger(AdPlanServiceImpl.class);
     @Autowired
     private AdPlanMapper adPlanMapper;
-
-    public List<AdPlan> getAll(AdPlan adPlan) {
-        if (adPlan.getPage() != null && adPlan.getRows() != null) {
-            PageHelper.startPage(adPlan.getPage(), adPlan.getRows(), "id");
-        }
-        return adPlanMapper.selectAll();
-    }
-
     @Override
-    public List<AdPlan> query(String userId, String name) {
-        return adPlanMapper.query1(userId,name);
+    public  List<AdPlan> findAdPlanByUserId(String userId){
+        return adPlanMapper.findAdPlanByUserId(userId);
+    }
+    @Override
+    public  List<AdPlan> findAdPlanByName(String name){
+        return adPlanMapper.findAdPlanByName(name);
     }
 
     public AdPlan getById(Integer id) {
@@ -62,8 +58,8 @@ public class AdPlanServiceImpl implements AdPlanService {
         adPlanMapper.deleteByPrimaryKey(id);
     }
 
-    public void save(AdPlan adPlan) {
-        if (adPlan.getId() != null) {
+    public void save(AdPlan adPlan){
+        if (adPlan.getId()!=null) {
             adPlanMapper.updateByPrimaryKey(adPlan);
         } else {
             adPlanMapper.insert(adPlan);

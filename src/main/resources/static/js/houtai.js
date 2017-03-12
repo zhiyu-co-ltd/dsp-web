@@ -51,11 +51,11 @@ $(function() {
 		$(".geren_alert").hide();
 	});
 	$(".geren_btn input").click(function(){
-		$(".huibg").hide();
-		$(".renzheng_alert").hide();
-		$(".geren_alert").hide();
-		$(".qiye_alert").hide();
-		$(".tuiguang_alert").hide();
+		 $(".huibg").hide();
+		 $(".renzheng_alert").hide();
+		 $(".geren_alert").hide();
+		 $(".qiye_alert").hide();
+		 $(".tuiguang_alert").hide();
 	});
 	$(".biji").click(function(){
 		$(".tuiguang_alert").show();

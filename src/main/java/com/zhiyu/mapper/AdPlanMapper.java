@@ -32,6 +32,9 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface AdPlanMapper  extends MyMapper<AdPlan> {
-     List<AdPlan> query1(@Param("userId") String userId, @Param("name") String name);
+
+     List<AdPlan> findAdPlanByUserId(@Param("UserId") String UserId);
+
+     List<AdPlan> findAdPlanByName(@Param("name") String name);
 
 }

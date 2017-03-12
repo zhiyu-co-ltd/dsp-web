@@ -30,9 +30,10 @@ import java.util.List;
 
 
 public interface AdPlanService {
-    public  List<AdPlan> getAll(AdPlan adPlan);
 
-    public  List<AdPlan> query(String userId, String name);
+    public  List<AdPlan> findAdPlanByUserId(String userId);
+
+    public  List<AdPlan> findAdPlanByName(String userId);
 
     public AdPlan getById(Integer id) ;
 
