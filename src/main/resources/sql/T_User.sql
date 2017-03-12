@@ -23,11 +23,11 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `T_User`;
 CREATE TABLE `T_User` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
-  `email` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '注册email',
-  `password` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户密码',
-  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户昵称',
+  `email` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '注册email',
+  `password` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户密码',
+  `name` varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户昵称',
   `createtime` TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
-  `phone` varchar(20) DEFAULT NULL COMMENT '用户手机号',
+  `phone` varchar(128) DEFAULT NULL COMMENT '用户手机号',
   `qq` varchar(255) DEFAULT NULL COMMENT '用户qq号',
   `weixin` varchar(255) DEFAULT NULL COMMENT '用户微信号',
   `type` int(8) NOT NULL DEFAULT '0' COMMENT '用户类型：0，注册用户；1，广告主用户；2:媒体主用户；3:广告主和媒体主用户',
