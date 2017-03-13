@@ -53,18 +53,16 @@
 		}
 		//根据查询时间查找数据
 		function search(){
-		alert("search");
+		//alert("search");
 		var startDate=document.getElementById("datepicker").value;
 		var endDate=document.getElementById("datepicker1").value;
-		alert("startDate="+startDate);
-		alert("endDate="+endDate);
 		$.ajax({
 		type:"GET",
 		url:"/searchForGaiKuang",
 		dataType:"json",
 		data:"startDate="+sratrDate+"&endDate="+endDate,
 		success:function(data) {
-		alert("data="+data);
+		//alert("data="+data);
 		}
 		});
 		}
@@ -81,9 +79,9 @@
 			var flagdayconst=true;
 			for (var i = 0; i < _inputs.length; i++) {
 				if(_inputs[i].name.toString()=="adplanname"){
-                    alert("adplanname");
+                   // alert("adplanname");
                     adplanname=_inputs[i].value;
-                    alert("adplanname="+adplanname);
+                   // alert("adplanname="+adplanname);
 					if(adplanname==null||adplanname==""){
                         flagname=false;
 					}
@@ -98,7 +96,7 @@
 				}
                 if(_inputs[i].name.toString()=="userid"){
                     userid=_inputs[i].value;
-                    alert("userid="+userid);
+               //     alert("userid="+userid);
                 }
 			}
 //			alert("flagdayconst="+flagdayconst);
@@ -121,7 +119,7 @@
 //            $(".tuiguang_alert").show();
 
 			if(flagname&&flagdayconst) {
-				alert("adplanname="+adplanname)
+				//alert("adplanname="+adplanname)
 				_form.action = path + "?adplanname="+adplanname + "&daycost=" + dayconst+"&userid="+userid;
 				_form.submit();
 			}
@@ -139,9 +137,7 @@
             var flagname=true;
             for (var i = 0; i < _inputs.length; i++) {
                 if(_inputs[i].name.toString()=="adplanname"){
-                    alert("adplanname");
                     adplanname=_inputs[i].value;
-                    alert("adplanname="+adplanname);
                     if(adplanname==null||adplanname==""){
                         flagname=false;
                     }
@@ -149,7 +145,6 @@
                 }
                 if(_inputs[i].name.toString()=="userid"){
                     userid=_inputs[i].value;
-                    alert("userid="+userid);
                 }
             }
 
@@ -161,8 +156,6 @@
 
 
             if(flagname) {
-                alert("adplanname="+adplanname)
-                alert("userid="+userid)
                 _form.action = path + "?adplanname="+adplanname+"&userid="+userid;
                 _form.submit();
             }

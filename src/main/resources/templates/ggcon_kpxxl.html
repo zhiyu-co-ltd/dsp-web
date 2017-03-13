@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta charset="utf-8" />
@@ -19,6 +19,105 @@
 				}
 			});
 		</script>
+		<script>
+			//获取查询时间
+			function getLastDay(past){
+				//  alert("past="+past);
+				$.ajax({
+					type:"GET",
+					url:"/getLastDay",
+					dataType:"json",
+					data:"past="+past,
+					success:function(data) {
+						//alert("data="+data)
+						//alert("day="+data.day);
+						//alert("pastDay="+data.pastDay);
+						document.getElementById("datepicker").value=data.pastDay;
+						document.getElementById("datepicker1").value=data.day;
+						if(past=="0") {
+							document.getElementById("day0").className = "ahover";
+							document.getElementById("day1").className = "";
+							document.getElementById("day7").className = "";
+							document.getElementById("day30").className = "";
+						}
+						if(past=="1"){
+							document.getElementById("day1").className="ahover";
+							document.getElementById("day0").className="";
+							document.getElementById("day7").className="";
+							document.getElementById("day30").className="";
+						}
+						if(past=="7"){
+							document.getElementById("day7").className="ahover";
+							document.getElementById("day0").className="";
+							document.getElementById("day1").className="";
+							document.getElementById("day30").className="";
+						}
+						if(past=="30"){
+							document.getElementById("day30").className="ahover";
+							document.getElementById("day0").className="";
+							document.getElementById("day1").className="";
+							document.getElementById("day7").className="";
+						}
+					}
+				});
+			}
+			//根据查询时间查找数据
+			function search(){
+				alert("search");
+				var startDate=document.getElementById("datepicker").value;
+				var endDate=document.getElementById("datepicker1").value;
+				alert("startDate="+startDate);
+				alert("endDate="+endDate);
+				$.ajax({
+					type:"GET",
+					url:"/searchForGaiKuang",
+					dataType:"json",
+					data:"startDate="+sratrDate+"&endDate="+endDate,
+					success:function(data) {
+						alert("data="+data);
+					}
+				});
+			}
+			//查询广告js
+			function findMaterialKpByName(){
+				alert("findMaterialKpByName");
+				var _form = document.getElementById("findMaterialKpByNameForm");
+				var _inputs = _form.getElementsByTagName("input");
+				var materialKpName;
+				var userid;
+				var adplanid;
+				var adid;
+				var path="/findMaterialKpByName";
+				var flagname=true;
+				for (var i = 0; i < _inputs.length; i++) {
+					if(_inputs[i].name.toString()=="materialKpName"){
+                        materialKpName=_inputs[i].value;
+						alert("materialKpName="+materialKpName);
+						if(materialKpName==null||materialKpName==""){
+							flagname=false;
+						}
+
+					}
+					if(_inputs[i].name.toString()=="userid"){
+						userid=_inputs[i].value;
+					}
+					if(_inputs[i].name.toString()=="adplanid"){
+						adplanid=_inputs[i].value;
+					}
+					if(_inputs[i].name.toString()=="adid"){
+						adid=_inputs[i].value;
+					}
+				}
+				alert("materialKpName="+materialKpName);
+				alert("userid="+userid);
+				if(flagname) {
+					alert("flagname="+flagname);
+					_form.action = path + "?materialKpName="+materialKpName+"&userid="+userid+"&adplanid="+adplanid+"&adid="+adid;
+					_form.submit();
+				}
+			}
+
+		</script>
 	</head>
 
 	<body>
@@ -36,9 +135,7 @@
 					</div>
 					<div class="tj_main_lf_text">
 						<p class="per_a">
-							<a href="per.html">
-								John Smith
-							</a>
+							<a href="per.html"><span th:text="${userName}"></span>
 						</p>
 
 					</div>
@@ -91,9 +188,9 @@
 							<a href="per.html">
 							<img src="images/tx.jpg" class="left" />
 							</a>
-							<span class="left"><a href="per.html">John Smith</a></span>
+							<span class="left"><a href="per.html"><span th:text="${userName}"></span></a></span>
 							<span class="left head_link"><a href="index.html">首页</a></span>
-							<span class="left head_link"><a href="feed.html">媒体主</a></span>
+							<!--<span class="left head_link"><a href="feed.html">媒体主</a></span>-->
 						</div>
 					</div>
 
@@ -109,18 +206,23 @@
 									统计说明：数据已完成核对至2016-11-07 23:59 。以下数据有近1小时的统计延迟（实时余额除外）仅供参考，请以次日完成核对的数据为准。
 								</p>
 								<div class="gankuang_two_tl clearfix">
-									<div class="clearfix ss left">
-										<input type="text" class="left" placeholder="请输入广告名称" />
-										<input type="button" class="right" />
-									</div>
-									<a href="#" class="ahover">今天</a>
-									<a href="#">昨天</a>
-									<a href="#">过去7天</a>
-									<a href="#">过去30天</a>
-									<input class="left rili" id="datepicker" type="text">
+									<form class="findMaterialKpByNameForm" id="findMaterialKpByNameForm">
+										<div class="clearfix ss left">
+											<input type="text" class="left" name="materialKpName" placeholder="请输入创意名称" />
+											<input type="hidden" name="userid" th:value="${userId}" />
+											<input type="hidden" name="adplanid" th:value="${adplanid}" />
+											<input type="hidden" name="adid" th:value="${adid}" />
+											<input type="button" class="right" onclick="findMaterialKpByName()"/>
+										</div>
+									</form>
+									<a href="javascript:void(0)" onClick="getLastDay('0')" id="day0" class="ahover">今天</a>
+									<a href="javascript:void(0)" onClick="getLastDay('1')" id="day1"  >昨天</a>
+									<a href="javascript:void(0)" onClick="getLastDay('7')" id="day7" >过去7天</a>
+									<a href="javascript:void(0)" onClick="getLastDay('30')" id="day30" >过去30天</a>
+									<input type="text" class="left rili" id="datepicker" th:value="${day}"/>
 									<span class="left zhi">至</span>
-									<input class="left rili" id="datepicker1" type="text">
-									<input class="left" value="查询" type="button">
+									<input type="text" class="left rili" id="datepicker1" th:value="${day}"/>
+									<input type="button" class="left" value="查询" onclick="search()"/>
 									<a href="#" class="right down">下载报表</a>
 								</div>
 								<div class="ggtl">

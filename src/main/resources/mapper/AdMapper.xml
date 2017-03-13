@@ -34,4 +34,12 @@
         select * from T_Ad where adplan_id=#{AdPlanId}
     </select>
 
+    <select id="findAdByNameAndUserId" resultType="com.zhiyu.model.Ad" >
+        select * from T_Ad where  name like '%${name}%'  and user_id=#{UserId}
+    </select>
+
+    <select id="findAdByNameAndAdPlanId" resultType="com.zhiyu.model.Ad" >
+        select * from T_Ad where  name like '%${name}%'  and adplan_id=#{AdPlanId}
+    </select>
+
 </mapper>

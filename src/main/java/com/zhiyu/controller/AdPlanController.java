@@ -24,7 +24,7 @@ import java.util.Map;
 @Controller
 public class AdPlanController {
 
-    Logger log = Logger.getLogger(UserController.class);
+    Logger log = Logger.getLogger(AdPlanController.class);
 
     @Autowired
     private AdPlanService adPlanService;

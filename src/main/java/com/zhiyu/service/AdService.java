@@ -15,6 +15,10 @@ public interface AdService {
 
     public  List<Ad> findAdByAdPlanId(String AdPlanId);
 
+    public  List<Ad> findAdByNameAdUserId(String name,String UserId);
+
+    public  List<Ad> findAdByNameAndAdPlanId(String name,String AdPlanId);
+
     public Ad getById(Integer id) ;
 
     public void deleteById(Integer id) ;

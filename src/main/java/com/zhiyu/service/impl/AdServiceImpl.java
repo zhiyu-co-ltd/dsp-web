@@ -29,6 +29,17 @@ public class AdServiceImpl implements AdService {
         return adMapper.findAdByAdPlanId(AdPlanId);
     }
 
+    @Override
+    public List<Ad> findAdByNameAndAdPlanId(String name,String AdPlanId) {
+        return adMapper.findAdByNameAndAdPlanId(name,AdPlanId);
+    }
+
+    @Override
+    public List<Ad> findAdByNameAdUserId(String name,String UserId) {
+
+        return adMapper.findAdByNameAndUserId(name,UserId);
+    }
+
     public Ad getById(Integer id) {
         return adMapper.selectByPrimaryKey(id);
     }

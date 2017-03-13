@@ -77,6 +77,47 @@
 					}
 				});
 			}
+			//查询广告js
+			function findAdName(){
+                alert("findAdName");
+				var _form = document.getElementById("findAdByNameForm");
+				var _inputs = _form.getElementsByTagName("input");
+				var adname;
+				var userid;
+                var adplanid;
+
+				var path="/findAdByName";
+				var flagname=true;
+				for (var i = 0; i < _inputs.length; i++) {
+					if(_inputs[i].name.toString()=="adname"){
+                        adname=_inputs[i].value;
+						if(adname==null||adname==""){
+							flagname=false;
+						}
+
+					}
+					if(_inputs[i].name.toString()=="userid"){
+						userid=_inputs[i].value;
+					}
+                    if(_inputs[i].name.toString()=="adplanid"){
+                        adplanid=_inputs[i].value;
+                    }
+				}
+
+//            if(flagname==false){
+//                // alert("11111="+111111);
+//                document.getElementById("AdPlan_name").style.display="none";
+//                // alert("ssss="+document.getElementById("AdPlan_name").style.display);
+//            }
+
+              alert("userid="+userid);
+				if(flagname) {
+					_form.action = path + "?adname="+adname+"&userid="+userid+"&adplanid="+adplanid;
+					_form.submit();
+				}
+
+			}
+
 		</script>
 	</head>
 
@@ -165,12 +206,17 @@
 								<p class="tj_suoming" style="margin-left: 0px;">
 									统计说明：数据已完成核对至2016-11-07 23:59 。以下数据有近1小时的统计延迟（实时余额除外）仅供参考，请以次日完成核对的数据为准。
 								</p>
+
 								<div class="gankuang_two_tl clearfix">
+                                    <form class="findAdByNameForm" id="findAdByNameForm">
 									<div class="clearfix ss left">
-										<input type="text" class="left" placeholder="请输入广告名称" />
-										<input type="button" class="right" />
+										<input type="text" class="left" id="searchAdName" name="adname" placeholder="请输入广告名称" />
+                                        <input type="hidden" name="userid" th:value="${userId}" />
+                                        <input type="hidden" name="adplanid" th:value="${adplanid}" />
+										<input type="button" class="right" onclick="findAdName()"/>
 									</div>
-									<a href="javascript:void(0)" onClick="getLastDay('0')" id="day0" class="ahover">今天</a>
+                                    </form>
+                                        <a href="javascript:void(0)" onClick="getLastDay('0')" id="day0" class="ahover">今天</a>
 									<a href="javascript:void(0)" onClick="getLastDay('1')" id="day1"  >昨天</a>
 									<a href="javascript:void(0)" onClick="getLastDay('7')" id="day7" >过去7天</a>
 									<a href="javascript:void(0)" onClick="getLastDay('30')" id="day30" >过去30天</a>
@@ -219,7 +265,7 @@
 										</tr>
                                         <tr>
                                         	<td>
-                                        		<a href="guangao_con.html">111111</a>
+                                        		<a href="guangao_con.html?adid=1111&adplanid=11111">111111</a>
                                         	</td>
                                         	<td>
                                         		<a href="tuiguang.html">推广广告测试</a>

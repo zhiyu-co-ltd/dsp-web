@@ -1,8 +1,13 @@
 package com.zhiyu.controller;
 
+import java.util.List;
 import java.util.Map;
 
+import com.zhiyu.model.AdPlan;
+import com.zhiyu.model.Ad;
 import com.zhiyu.model.User;
+import com.zhiyu.service.AdPlanService;
+import com.zhiyu.service.AdService;
 import com.zhiyu.service.UserService;
 
 import com.zhiyu.util.DateUtil;
@@ -26,6 +31,12 @@ public class WelcomeController {
 
 	@Autowired
 	private UserService userService;
+
+    @Autowired
+    private AdPlanService adPlanService;
+
+    @Autowired
+    private AdService adService;
 
 
 	@RequestMapping("/index")
@@ -140,11 +151,12 @@ public class WelcomeController {
     public String tuiguang(Map<String, Object> model,HttpServletRequest request) {
         Cookie[] cookie = request.getCookies();
         String returnUrl="index";
+        String userId="";
         if(cookie!=null) {
             for (int i = 0; i < cookie.length; i++) {
                 Cookie cook = cookie[i];
                 if (cook.getName().equalsIgnoreCase("userId")) { //获取键
-                    String userId = cook.getValue().toString();
+                    userId = cook.getValue().toString();
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
@@ -156,25 +168,50 @@ public class WelcomeController {
                 }
             }
         }
+        List<AdPlan> adPlanList=adPlanService.findAdPlanByUserId(userId);
+        model.put("adPlanList", adPlanList);
+        log.info("size="+adPlanList.size());
+        for(int i=0;i<adPlanList.size();i++){
+            AdPlan adPlan=(AdPlan)adPlanList.toArray()[i];
+            log.info("name="+adPlan.getName()+";id="+adPlan.getId());
+        }
         return returnUrl;
     }
     @RequestMapping("/guanggao")
     public String guanggao(Map<String, Object> model,HttpServletRequest request) {
         Cookie[] cookie = request.getCookies();
         String returnUrl="index";
+        String adplanid="";
+        String userId="";
         if(cookie!=null) {
             for (int i = 0; i < cookie.length; i++) {
                 Cookie cook = cookie[i];
                 if (cook.getName().equalsIgnoreCase("userId")) { //获取键
-                    String userId = cook.getValue().toString();
+                    userId = cook.getValue().toString();
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+                    model.put("userId", userId);
                     model.put("day", DateUtil.getDay());
+                    adplanid=request.getParameter("adplanid");
+                    model.put("adplanid", adplanid);
                     returnUrl="guanggao";
                     break;
                 }
             }
+        }
+        List<Ad> adList;
+        if(adplanid==null||"".equals(adplanid)){
+            adList=adService.findAdByUserId(userId);
+        }
+        else{
+            adList=adService.findAdByAdPlanId(adplanid);
+        }
+        model.put("adList", adList);
+        log.info("size="+adList.size());
+        for(int i=0;i<adList.size();i++){
+            Ad ad=(Ad)adList.toArray()[i];
+            log.info("name="+ad.getName()+";id="+ad.getId());
         }
         return returnUrl;
     }
@@ -301,6 +338,9 @@ public class WelcomeController {
     public String guangao_con(Map<String, Object> model,HttpServletRequest request) {
         Cookie[] cookie = request.getCookies();
         String returnUrl="index";
+        String adplanid;
+        String adid;
+
         if(cookie!=null) {
             for (int i = 0; i < cookie.length; i++) {
                 Cookie cook = cookie[i];
@@ -309,6 +349,13 @@ public class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    model.put("day", DateUtil.getDay());
+                    adplanid=request.getParameter("adplanid");
+                    adid=request.getParameter("adid");
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
+                    log.info("adplanid="+adplanid+";adid="+adid);
                     returnUrl="guangao_con";
                     break;
                 }
@@ -316,6 +363,67 @@ public class WelcomeController {
         }
         return returnUrl;
     }
+
+    @RequestMapping("/ggcon_wenzi")
+    public String ggcon_wenzi(Map<String, Object> model,HttpServletRequest request) {
+        Cookie[] cookie = request.getCookies();
+        String returnUrl="index";
+        String adplanid;
+        String adid;
+
+        if(cookie!=null) {
+            for (int i = 0; i < cookie.length; i++) {
+                Cookie cook = cookie[i];
+                if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+                    String userId = cook.getValue().toString();
+                    User user = userService.findUserByUserId(userId);
+                    model.put("loginStatus", "true");
+                    model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    model.put("day", DateUtil.getDay());
+                    adplanid=request.getParameter("adplanid");
+                    adid=request.getParameter("adid");
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
+                    log.info("adplanid="+adplanid+";adid="+adid);
+                    returnUrl="ggcon_wenzi";
+                    break;
+                }
+            }
+        }
+        return returnUrl;
+    }
+
+    @RequestMapping("/ggcon_kpxxl")
+    public String ggcon_kpxxl(Map<String, Object> model,HttpServletRequest request) {
+        Cookie[] cookie = request.getCookies();
+        String returnUrl="index";
+        String adplanid;
+        String adid;
+
+        if(cookie!=null) {
+            for (int i = 0; i < cookie.length; i++) {
+                Cookie cook = cookie[i];
+                if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+                    String userId = cook.getValue().toString();
+                    User user = userService.findUserByUserId(userId);
+                    model.put("loginStatus", "true");
+                    model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    model.put("day", DateUtil.getDay());
+                    adplanid=request.getParameter("adplanid");
+                    adid=request.getParameter("adid");
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
+                    log.info("adplanid="+adplanid+";adid="+adid);
+                    returnUrl="ggcon_kpxxl";
+                    break;
+                }
+            }
+        }
+        return returnUrl;
+    }
+
 
     @ResponseBody
     @RequestMapping("/getLastDay")
