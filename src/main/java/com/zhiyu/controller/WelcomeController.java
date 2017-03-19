@@ -161,7 +161,6 @@ public class WelcomeController {
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
                     model.put("userId", userId);
-                   // model.put("id", user.getId());
                     log.info("---userid="+model.get("userId"));
                     model.put("day", DateUtil.getDay());
                     returnUrl="tuiguang";
@@ -174,7 +173,7 @@ public class WelcomeController {
         log.info("size="+adPlanList.size());
         for(int i=0;i<adPlanList.size();i++){
             AdPlan adPlan=(AdPlan)adPlanList.toArray()[i];
-            log.info("name="+adPlan.getName()+";id="+adPlan.getId());
+            log.info("name="+adPlan.getName()+";id="+adPlan.getId()+"adplanid="+adPlan.getAdplanId()+"userid="+adPlan.getUserId());
         }
         return returnUrl;
     }

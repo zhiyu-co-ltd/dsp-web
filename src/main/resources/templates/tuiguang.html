@@ -310,16 +310,16 @@
 											<th>实时余额(元)</th>
 											<th>曝光量(次)</th>
 											<th>点击量(次)</th>
+                                            <th>下载量(次)</th>
 											<th>点击率(%)</th>
 											<th>花费(元)</th>
 											<th>点击均价(元)</th>
-											<th>下载量(次)</th>
 											<th>下载均价(元)</th>
 										</tr>
-										<tr>
+										<tr th:each="adplan:${adPlanList}">
 											<td>
 												<div class="tuiguang_name">
-													<a href="guanggao.html">推广广告测试</a><a href="javascript:void(0)" onClick="updateAdPlan('323232','1000','111111')" ><em class="biji"></em></a>
+													<a href="guanggao.html"><span th:text="${adplan.getName()}"></a><a href="javascript:void(0)" th:onclick="'javascript:updateAdPlan('+${adplan.getName()}+','+${adplan.getDayConst()}+','+${adplan.getDayConst()}+');'"><em class="biji"></em>
 												</div>
 											</td>
 											<td>
@@ -335,101 +335,7 @@
 											<td>0</td>
 											<td>0.00</td>
 										</tr>
-										<tr>
-											<td>
-												<div class="tuiguang_name">
-													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
-												</div>
-											</td>
-											<td>
-												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
-											</td>
-											<td>1.000.00</td>
-											<td>1.000.00</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0.00</td>
-											<td>0.00</td>
-											<td>0.00</td>
-											<td>0</td>
-											<td>0.00</td>
-										</tr>
-										<tr>
-											<td>
-												<div class="tuiguang_name">
-													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
-												</div>
-											</td>
-											<td>
-												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
-											</td>
-											<td>1.000.00</td>
-											<td>1.000.00</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0.00</td>
-											<td>0.00</td>
-											<td>0.00</td>
-											<td>0</td>
-											<td>0.00</td>
-										</tr>
-										<tr>
-											<td>
-												<div class="tuiguang_name">
-													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
-												</div>
-											</td>
-											<td>
-												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button>
-											</td>
-											<td>1.000.00</td>
-											<td>1.000.00</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0.00</td>
-											<td>0.00</td>
-											<td>0.00</td>
-											<td>0</td>
-											<td>0.00</td>
-										</tr>
-										<tr>
-											<td>
-												<div class="tuiguang_name">
-													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
-												</div>
-											</td>
-											<td>
-												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
-											</td>
-											<td>1.000.00</td>
-											<td>1.000.00</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0.00</td>
-											<td>0.00</td>
-											<td>0.00</td>
-											<td>0</td>
-											<td>0.00</td>
-										</tr>
-										<tr>
-											<td>
-												<div class="tuiguang_name">
-													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
-												</div>
-											</td>
-											<td>
-												<button class="mwui-switch-btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button> 
-											</td>
-											<td>1.000.00</td>
-											<td>1.000.00</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0.00</td>
-											<td>0.00</td>
-											<td>0.00</td>
-											<td>0</td>
-											<td>0.00</td>
-										</tr>
+
 										<tr class="heji">
 											<td>
 												本页合计
