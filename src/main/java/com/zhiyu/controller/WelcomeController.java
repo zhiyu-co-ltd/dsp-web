@@ -161,6 +161,7 @@ public class WelcomeController {
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
                     model.put("userId", userId);
+                   // model.put("id", user.getId());
                     log.info("---userid="+model.get("userId"));
                     model.put("day", DateUtil.getDay());
                     returnUrl="tuiguang";
@@ -250,7 +251,12 @@ public class WelcomeController {
                     String userId = cook.getValue().toString();
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
-                    model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    model.put("email", user.getEmail());
+                    model.put("userName",user.getName());
+                    model.put("phone",user.getPhone());
+                    model.put("qq",user.getQq());
+                    model.put("weixin",user.getWeixin());
                     returnUrl="per";
                     break;
                 }
@@ -258,6 +264,7 @@ public class WelcomeController {
         }
         return returnUrl;
     }
+
     @RequestMapping("/gg_xinjian")
     public String gg_xinjian(Map<String, Object> model,HttpServletRequest request) {
         Cookie[] cookie = request.getCookies();
@@ -423,7 +430,150 @@ public class WelcomeController {
         }
         return returnUrl;
     }
+    @RequestMapping("/ggcon_ptxxl")
+    public String ggcon_ptxxl(Map<String, Object> model,HttpServletRequest request) {
+        Cookie[] cookie = request.getCookies();
+        String returnUrl="index";
+        String adplanid;
+        String adid;
 
+        if(cookie!=null) {
+            for (int i = 0; i < cookie.length; i++) {
+                Cookie cook = cookie[i];
+                if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+                    String userId = cook.getValue().toString();
+                    User user = userService.findUserByUserId(userId);
+                    model.put("loginStatus", "true");
+                    model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    model.put("day", DateUtil.getDay());
+                    adplanid=request.getParameter("adplanid");
+                    adid=request.getParameter("adid");
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
+                    log.info("adplanid="+adplanid+";adid="+adid);
+                    returnUrl="ggcon_ptxxl";
+                    break;
+                }
+            }
+        }
+        return returnUrl;
+    }
+
+    @RequestMapping("/ggcon_threeh")
+    public String ggcon_threeh(Map<String, Object> model,HttpServletRequest request) {
+        Cookie[] cookie = request.getCookies();
+        String returnUrl="index";
+        String adplanid;
+        String adid;
+        if(cookie!=null) {
+            for (int i = 0; i < cookie.length; i++) {
+                Cookie cook = cookie[i];
+                if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+                    String userId = cook.getValue().toString();
+                    User user = userService.findUserByUserId(userId);
+                    model.put("loginStatus", "true");
+                    model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    model.put("day", DateUtil.getDay());
+                    adplanid=request.getParameter("adplanid");
+                    adid=request.getParameter("adid");
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
+                    log.info("adplanid="+adplanid+";adid="+adid);
+                    returnUrl="ggcon_threeh";
+                    break;
+                }
+            }
+        }
+        return returnUrl;
+    }
+    @RequestMapping("/ggcon_twoh")
+    public String ggcon_twoh(Map<String, Object> model,HttpServletRequest request) {
+        Cookie[] cookie = request.getCookies();
+        String returnUrl="index";
+        String adplanid;
+        String adid;
+        if(cookie!=null) {
+            for (int i = 0; i < cookie.length; i++) {
+                Cookie cook = cookie[i];
+                if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+                    String userId = cook.getValue().toString();
+                    User user = userService.findUserByUserId(userId);
+                    model.put("loginStatus", "true");
+                    model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    model.put("day", DateUtil.getDay());
+                    adplanid=request.getParameter("adplanid");
+                    adid=request.getParameter("adid");
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
+                    log.info("adplanid="+adplanid+";adid="+adid);
+                    returnUrl="ggcon_twoh";
+                    break;
+                }
+            }
+        }
+        return returnUrl;
+    }
+
+    @RequestMapping("/ggcon_yh")
+    public String ggcon_yh(Map<String, Object> model,HttpServletRequest request) {
+        Cookie[] cookie = request.getCookies();
+        String returnUrl="index";
+        String adplanid;
+        String adid;
+        if(cookie!=null) {
+            for (int i = 0; i < cookie.length; i++) {
+                Cookie cook = cookie[i];
+                if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+                    String userId = cook.getValue().toString();
+                    User user = userService.findUserByUserId(userId);
+                    model.put("loginStatus", "true");
+                    model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    model.put("day", DateUtil.getDay());
+                    adplanid=request.getParameter("adplanid");
+                    adid=request.getParameter("adid");
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
+                    log.info("adplanid="+adplanid+";adid="+adid);
+                    returnUrl="ggcon_yh";
+                    break;
+                }
+            }
+        }
+        return returnUrl;
+    }
+
+    @RequestMapping("/gg_tj_threeh")
+    public String gg_tj_threeh(Map<String, Object> model,HttpServletRequest request) {
+        Cookie[] cookie = request.getCookies();
+        String returnUrl="index";
+        String adplanid;
+        String adid;
+        if(cookie!=null) {
+            for (int i = 0; i < cookie.length; i++) {
+                Cookie cook = cookie[i];
+                if (cook.getName().equalsIgnoreCase("userId")) { //获取键
+                    String userId = cook.getValue().toString();
+                    User user = userService.findUserByUserId(userId);
+                    model.put("loginStatus", "true");
+                    model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    model.put("day", DateUtil.getDay());
+                    adplanid=request.getParameter("adplanid");
+                    adid=request.getParameter("adid");
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
+                    log.info("adplanid="+adplanid+";adid="+adid);
+                    returnUrl="gg_tj_threeh";
+                    break;
+                }
+            }
+        }
+        return returnUrl;
+    }
 
     @ResponseBody
     @RequestMapping("/getLastDay")

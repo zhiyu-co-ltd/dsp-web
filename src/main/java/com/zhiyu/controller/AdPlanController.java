@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import sun.awt.image.IntegerComponentRaster;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -35,17 +36,30 @@ public class AdPlanController {
     @RequestMapping("/addAdPlan")
     public String addAdPlan(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
 
+        String adplanid  = request.getParameter("adplanid") ;
         String adplanname = request.getParameter("adplanname") ;
         String userid = request.getParameter("userid");
         String dayconst = request.getParameter("daycost");
 
-        AdPlan adPlan = new AdPlan();
-        adPlan.setName(adplanname);
-        adPlan.setUserId(userid);
-        adPlan.setAdplanId(MyUUID.getUUID());
-        adPlan.setDayConst(dayconst);
-        adPlan.setStatus("1");
-        adPlan.setRealtimeMoney("0.00");
+        AdPlan adPlan = null;
+        log.info("---adplanid="+adplanid);
+        if(adplanid!=null&&!"".equals(adplanid)){
+            adPlan=adPlanService.findAdPlanByAdPlanId(adplanid);
+            log.info("---adPlan="+adPlan.toString());
+            log.info("---id="+adPlan.getId()+";name="+adPlan.getName()+";datcost="+adPlan.getDayConst()+";status="+adPlan.getStatus()
+                    +";userid="+ adPlan.getUserId()+";realtimemoney="+ adPlan.getRealtimeMoney());
+            adPlan.setName(adplanname);
+            adPlan.setDayConst(dayconst);
+            log.info("---userid="+adPlan.getUserId());
+        }else {
+            adPlan=new AdPlan();
+            adPlan.setName(adplanname);
+            adPlan.setUserId(userid);
+            adPlan.setAdplanId(MyUUID.getUUID());
+            adPlan.setDayConst(dayconst);
+            adPlan.setStatus("1");
+            adPlan.setRealtimeMoney("0.00");
+        }
         adPlanService.save(adPlan);
         User user =  userService.findUserByUserId(userid);
         model.put("loginStatus", "true");

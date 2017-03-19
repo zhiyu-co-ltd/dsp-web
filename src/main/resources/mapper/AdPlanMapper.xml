@@ -27,11 +27,15 @@
 <mapper namespace="com.zhiyu.mapper.AdPlanMapper" >
 
     <select id="findAdPlanByUserId" resultType="com.zhiyu.model.AdPlan" >
-        select * from T_Adplan where user_id=#{UserId}
+        select * from T_Adplan where userid=#{UserId}
     </select>
 
     <select id="findAdPlanByName" resultType="com.zhiyu.model.AdPlan" >
-        select * from T_Adplan where  name like '%${name}%'  and user_id=#{UserId}
+        select * from T_Adplan where  name like '%${name}%'  and userid=#{UserId}
+    </select>
+
+    <select id="findAdPlanByAdPlanId" resultType="com.zhiyu.model.AdPlan" >
+        select * from T_Adplan where  adplanid=#{AdPlanId}
     </select>
 
 </mapper>

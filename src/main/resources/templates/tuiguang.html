@@ -74,6 +74,7 @@
 			var adplanname;
 			var dayconst;
             var userid;
+			var id;
 			var path="/addAdPlan";
 			var flagname=true;
 			var flagdayconst=true;
@@ -98,6 +99,10 @@
                     userid=_inputs[i].value;
                //     alert("userid="+userid);
                 }
+				if(_inputs[i].name.toString()=="id"){
+					id=_inputs[i].value;
+					    alert("id="+id);
+				}
 			}
 //			alert("flagdayconst="+flagdayconst);
 //			alert("flagname="+flagname);
@@ -125,6 +130,19 @@
 			}
 
 		}
+
+        //修改推广计划js
+        function updateAdPlan(adplanname,adplandaycost,adplanid){
+
+            alert("adplanname="+adplanname);
+            alert("adplandaycost="+adplandaycost);
+            alert("adplanid="+adplanid);
+
+            document.getElementById("add_adplanname").value=adplanname;
+            document.getElementById("add_daycost").value=adplandaycost;
+            document.getElementById("add_adplanid").value=adplanid;
+
+        }
 
 
         //查询推广计划js
@@ -301,7 +319,7 @@
 										<tr>
 											<td>
 												<div class="tuiguang_name">
-													<a href="guanggao.html">推广广告测试</a><em class="biji"></em>
+													<a href="guanggao.html">推广广告测试</a><a href="javascript:void(0)" onClick="updateAdPlan('323232','1000','111111')" ><em class="biji"></em></a>
 												</div>
 											</td>
 											<td>
@@ -487,7 +505,7 @@
 	        				推广计划名称
 	        			</span>
 	        			<div class="geren_rt tuiguang_input">
-	        				<input type="text" name="adplanname"/>
+	        				<input type="text" name="adplanname" id="add_adplanname"/>
 	        			</div>
 	        			<span class="tuiguang_danwei">0/30</span>
 	        		</div>
@@ -498,11 +516,12 @@
 	        			</span>
 
 	        			<div class="geren_rt tuiguang_input">
-	        				<input type="text" name="daycost"/>
+	        				<input type="text" name="daycost" id="add_daycost"/>
 	        			</div>
 	        			<span class="tuiguang_danwei">元/天</span>
                          <div class="erro" id="AdPlan_daycost" style="display:none">请输入推广计划日限额</div>
-                        <input type="hidden" name="userid" th:value="${userId}" />
+                        <input type="hidden" name="userid" th:value="${userId}" id="adduserid"/>
+                        <input type="hidden" name="adplanid"  id="add_adplanid"/>
 	        		</div>
 	        	    
 	        		

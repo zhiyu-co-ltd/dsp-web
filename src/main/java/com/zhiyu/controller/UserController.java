@@ -66,6 +66,31 @@ public class UserController {
         response.addCookie(Usercookie);
 		return "index";
 	}
+    @RequestMapping("/updateUser")
+    public String update(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {
+
+        String userid = request.getParameter("userid");
+        String qq = request.getParameter("qq");
+        String phone = request.getParameter("phone");
+        String weixin = request.getParameter("weixin");
+        log.info(">>>>>>>>userid="+userid+";qq="+qq+";phone="+phone+";weixin="+weixin);
+        User user= userService.findUserByUserId(userid);
+        log.info(">>>>>>>>user="+user);
+        user.setPhone(phone);
+        user.setQq(qq);
+        user.setWeixin(weixin);
+        userService.save(user);
+        model.put("loginStatus","true");
+        model.put("userName",user.getName());
+        model.put("userId",userid);
+        model.put("phone",user.getPhone());
+        model.put("qq",user.getQq());
+        model.put("weixin",user.getWeixin());
+        Cookie Usercookie = new Cookie("userId",user.getUserId());
+        Usercookie.setMaxAge(60*60*24*7);//保留7天
+        response.addCookie(Usercookie);
+        return "per";
+    }
     @ResponseBody
     @RequestMapping("/checkEmail")
 	public User checkEmail(Map<String, Object> model,HttpServletRequest request,HttpServletResponse response) {

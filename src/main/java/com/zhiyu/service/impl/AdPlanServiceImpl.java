@@ -54,6 +54,11 @@ public class AdPlanServiceImpl implements AdPlanService {
         return adPlanMapper.selectByPrimaryKey(id);
     }
 
+    public AdPlan findAdPlanByAdPlanId(String AdPlanId) {
+        return adPlanMapper.findAdPlanByAdPlanId(AdPlanId);
+    }
+
+
     public void deleteById(Integer id) {
         adPlanMapper.deleteByPrimaryKey(id);
     }

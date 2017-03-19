@@ -149,4 +149,126 @@ public class MaterialController {
         response.addCookie(Usercookie);
         return "ggcon_kpxxl";
     }
+
+    @RequestMapping("/findMaterialPtByName")
+    public String findMaterialPtByName(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+
+        String adname = request.getParameter("adname") ;
+        String userid = request.getParameter("userid");
+        String adplanid = request.getParameter("adplanid");
+
+        log.info("adname="+adname+";userid="+userid+";adplanid="+adplanid);
+        List<Ad> adList;
+        if(adplanid==null||"".equals(adplanid)) {
+            adList = adService.findAdByNameAdUserId(adname, userid);
+        }else{
+            adList = adService.findAdByNameAndAdPlanId(adname, adplanid);
+        }
+        log.info("size="+adList.size());
+        for(int i=0;i<adList.size();i++){
+            Ad ad=(Ad)adList.toArray()[i];
+            log.info("name="+ad.getName()+";id="+ad.getId());
+        }
+        User user =  userService.findUserByUserId(userid);
+        model.put("loginStatus", "true");
+        model.put("userName", user.getName());
+        model.put("userId", userid);
+        log.info("---userid="+model.get("userId"));
+        model.put("day", DateUtil.getDay());
+        Cookie Usercookie = new Cookie("userId",userid);
+        Usercookie.setMaxAge(60*60*24*7);//保留7天
+        response.addCookie(Usercookie);
+        return "ggcon_ptxxl";
+    }
+    @RequestMapping("/findMaterialThreehByName")
+    public String findMaterialThreehByName(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+
+        String adname = request.getParameter("adname") ;
+        String userid = request.getParameter("userid");
+        String adplanid = request.getParameter("adplanid");
+
+        log.info("adname="+adname+";userid="+userid+";adplanid="+adplanid);
+        List<Ad> adList;
+        if(adplanid==null||"".equals(adplanid)) {
+            adList = adService.findAdByNameAdUserId(adname, userid);
+        }else{
+            adList = adService.findAdByNameAndAdPlanId(adname, adplanid);
+        }
+        log.info("size="+adList.size());
+        for(int i=0;i<adList.size();i++){
+            Ad ad=(Ad)adList.toArray()[i];
+            log.info("name="+ad.getName()+";id="+ad.getId());
+        }
+        User user =  userService.findUserByUserId(userid);
+        model.put("loginStatus", "true");
+        model.put("userName", user.getName());
+        model.put("userId", userid);
+        log.info("---userid="+model.get("userId"));
+        model.put("day", DateUtil.getDay());
+        Cookie Usercookie = new Cookie("userId",userid);
+        Usercookie.setMaxAge(60*60*24*7);//保留7天
+        response.addCookie(Usercookie);
+        return "ggcon_threeh";
+    }
+    @RequestMapping("/findMaterialTwohByName")
+    public String findMaterialTwohByName(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+
+        String adname = request.getParameter("adname") ;
+        String userid = request.getParameter("userid");
+        String adplanid = request.getParameter("adplanid");
+
+        log.info("adname="+adname+";userid="+userid+";adplanid="+adplanid);
+        List<Ad> adList;
+        if(adplanid==null||"".equals(adplanid)) {
+            adList = adService.findAdByNameAdUserId(adname, userid);
+        }else{
+            adList = adService.findAdByNameAndAdPlanId(adname, adplanid);
+        }
+        log.info("size="+adList.size());
+        for(int i=0;i<adList.size();i++){
+            Ad ad=(Ad)adList.toArray()[i];
+            log.info("name="+ad.getName()+";id="+ad.getId());
+        }
+        User user =  userService.findUserByUserId(userid);
+        model.put("loginStatus", "true");
+        model.put("userName", user.getName());
+        model.put("userId", userid);
+        log.info("---userid="+model.get("userId"));
+        model.put("day", DateUtil.getDay());
+        Cookie Usercookie = new Cookie("userId",userid);
+        Usercookie.setMaxAge(60*60*24*7);//保留7天
+        response.addCookie(Usercookie);
+        return "ggcon_twoh";
+    }
+
+    @RequestMapping("/findMaterialYhByName")
+    public String findMaterialYhByName(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+
+        String adname = request.getParameter("adname") ;
+        String userid = request.getParameter("userid");
+        String adplanid = request.getParameter("adplanid");
+
+        log.info("adname="+adname+";userid="+userid+";adplanid="+adplanid);
+        List<Ad> adList;
+        if(adplanid==null||"".equals(adplanid)) {
+            adList = adService.findAdByNameAdUserId(adname, userid);
+        }else{
+            adList = adService.findAdByNameAndAdPlanId(adname, adplanid);
+        }
+        log.info("size="+adList.size());
+        for(int i=0;i<adList.size();i++){
+            Ad ad=(Ad)adList.toArray()[i];
+            log.info("name="+ad.getName()+";id="+ad.getId());
+        }
+        User user =  userService.findUserByUserId(userid);
+        model.put("loginStatus", "true");
+        model.put("userName", user.getName());
+        model.put("userId", userid);
+        log.info("---userid="+model.get("userId"));
+        model.put("day", DateUtil.getDay());
+        Cookie Usercookie = new Cookie("userId",userid);
+        Usercookie.setMaxAge(60*60*24*7);//保留7天
+        response.addCookie(Usercookie);
+        return "ggcon_yh";
+    }
 }

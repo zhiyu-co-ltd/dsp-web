@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class AdPlan  extends BaseEntity{
 
 
-    @Column(name="user_id")
+    @Column(name="userid")
     private String userId;
 
     @Column(name="name")
@@ -20,13 +20,13 @@ public class AdPlan  extends BaseEntity{
     @Column(name="status")
     private String status;
 
-    @Column(name="day_const")
+    @Column(name="dayconst")
     private String dayConst;
 
-    @Column(name="realtime_money")
+    @Column(name="realtimemoney")
     private String realtimeMoney;
 
-    @Column(name="adplan_id")
+    @Column(name="adplanid")
     private String adplanId;
 
     public String getUserId() {

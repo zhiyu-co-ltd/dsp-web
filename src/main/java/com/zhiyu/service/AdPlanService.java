@@ -37,6 +37,8 @@ public interface AdPlanService {
 
     public AdPlan getById(Integer id) ;
 
+    public AdPlan findAdPlanByAdPlanId(String AdPlanId) ;
+
     public void deleteById(Integer id) ;
 
     public void save(AdPlan adPlan) ;
