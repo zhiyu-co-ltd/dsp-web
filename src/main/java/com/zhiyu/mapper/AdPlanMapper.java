@@ -39,4 +39,7 @@ public interface AdPlanMapper  extends MyMapper<AdPlan> {
 
      AdPlan findAdPlanByAdPlanId(@Param("AdPlanId") String AdPlanId);
 
+     AdPlan findAdPlanById(@Param("Id") String Id);
+
+
 }

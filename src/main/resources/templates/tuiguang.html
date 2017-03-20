@@ -319,7 +319,7 @@
 										<tr th:each="adplan:${adPlanList}">
 											<td>
 												<div class="tuiguang_name">
-													<a href="guanggao.html"><span th:text="${adplan.getName()}"></a><a href="javascript:void(0)" th:onclick="'javascript:updateAdPlan('+${adplan.getName()}+','+${adplan.getDayConst()}+','+${adplan.getDayConst()}+');'"><em class="biji"></em>
+													<a href="guanggao.html"><span th:text="${adplan.getName()}"></a><a href="javascript:void(0)" th:onclick="'javascript:updateAdPlan('+${adplan.getName()}+','+${adplan.getDayConst()}+','+${adplan.getId()}+');'"><em class="biji"></em>
 												</div>
 											</td>
 											<td>

@@ -44,7 +44,7 @@ public class AdPlanController {
         AdPlan adPlan = null;
         log.info("---adplanid="+adplanid);
         if(adplanid!=null&&!"".equals(adplanid)){
-            adPlan=adPlanService.findAdPlanByAdPlanId(adplanid);
+            adPlan=adPlanService.getById(Integer.parseInt(adplanid));
             log.info("---adPlan="+adPlan.toString());
             log.info("---id="+adPlan.getId()+";name="+adPlan.getName()+";datcost="+adPlan.getDayConst()+";status="+adPlan.getStatus()
                     +";userid="+ adPlan.getUserId()+";realtimemoney="+ adPlan.getRealtimeMoney());
@@ -61,6 +61,11 @@ public class AdPlanController {
             adPlan.setRealtimeMoney("0.00");
         }
         adPlanService.save(adPlan);
+        List<AdPlan> adPlanList=adPlanService.findAdPlanByUserId(userid);
+
+        model.put("adPlanList", adPlanList);
+        log.info("size="+adPlanList.size());
+
         User user =  userService.findUserByUserId(userid);
         model.put("loginStatus", "true");
         model.put("userName", user.getName());
@@ -83,11 +88,9 @@ public class AdPlanController {
         log.info("adplanname="+adplanname+";userid="+userid);
         List<AdPlan> adPlanList=adPlanService.findAdPlanByName(adplanname,userid);
         log.info("size="+adPlanList.size());
-        for(int i=0;i<adPlanList.size();i++){
-            AdPlan adPlan=(AdPlan)adPlanList.toArray()[i];
-           log.info("name="+adPlan.getName()+";id="+adPlan.getId());
-        }
         User user =  userService.findUserByUserId(userid);
+
+        model.put("adPlanList", adPlanList);
         model.put("loginStatus", "true");
         model.put("userName", user.getName());
         model.put("userId", userid);
