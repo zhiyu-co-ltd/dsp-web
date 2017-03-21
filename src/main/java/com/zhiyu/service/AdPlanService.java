@@ -42,4 +42,6 @@ public interface AdPlanService {
     public void deleteById(Integer id) ;
 
     public void save(AdPlan adPlan) ;
+
+    public void updateStatus(String staus,Integer id) ;
 }

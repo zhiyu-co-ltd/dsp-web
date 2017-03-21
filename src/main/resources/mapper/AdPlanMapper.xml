@@ -42,4 +42,8 @@
         select * from T_Adplan where  adplanid=#{AdPlanId}
     </select>
 
+    <update id="UpdateStatus" >
+        update  T_Adplan set status=#{Status}  where  id=#{Id}
+    </update>
+
 </mapper>

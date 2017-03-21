@@ -144,7 +144,28 @@
 
         }
 
+		//修改推广计划js
+		function updateAdPlanStatus(adplanid){
 
+			alert("adplanid="+adplanid);
+            var userid=document.getElementById("StatusUserId").value;
+            var adplanstatus=document.getElementById("UpdateAdplanid"+adplanid).value
+            alert("adplanstatus="+adplanstatus);
+            alert("adplanstatus="+document.getElementById("UpdateAdplanid"+adplanid).value);
+            alert("userid="+userid);
+
+            $.ajax({
+                type:"GET",
+                url:"/updateAdPlanStatus",
+                dataType:"json",
+                data:"adplanstatus="+adplanstatus+"&adplanid="+adplanid+"&userid="+userid,
+                success:function(data) {
+                    document.getElementById("UpdateAdplanid"+adplanid).value=data.status;
+                    alert("adplanstatus="+  document.getElementById("UpdateAdplanid"+adplanid).value);
+                }
+            });
+
+		}
         //查询推广计划js
         function findAdPlanName(){
             var _form = document.getElementById("findAdPlanByNameForm");
@@ -323,7 +344,7 @@
 												</div>
 											</td>
 											<td>
-												<button class="mwui-switch-btn" onclick="alert('111')"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button>
+												<button class="mwui-switch-btn" th:onclick="'javascript:updateAdPlanStatus('+${adplan.getId()}+');' "><span th:if="${'1'==adplan.getStatus()}" change="OFF" >ON</span><span th:if="${'0'==adplan.getStatus()}" change="ON" >OFF</span><input th:id=" 'UpdateAdplanid' + ${adplan.getId()}" type="hidden" name="show_icon2" th:value="${adplan.getStatus()}" /></span></button>
 											</td>
 											<td>1.000.00</td>
 											<td>1.000.00</td>
@@ -335,7 +356,7 @@
 											<td>0</td>
 											<td>0.00</td>
 										</tr>
-
+                                        <input type="hidden" id="StatusUserId" th:value="${userId}" />
 										<tr class="heji">
 											<td>
 												本页合计

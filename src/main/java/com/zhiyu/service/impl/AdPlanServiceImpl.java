@@ -63,6 +63,10 @@ public class AdPlanServiceImpl implements AdPlanService {
         adPlanMapper.deleteByPrimaryKey(id);
     }
 
+    public void updateStatus(String status,Integer id) {
+        adPlanMapper.UpdateStatus(status,id);
+    }
+
     public void save(AdPlan adPlan){
         if (adPlan.getId()!=null) {
             adPlanMapper.updateByPrimaryKey(adPlan);

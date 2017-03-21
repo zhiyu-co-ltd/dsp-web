@@ -41,5 +41,7 @@ public interface AdPlanMapper  extends MyMapper<AdPlan> {
 
      AdPlan findAdPlanById(@Param("Id") String Id);
 
+     void UpdateStatus(@Param("Status") String Status ,@Param("Id") Integer Id);
+
 
 }

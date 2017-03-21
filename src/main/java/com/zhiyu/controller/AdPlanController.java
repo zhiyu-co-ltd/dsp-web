@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import sun.awt.image.IntegerComponentRaster;
 
 import javax.servlet.http.Cookie;
@@ -100,6 +101,28 @@ public class AdPlanController {
         Usercookie.setMaxAge(60*60*24*7);//保留7天
         response.addCookie(Usercookie);
         return "tuiguang";
+    }
+    @ResponseBody
+    @RequestMapping("/updateAdPlanStatus")
+    public AdPlan updateAdPlanStatus(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+
+        String adplanid  = request.getParameter("adplanid") ;
+        String adplanstatus = request.getParameter("adplanstatus") ;
+        String userid = request.getParameter("userid");
+        if(adplanstatus.equals("0")){
+            adplanstatus="1";
+        }
+        else if(adplanstatus.equals("1")){
+            adplanstatus="0";
+        }
+
+        log.info("adplanid="+adplanid+";adplanstatus="+adplanstatus+";userid="+userid);
+
+        adPlanService.updateStatus(adplanstatus,Integer.parseInt(adplanid));
+
+        AdPlan adPlan=adPlanService.getById(Integer.parseInt(adplanid));
+
+        return adPlan;
     }
 
 }
