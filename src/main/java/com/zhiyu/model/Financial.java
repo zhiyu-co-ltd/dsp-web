@@ -12,6 +12,7 @@ public class Financial  extends BaseEntity{
     private String Money;
     private String Type;
     private String Description;
+    private String createtime;
 
     public String getUserId() {
         return UserId;
@@ -27,6 +28,14 @@ public class Financial  extends BaseEntity{
 
     public void setMoney(String money) {
         Money = money;
+    }
+
+    public String getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
     }
 
     public String getType() {

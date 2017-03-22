@@ -201,65 +201,11 @@
 												<th>交易金额（元）</th>
 												<th>说明</th>
 											</tr>
-											<tr>
-												<td>2016-11-08 09:48:14</td>
-												<td>消耗</td>
-												<td>1000.00</td>
-												<td>无</td>
-											</tr>
-											<tr>
-												<td>2016-11-08 09:48:14</td>
-												<td>消耗</td>
-												<td>1000.00</td>
-												<td>无</td>
-											</tr>
-											<tr>
-												<td>2016-11-08 09:48:14</td>
-												<td>消耗</td>
-												<td>1000.00</td>
-												<td>无</td>
-											</tr>
-											<tr>
-												<td>2016-11-08 09:48:14</td>
-												<td>消耗</td>
-												<td>1000.00</td>
-												<td>无</td>
-											</tr>
-											<tr>
-												<td>2016-11-08 09:48:14</td>
-												<td>消耗</td>
-												<td>1000.00</td>
-												<td>无</td>
-											</tr>
-											<tr>
-												<td>2016-11-08 09:48:14</td>
-												<td>消耗</td>
-												<td>1000.00</td>
-												<td>无</td>
-											</tr>
-											<tr>
-												<td>2016-11-08 09:48:14</td>
-												<td>消耗</td>
-												<td>1000.00</td>
-												<td>无</td>
-											</tr>
-											<tr>
-												<td>2016-11-08 09:48:14</td>
-												<td>消耗</td>
-												<td>1000.00</td>
-												<td>无</td>
-											</tr>
-											<tr>
-												<td>2016-11-08 09:48:14</td>
-												<td>消耗</td>
-												<td>1000.00</td>
-												<td>无</td>
-											</tr>
-											<tr>
-												<td>2016-11-08 09:48:14</td>
-												<td>消耗</td>
-												<td>1000.00</td>
-												<td>无</td>
+										 <tr th:each="financial:${financialList}" name="FinancialStatusByChange" th:value="${financial.getType()}">
+												<td><span th:text="${financial.getCreatetime()}"></span></td>
+												<td><span th:if="${'1'==financial.getType()}">充值</span><span th:if="${'0'==financial.getType()}">消费</span></td>
+												<td><span th:text="${financial.getMoney()}"></span></td>
+												<td><span th:text="${financial.getDescription()}"></span></td>
 											</tr>
 										</table>
 										<div class="clearfix table_page">

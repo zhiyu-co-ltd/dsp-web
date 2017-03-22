@@ -25,6 +25,7 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zhiyu.mapper.FinancialMapper">
+
     <select id="findFinancialByUserId" resultType="com.zhiyu.model.Financial" >
         select * from T_Financial where user_id=#{UserId}
     </select>

@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="css/houtai.css" />
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 		<script type="text/javascript" src="js/select.js"></script>
+
 		<script>
 		//获取查询时间
 		function getLastDay(past){
@@ -321,8 +322,8 @@
 														<div class="model-select-text" data-value="1">全部状态</div>
 														<ul class="model-select-option" style="display: none;">
 															<li data-option="1" class="seleced data-selected">全部状态</li>
-															<li data-option="2">开启</li>
-															<li data-option="3">关闭</li>
+															<li data-option="2" ><a href="#">开启</a></li>
+															<li data-option="3" >关闭</li>
 														</ul>
 													</div>
 												</div>
@@ -337,10 +338,10 @@
 											<th>点击均价(元)</th>
 											<th>下载均价(元)</th>
 										</tr>
-										<tr th:each="adplan:${adPlanList}">
+										<tr th:each="adplan:${adPlanList}" name="AdplanStatusByChange" th:value="${adplan.getStatus()}">
 											<td>
 												<div class="tuiguang_name">
-													<a href="guanggao.html"><span th:text="${adplan.getName()}"></a><a href="javascript:void(0)" th:onclick="'javascript:updateAdPlan('+${adplan.getName()}+','+${adplan.getDayConst()}+','+${adplan.getId()}+');'"><em class="biji"></em>
+													<a href="guanggao.html"><span th:text="${adplan.getName()}"></span></a><a href="javascript:void(0)" th:onclick="'javascript:updateAdPlan('+${adplan.getName()}+','+${adplan.getDayConst()}+','+${adplan.getId()}+');'"><em class="biji"></em>
 												</div>
 											</td>
 											<td>

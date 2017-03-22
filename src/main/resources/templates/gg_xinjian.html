@@ -9,6 +9,73 @@
 		<link rel="stylesheet" href="css/houtai.css" />
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 		<script type="text/javascript" src="js/select.js"></script>
+
+        <script>
+        //新增推广计划js
+        function addAdPlan(){
+        var _form = document.getElementById("adPaln_add");
+        var _inputs = _form.getElementsByTagName("input");
+        var adplanname;
+        var dayconst;
+        var userid;
+        var id;
+        var path="/addAdPlan";
+        var flagname=true;
+        var flagdayconst=true;
+        for (var i = 0; i < _inputs.length; i++) {
+        if(_inputs[i].name.toString()=="adplanname"){
+        // alert("adplanname");
+        adplanname=_inputs[i].value;
+        // alert("adplanname="+adplanname);
+        if(adplanname==null||adplanname==""){
+        flagname=false;
+        }
+
+        }
+        if(_inputs[i].name.toString()=="daycost"){
+        //     alert("daycost");
+        dayconst=_inputs[i].value;
+        if(dayconst==null||dayconst==""){
+        flagdayconst=false;
+        }
+        }
+        if(_inputs[i].name.toString()=="userid"){
+        userid=_inputs[i].value;
+        //     alert("userid="+userid);
+        }
+        if(_inputs[i].name.toString()=="id"){
+        id=_inputs[i].value;
+        alert("id="+id);
+        }
+        }
+        //			alert("flagdayconst="+flagdayconst);
+        //			alert("flagname="+flagname);
+        if(flagname==false){
+        // alert("11111="+111111);
+        document.getElementById("AdPlan_name").style.display="none";
+        // alert("ssss="+document.getElementById("AdPlan_name").style.display);
+        }
+        if(flagdayconst==false){
+        //alert("2222="+22222);
+        document.getElementById("AdPlan_daycost").style.display="none";
+        // alert(document.getElementById("AdPlan_daycost").style.display);
+        }
+
+        //            $(".huibg").show();
+        //            $(".renzheng_alert").show();
+        //            $(".geren_alert").show();
+        //            $(".qiye_alert").show();
+        //            $(".tuiguang_alert").show();
+
+        if(flagname&&flagdayconst) {
+        //alert("adplanname="+adplanname)
+        _form.action = path + "?adplanname="+adplanname + "&daycost=" + dayconst+"&userid="+userid;
+        _form.submit();
+        }
+
+        }
+        </script>
+
 	</head>
 
 	<body>
@@ -102,15 +169,13 @@
 											<span class="left gg_xj_gp_name">推广计划</span>
 											<select class="left">
 												<option>--请选择--</option>
-												<option>推广计划一</option>
-												<option>推广计划二</option>
-												<option>推广计划三</option>
+												<option th:each="adplan:${adPlanList}" th:value="${adplan.getAdplanId()}"><span th:text="${adplan.getName()}"></span></option>
 											</select>
 											<a href="javascript:;" class="left xinjiantuig">新建推广计划</a>
 										</div>
 										<div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">广告名称</span>
-											<input type="text" class="left" placeholder="请输入广告名称" />
+											<input type="text" class="left" name="adname" placeholder="请输入广告名称" />
 											<span class="left zishu">0/30</span>
 										</div>
 										<div class="clearfix gg_xj_gp">
@@ -126,9 +191,9 @@
 										</div>
 									    <div class="clearfix gg_xj_gp gg_xj_date">
 											<span class="left gg_xj_gp_name">投放日期</span>
-											<input type="text" class="left"  id="datepicker"/>
+											<input type="text" class="left"  name="AddStatrtDate" id="datepicker"/>
 											<span class="left riqilianjie">至</span>
-											<input type="text" class="left"  id="datepicker1"/>
+											<input type="text" class="left"  name="AddEndDate" id="datepicker1"/>
 										</div>
 									    <div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">投放时间</span>
@@ -178,10 +243,7 @@
 									     </div>
 									</div>
 								</form>
-								
-								
-								
-								
+
 								
 								
 							</div>
@@ -864,43 +926,49 @@
 				</div>
 			</div>
 			<!--弹窗-->
-		
+			<div class="huibg">  </div>
 			<div class="tuiguang_alert">
-	       	<div class="caiwu_tl clearfix">
-							<a href="javascript:;" class="ahover"><span>创建新推广计划</span></a>
-			</div>
-	       <em class="cha"></em>
-	       
-	       <form class="tuiguang_form">
-	        	<div class="geren_form">
-	        		<div class="clearfix geren_gp tuiguang_gp">
+				<div class="caiwu_tl clearfix">
+					<a href="javascript:;" class="ahover"><span>创建新推广计划</span></a>
+				</div>
+				<em class="cha"></em>
+
+				<form class="tuiguang_form" id="adPaln_add">
+					<div class="geren_form">
+						<div class="clearfix geren_gp tuiguang_gp">
 	        			<span class="left geren_gp_name">
 	        				推广计划名称
 	        			</span>
-	        			<div class="geren_rt tuiguang_input">
-	        				<input type="text" />
-	        			</div>
-	        			<span class="tuiguang_danwei">0/30</span>
-	        		</div>
-	        		<div class="clearfix geren_gp tuiguang_gp">
+							<div class="geren_rt tuiguang_input">
+								<input type="text" name="adplanname" id="add_adplanname"/>
+							</div>
+							<span class="tuiguang_danwei">0/30</span>
+						</div>
+						<div class="erro" id="AdPlan_name" style="display:none">请输入推广计划名称</div>
+						<div class="clearfix geren_gp tuiguang_gp">
 	        			<span class="left geren_gp_name">
 	        				设定投放限额
 	        			</span>
-	        			<div class="geren_rt tuiguang_input">
-	        				<input type="text" />
-	        			</div>
-	        			<span class="tuiguang_danwei">元/天</span>
-	        		</div>
-	        	    
-	        		
-	        	    
-	        	    <div class="geren_btn">
-	        	    	<input type="submit" value="提交" class="blubtn" />
-	        	    	<input type="reset" value="取消" class="quxiao" />
-	        	    </div>
-	        	</div>
-	        </form>
-	       </div>
+
+							<div class="geren_rt tuiguang_input">
+								<input type="text" name="daycost" id="add_daycost"/>
+							</div>
+							<span class="tuiguang_danwei">元/天</span>
+							<div class="erro" id="AdPlan_daycost" style="display:none">请输入推广计划日限额</div>
+							<input type="hidden" name="userid" th:value="${userId}" id="adduserid"/>
+							<input type="hidden" name="adplanid"  id="add_adplanid"/>
+						</div>
+
+
+
+						<div class="geren_btn">
+							<input type="submit" value="提交" class="blubtn" onclick="addAdPlan()"/>
+							<input type="reset" value="取消" class="quxiao" />
+						</div>
+					</div>
+
+				</form>
+			</div>
 			
 			<script type="text/javascript" src="js/houtai.js"></script>
 			<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>

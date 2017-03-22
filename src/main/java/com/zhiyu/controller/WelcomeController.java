@@ -3,12 +3,8 @@ package com.zhiyu.controller;
 import java.util.List;
 import java.util.Map;
 
-import com.zhiyu.model.AdPlan;
-import com.zhiyu.model.Ad;
-import com.zhiyu.model.User;
-import com.zhiyu.service.AdPlanService;
-import com.zhiyu.service.AdService;
-import com.zhiyu.service.UserService;
+import com.zhiyu.model.*;
+import com.zhiyu.service.*;
 
 import com.zhiyu.util.DateUtil;
 import org.apache.log4j.Logger;
@@ -38,6 +34,8 @@ public class WelcomeController {
     @Autowired
     private AdService adService;
 
+    @Autowired
+    private FinancialService financialService;
 
 	@RequestMapping("/index")
 	public String welcome(Map<String, Object> model,HttpServletRequest request) {
@@ -232,6 +230,8 @@ public class WelcomeController {
                     model.put("today_cost", "200");
                     model.put("seven_day_cost", "3000");
                     model.put("day", DateUtil.getDay());
+                    List<Financial> financialList=financialService.findFinancialByUserId(userId);
+                    model.put("financialList", financialList);
                     returnUrl="caiwu";
                     break;
                 }
@@ -276,6 +276,9 @@ public class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+                    model.put("userId", userId);
+                    List<AdPlan> adPlanList=adPlanService.findAdPlanByUserId(userId);
+                    model.put("adPlanList", adPlanList);
                     returnUrl="gg_xinjian";
                     break;
                 }
