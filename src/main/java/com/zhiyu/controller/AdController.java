@@ -1,6 +1,7 @@
 package com.zhiyu.controller;
 
 import com.zhiyu.model.Ad;
+import com.zhiyu.model.BaseEntity;
 import com.zhiyu.model.User;
 import com.zhiyu.service.AdService;
 import com.zhiyu.service.UserService;
@@ -10,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -88,6 +90,43 @@ public class AdController {
         Usercookie.setMaxAge(60*60*24*7);//保留7天
         response.addCookie(Usercookie);
         return "guanggao";
+    }
+
+    @ResponseBody
+    @RequestMapping("/updateAdStatus")
+    public Ad updateAdStatus(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) {
+
+        String adid  = request.getParameter("adid") ;
+        String adstatus = request.getParameter("adstatus") ;
+        String userid = request.getParameter("userid");
+        String adplanid = request.getParameter("adplanid");
+
+        log.info("adid="+adid+";adstatus="+adstatus+";userid="+userid+";adplanid="+adplanid);
+
+        if(adstatus.equals("0")){
+            adstatus="1";
+        }
+        else if(adstatus.equals("2")){
+            adstatus="5";
+        } else if(adstatus.equals("3")){
+            adstatus="1";
+        } else if(adstatus.equals("4")){
+            adstatus="5";
+        } else if(adstatus.equals("5")){
+            adstatus="6";
+        } else if(adstatus.equals("6")){
+            adstatus="4";
+        } else if(adstatus.equals("7")){
+            adstatus="8";
+        }
+
+        adService.updateStatus(adstatus,Integer.parseInt(adid));
+
+        Ad ad= adService.getById(Integer.parseInt(adid));
+
+        log.info("ad="+ad);
+
+        return ad;
     }
 
 }

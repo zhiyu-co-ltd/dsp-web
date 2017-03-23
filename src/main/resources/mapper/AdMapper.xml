@@ -34,6 +34,10 @@
         select * from T_Ad where adplan_id=#{AdPlanId}
     </select>
 
+    <select id="findAdById" resultType="com.zhiyu.model.Ad" >
+        select * from T_Ad where id=#{Id}
+    </select>
+
     <select id="findAdByNameAndUserId" resultType="com.zhiyu.model.Ad" >
         select * from T_Ad where  name like '%${name}%'  and user_id=#{UserId}
     </select>
@@ -41,5 +45,9 @@
     <select id="findAdByNameAndAdPlanId" resultType="com.zhiyu.model.Ad" >
         select * from T_Ad where  name like '%${name}%'  and adplan_id=#{AdPlanId}
     </select>
+
+    <update id="UpdateStatus" >
+        update  T_Ad set status=#{Status}  where  id=#{Id}
+    </update>
 
 </mapper>

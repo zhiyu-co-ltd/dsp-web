@@ -23,5 +23,7 @@ public interface AdService {
 
     public void deleteById(Integer id) ;
 
+    public void updateStatus(String staus,Integer id) ;
+
     public void save(Ad ad) ;
 }

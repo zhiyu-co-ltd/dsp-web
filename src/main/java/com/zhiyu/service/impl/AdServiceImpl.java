@@ -41,7 +41,7 @@ public class AdServiceImpl implements AdService {
     }
 
     public Ad getById(Integer id) {
-        return adMapper.selectByPrimaryKey(id);
+        return adMapper.findAdById(id.toString());
     }
 
     public void deleteById(Integer id) {
@@ -54,6 +54,10 @@ public class AdServiceImpl implements AdService {
         } else {
             adMapper.insert(ad);
         }
+    }
+
+    public void updateStatus(String status,Integer id) {
+        adMapper.UpdateStatus(status,id);
     }
 
 }

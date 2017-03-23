@@ -192,7 +192,17 @@ public class WelcomeController {
                     model.put("userId", userId);
                     model.put("day", DateUtil.getDay());
                     adplanid=request.getParameter("adplanid");
+                    List<Ad> adList=null;
+
+                    if(adplanid!=null&&!"".equals(adplanid)){
+                        log.info("adplanid="+adplanid);
+                        adList=adService.findAdByAdPlanId(adplanid);
+                    }else{
+                        log.info("userId="+userId);
+                        adList=adService.findAdByUserId(userId);
+                    }
                     model.put("adplanid", adplanid);
+                    model.put("adList", adList);
                     returnUrl="guanggao";
                     break;
                 }
@@ -209,7 +219,7 @@ public class WelcomeController {
         log.info("size="+adList.size());
         for(int i=0;i<adList.size();i++){
             Ad ad=(Ad)adList.toArray()[i];
-            log.info("name="+ad.getName()+";id="+ad.getId());
+            log.info("name="+ad.getName()+";id="+ad.getId()+";adplanid="+ad.getAdPlanId()+";adplanName="+ad.getAdPlanName());
         }
         return returnUrl;
     }

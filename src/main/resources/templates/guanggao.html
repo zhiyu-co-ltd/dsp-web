@@ -119,6 +119,35 @@
 			}
 
 
+            //修改推广计划js
+            function updateAdStatus(adid){
+
+               // alert("adid="+adid);
+                var userid=document.getElementById("StatusUserId").value;
+              //  alert("userid="+userid);
+                var adplanid=document.getElementById("StatusAdPlanId").value;
+               // alert("adplanid="+adplanid);
+                var adstatus=document.getElementById("UpdateAdid"+adid).value
+              //  alert("adstatus="+adstatus);
+
+//                alert("adstatus="+document.getElementById("UpdateAdid"+adid).value);
+//                alert("userid="+userid);
+//                alert("adplanid="+adplanid);
+
+                $.ajax({
+                    type:"GET",
+                    url:"/updateAdStatus",
+                    dataType:"json",
+                    data:"adstatus="+adstatus+"&adid="+adid+"&userid="+userid+"&adplanid="+adplanid,
+                    success:function(data) {
+                        alert("data="+data);
+                        document.getElementById("UpdateAdid"+adid).value=data.status;
+                        alert("adstatus="+  document.getElementById("UpdateAdid"+adid).value);
+                    }
+                });
+
+            }
+
 		</script>
 	</head>
 
@@ -264,18 +293,36 @@
 											<th>出价方式</th>
 											<th>花费(元)</th>
 										</tr>
-                                        <tr>
+                                        <tr th:each="ad:${adList}" name="AdStatusByChange" th:value="${ad.getStatus()}">
                                         	<td>
-                                        		<a href="guangao_con.html?adid=1111&adplanid=11111">111111</a>
+                                        		<a href="guangao_con.html?adid=1111&adplanid=11111"><span th:text="${ad.getName()}"></span></a>
                                         	</td>
                                         	<td>
-                                        		<a href="tuiguang.html">推广广告测试</a>
+												<a th:href="@{/guanggao.html(adplanid=${ad.getAdPlanId()})}"><span th:text="${ad.getAdPlanName()}"></span></a>
                                         	</td>
                                         	<td>
-                                        		<a href="#">审核</a>
-             
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${0==ad.getStatus()}">审核</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <span th:if="${1==ad.getStatus()}">等待审核</span>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${2==ad.getStatus()}">投放</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${3==ad.getStatus()}">审核</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${4==ad.getStatus()}">投放</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${5==ad.getStatus()}">暂停</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${6==ad.getStatus()}">投放</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${7==ad.getStatus()}">下线</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <span th:if="${8==ad.getStatus()}">已结束</span>
                                         	</td>
-                                        	<td>未审核</td>
+                                        	<td>
+                                                <span th:if="${0==ad.getStatus()}">待审核</span>
+                                                <span th:if="${1==ad.getStatus()}">审核中</span>
+                                                <span th:if="${2==ad.getStatus()}">审核通过</span>
+                                                <span th:if="${3==ad.getStatus()}">审核不通过</span>
+                                                <span th:if="${4==ad.getStatus()}">待投放</span>
+                                                <span th:if="${5==ad.getStatus()}">投放中</span>
+                                                <span th:if="${6==ad.getStatus()}">暂停</span>
+                                                <span th:if="${7==ad.getStatus()}">投放结束</span>
+                                                <span th:if="${8==ad.getStatus()}">下线</span>
+                                            </td>
+
                                         	<td>不限定</td>
                                         	<td>1.000.00</td>
                                         	<td>0</td>
@@ -287,29 +334,8 @@
                                         	<td>CPC</td>
                                         	<td>0.00</td>
                                         </tr>
-                                        <tr>
-                                        	<td>
-                                        		<a href="guangao_con.html">111111</a>
-                                        	</td>
-                                        	<td>
-                                        		<a href="tuiguang.html">推广广告测试</a>
-                                        	</td>
-                                        	<td>
-                                        		<a href="#">上线</a>
-                                                <a href="#">下线</a>
-                                        	</td>
-                                        	<td>暂停</td>
-                                        	<td>不限定</td>
-                                        	<td>1.000.00</td>
-                                        	<td>0</td>
-                                        	<td>0</td>
-                                        	<td>0.00</td>
-                                        	<td>0</td>
-                                        	<td>0.00</td>
-                                        	<td>0.50</td>
-                                        	<td>CPC</td>
-                                        	<td>0.00</td>
-                                        </tr>
+                                        <input type="hidden" id="StatusUserId" th:value="${userId}" />
+                                        <input type="hidden" id="StatusAdPlanId" th:value="${adplanid}" />
 										<tr class="heji">
 											<td>
 												本页合计

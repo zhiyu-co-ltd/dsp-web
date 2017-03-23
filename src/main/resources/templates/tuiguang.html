@@ -341,11 +341,11 @@
 										<tr th:each="adplan:${adPlanList}" name="AdplanStatusByChange" th:value="${adplan.getStatus()}">
 											<td>
 												<div class="tuiguang_name">
-													<a href="guanggao.html"><span th:text="${adplan.getName()}"></span></a><a href="javascript:void(0)" th:onclick="'javascript:updateAdPlan('+${adplan.getName()}+','+${adplan.getDayConst()}+','+${adplan.getId()}+');'"><em class="biji"></em>
+													<a th:href="@{/guanggao.html(adplanid=${adplan.getAdplanId()})}"><span th:text="${adplan.getName()}"></span></a><a href="javascript:void(0)" th:onclick="'javascript:updateAdPlan('+${adplan.getName()}+','+${adplan.getDayConst()}+','+${adplan.getId()}+');'"><em class="biji"></em>
 												</div>
 											</td>
 											<td>
-												<button class="mwui-switch-btn" th:onclick="'javascript:updateAdPlanStatus('+${adplan.getId()}+');' "><span th:if="${'1'==adplan.getStatus()}" change="OFF" >ON</span><span th:if="${'0'==adplan.getStatus()}" change="ON" >OFF</span><input th:id=" 'UpdateAdplanid' + ${adplan.getId()}" type="hidden" name="show_icon2" th:value="${adplan.getStatus()}" /></span></button>
+												<button class="mwui-switch-btn" th:onclick="'javascript:updateAdPlanStatus('+${adplan.getId()}+');' "><span th:if="${'1'==adplan.getStatus()}" change="OFF" >ON</span><span th:if="${'0'==adplan.getStatus()}" change="ON" >OFF</span><input th:id=" 'UpdateAdplanid' + ${adplan.getId()}" type="hidden" name="show_icon2" th:value="${adplan.getStatus()}" /></button>
 											</td>
 											<td>1.000.00</td>
 											<td>1.000.00</td>

@@ -1,5 +1,6 @@
 package com.zhiyu.model;
 
+import javax.persistence.Column;
 import javax.persistence.Table;
 
 /**
@@ -7,29 +8,52 @@ import javax.persistence.Table;
  */
 @Table(name="T_Ad")
 public class Ad extends BaseEntity{
-
+    @Column(name="name")
     private String Name;
+    @Column(name="user_id")
     private String UserId;
-    private String AdPlanId;
+    @Column(name="adplan_id")
+    private String adplan_id;
+    @Column(name="adplan_name")
+    private String adplan_name;
+    @Column(name="status")
     private int Status;
+    @Column(name="delivery_type")
     private int DeliveryType;
+    @Column(name="offer_price")
     private Double OfferPrice;
-    private int TelecomOperator;
-    private int NetworkType;
-    private int OperateSystem;
-    private String PdbPlatform;
-    private int GenderType;
-    private String LaunchArea;
-    private String LaunchPeople;
-    private int DisplayTimes;
-    private String LaunchTimeStart;
-    private String LaunchTimeEnd;
-    private String AdUrl;
-    private String CallbackUrl;
-    private String DailyLimitMoney;
-    private int DeliveryTimeType;
-    private String DeliveryTime;
-    private int AdType;
+    @Column(name="telecom_operator")
+    private int telecom_operator;
+    @Column(name="network_type")
+    private int network_type;
+    @Column(name="operate_system")
+    private int operate_system;
+    @Column(name="pdb_platform")
+    private String pdb_platform;
+    @Column(name="gender_type")
+    private int gender_type;
+    @Column(name="launch_area")
+    private String launch_area;
+    @Column(name="launch_people")
+    private String launch_people;
+    @Column(name="display_times")
+    private int display_times;
+    @Column(name="launch_time_start")
+    private String launch_time_start;
+    @Column(name="launch_end_time")
+    private String launch_end_time;
+    @Column(name="ad_url")
+    private String ad_url;
+    @Column(name="callback_url")
+    private String callback_url;
+    @Column(name="daily_limit_money")
+    private String daily_limit_money;
+    @Column(name="delivery_time_type")
+    private int delivery_time_type;
+    @Column(name="delivery_time")
+    private String delivery_time;
+    @Column(name="ad_type")
+    private int ad_type;
 
     public String getName() {
         return Name;
@@ -48,11 +72,11 @@ public class Ad extends BaseEntity{
     }
 
     public String getAdPlanId() {
-        return AdPlanId;
+        return adplan_id;
     }
 
     public void setAdPlanId(String adPlanId) {
-        AdPlanId = adPlanId;
+        adplan_id = adPlanId;
     }
 
     public int getStatus() {
@@ -80,130 +104,138 @@ public class Ad extends BaseEntity{
     }
 
     public int getTelecomOperator() {
-        return TelecomOperator;
+        return telecom_operator;
     }
 
     public void setTelecomOperator(int telecomOperator) {
-        TelecomOperator = telecomOperator;
+        telecom_operator = telecomOperator;
     }
 
     public int getNetworkType() {
-        return NetworkType;
+        return network_type;
     }
 
     public void setNetworkType(int networkType) {
-        NetworkType = networkType;
+        network_type = networkType;
     }
 
     public int getOperateSystem() {
-        return OperateSystem;
+        return operate_system;
     }
 
     public void setOperateSystem(int operateSystem) {
-        OperateSystem = operateSystem;
+        operate_system = operateSystem;
     }
 
     public String getPdbPlatform() {
-        return PdbPlatform;
+        return pdb_platform;
     }
 
     public void setPdbPlatform(String pdbPlatform) {
-        PdbPlatform = pdbPlatform;
+        pdb_platform = pdbPlatform;
     }
 
     public int getGenderType() {
-        return GenderType;
+        return gender_type;
     }
 
     public void setGenderType(int genderType) {
-        GenderType = genderType;
+        gender_type = genderType;
     }
 
     public String getLaunchArea() {
-        return LaunchArea;
+        return launch_area;
     }
 
     public void setLaunchArea(String launchArea) {
-        LaunchArea = launchArea;
+        launch_area = launchArea;
     }
 
     public String getLaunchPeople() {
-        return LaunchPeople;
+        return launch_people;
     }
 
     public void setLaunchPeople(String launchPeople) {
-        LaunchPeople = launchPeople;
+        launch_people = launchPeople;
     }
 
     public int getDisplayTimes() {
-        return DisplayTimes;
+        return display_times;
     }
 
     public void setDisplayTimes(int displayTimes) {
-        DisplayTimes = displayTimes;
+        display_times = displayTimes;
     }
 
     public String getLaunchTimeStart() {
-        return LaunchTimeStart;
+        return launch_time_start;
     }
 
     public void setLaunchTimeStart(String launchTimeStart) {
-        LaunchTimeStart = launchTimeStart;
+        launch_time_start = launchTimeStart;
     }
 
     public String getLaunchTimeEnd() {
-        return LaunchTimeEnd;
+        return launch_end_time;
     }
 
     public void setLaunchTimeEnd(String launchTimeEnd) {
-        LaunchTimeEnd = launchTimeEnd;
+        launch_end_time = launchTimeEnd;
     }
 
     public String getAdUrl() {
-        return AdUrl;
+        return ad_url;
     }
 
     public void setAdUrl(String adUrl) {
-        AdUrl = adUrl;
+        ad_url = adUrl;
     }
 
     public String getCallbackUrl() {
-        return CallbackUrl;
+        return callback_url;
     }
 
     public void setCallbackUrl(String callbackUrl) {
-        CallbackUrl = callbackUrl;
+        callback_url = callbackUrl;
     }
 
     public String getDailyLimitMoney() {
-        return DailyLimitMoney;
+        return daily_limit_money;
     }
 
     public void setDailyLimitMoney(String dailyLimitMoney) {
-        DailyLimitMoney = dailyLimitMoney;
+        daily_limit_money = dailyLimitMoney;
     }
 
     public int getDeliveryTimeType() {
-        return DeliveryTimeType;
+        return delivery_time_type;
     }
 
     public void setDeliveryTimeType(int deliveryTimeType) {
-        DeliveryTimeType = deliveryTimeType;
+        delivery_time_type = deliveryTimeType;
     }
 
     public String getDeliveryTime() {
-        return DeliveryTime;
+        return delivery_time;
+    }
+
+    public String getAdPlanName() {
+        return adplan_name;
+    }
+
+    public void setAdPlanName(String adPlanName) {
+        adplan_name = adPlanName;
     }
 
     public void setDeliveryTime(String deliveryTime) {
-        DeliveryTime = deliveryTime;
+        delivery_time = deliveryTime;
     }
 
     public int getAdType() {
-        return AdType;
+        return ad_type;
     }
 
     public void setAdType(int adType) {
-        AdType = adType;
+        ad_type = adType;
     }
 }
