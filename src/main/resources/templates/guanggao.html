@@ -140,9 +140,46 @@
                     dataType:"json",
                     data:"adstatus="+adstatus+"&adid="+adid+"&userid="+userid+"&adplanid="+adplanid,
                     success:function(data) {
-                        alert("data="+data);
+                       // alert("data="+data);
                         document.getElementById("UpdateAdid"+adid).value=data.status;
-                        alert("adstatus="+  document.getElementById("UpdateAdid"+adid).value);
+                       // alert("adstatus="+  document.getElementById("UpdateAdid"+adid).value);
+					//	alert("name="+  document.getElementById("UpdateAdid"+adid+"Name").textContent);
+                        if(data.status==0) {
+                            document.getElementById("UpdateAdid" + adid + "Name").textContent = "审核";
+                            document.getElementById("UpdateAdid" + adid + "Name2").textContent = "待审核";
+                        }
+                        if(data.status==1) {
+                            document.getElementById("UpdateAdid" + adid + "Name").textContent = "等待审核";
+                            document.getElementById("UpdateAdid" + adid + "Name2").textContent = "审核中";
+                        }
+                        if(data.status==2) {
+                            document.getElementById("UpdateAdid" + adid + "Name").textContent = "投放";
+                            document.getElementById("UpdateAdid" + adid + "Name2").textContent = "审核通过";
+                        }
+                        if(data.status==3) {
+                            document.getElementById("UpdateAdid" + adid + "Name").textContent = "审核";
+                            document.getElementById("UpdateAdid" + adid + "Name2").textContent = "审核不通过";
+                        }
+                        if(data.status==4) {
+                            document.getElementById("UpdateAdid" + adid + "Name").textContent = "投放";
+                            document.getElementById("UpdateAdid" + adid + "Name2").textContent = "待投放";
+                        }
+                        if(data.status==5) {
+                            document.getElementById("UpdateAdid" + adid + "Name").textContent = "暂停";
+                            document.getElementById("UpdateAdid" + adid + "Name2").textContent = "投放中";
+                        }
+                        if(data.status==6) {
+                            document.getElementById("UpdateAdid" + adid + "Name").textContent = "投放";
+                            document.getElementById("UpdateAdid" + adid + "Name2").textContent = "暂停";
+                        }
+                        if(data.status==7) {
+                            document.getElementById("UpdateAdid" + adid + "Name").textContent = "下线";
+                            document.getElementById("UpdateAdid" + adid + "Name2").textContent = "投放结束";
+                        }
+                        if(data.status==8) {
+                            document.getElementById("UpdateAdid" + adid + "Name").textContent = "已下线";
+                            document.getElementById("UpdateAdid" + adid + "Name2").textContent = "下线";
+                        }
                     }
                 });
 
@@ -301,26 +338,26 @@
 												<a th:href="@{/guanggao.html(adplanid=${ad.getAdPlanId()})}"><span th:text="${ad.getAdPlanName()}"></span></a>
                                         	</td>
                                         	<td>
-                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${0==ad.getStatus()}">审核</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${0==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name" th:text="审核"></span></span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
                                                 <span th:if="${1==ad.getStatus()}">等待审核</span>
-                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${2==ad.getStatus()}">投放</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
-                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${3==ad.getStatus()}">审核</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
-                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${4==ad.getStatus()}">投放</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
-                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${5==ad.getStatus()}">暂停</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
-                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${6==ad.getStatus()}">投放</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
-                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${7==ad.getStatus()}">下线</span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
-                                                <span th:if="${8==ad.getStatus()}">已结束</span>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${2==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name" th:text="投放"></span></span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${3==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name" th:text="审核"></span></span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${4==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name" th:text="投放"></span></span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${5==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name" th:text="暂停"></span></span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${6==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name" th:text="投放"></span></span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <a href="javascript:void(0)" th:onclick="'javascript:updateAdStatus('+${ad.getId()}+');'"> <span th:if="${7==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name" th:text="下线"></span></span><input th:id=" 'UpdateAdid' + ${ad.getId()}" type="hidden"  th:value="${ad.getStatus()}" /></a>
+                                                <span th:if="${8==ad.getStatus()}">已下线</span>
                                         	</td>
                                         	<td>
-                                                <span th:if="${0==ad.getStatus()}">待审核</span>
-                                                <span th:if="${1==ad.getStatus()}">审核中</span>
-                                                <span th:if="${2==ad.getStatus()}">审核通过</span>
-                                                <span th:if="${3==ad.getStatus()}">审核不通过</span>
-                                                <span th:if="${4==ad.getStatus()}">待投放</span>
-                                                <span th:if="${5==ad.getStatus()}">投放中</span>
-                                                <span th:if="${6==ad.getStatus()}">暂停</span>
-                                                <span th:if="${7==ad.getStatus()}">投放结束</span>
-                                                <span th:if="${8==ad.getStatus()}">下线</span>
+                                                <span th:if="${0==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name2" th:text="待审核"></span></span>
+                                                <span th:if="${1==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name2" th:text="审核中"></span></span>
+                                                <span th:if="${2==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name2" th:text="审核通过"></span></span>
+                                                <span th:if="${3==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name2" th:text="审核不通过"></span></span>
+                                                <span th:if="${4==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name2" th:text="待投放"></span></span>
+                                                <span th:if="${5==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name2" th:text="投放中"></span></span>
+                                                <span th:if="${6==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name2" th:text="暂停"></span></span>
+                                                <span th:if="${7==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name2" th:text="投放结束"></span></span>
+                                                <span th:if="${8==ad.getStatus()}"><span th:id=" 'UpdateAdid' + ${ad.getId()}+Name2" th:text="下线"></span></span>
                                             </td>
 
                                         	<td>不限定</td>
