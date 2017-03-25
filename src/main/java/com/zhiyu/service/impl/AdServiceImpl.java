@@ -44,6 +44,11 @@ public class AdServiceImpl implements AdService {
         return adMapper.findAdById(id.toString());
     }
 
+    public Ad getByAdId(String adid) {
+        return adMapper.findAdByAdId(adid);
+    }
+
+
     public void deleteById(Integer id) {
 
         adMapper.deleteByPrimaryKey(id);

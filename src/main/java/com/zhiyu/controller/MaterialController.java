@@ -1,14 +1,17 @@
 package com.zhiyu.controller;
 
 import com.zhiyu.model.Ad;
+import com.zhiyu.model.MaterialImage;
 import com.zhiyu.model.User;
 import com.zhiyu.service.AdService;
+import com.zhiyu.service.MaterialImageService;
 import com.zhiyu.service.UserService;
 import com.zhiyu.util.DateUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -29,8 +32,12 @@ public class MaterialController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private MaterialImageService materialImageService;
 
-//    @RequestMapping("/addAd")
+
+
+    //    @RequestMapping("/addAd")
 //    public String addAd(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
 //
 //        String adplanname = request.getParameter("adplanname") ;
@@ -88,6 +95,7 @@ public class MaterialController {
         response.addCookie(Usercookie);
         return "guangao_con";
     }
+
     @RequestMapping("/findMaterialWenZiByName")
     public String findMaterialWenZiByName(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
 
@@ -271,4 +279,43 @@ public class MaterialController {
         response.addCookie(Usercookie);
         return "ggcon_yh";
     }
+
+    @ResponseBody
+    @RequestMapping("/updateMaterialStatus")
+    public  Object updateMaterialStatus(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) {
+
+        String materialid  = request.getParameter("materialid") ;
+        String materialtype = request.getParameter("materialtype") ;
+        String materialstatus = request.getParameter("materialstatus") ;
+        Object object =new Object();
+        log.info("materialid="+materialid+";materialstatus="+materialstatus+";materialtype="+materialtype);
+
+        if(materialstatus.equals("0")){
+            materialstatus="1";
+        }
+        else if(materialstatus.equals("2")){
+            materialstatus="5";
+        } else if(materialstatus.equals("3")){
+            materialstatus="1";
+        } else if(materialstatus.equals("4")){
+            materialstatus="5";
+        } else if(materialstatus.equals("5")){
+            materialstatus="6";
+        } else if(materialstatus.equals("6")){
+            materialstatus="4";
+        } else if(materialstatus.equals("7")){
+            materialstatus="8";
+        }
+
+        if("image".equals(materialtype)){
+            materialImageService.updateStatus(materialstatus,Integer.parseInt(materialid));
+            object=materialImageService.getById(Integer.parseInt(materialid));
+        }
+
+
+        log.info("object="+object);
+
+        return object;
+    }
+
 }

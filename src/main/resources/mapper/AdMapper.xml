@@ -38,6 +38,10 @@
         select * from T_Ad where id=#{Id}
     </select>
 
+    <select id="findAdByAdId" resultType="com.zhiyu.model.Ad" >
+        select * from T_Ad where ad_id=#{AdId}
+    </select>
+
     <select id="findAdByNameAndUserId" resultType="com.zhiyu.model.Ad" >
         select * from T_Ad where  name like '%${name}%'  and user_id=#{UserId}
     </select>

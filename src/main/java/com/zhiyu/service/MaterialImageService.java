@@ -9,13 +9,16 @@ import java.util.List;
  */
 public interface MaterialImageService {
 
-    public List<MaterialImage> getAll();
-
     public  List<MaterialImage> findMaterialImageByAdId(String AdId);
+
+    public  List<MaterialImage> findMaterialImageByNameAndAdId(String AdId);
 
     public MaterialImage getById(Integer id) ;
 
     public void deleteById(Integer id) ;
 
     public void save(MaterialImage materialImage) ;
+
+    public void updateStatus(String status,Integer id) ;
+
 }

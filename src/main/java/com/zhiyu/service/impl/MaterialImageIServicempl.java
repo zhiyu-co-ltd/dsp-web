@@ -16,17 +16,18 @@ public class MaterialImageIServicempl implements MaterialImageService {
 
     @Autowired
     private MaterialImageMapper materialImageMapper;
-
-    public List<MaterialImage> getAll() {
-        return materialImageMapper.selectAll();
-    }
     @Override
     public List<MaterialImage> findMaterialImageByAdId(String AdId) {
         return materialImageMapper.findMaterialImageByAdId(AdId);
     }
 
+    @Override
+    public List<MaterialImage> findMaterialImageByNameAndAdId(String AdId) {
+        return materialImageMapper.findMaterialImageByAdId(AdId);
+    }
+
     public MaterialImage getById(Integer id) {
-        return materialImageMapper.selectByPrimaryKey(id);
+        return materialImageMapper.findMaterialImageById(id.toString());
     }
 
     public void deleteById(Integer id) {
@@ -39,6 +40,9 @@ public class MaterialImageIServicempl implements MaterialImageService {
         } else {
             materialImageMapper.insert(materialImage);
         }
+    }
+    public void updateStatus(String status,Integer id) {
+        materialImageMapper.UpdateStatus(status,id);
     }
 
 }

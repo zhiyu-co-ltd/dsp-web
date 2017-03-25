@@ -12,4 +12,11 @@ import java.util.List;
 public interface MaterialImageMapper extends MyMapper<MaterialImage> {
 
    List<MaterialImage>  findMaterialImageByAdId(@Param("AdId") String AdId);
+
+   List<MaterialImage>  findMaterialImageByNameAndAdId(@Param("AdId") String AdId,@Param("name") String name);
+
+   void UpdateStatus(@Param("Status") String Status ,@Param("Id") Integer Id);
+
+   MaterialImage findMaterialImageById(@Param("Id") String Id);
+
 }

@@ -30,4 +30,16 @@
         select * from T_Material_Image where ad_id=#{AdId}
     </select>
 
+    <select id="findMaterialImageByNameAndAdId" resultType="com.zhiyu.model.MaterialImage" >
+        select * from T_Material_Image where  name like '%${name}%'  and ad_id=#{AdId}
+    </select>
+
+    <select id="findMaterialImageById" resultType="com.zhiyu.model.MaterialImage" >
+        select * from T_Material_Image where id=#{Id}
+    </select>
+
+    <update id="UpdateStatus" >
+        update  T_Material_Image set status=#{Status}  where  id=#{Id}
+    </update>
+
 </mapper>

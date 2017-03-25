@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS `T_Ad`;
 CREATE TABLE `T_Ad` (
   `id` int(8) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `user_id` varchar(127) NOT NULL COMMENT '用户唯一标识',
+  `ad_id` varchar(127) NOT NULL COMMENT '广告唯一标识',
   `adplan_id` varchar(127) NOT NULL COMMENT '推广计划id',
   `adplan_name` varchar(127) NOT NULL COMMENT '推广计划名称',
   `status` int(8) NOT NULL DEFAULT '0' COMMENT '广告状态：0:待审核；1：审核中；2:审核通过；3:审核不通过；4:待投放；5:投放中；6:暂停；7:投放结束；8:下线',

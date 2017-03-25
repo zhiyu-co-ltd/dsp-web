@@ -12,7 +12,17 @@ public class MaterialImage extends BaseEntity {
     private String AdId;
     private String MaterialId;
     private String Size;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     private String ImageUrl;
+    private String status;
     private int type;
 
     public String getName() {

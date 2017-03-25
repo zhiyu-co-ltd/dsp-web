@@ -332,7 +332,7 @@
 										</tr>
                                         <tr th:each="ad:${adList}" name="AdStatusByChange" th:value="${ad.getStatus()}">
                                         	<td>
-                                        		<a href="guangao_con.html?adid=1111&adplanid=11111"><span th:text="${ad.getName()}"></span></a>
+												<a th:href="@{/guangao_con.html(adid=${ad.getAdId()},adplanid=${ad.getAdPlanId()})}"><span th:text="${ad.getName()}"></span></a>
                                         	</td>
                                         	<td>
 												<a th:href="@{/guanggao.html(adplanid=${ad.getAdPlanId()})}"><span th:text="${ad.getAdPlanName()}"></span></a>

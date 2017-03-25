@@ -8,10 +8,13 @@ import javax.persistence.Table;
  */
 @Table(name="T_Ad")
 public class Ad extends BaseEntity{
+
     @Column(name="name")
     private String Name;
     @Column(name="user_id")
     private String UserId;
+    @Column(name="ad_id")
+    private String ad_id;
     @Column(name="adplan_id")
     private String adplan_id;
     @Column(name="adplan_name")
@@ -238,4 +241,9 @@ public class Ad extends BaseEntity{
     public void setAdType(int adType) {
         ad_type = adType;
     }
+
+    public String getAdId() {return ad_id;}
+
+    public void setAdId(String adId) {ad_id = adId;}
+
 }

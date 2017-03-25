@@ -32,6 +32,9 @@ public class WelcomeController {
     private AdPlanService adPlanService;
 
     @Autowired
+    private MaterialImageService materialImageService;
+
+    @Autowired
     private AdService adService;
 
     @Autowired
@@ -200,6 +203,12 @@ public class WelcomeController {
                     }else{
                         log.info("userId="+userId);
                         adList=adService.findAdByUserId(userId);
+                    }
+                    model.put("adList", adList);
+                    log.info("size="+adList.size());
+                    for(int j=0;j<adList.size();j++){
+                        Ad ad=(Ad)adList.toArray()[i];
+                        log.info("name="+ad.getName()+";id="+ad.getId()+";adid="+ad.getAdId()+";adplanid="+ad.getAdPlanId()+";adplanName="+ad.getAdPlanName());
                     }
                     model.put("adplanid", adplanid);
                     model.put("adList", adList);
@@ -372,8 +381,14 @@ public class WelcomeController {
                     model.put("day", DateUtil.getDay());
                     adplanid=request.getParameter("adplanid");
                     adid=request.getParameter("adid");
+                    List<MaterialImage> materialImageList=materialImageService.findMaterialImageByAdId(adid);
+                    Ad ad=adService.getByAdId(adid);
+                    if(ad!=null){
+                        model.put("adname", ad.getName());
+                    }
                     model.put("adplanid", adplanid);
                     model.put("adid", adid);
+                    model.put("materialImageList", materialImageList);
                     log.info("adplanid="+adplanid+";adid="+adid);
                     returnUrl="guangao_con";
                     break;
