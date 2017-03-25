@@ -10,7 +10,7 @@ public class MaterialImage extends BaseEntity {
 
     private String Name;
     private String AdId;
-    private String MaterialId;
+    private String material_id;
     private String Size;
 
     public String getStatus() {
@@ -42,11 +42,11 @@ public class MaterialImage extends BaseEntity {
     }
 
     public String getMaterialId() {
-        return MaterialId;
+        return material_id;
     }
 
     public void setMaterialId(String materialId) {
-        MaterialId = materialId;
+        material_id = materialId;
     }
 
     public String getSize() {

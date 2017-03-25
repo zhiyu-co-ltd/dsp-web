@@ -118,17 +118,17 @@
 			}
 
 			//修改物料js
-			function updateMaterialStatus(materialid,materialtype){
+			function updateMaterialStatus(materialid){
 
 				alert("materialid="+materialid);
-                alert("materialtype="+materialtype);
+                var materialtype="image";
 				var materialstatus=document.getElementById("UpdateMaterialid"+materialid).value
 
 				$.ajax({
 					type:"GET",
 					url:"/updateMaterialStatus",
 					dataType:"json",
-					data:"materialstatus="+materialstatus+"&materialtype="+materialtype,
+					data:"materialstatus="+materialstatus+"&materialtype="+materialtype+"&materialid="+materialid,
 					success:function(data) {
 						document.getElementById("UpdateMaterialid"+materialid).value=data.status;
 						if(data.status==0) {
@@ -357,27 +357,26 @@
 												</td>
 
 												<td>
-													<a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+',image);'"> <span th:if="${0==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="审核"></span></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a>
-													<span th:if="${1==materialImage.getStatus()}">等待审核</span>
-                                                    <a href="javascript:void(0)" onclick="javascript:updateMaterialStatus(2,image);"> <input type="hidden" id="UpdateMaterialid2" value="0" /></a>
-													<a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:if="${2==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="投放"></span></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a>
-													<a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:if="${3==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="审核"></span></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a>
-													<a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:if="${4==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="投放"></span></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a>
-													<a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:if="${5==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="暂停"></span></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a>
-													<a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:if="${6==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="投放"></span></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a>
-													<a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:if="${7==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="下线"></span></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a>
-													<span th:if="${8==materialImage.getStatus()}">已下线</span>
+                                                    <span th:if="${'0'==materialImage.getStatus()}"><a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="审核"></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a></span>
+													<span th:if="${'1'==materialImage.getStatus()}">等待审核</span>
+                                                    <span th:if="${'2'==materialImage.getStatus()}"><a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="投放"></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a></span>
+                                                    <span th:if="${'3'==materialImage.getStatus()}"><a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="审核"></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a></span>
+                                                    <span th:if="${'4'==materialImage.getStatus()}"><a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="投放"></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a></span>
+                                                    <span th:if="${'5'==materialImage.getStatus()}"><a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="暂停"></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a></span>
+                                                    <span th:if="${'6'==materialImage.getStatus()}"><a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="投放"></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a></span>
+                                                    <span th:if="${'7'==materialImage.getStatus()}"><a href="javascript:void(0)" th:onclick="'javascript:updateMaterialStatus('+${materialImage.getId()}+');'"> <span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name" th:text="下线"></span><input th:id=" 'UpdateMaterialid' + ${materialImage.getId()}" type="hidden"  th:value="${materialImage.getStatus()}" /></a></span>
+													<span th:if="${'8'==materialImage.getStatus()}">已下线</span>
 												</td>
 												<td>
-													<span th:if="${0==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="待审核"></span></span>
-													<span th:if="${1==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="审核中"></span></span>
-													<span th:if="${2==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="审核通过"></span></span>
-													<span th:if="${3==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="审核不通过"></span></span>
-													<span th:if="${4==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="待投放"></span></span>
-													<span th:if="${5==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="投放中"></span></span>
-													<span th:if="${6==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="暂停"></span></span>
-													<span th:if="${7==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="投放结束"></span></span>
-													<span th:if="${8==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="下线"></span></span>
+													<span th:if="${'0'==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="待审核"></span></span>
+													<span th:if="${'1'==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="审核中"></span></span>
+													<span th:if="${'2'==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="审核通过"></span></span>
+													<span th:if="${'3'==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="审核不通过"></span></span>
+													<span th:if="${'4'==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="待投放"></span></span>
+													<span th:if="${'5'==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="投放中"></span></span>
+													<span th:if="${'6'==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="暂停"></span></span>
+													<span th:if="${'7'==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="投放结束"></span></span>
+													<span th:if="${'8'==materialImage.getStatus()}"><span th:id=" 'UpdateMaterialid' + ${materialImage.getId()}+Name2" th:text="下线"></span></span>
 												</td>
 												<td>0</td>
 												<td>0</td>

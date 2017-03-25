@@ -389,6 +389,11 @@ public class WelcomeController {
                     model.put("adplanid", adplanid);
                     model.put("adid", adid);
                     model.put("materialImageList", materialImageList);
+                    log.info("size="+materialImageList.size());
+                    for(int j=0;j<materialImageList.size();j++){
+                        MaterialImage materialImage=(MaterialImage)materialImageList.toArray()[j];
+                        log.info("name="+materialImage.getName()+";id="+materialImage.getId()+";materialid="+materialImage.getMaterialId()+";status="+materialImage.getStatus());
+                    }
                     log.info("adplanid="+adplanid+";adid="+adid);
                     returnUrl="guangao_con";
                     break;
