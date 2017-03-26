@@ -172,6 +172,70 @@
 
 			}
 
+            //修改广告内容js
+            function UpdateAd(){
+               // alert("UpdateAd");
+                var _form = document.getElementById("UpdateAd");
+                var _inputs = _form.getElementsByTagName("input");
+                var adname;
+                var daycost;
+                var displaytimes;
+                var adprice;
+                var adid;
+
+                var FlagAdName=true;
+                var FlagDayCost=true;
+                var FlagDisplayTimes=true;
+                var FlagAdPrice=true;
+
+                for (var i = 0; i < _inputs.length; i++) {
+                    if(_inputs[i].name.toString()=="adname"){
+                        adname=_inputs[i].value;
+                     //   alert("adname="+adname);
+                        if(adname==null||adname==""){
+                            FlagAdName=false;
+                        }
+
+                    }
+                    if(_inputs[i].name.toString()=="daycost"){
+                        daycost=_inputs[i].value;
+                       // alert("daycost="+daycost);
+                        if(daycost==null||daycost==""){
+                            FlagDayCost=false;
+                        }
+                    }
+                    if(_inputs[i].name.toString()=="displaytimes"){
+                        displaytimes=_inputs[i].value;
+                     //   alert("displaytimes="+displaytimes);
+                        if(displaytimes==null||displaytimes==""){
+                            FlagDisplayTimes=false;
+                        }
+                    }
+                    if(_inputs[i].name.toString()=="adprice"){
+                        adprice=_inputs[i].value;
+                      //  alert("adprice="+adprice);
+                        if(adprice==null||adprice==""){
+                            FlagAdPrice=false;
+                        }
+                    }
+                    if(_inputs[i].name.toString()=="adid"){
+                        adid=_inputs[i].value;
+                    }
+                }
+               // alert("adid="+adid);
+
+                $.ajax({
+                    type:"GET",
+                    url:"/UpdateAd",
+                    dataType:"json",
+                    data:"adid="+adid+"&displaytimes="+displaytimes+"&daycost="+daycost+"&adname="+adname+"&adprice="+adprice,
+                    success:function(data) {
+                      //  alert("data="+data);
+                        document.getElementById("adNameUpdateAd").textContent =data.name;
+                    }
+                });
+
+            }
 
 		</script>
 	</head>
@@ -252,7 +316,7 @@
 
 					<div class="gankuang_two" style="margin-top: 20px;">
 						<div class="caiwu_tl clearfix">
-							<a href="javascript:;" class="ahover"><span th:text="${adname}"></span></a>
+							<a href="javascript:;" class="ahover"><span id="adNameUpdateAd" th:text="${adname}"></span></a>
 							<a th:href="@{/guanggao.html(adid=${adid},adplanid=${adplanid})}" class="right xinjian blubtn">返回</a>
 						</div>
 						<div class="caiwu_main">
@@ -440,20 +504,23 @@
 										<a href="gg_xinjian.html">编辑 </a>
 									</div>
 								</div>
+
 								<div class="clearfix gg_con_main">
+                                    <form id="UpdateAd">
 									<div class="left gg_con_main_lf">
+                                        <input type="hidden" name="adid" th:value="${adid}" />
 										<div class="clearfix gg_con_gp">
 											<span class="left gg_con_gp_name">广告名称</span>
 											<div class="gg_con_gp_rt">
-												<input type="text" value="111111111111" />
-												<a href="javascript:;" title="提交" class="bi"></a>
+												<input type="text" name="adname" th:value="${adname}" />
+                                                <a href="javascript:void(0)" class="bi" title="提交" onclick="UpdateAd()"></a>
 											</div>
 										</div>
 										<div class="clearfix gg_con_gp">
 											<span class="left gg_con_gp_name">日限额</span>
 											<div class="gg_con_gp_rt">
-												<input type="text" value="不限定" />
-												<a href="javascript:;" title="提交" class="bi"></a>
+												<input type="text" name="daycost" th:value="${daycost}" />
+                                                <a href="javascript:void(0)" class="bi" title="提交" onclick="UpdateAd()"></a>
 											</div>
 										</div>
 										<div class="clearfix gg_con_gp">
@@ -477,8 +544,8 @@
 										<div class="clearfix gg_con_gp">
 											<span class="left gg_con_gp_name">展示频次</span>
 											<div class="gg_con_gp_rt">
-												<input type="text" value="不限定" />
-												<a href="javascript:;" title="提交" class="bi"></a>
+												<input type="text" name="displaytimes" th:value="${display_times}" />
+                                                <a href="javascript:void(0)" class="bi" title="提交" onclick="UpdateAd()"></a>
 											</div>
 										</div>
 										<div class="clearfix gg_con_gp">
@@ -513,11 +580,12 @@
 										<div class="clearfix gg_con_gp">
 											<span class="left gg_con_gp_name">广告出价</span>
 											<div class="gg_con_gp_rt">
-												<input type="text" value="CPC0.50元" />
-												<a href="javascript:;" title="提交" class="bi"></a>
+												<input type="text" name="adprice" th:value="${offer_price}" />
+                                                <a href="javascript:void(0)" class="bi" title="提交" onclick="UpdateAd()"></a>
 											</div>
 										</div>
 									</div>
+                                    </form>
 									<div class="right gg_con_main_lf">
 										<div class="gg_ban">
 											<div class="block_home_slider">

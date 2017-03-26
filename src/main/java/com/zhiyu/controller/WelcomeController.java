@@ -385,6 +385,23 @@ public class WelcomeController {
                     Ad ad=adService.getByAdId(adid);
                     if(ad!=null){
                         model.put("adname", ad.getName());
+                        model.put("daycost", ad.getDailyLimitMoney());
+                        model.put("adplanname", ad.getAdPlanName());
+                        model.put("launchtimestart", ad.getLaunchTimeStart());
+                        model.put("launchtimeend", ad.getLaunchTimeEnd());
+                        model.put("delivery_time_type", ad.getDeliveryTimeType());
+                        model.put("delivery_time", ad.getDeliveryTime());
+                        model.put("display_times", ad.getDisplayTimes());
+                        model.put("pdb_platform", ad.getPdbPlatform());
+                        model.put("launch_area", ad.getLaunchArea());
+                        model.put("launch_people", ad.getLaunchPeople());
+                        model.put("gender_type", ad.getGenderType());
+                        model.put("operate_system", ad.getOperateSystem());
+                        model.put("network_type", ad.getNetworkType());
+                        model.put("telecom_operator", ad.getTelecomOperator());
+                        model.put("ad_type", ad.getAdType());
+                        model.put("offer_price", ad.getOfferPrice());
+                        log.info("offer_price="+ad.getOfferPrice());
                     }
                     model.put("adplanid", adplanid);
                     model.put("adid", adid);

@@ -129,4 +129,29 @@ public class AdController {
         return ad;
     }
 
+    @ResponseBody
+    @RequestMapping("/UpdateAd")
+    public Ad updateAd(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) {
+
+        String adid  = request.getParameter("adid") ;
+        String displaytimes = request.getParameter("displaytimes") ;
+        String daycost = request.getParameter("daycost");
+        String adname = request.getParameter("adname");
+        String adprice = request.getParameter("adprice");
+
+        log.info("adid="+adid+";displaytimes="+displaytimes+";daycost="+daycost+";adname="+adname+";adprice="+adprice);
+
+        Ad ad= adService.getByAdId(adid);
+        ad.setDisplayTimes(Integer.parseInt(displaytimes));
+        ad.setDailyLimitMoney(daycost);
+        ad.setName(adname);
+        ad.setOfferPrice(new Double(adprice));
+        adService.save(ad);
+        ad=adService.getByAdId(adid);
+
+        log.info("ad="+ad);
+
+        return ad;
+    }
+
 }

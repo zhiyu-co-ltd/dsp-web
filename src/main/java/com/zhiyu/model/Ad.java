@@ -12,7 +12,7 @@ public class Ad extends BaseEntity{
     @Column(name="name")
     private String Name;
     @Column(name="user_id")
-    private String UserId;
+    private String user_id;
     @Column(name="ad_id")
     private String ad_id;
     @Column(name="adplan_id")
@@ -24,7 +24,7 @@ public class Ad extends BaseEntity{
     @Column(name="delivery_type")
     private int DeliveryType;
     @Column(name="offer_price")
-    private Double OfferPrice;
+    private Double offer_price;
     @Column(name="telecom_operator")
     private int telecom_operator;
     @Column(name="network_type")
@@ -67,11 +67,11 @@ public class Ad extends BaseEntity{
     }
 
     public String getUserId() {
-        return UserId;
+        return user_id;
     }
 
     public void setUserId(String userId) {
-        UserId = userId;
+        user_id = userId;
     }
 
     public String getAdPlanId() {
@@ -99,11 +99,11 @@ public class Ad extends BaseEntity{
     }
 
     public Double getOfferPrice() {
-        return OfferPrice;
+        return offer_price;
     }
 
     public void setOfferPrice(Double offerPrice) {
-        OfferPrice = offerPrice;
+        offer_price = offerPrice;
     }
 
     public int getTelecomOperator() {
