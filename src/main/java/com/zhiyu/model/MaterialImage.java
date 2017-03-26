@@ -9,7 +9,7 @@ import javax.persistence.Table;
 public class MaterialImage extends BaseEntity {
 
     private String Name;
-    private String AdId;
+    private String ad_id;
     private String material_id;
     private String Size;
 
@@ -21,7 +21,7 @@ public class MaterialImage extends BaseEntity {
         this.status = status;
     }
 
-    private String ImageUrl;
+    private String image_url;
     private String status;
     private int type;
 
@@ -34,11 +34,11 @@ public class MaterialImage extends BaseEntity {
     }
 
     public String getAdId() {
-        return AdId;
+        return ad_id;
     }
 
     public void setAdId(String adId) {
-        AdId = adId;
+        ad_id = adId;
     }
 
     public String getMaterialId() {
@@ -58,11 +58,11 @@ public class MaterialImage extends BaseEntity {
     }
 
     public String getImageUrl() {
-        return ImageUrl;
+        return image_url;
     }
 
     public void setImageUrl(String imageUrl) {
-        ImageUrl = imageUrl;
+        image_url = imageUrl;
     }
 
     public int getType() {

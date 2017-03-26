@@ -168,32 +168,33 @@
 										<div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">推广计划</span>
 											<select class="left">
-												<option>--请选择--</option>
+												<span th:if="${not #lists.isEmpty(adplanname)}"><option th:value="${adplanid}"><span th:text="${adplanname}"></span></option></span>
+                                                <span th:if="${#lists.isEmpty(adplanname)}"><option>--请选择--</option></span>>
 												<option th:each="adplan:${adPlanList}" th:value="${adplan.getAdplanId()}"><span th:text="${adplan.getName()}"></span></option>
 											</select>
 											<a href="javascript:;" class="left xinjiantuig">新建推广计划</a>
 										</div>
 										<div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">广告名称</span>
-											<input type="text" class="left" name="adname" placeholder="请输入广告名称" />
+											<input type="text" class="left" name="adname" th:value="${adname}" placeholder="请输入广告名称" />
 											<span class="left zishu">0/30</span>
 										</div>
 										<div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">日限额</span>
-											<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput1" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput1"></label>
-				        </div>
-											<span class="left noxian">不限定</span>
+                                            <!--<div class="checkboxFive left gx">
+                           <input id="checkboxFiveInput1" name="checkname" type="checkbox">
+                           <label for="checkboxFiveInput1"></label>
+                        </div>
+                                            <span class="left noxian">不限定</span>-->
 											
-											<input type="text" class="left pinci" />
+											<input type="text" name="dayconst" th:value="${daycost}" class="left pinci" />
 											<span class="left noxian">元</span>
 										</div>
 									    <div class="clearfix gg_xj_gp gg_xj_date">
 											<span class="left gg_xj_gp_name">投放日期</span>
-											<input type="text" class="left"  name="AddStatrtDate" id="datepicker"/>
+											<input type="text" class="left"  name="AddStatrtDate" th:value="${launchtimestart}" id="datepicker"/>
 											<span class="left riqilianjie">至</span>
-											<input type="text" class="left"  name="AddEndDate" id="datepicker1"/>
+											<input type="text" class="left"  name="AddEndDate" th:value="${launchtimeend}" id="datepicker1"/>
 										</div>
 									    <div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">投放时间</span>
@@ -212,29 +213,29 @@
 										</div>
 									    <div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">展示频次</span>
-											<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput2" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput2"></label>
-				        </div>
-											<span class="left noxian">不限定</span>
-											<input type="text" class="left pinci" />
-											<span class="left noxian">次</span>
+                                            <!--<div class="checkboxFive left gx">
+                           <input id="checkboxFiveInput2" name="checkname" type="checkbox">
+                           <label for="checkboxFiveInput2"></label>
+                        </div>
+                                            <span class="left noxian">不限定</span>-->
+											<input type="text" name="displaytimes" th:value="${display_times}" class="left pinci" />
+											<span class="left noxian">次/人</span><span class="left noxian" style="color: #999;">(每人每天展现该广告的最大次数)</span>
 										</div>
 										 <div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">推广商品</span>
-											<div class="checkboxFive left yx">
-					       <input id="checkboxFiveInput2" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput2"></label>
-				        </div>
-				                            <span class="left noxian">网页链接</span>
+                                             <!--<div class="checkboxFive left yx">
+                            <input id="checkboxFiveInput2" name="checkname" type="checkbox">
+                            <label for="checkboxFiveInput2"></label>
+                         </div>
+                                             <span class="left noxian">网页链接</span>-->
 											<span class="left noxian" style="color: #999;">链接地址：</span>
-											<input type="text" class="left lianjie" />
+											<input type="text" name="adurl" th:value="${ad_url}" class="left lianjie" />
 											
 										</div>
 									     <div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">转化跟踪</span>
 											<span class="left noxian" style="color: #999;margin-left: 0px;">Feedback URL：</span>
-											<input type="text" class="left genzong" />
+											<input type="text" name="callback_url" th:value="${callback_url}"class="left genzong" />
 											
 										</div>
 									     <div class="gg_btn">

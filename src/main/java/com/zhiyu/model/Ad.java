@@ -22,7 +22,7 @@ public class Ad extends BaseEntity{
     @Column(name="status")
     private int Status;
     @Column(name="delivery_type")
-    private int DeliveryType;
+    private int delivery_type;
     @Column(name="offer_price")
     private Double offer_price;
     @Column(name="telecom_operator")
@@ -91,11 +91,11 @@ public class Ad extends BaseEntity{
     }
 
     public int getDeliveryType() {
-        return DeliveryType;
+        return delivery_type;
     }
 
     public void setDeliveryType(int deliveryType) {
-        DeliveryType = deliveryType;
+        delivery_type = deliveryType;
     }
 
     public Double getOfferPrice() {

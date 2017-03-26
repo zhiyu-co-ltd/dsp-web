@@ -298,6 +298,26 @@ public class WelcomeController {
                     model.put("userId", userId);
                     List<AdPlan> adPlanList=adPlanService.findAdPlanByUserId(userId);
                     model.put("adPlanList", adPlanList);
+                    String adid=request.getParameter("adid");
+                    String adplanid=request.getParameter("adplanid");
+                    log.info("adid="+adid+";adplanid="+adplanid);
+                    Ad ad=adService.getByAdId(adid);
+                    if(ad!=null){
+                        model.put("adname", ad.getName());
+                        model.put("daycost", ad.getDailyLimitMoney());
+                        model.put("adplanname", ad.getAdPlanName());
+                        model.put("launchtimestart", ad.getLaunchTimeStart().substring(0,10));
+                        model.put("launchtimeend", ad.getLaunchTimeEnd().substring(0,10));
+                        model.put("delivery_time_type", ad.getDeliveryTimeType());
+                        model.put("delivery_time", ad.getDeliveryTime());
+                        model.put("display_times", ad.getDisplayTimes());
+                        log.info("display_times="+ad.getDisplayTimes());
+                        model.put("ad_url", ad.getAdUrl());
+                        model.put("callback_url", ad.getCallbackUrl());
+                    }
+
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
                     returnUrl="gg_xinjian";
                     break;
                 }
@@ -389,17 +409,49 @@ public class WelcomeController {
                         model.put("adplanname", ad.getAdPlanName());
                         model.put("launchtimestart", ad.getLaunchTimeStart());
                         model.put("launchtimeend", ad.getLaunchTimeEnd());
-                        model.put("delivery_time_type", ad.getDeliveryTimeType());
-                        model.put("delivery_time", ad.getDeliveryTime());
+                        if(0==ad.getDeliveryTimeType()){
+                            model.put("delivery_time_type", "全时间段");
+                        }else if(1==ad.getDeliveryTimeType()){
+                            model.put("delivery_time_type", "特定时间段");
+                        }else if(2==ad.getDeliveryTimeType()){
+                            model.put("delivery_time_type", "高级时间段");
+                        }
+                           log.info("delivery_time="+ad.getDeliveryTime());
+                           model.put("delivery_time", ad.getDeliveryTime());
+//                        String[] DeliveryTimes=ad.getDeliveryTime().split(";");
+//                        String deliverytime="";
+//                        for(int k=0;k<DeliveryTimes.length;k++){
+//                            deliverytime=deliverytime+DeliveryTimes[k]+"点,";
+//                        }
+//                        model.put("delivery_time", deliverytime);
                         model.put("display_times", ad.getDisplayTimes());
                         model.put("pdb_platform", ad.getPdbPlatform());
                         model.put("launch_area", ad.getLaunchArea());
                         model.put("launch_people", ad.getLaunchPeople());
-                        model.put("gender_type", ad.getGenderType());
+                        if(ad.getGenderType()==0){
+                            model.put("gender_type","不限" );
+                        }else if(ad.getGenderType()==1){
+                            model.put("gender_type","女" );
+                        }else if(ad.getGenderType()==2){
+                            model.put("gender_type","男" );
+                        }
                         model.put("operate_system", ad.getOperateSystem());
                         model.put("network_type", ad.getNetworkType());
                         model.put("telecom_operator", ad.getTelecomOperator());
-                        model.put("ad_type", ad.getAdType());
+                        if(ad.getDeliveryType()==0){
+                            model.put("delivery_type","CPC" );
+                        }else if(ad.getDeliveryType()==1){
+                            model.put("delivery_type","CPM" );
+                        }else if(ad.getDeliveryType()==2){
+                            model.put("delivery_type","CPS" );
+                        }else if(ad.getDeliveryType()==3){
+                            model.put("delivery_type","CPD" );
+                        }else if(ad.getDeliveryType()==4){
+                            model.put("delivery_type","CPA" );
+                        }else if(ad.getDeliveryType()==5){
+                            model.put("delivery_type","CPT" );
+                        }
+
                         model.put("offer_price", ad.getOfferPrice());
                         log.info("offer_price="+ad.getOfferPrice());
                     }

@@ -501,7 +501,7 @@
 								<div class="ggtl" style="margin-bottom: 20px;">
 									<div class="gankuang_two_con_tl">
 										广告详情
-										<a href="gg_xinjian.html">编辑 </a>
+                                        <a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">编辑</a>
 									</div>
 								</div>
 
@@ -526,19 +526,19 @@
 										<div class="clearfix gg_con_gp">
 											<span class="left gg_con_gp_name">推广计划</span>
 											<div class="gg_con_gp_rt">
-												测试2
+                                                <span th:text="${adplanname}"></span>
 											</div>
 										</div>
 										<div class="clearfix gg_con_gp">
 											<span class="left gg_con_gp_name">投放日期</span>
 											<div class="gg_con_gp_rt">
-												2016-11-09 ~ 2016-11-10
+                                                <span th:text="${launchtimestart}"></span> ~  <span th:text="${launchtimeend}"></span>
 											</div>
 										</div>
 										<div class="clearfix gg_con_gp">
 											<span class="left gg_con_gp_name">投放时间</span>
 											<div class="gg_con_gp_rt">
-												全天候投放
+                                                <span th:text="${delivery_time_type}"></span>:<span th:text="${delivery_time}"></span>
 											</div>
 										</div>
 										<div class="clearfix gg_con_gp">
@@ -551,36 +551,36 @@
 										<div class="clearfix gg_con_gp">
 											<span class="left gg_con_gp_name">投放平台</span>
 											<div class="gg_con_gp_rt">
-												搜狐网
+                                                <span th:text="${pdb_platform}"></span>
 											</div>
 										</div>
 										<div class="clearfix gg_con_gp">
 											<span class="left gg_con_gp_name">定向用户</span>
 											<div class="gg_con_gp_rt">
 												<p>
-													地域： 北京 沈阳市 大连市；
+													投放地域：  <span th:text="${launch_area}"></span>
 												</p>
 												<p>
-													商业兴趣： 游戏人群 亲子早教；
+                                                    投放人群： <span th:text="${launch_people}"></span>
 												</p>
 												<p>
-													性别： 女性
+													投放性别： <span th:text="${gender_type}"></span>
 												</p>
 												<p>
-													操作系统： 不限
+													操作系统： <span th:text="${operate_system}"></span>
 												</p>
 												<p>
-													联网方式： WiFi 3G 4G
+													联网方式： <span th:text="${network_type}"></span>
 												</p>
 												<p>
-													运营商： 移动 联通 电信
+													运营商： <span th:text="${telecom_operator}"></span>
 												</p>
 											</div>
 										</div>
 										<div class="clearfix gg_con_gp">
 											<span class="left gg_con_gp_name">广告出价</span>
 											<div class="gg_con_gp_rt">
-												<input type="text" name="adprice" th:value="${offer_price}" />
+                                                <span th:text="${delivery_type}"></span>&nbsp;<input type="text" name="adprice" th:value="${offer_price}" />
                                                 <a href="javascript:void(0)" class="bi" title="提交" onclick="UpdateAd()"></a>
 											</div>
 										</div>
@@ -590,27 +590,13 @@
 										<div class="gg_ban">
 											<div class="block_home_slider">
 												<div id="home_slider" class="flexslider">
-													<ul class="slides">
-														<li>
+													<ul class="slides" >
+														<li th:each="materialImage:${materialImageList}">
 															<div class="slide">
-																<a href="#">
-																	<img src="images/gglunbo_03.jpg" />
-																</a>
+                                                                <img src="" th:src="@{${materialImage.getImageUrl()}}" th:alt="${materialImage.getName()}" />
 																<p class="gg_img_tl">
-																	<a href="#">广告图片名称</a>
+                                                                    <span th:text="${materialImage.getName()}"></span>
 																</p>
-															</div>
-														</li>
-
-														<li>
-															<div class="slide">
-																<a href="#">
-																	<img src="images/gglunbo_03.jpg" />
-																</a>
-																<p class="gg_img_tl">
-																	<a href="#">广告图片名称</a>
-																</p>
-
 															</div>
 														</li>
 
