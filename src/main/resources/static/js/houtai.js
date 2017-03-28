@@ -149,7 +149,63 @@ $(function() {
 //规格切换
 $(function() {
 	$('.guige_rt a').click(function(){
+		//alert("click");
 		var index = $(this).index();
+		//alert("index="+index);
+		if(index=="0") {
+			document.getElementById("0").className = "ahover";
+			document.getElementById("1").className = "";
+			document.getElementById("2").className = "";
+			document.getElementById("3").className = "";
+			document.getElementById("4").className = "";
+			document.getElementById("5").className = "";
+
+		}
+		if(index=="1") {
+			document.getElementById("0").className = "";
+			document.getElementById("1").className = "ahover";
+			document.getElementById("2").className = "";
+			document.getElementById("3").className = "";
+			document.getElementById("4").className = "";
+			document.getElementById("5").className = "";
+
+		}
+		if(index=="2") {
+			document.getElementById("0").className = "";
+			document.getElementById("1").className = "";
+			document.getElementById("2").className = "ahover";
+			document.getElementById("3").className = "";
+			document.getElementById("4").className = "";
+			document.getElementById("5").className = "";
+
+		}
+		if(index=="3") {
+			document.getElementById("0").className = "";
+			document.getElementById("1").className = "";
+			document.getElementById("2").className = "";
+			document.getElementById("3").className = "ahover";
+			document.getElementById("4").className = "";
+			document.getElementById("5").className = "";
+
+		}
+		if(index=="4") {
+			document.getElementById("0").className = "";
+			document.getElementById("1").className = "";
+			document.getElementById("2").className = "";
+			document.getElementById("3").className = "";
+			document.getElementById("4").className = "ahover";
+			document.getElementById("5").className = "";
+
+		}
+		if(index=="5") {
+			document.getElementById("0").className = "";
+			document.getElementById("1").className = "";
+			document.getElementById("2").className = "";
+			document.getElementById("3").className = "";
+			document.getElementById("4").className = "";
+			document.getElementById("5").className = "ahover";
+
+		}
 		 $(this).addClass('ahover').siblings().removeClass('ahover');
 		 $(".guige_con").eq(index).show().addClass('active').siblings().removeClass('active').hide();
 	});

@@ -9,6 +9,67 @@
 		<link rel="stylesheet" href="css/houtai.css" />
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 		<script type="text/javascript" src="js/select.js"></script>
+        <script>
+        //获取广告类型
+        function getType(type){
+        // alert("type="+type);
+        if(type=="0") {
+        document.getElementById("0").className = "ahover";
+        document.getElementById("1").className = "";
+        document.getElementById("2").className = "";
+        document.getElementById("3").className = "";
+            document.getElementById("4").className = "";
+            document.getElementById("5").className = "";
+
+        }
+            if(type=="1") {
+                document.getElementById("0").className = "";
+                document.getElementById("1").className = "ahover";
+                document.getElementById("2").className = "";
+                document.getElementById("3").className = "";
+                document.getElementById("4").className = "";
+                document.getElementById("5").className = "";
+
+            }
+            if(type=="2") {
+                document.getElementById("0").className = "";
+                document.getElementById("1").className = "";
+                document.getElementById("2").className = "ahover";
+                document.getElementById("3").className = "";
+                document.getElementById("4").className = "";
+                document.getElementById("5").className = "";
+
+            }
+            if(type=="3") {
+                document.getElementById("0").className = "";
+                document.getElementById("1").className = "";
+                document.getElementById("2").className = "";
+                document.getElementById("3").className = "ahover";
+                document.getElementById("4").className = "";
+                document.getElementById("5").className = "";
+
+            }
+            if(type=="4") {
+                document.getElementById("0").className = "";
+                document.getElementById("1").className = "";
+                document.getElementById("2").className = "";
+                document.getElementById("3").className = "";
+                document.getElementById("4").className = "ahover";
+                document.getElementById("5").className = "";
+
+            }
+            if(type=="5") {
+                document.getElementById("0").className = "";
+                document.getElementById("1").className = "";
+                document.getElementById("2").className = "";
+                document.getElementById("3").className = "";
+                document.getElementById("4").className = "";
+                document.getElementById("5").className = "ahover";
+
+            }
+
+        }
+        </script>
 	</head>
 
 	<body>
@@ -87,8 +148,9 @@
 
 					<div class="gankuang_two" style="margin-top: 20px;">
 						<div class="caiwu_tl clearfix">
-							<a href="javascript:;" class="ahover"><span>新建广告</span></a>
-							<a href="gg_xinjian.html" class="right xinjian blubtn">返回</a>
+							<a href="javascript:;" class="ahover"><span th:if="${not #lists.isEmpty(adname)}"><span th:text="${adname}"></span></span>
+								<span th:if="${#lists.isEmpty(adname)}">新建广告</span></a>
+							<a th:href="@{/guanggao.html(adplanid=${adplanid})}" class="right xinjian blubtn">返回</a>
 						</div>
 						<div class="caiwu_main">
 
@@ -102,30 +164,30 @@
 											类型选择：
 										</span>
 										<div class="guige_rt">
-											<a href="javascript:;" class="ahover">
-												<em></em>
-												Banner
-											</a>
-											<a href="javascript:;">
-												<em></em>
-												插屏 
-											</a>
-											<a href="javascript:;">
-												<em></em>
-												开屏
-											</a>
-											<a href="javascript:;">
-												<em></em>
-												文字链
-											</a>
-											<a href="javascript:;">
-												<em></em>
-												信息流
-											</a>
-											<a href="javascript:;">
-												<em></em>
-												视频
-											</a>
+                                            <a href="javascript:;" id="0"   class="ahover">
+                                                <em></em>
+                                                Banner
+                                            </a>
+                                            <a href="javascript:;" id="1"   class="">
+                                                <em></em>
+                                                插屏
+                                            </a>
+                                            <a href="javascript:;" id="2"   class="">
+                                                <em></em>
+                                                开屏
+                                            </a>
+                                            <a href="javascript:;" id="3"   class="">
+                                                <em></em>
+                                                文字链
+                                            </a>
+                                            <a href="javascript:;" id="4"  class="">
+                                                <em></em>
+                                                信息流
+                                            </a>
+                                            <a href="javascript:;" id="5"  class="">
+                                                <em></em>
+                                                视频
+                                            </a>
 										</div>
 									</div>
 								    <div class="guige_nr">
@@ -194,9 +256,9 @@
 								    			</ul>
 								    		    <div class="dashed"></div>
 								    		    <div class="gg_btn">
-									     	<a href="#">取消</a>
-									     	<a href="gg_xinjian.html">上一步</a>
-									     	<a href="gg_dingx.html" class="btn_blue">下一步</a>
+													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="#" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/guige_07.jpg" class="guige_rt_img" />
@@ -352,9 +414,9 @@
 								    			</ul>
 								    		    <div class="dashed"></div>
 								    		    <div class="gg_btn">
-									     	<a href="#">取消</a>
-									     	<a href="gg_xinjian.html">上一步</a>
-									     	<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="#" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/chap.jpg" class="guige_rt_img" />
@@ -482,9 +544,9 @@
 								    			</ul>
 								    		    <div class="dashed"></div>
 								    		    <div class="gg_btn">
-									     	<a href="#">取消</a>
-									     	<a href="gg_xinjian.html">上一步</a>
-									     	<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="#" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/kp_03.jpg" class="guige_rt_img" />
@@ -587,9 +649,9 @@
 								    			</ul>
 								    		    <div class="dashed"></div>
 								    		    <div class="gg_btn">
-									     	<a href="#">取消</a>
-									     	<a href="gg_xinjian.html">上一步</a>
-									     	<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="#" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/wenzilian_03.jpg" class="guige_rt_img" />
@@ -740,9 +802,9 @@ jpg,jpeg,png图片
 								    			</ul>
 								    		    <div class="dashed"></div>
 								    		    <div class="gg_btn">
-									     	<a href="#">取消</a>
-									     	<a href="gg_xinjian.html">上一步</a>
-									     	<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="#" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/ptxxl.jpg" class="guige_rt_img" />
@@ -1008,9 +1070,9 @@ jpg,jpeg,png图片
 								    			</ul>
 								    		    <div class="dashed"></div>
 								    		    <div class="gg_btn">
-									     	<a href="#">取消</a>
-									     	<a href="gg_xinjian.html">上一步</a>
-									     	<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="#" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/kpxxl.jpg" class="guige_rt_img" />
@@ -1394,9 +1456,9 @@ jpg,jpeg,png图片
 								    			</ul>
 								    		    <div class="dashed"></div>
 								    		    <div class="gg_btn">
-									     	<a href="#">取消</a>
-									     	<a href="gg_xinjian.html">上一步</a>
-									     	<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="#" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/zutu1.jpg" class="guige_rt_img" />
@@ -2029,9 +2091,9 @@ jpg,jpeg,png图片
 								    			</ul>
 								    		    <div class="dashed"></div>
 								    		    <div class="gg_btn">
-									     	<a href="#">取消</a>
-									     	<a href="gg_xinjian.html">上一步</a>
-									     	<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="#" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/zutu2_03.jpg" class="guige_rt_img" />
@@ -2919,9 +2981,9 @@ jpg,jpeg,png图片
 								    			</ul>
 								    		    <div class="dashed"></div>
 								    		    <div class="gg_btn">
-									     	<a href="#">取消</a>
-									     	<a href="gg_xinjian.html">上一步</a>
-									     	<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="#" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/zutu3_03.jpg" class="guige_rt_img" />
@@ -3131,9 +3193,9 @@ jpg,png,gif图片
 								    			</ul>
 								    		    <div class="dashed"></div>
 								    		    <div class="gg_btn">
-									     	<a href="#">取消</a>
-									     	<a href="gg_xinjian.html">上一步</a>
-									     	<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="#" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/spl.jpg" class="guige_rt_img" />

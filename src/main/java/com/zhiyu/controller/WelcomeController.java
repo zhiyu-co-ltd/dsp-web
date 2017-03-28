@@ -1,29 +1,23 @@
 package com.zhiyu.controller;
 
-import java.util.List;
-import java.util.Map;
-
 import com.zhiyu.model.*;
 import com.zhiyu.service.*;
-
 import com.zhiyu.util.DateUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
-import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Map;
 
 @Controller
-public class WelcomeController {
-	Logger log = Logger.getLogger(WelcomeController.class);
+class WelcomeController {
+    Logger log = Logger.getLogger(WelcomeController.class);
 
 	@Autowired
 	private UserService userService;
@@ -337,6 +331,27 @@ public class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+                    String adid=request.getParameter("adid");
+                    String adplanid=request.getParameter("adplanid");
+                    log.info("adid="+adid+";adplanid="+adplanid);
+                    Ad ad=adService.getByAdId(adid);
+                    if(ad!=null){
+
+                        model.put("adname", ad.getName());
+                        model.put("adtype", ad.getAdType());
+                        log.info("adtype="+ad.getAdType());
+                        List<MaterialImage> materialImageList=materialImageService.findMaterialImageByAdId(adid);
+                        for(int k=0;k<materialImageList.size();k++){
+
+                            MaterialImage materialImage=materialImageList.get(k);
+                            log.info("img_url="+ materialImage.getImageUrl()+";status="+ materialImage.getStatus());
+
+                        }
+
+                    }
+
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
                     returnUrl="gg_guige";
                     break;
                 }

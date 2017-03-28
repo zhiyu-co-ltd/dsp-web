@@ -154,8 +154,9 @@
 
 					<div class="gankuang_two" style="margin-top: 20px;">
 						<div class="caiwu_tl clearfix">
-							<a href="javascript:;" class="ahover"><span>新建广告</span></a>
-							<a href="guanggao.html" class="right xinjian blubtn">返回</a>
+							<a href="javascript:;" class="ahover"><span th:if="${not #lists.isEmpty(adname)}"><span th:text="${adname}"></span></span>
+								<span th:if="${#lists.isEmpty(adname)}">新建广告</span></a>
+							<a th:href="@{/guanggao.html(adplanid=${adplanid})}" class="right xinjian blubtn">返回</a>
 						</div>
 						<div class="caiwu_main">
 
@@ -203,11 +204,11 @@
 											<span class="left noxian">全时间段</span>
 											</div>
 											<div class="clearfix shijianduan left teding_anniu">
-											<em class="left"></em>
+											<!--<em class="left"></em>-->
 											<span class="left noxian">特定时间段</span>
 											</div>
 											<div class="clearfix shijianduan left gj_anniu">
-												<em class="left"></em>
+												<!--<em class="left"></em>-->
 											<span class="left noxian">高级设置</span>
 											</div>
 										</div>
@@ -239,8 +240,8 @@
 											
 										</div>
 									     <div class="gg_btn">
-									     	<a href="guanggao.html">取消</a>
-									     	<a href="gg_guige.html" class="btn_blue">下一步</a>
+											 <a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+									     	<a th:href="@{/gg_guige.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 									</div>
 								</form>
