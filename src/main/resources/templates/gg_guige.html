@@ -12,7 +12,9 @@
         <script>
         //获取广告类型
         function getType(type){
-        // alert("type="+type);
+
+            var index=type;
+
         if(type=="0") {
         document.getElementById("0").className = "ahover";
         document.getElementById("1").className = "";
@@ -67,12 +69,13 @@
                 document.getElementById("5").className = "ahover";
 
             }
-
+			$(this).addClass('ahover').siblings().removeClass('ahover');
+			$(".guige_con").eq(index).show().addClass('active').siblings().removeClass('active').hide();
         }
         </script>
 	</head>
 
-	<body>
+	<body  th:attr="onload='getType('+${adtype}+')'">
 		<div class="tj_main">
 			<div class="tj_main_lf">
 				<div class="tj_main_lf_tl clearfix">
@@ -164,27 +167,27 @@
 											类型选择：
 										</span>
 										<div class="guige_rt">
-                                            <a href="javascript:;" id="0"   class="ahover">
+                                            <a href="javascript:;" id="0"   class="ahover" onclick="getType(0)">
                                                 <em></em>
                                                 Banner
                                             </a>
-                                            <a href="javascript:;" id="1"   class="">
+                                            <a href="javascript:;" id="1"   class="" onclick="getType(1)">
                                                 <em></em>
                                                 插屏
                                             </a>
-                                            <a href="javascript:;" id="2"   class="">
+                                            <a href="javascript:;" id="2"   class="" onclick="getType(2)">
                                                 <em></em>
                                                 开屏
                                             </a>
-                                            <a href="javascript:;" id="3"   class="">
+                                            <a href="javascript:;" id="3"   class="" onclick="getType(3)">
                                                 <em></em>
                                                 文字链
                                             </a>
-                                            <a href="javascript:;" id="4"  class="">
+                                            <a href="javascript:;" id="4"  class="" onclick="getType(4)">
                                                 <em></em>
                                                 信息流
                                             </a>
-                                            <a href="javascript:;" id="5"  class="">
+                                            <a href="javascript:;" id="5"  class="" onclick="getType(5)">
                                                 <em></em>
                                                 视频
                                             </a>
