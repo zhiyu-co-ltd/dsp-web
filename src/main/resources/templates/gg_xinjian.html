@@ -74,7 +74,16 @@
         }
 
         }
+        function next(){
 
+            var adplanid=document.getElementById("SaveAdPlanId").value;
+            alert("adplanid="+adplanid);
+            var adid=document.getElementById("SaveAdId").value
+            alert("adid="+adid);
+
+            window.location.href="/gg_guige.html?adid="+adid+"&adplanid="+adplanid;
+
+        }
         //保存or修改新建广告
         function save(){
 
@@ -108,13 +117,15 @@
                       +"&startdate="+startdate+"&enddate="+enddate+"&displaytimes="+displaytimes+"&adurl="+adurl+"&callback_url="+callback_url,
                 success:function(data) {
                     alert("data="+data);
-					var adid=data.name//暂时解决ad_id不能被ajax获取的问题
+					var adid=data.adId
+                    var adplanid=data.adPlanId
                     alert("adid="+adid);
+                    alert("adplanid="+adplanid);
                     if(adid!=null){
                         alert("保存成功!");
                     }
-     			document.getElementById("SaveAdId").value=adid;//新建的adid赋值到页面
-//					document.getElementById("SaveAdPlanId").value= data.
+     			    document.getElementById("SaveAdId").value=adid;//新建的adid赋值到页面
+                    document.getElementById("SaveAdPlanId").value= adplanid//新建的adplanid赋值到页面
 //					document.getElementById("SaveAdName").value=
 //                    document.getElementById("SaveDayConst").value=
 //                    document.getElementById("datepicker").value=
@@ -300,7 +311,7 @@
 									     <div class="gg_btn">
 											 <a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 											 <a href="javascript:void(0)" onclick="save()">保存</a>
-									     	<a th:href="@{/gg_guige.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
+                                             <a href="javascript:void(0)" onclick="next()" class="btn_blue">下一步</a>
 									     </div>
 									</div>
 								</form>

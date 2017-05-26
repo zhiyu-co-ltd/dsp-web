@@ -202,7 +202,6 @@ public class AdController {
 
         log.info("ad="+ad);
         log.info("adid="+ad.getAdId()+";name="+ad.getName());
-        ad.setName(ad.getAdId());//暂时解决ad_id不能被ajax data读取的问题
 
         return ad;
     }

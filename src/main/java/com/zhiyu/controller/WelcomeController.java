@@ -371,6 +371,14 @@ class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+
+                    String adid=request.getParameter("adid");
+                    String adplanid=request.getParameter("adplanid");
+                    log.info("adid="+adid+";adplanid="+adplanid);
+
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
+
                     returnUrl="gg_dingx";
                     break;
                 }
@@ -382,6 +390,9 @@ class WelcomeController {
     public String gg_tijiao(Map<String, Object> model,HttpServletRequest request) {
         Cookie[] cookie = request.getCookies();
         String returnUrl="index";
+        String adplanid;
+        String adid;
+
         if(cookie!=null) {
             for (int i = 0; i < cookie.length; i++) {
                 Cookie cook = cookie[i];
@@ -390,6 +401,69 @@ class WelcomeController {
                     User user = userService.findUserByUserId(userId);
                     model.put("loginStatus", "true");
                     model.put("userName", user.getName());
+                    adplanid=request.getParameter("adplanid");
+                    adid=request.getParameter("adid");
+                    List<MaterialImage> materialImageList=materialImageService.findMaterialImageByAdId(adid);
+                    Ad ad=adService.getByAdId(adid);
+                    if(ad!=null){
+                        model.put("launchtimestart", ad.getLaunchTimeStart().substring(0,10));
+                        model.put("launchtimeend", ad.getLaunchTimeEnd().substring(0,10));
+                        if(0==ad.getDeliveryTimeType()){
+                            model.put("delivery_time_type", "全时间段");
+                        }else if(1==ad.getDeliveryTimeType()){
+                            model.put("delivery_time_type", "特定时间段");
+                        }else if(2==ad.getDeliveryTimeType()){
+                            model.put("delivery_time_type", "高级时间段");
+                        }
+                        log.info("delivery_time="+ad.getDeliveryTime());
+                        model.put("delivery_time", ad.getDeliveryTime());
+//                        String[] DeliveryTimes=ad.getDeliveryTime().split(";");
+//                        String deliverytime="";
+//                        for(int k=0;k<DeliveryTimes.length;k++){
+//                            deliverytime=deliverytime+DeliveryTimes[k]+"点,";
+//                        }
+//                        model.put("delivery_time", deliverytime);
+                        model.put("display_times", ad.getDisplayTimes());
+                        if(ad.getPdbPlatform()==null||"0".equals(ad.getPdbPlatform())){
+                            model.put("pdb_platform", "不限平台");
+                        }else {
+                            model.put("pdb_platform", ad.getPdbPlatform());
+                        }
+                        model.put("launch_area", ad.getLaunchArea());
+                        model.put("launch_people", ad.getLaunchPeople());
+                        if(ad.getGenderType()==0){
+                            model.put("gender_type","不限" );
+                        }else if(ad.getGenderType()==1){
+                            model.put("gender_type","女" );
+                        }else if(ad.getGenderType()==2){
+                            model.put("gender_type","男" );
+                        }
+                        if(ad.getDeliveryType()==0){
+                            model.put("delivery_type","CPC" );
+                        }else if(ad.getDeliveryType()==1){
+                            model.put("delivery_type","CPM" );
+                        }else if(ad.getDeliveryType()==2){
+                            model.put("delivery_type","CPS" );
+                        }else if(ad.getDeliveryType()==3){
+                            model.put("delivery_type","CPD" );
+                        }else if(ad.getDeliveryType()==4){
+                            model.put("delivery_type","CPA" );
+                        }else if(ad.getDeliveryType()==5){
+                            model.put("delivery_type","CPT" );
+                        }
+
+                        model.put("offer_price", ad.getOfferPrice());
+                        log.info("offer_price="+ad.getOfferPrice());
+                    }
+                    model.put("adplanid", adplanid);
+                    model.put("adid", adid);
+                    model.put("materialImageList", materialImageList);
+                    log.info("size="+materialImageList.size());
+                    for(int j=0;j<materialImageList.size();j++){
+                        MaterialImage materialImage=(MaterialImage)materialImageList.toArray()[j];
+                        log.info("name="+materialImage.getName()+";id="+materialImage.getId()+";materialid="+materialImage.getMaterialId()+";status="+materialImage.getStatus());
+                    }
+                    log.info("adplanid="+adplanid+";adid="+adid);
                     returnUrl="gg_tijiao";
                     break;
                 }

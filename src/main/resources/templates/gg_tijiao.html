@@ -102,32 +102,38 @@
 										<span class="left gg_tj_gp_name">
 											投放时间
 										</span>
-										<div class="gg_tj_gp_rt">全时间段</div>
+										<div class="gg_tj_gp_rt"> <span th:text="${launchtimestart}"></span>~<span th:text="${launchtimeend}"></span></div>
+									</div>
+									<div class="clearfix gg_tj_gp">
+										<span class="left gg_tj_gp_name">
+                                            时间段
+										</span>
+										<div class="gg_tj_gp_rt"><span th:text="${delivery_time_type}"></span></div>
 									</div>
 									<div class="clearfix gg_tj_gp">
 										<span class="left gg_tj_gp_name">
 											展示频次
 										</span>
-										<div class="gg_tj_gp_rt">不限定</div>
+										<div class="gg_tj_gp_rt"><span th:text="${display_times}"></span></div>
 									</div>
 									<div class="clearfix gg_tj_gp">
 										<span class="left gg_tj_gp_name">
 											投放平台
 										</span>
-										<div class="gg_tj_gp_rt">搜狐网</div>
+										<div class="gg_tj_gp_rt"><span th:text="${pdb_platform}"></span></div>
 									</div>
 									<div class="dashed"></div>
 									<div class="clearfix gg_tj_gp">
 										<span class="left gg_tj_gp_name">
 											定向用户
 										</span>
-										<div class="gg_tj_gp_rt">地域包含北京、沈阳市、大连市；商业兴趣包含游戏人群、亲子早教；性别包含女</div>
+										<div class="gg_tj_gp_rt">地域包含<span th:text="${launch_area}"></span>；商业兴趣包含<span th:text="${launch_people}"></span>；性别包含<span th:text="${gender_type}"></span></div>
 									</div>
 									<div class="clearfix gg_tj_gp">
 										<span class="left gg_tj_gp_name">
 											广告出价
 										</span>
-										<div class="gg_tj_gp_rt">CPC  <span class="color_red">1.00 </span>元</div>
+										<div class="gg_tj_gp_rt"><span th:text="${delivery_type}"></span>  <span class="color_red"><span th:text="${offer_price}"></span> </span>元</div>
 									</div>
 									<div class="dashed"></div>
 									<div class="clearfix gg_tj_gp">
@@ -149,17 +155,11 @@
 									</div>
 								    <div class="dashed"></div>
 								    <div class="ggtj_btn">
-								    	<a href="#">取消</a>
-								    	<a href="gg_dingx.html">上一步</a>
+                                        <a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+                                        <a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
 								    	<a href="javascript:;" class="btn_blue tjgg">提交广告</a>
 								    </div>
 								</div>
-								
-								
-								
-								
-								
-								
 							</div>
 
 						</div>
