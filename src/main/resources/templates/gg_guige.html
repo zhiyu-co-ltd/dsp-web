@@ -71,6 +71,7 @@
             }
 			$(this).addClass('ahover').siblings().removeClass('ahover');
 			$(".guige_con").eq(index).show().addClass('active').siblings().removeClass('active').hide();
+
         }
         </script>
 	</head>
@@ -194,16 +195,18 @@
 										</div>
 									</div>
 								    <div class="guige_nr">
+
 								    	<div class="guige_con clearfix active">
 								    		<div class="left guige_con_lf">
 								    			<ul class="clearfix guige_ul">
+
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput1" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput1"></label>
+					       <input id="checkboxFiveInput11" name="checkname" type="checkbox">
+					       <label for="checkboxFiveInput11"></label>
 				        </div>
-								    					         <span class="left">规格1：600*100</span>
+                                                            <span class="left">规格1：600*100</span>
 								    					</div>
 								    					<div class="clearfix g_name">
 								    						<span class="g_name_lf">名称：</span>
@@ -226,13 +229,14 @@
 								    						</div>
 								    					</div>
 								    				</li>
+
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput1" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput1"></label>
+					       <input id="checkboxFiveInput12" name="checkname" type="checkbox">
+					       <label for="checkboxFiveInput12"></label>
 				        </div>
-								    					         <span class="left">规格2：600*200</span>
+															<span class="left">规格2：600*200</span>
 								    					</div>
 								    					<div class="clearfix g_name">
 								    						<span class="g_name_lf">名称：</span>
@@ -261,11 +265,13 @@
 								    		    <div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-													<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/guige_07.jpg" class="guige_rt_img" />
 								    	</div>
+
+
 								        <div class="guige_con clearfix">
 								    		<div class="left guige_con_lf">
 								    			<ul class="clearfix guige_ul">
@@ -304,7 +310,7 @@
 					       <input id="checkboxFiveInput4" name="checkname" type="checkbox">
 					       <label for="checkboxFiveInput4"></label>
 				        </div>
-								    					         <span class="left">规格2：600*800(3:4)</span>
+                                                            <span class="left">规格2：600*800(3:4)</span>
 								    					</div>
 								    					<div class="clearfix g_name">
 								    						<span class="g_name_lf">名称：</span>
@@ -419,7 +425,7 @@
 								    		    <div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-													<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/chap.jpg" class="guige_rt_img" />
@@ -549,7 +555,7 @@
 								    		    <div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-													<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/kp_03.jpg" class="guige_rt_img" />
@@ -654,7 +660,7 @@
 								    		    <div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-													<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/wenzilian_03.jpg" class="guige_rt_img" />
@@ -807,7 +813,7 @@ jpg,jpeg,png图片
 								    		    <div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-													<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/ptxxl.jpg" class="guige_rt_img" />
@@ -1075,7 +1081,7 @@ jpg,jpeg,png图片
 								    		    <div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-													<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/kpxxl.jpg" class="guige_rt_img" />
@@ -1461,7 +1467,7 @@ jpg,jpeg,png图片
 								    		    <div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-													<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/zutu1.jpg" class="guige_rt_img" />
@@ -2096,7 +2102,7 @@ jpg,jpeg,png图片
 								    		    <div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-													<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/zutu2_03.jpg" class="guige_rt_img" />
@@ -2986,7 +2992,7 @@ jpg,jpeg,png图片
 								    		    <div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-													<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/zutu3_03.jpg" class="guige_rt_img" />
@@ -3198,7 +3204,7 @@ jpg,png,gif图片
 								    		    <div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-													<a href="#" class="btn_blue">下一步</a>
+													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 								    		</div>
 								    		<img src="images/spl.jpg" class="guige_rt_img" />

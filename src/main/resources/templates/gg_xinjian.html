@@ -74,6 +74,60 @@
         }
 
         }
+
+        //保存or修改新建广告
+        function save(){
+
+             alert("save");
+            var userid=document.getElementById("SaveUserId").value;
+            alert("userid="+userid);
+            var adplanid=document.getElementById("SaveAdPlanId").value;
+             alert("adplanid="+adplanid);
+            var adid=document.getElementById("SaveAdId").value
+             alert("adid="+adid);
+            var adname=document.getElementById("SaveAdName").value
+            alert("adname="+adname);
+            var dayconst=document.getElementById("SaveDayConst").value
+            alert("dayconst="+dayconst);
+            var startdate=document.getElementById("datepicker").value
+            alert("startdate="+startdate);
+            var enddate=document.getElementById("datepicker1").value
+            alert("enddate="+enddate);
+            var displaytimes=document.getElementById("SaveDisplayTimes").value
+            alert("displaytimes="+displaytimes);
+            var adurl=document.getElementById("SaveAdUrl").value
+            alert("adurl="+adurl);
+            var callback_url=document.getElementById("SaveCallback_Url").value
+            alert("callback_url="+callback_url);
+
+            $.ajax({
+                type:"GET",
+                url:"/saveAd",
+                dataType:"json",
+                data:"adid="+adid+"&userid="+userid+"&adplanid="+adplanid+"&adname="+adname+"&dayconst="+dayconst
+                      +"&startdate="+startdate+"&enddate="+enddate+"&displaytimes="+displaytimes+"&adurl="+adurl+"&callback_url="+callback_url,
+                success:function(data) {
+                    alert("data="+data);
+					var adid=data.name//暂时解决ad_id不能被ajax获取的问题
+                    alert("adid="+adid);
+                    if(adid!=null){
+                        alert("保存成功!");
+                    }
+     			document.getElementById("SaveAdId").value=adid;//新建的adid赋值到页面
+//					document.getElementById("SaveAdPlanId").value= data.
+//					document.getElementById("SaveAdName").value=
+//                    document.getElementById("SaveDayConst").value=
+//                    document.getElementById("datepicker").value=
+//                    document.getElementById("datepicker1").value=
+//                    document.getElementById("SaveDisplayTimes").value=
+//                    document.getElementById("SaveAdUrl").value=
+//                    document.getElementById("SaveCallback_Url").value=
+
+                }
+            });
+
+        }
+
         </script>
 
 	</head>
@@ -168,16 +222,20 @@
 									<div class="gg_xj_form">
 										<div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">推广计划</span>
-											<select class="left">
+											<select class="left" id="SaveAdPlanId">
 												<span th:if="${not #lists.isEmpty(adplanname)}"><option th:value="${adplanid}"><span th:text="${adplanname}"></span></option></span>
-                                                <span th:if="${#lists.isEmpty(adplanname)}"><option>--请选择--</option></span>>
+                                                <span th:if="${#lists.isEmpty(adplanname)}"><option value="0">--请选择--</option></span>>
 												<option th:each="adplan:${adPlanList}" th:value="${adplan.getAdplanId()}"><span th:text="${adplan.getName()}"></span></option>
 											</select>
 											<a href="javascript:;" class="left xinjiantuig">新建推广计划</a>
 										</div>
+
+                                        <input type="hidden" id="SaveUserId" th:value="${userId}" />
+                                        <input type="hidden" id="SaveAdId" th:value="${adid}" />
+
 										<div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">广告名称</span>
-											<input type="text" class="left" name="adname" th:value="${adname}" placeholder="请输入广告名称" />
+											<input type="text" class="left" id="SaveAdName" name="adname" th:value="${adname}" placeholder="请输入广告名称" />
 											<span class="left zishu">0/30</span>
 										</div>
 										<div class="clearfix gg_xj_gp">
@@ -188,19 +246,19 @@
                         </div>
                                             <span class="left noxian">不限定</span>-->
 											
-											<input type="text" name="dayconst" th:value="${daycost}" class="left pinci" />
+											<input type="text" name="dayconst" id="SaveDayConst" th:value="${daycost}" class="left pinci" />
 											<span class="left noxian">元</span>
 										</div>
 									    <div class="clearfix gg_xj_gp gg_xj_date">
 											<span class="left gg_xj_gp_name">投放日期</span>
-											<input type="text" class="left"  name="AddStatrtDate" th:value="${launchtimestart}" id="datepicker"/>
+											<input type="text" class="left" name="AddStatrtDate" th:value="${launchtimestart}" id="datepicker"/>
 											<span class="left riqilianjie">至</span>
-											<input type="text" class="left"  name="AddEndDate" th:value="${launchtimeend}" id="datepicker1"/>
+											<input type="text" class="left" name="AddEndDate" th:value="${launchtimeend}" id="datepicker1"/>
 										</div>
 									    <div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">投放时间</span>
 											<div class="clearfix shijianduan left shijianduan_h">
-											<em class="left"></em>
+											<em class="left" th:name="dateSelect" th:selected="0"></em>
 											<span class="left noxian">全时间段</span>
 											</div>
 											<div class="clearfix shijianduan left teding_anniu">
@@ -219,7 +277,7 @@
                            <label for="checkboxFiveInput2"></label>
                         </div>
                                             <span class="left noxian">不限定</span>-->
-											<input type="text" name="displaytimes" th:value="${display_times}" class="left pinci" />
+											<input type="text" id="SaveDisplayTimes" name="displaytimes" th:value="${display_times}" class="left pinci" />
 											<span class="left noxian">次/人</span><span class="left noxian" style="color: #999;">(每人每天展现该广告的最大次数)</span>
 										</div>
 										 <div class="clearfix gg_xj_gp">
@@ -230,17 +288,18 @@
                          </div>
                                              <span class="left noxian">网页链接</span>-->
 											<span class="left noxian" style="color: #999;">链接地址：</span>
-											<input type="text" name="adurl" th:value="${ad_url}" class="left lianjie" />
+											<input type="text" id="SaveAdUrl" name="adurl" th:value="${ad_url}" class="left lianjie" />
 											
 										</div>
 									     <div class="clearfix gg_xj_gp">
 											<span class="left gg_xj_gp_name">转化跟踪</span>
 											<span class="left noxian" style="color: #999;margin-left: 0px;">Feedback URL：</span>
-											<input type="text" name="callback_url" th:value="${callback_url}"class="left genzong" />
+											<input type="text" id="SaveCallback_Url" name="callback_url" th:value="${callback_url}"class="left genzong" />
 											
 										</div>
 									     <div class="gg_btn">
 											 <a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
+											 <a href="javascript:void(0)" onclick="save()">保存</a>
 									     	<a th:href="@{/gg_guige.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 									     </div>
 									</div>

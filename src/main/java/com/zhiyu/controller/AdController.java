@@ -1,9 +1,11 @@
 package com.zhiyu.controller;
 
 import com.zhiyu.model.Ad;
+import com.zhiyu.model.AdPlan;
 import com.zhiyu.model.BaseEntity;
 import com.zhiyu.model.User;
 import com.zhiyu.service.AdService;
+import com.zhiyu.service.AdPlanService;
 import com.zhiyu.service.UserService;
 import com.zhiyu.util.DateUtil;
 import com.zhiyu.util.MyUUID;
@@ -29,6 +31,8 @@ public class AdController {
 
     @Autowired
     private AdService adService;
+    @Autowired
+    private AdPlanService adPlanService;
     @Autowired
     private UserService userService;
 
@@ -154,4 +158,52 @@ public class AdController {
         return ad;
     }
 
+    @ResponseBody
+    @RequestMapping("/saveAd")
+    public Ad saveAd(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) {
+
+        String adid  = request.getParameter("adid") ;
+        String userid  = request.getParameter("userid") ;
+        String displaytimes = request.getParameter("displaytimes") ;
+        String daycost = request.getParameter("dayconst");
+        String adname = request.getParameter("adname");
+        String adprice = request.getParameter("adprice");
+        String adplanid = request.getParameter("adplanid");
+        String startdate = request.getParameter("startdate");
+        String enddate = request.getParameter("enddate");
+        String adurl = request.getParameter("adurl");
+        String callback_url = request.getParameter("callback_url");
+
+        log.info("adid="+adid+";displaytimes="+displaytimes+";daycost="+daycost+";adname="+adname+";adprice="+adprice+
+                ";adplanid="+adplanid+";startdate="+startdate+";enddate="+enddate+";adurl="+adurl+";callback_url="+callback_url
+        );
+        Ad ad=null;
+        if(adid!=null&&!"".equals(adid)) {
+             ad = adService.getByAdId(adid);
+        }else{
+            ad=new Ad();
+            ad.setAdId(MyUUID.getUUID());
+        }
+        ad.setUserId(userid);
+        ad.setDisplayTimes(Integer.parseInt(displaytimes));
+        ad.setDailyLimitMoney(daycost);
+        ad.setName(adname);
+        //ad.setOfferPrice(new Double(adprice));
+        ad.setAdPlanId(adplanid);
+        ad.setAdUrl(adurl);
+        ad.setLaunchTimeStart(startdate);
+        ad.setLaunchTimeEnd(enddate);
+        ad.setCallbackUrl(callback_url);
+        AdPlan adPlan=adPlanService.findAdPlanByAdPlanId(adplanid);
+        ad.setAdPlanName(adPlan.getName());
+
+        adService.save(ad);
+        ad=adService.getByAdId(ad.getAdId());
+
+        log.info("ad="+ad);
+        log.info("adid="+ad.getAdId()+";name="+ad.getName());
+        ad.setName(ad.getAdId());//暂时解决ad_id不能被ajax data读取的问题
+
+        return ad;
+    }
 }
