@@ -10,6 +10,33 @@
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 		<script type="text/javascript" src="js/select.js"></script>
 	</head>
+	<script>
+        //提交广告
+        function save(){
+            alert("save");
+            var adid=document.getElementById("SaveAdId").value
+            alert("adid="+adid);
+            $.ajax({
+                type:"GET",
+                url:"/updateNewStatus",
+                dataType:"json",
+                data:"adid="+adid+"&adstatus=10",
+                success:function(data) {
+                    alert("data="+data);
+                    var adid=data.adId
+                    alert("adid="+adid);
+                    if(adid!=null){
+                        alert("保存成功!");
+                        $(".huibg").show();
+                        $(".tjgg_alert").show();
+                        $(".tjgg_success").show();
+                    }
+                }
+            });
+
+        }
+
+    </script>
 
 	<body>
 		<div class="tj_main">
@@ -141,23 +168,33 @@
 											广告预览
 										</span>
 										<div class="gg_tj_gp_rt clearfix">
+
+                                            <ul>
+                                                <li th:each="materialImage:${materialImageList}">
+                                                    <div class="left tj_guige">
+                                                        <p>规格:<span th:text="${materialImage.getSize()}"></span></p>
+                                                        <p class="tj_tl"><span th:text="${materialImage.getName()}"></span></p>
+                                                        <img src="" th:src="@{${materialImage.getImageUrl()}}" th:alt="${materialImage.getName()}" />
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+
 											<div class="left tj_guige">
-												<p>规格1:280*200</p>
+												<p>规格:200*100</p>
 												<p class="tj_tl">组图信息流三行三列创意1</p>
 												<img src="images/ggtj_10.jpg" />
 											</div>
-											<div class="left tj_guige">
-												<p>规格2:600*500</p>
-												<p class="tj_tl">组图信息流三行三列创意2</p>
-												<img src="images/ggtj_07.jpg" />
-											</div>
+
 										</div>
 									</div>
 								    <div class="dashed"></div>
+                                    <input type="hidden" id="SaveAdId" th:value="${adid}" />
 								    <div class="ggtj_btn">
                                         <a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
                                         <a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-								    	<a href="javascript:;" class="btn_blue tjgg">提交广告</a>
+								    	<!--<a href="javascript:;" class="btn_blue tjgg">提交广告</a>-->
+                                        <a href="javascript:void(0)" onclick="save()" class="btn_blue">提交广告</a>
 								    </div>
 								</div>
 							</div>
@@ -178,7 +215,7 @@
            			<p>您还可以<a href="#">复制广告</a> 或 <a href="#">新建广告</a></p>
            		</div>
                 <div class="ggtj_btn tjgg_success">
-                	<a href="guanggao.html" class="btn_blue">查看广告</a>
+					<a th:href="@{/guanggao.html(adplanid=${adplanid})}" class="btn_blue">查看广告</a>
                 	<a href="#">关闭</a>
                 </div>
            </div>

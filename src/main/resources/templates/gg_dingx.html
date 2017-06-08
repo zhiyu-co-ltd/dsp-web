@@ -1622,16 +1622,16 @@
 									<div class="dx_one">
 										<div class="clearfix">
 											<div class="left yonghu">
-												预计最大覆盖用户数 <span class="num">9,790</span>人
+												预计最大覆盖用户数 <span class="num"><span th:text="${userNumbers}"></span></span>人
 											</div>
 											<div class="left">
-												预计最大日曝光量 <span class="num">87,554</span>次
+												预计最大日曝光量 <span class="num"><span th:text="${pvNumbers}"></span></span>次
 											</div>
 										</div>
 										<div class="clearfix yixuan">
 											<span class="left yixuan_name">已选条件：</span>
 											<div class="yixuan_rt">
-												操作系统：不限；联网方式：WiFi、3G、4G；运营商：移动、联通、电信；地域：北京、沈阳市、大连市；商业兴趣：游戏人群、亲子早教；性别：女；
+												操作系统：<span th:text="${OperateSystem}"></span>；联网方式：<span th:text="${NetworkType}"></span>；运营商：<span th:text="${TelecomOperator}"></span>；地域：<span th:text="${launch_area}"></span>；商业兴趣：<span th:text="${launch_people}"></span>；性别：<span th:text="${GenderType}"></span>；
 											</div>
 										</div>
 									</div>

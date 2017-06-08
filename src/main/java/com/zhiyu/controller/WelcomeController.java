@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @Controller
 class WelcomeController {
@@ -378,7 +379,16 @@ class WelcomeController {
 
                     model.put("adplanid", adplanid);
                     model.put("adid", adid);
-
+                    Ad ad=adService.getByAdId(adid);
+                    model.put("launch_area", ad.getLaunchArea());
+                    model.put("launch_people", ad.getLaunchPeople());
+                    model.put("OperateSystem", ad.getOperateSystem());
+                    model.put("NetworkType", ad.getNetworkType());
+                    model.put("TelecomOperator", ad.getTelecomOperator());
+                    model.put("GenderType", ad.getGenderType());
+                    Random r = new Random();
+                    model.put("userNumbers",  r.nextInt(5000000));//定向人数
+                    model.put("pvNumbers",    r.nextInt(100000000));//定向pv
                     returnUrl="gg_dingx";
                     break;
                 }

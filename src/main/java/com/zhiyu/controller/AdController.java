@@ -109,8 +109,7 @@ public class AdController {
 
         if(adstatus.equals("0")){
             adstatus="1";
-        }
-        else if(adstatus.equals("2")){
+        } else if(adstatus.equals("2")){
             adstatus="5";
         } else if(adstatus.equals("3")){
             adstatus="1";
@@ -129,6 +128,31 @@ public class AdController {
         Ad ad= adService.getById(Integer.parseInt(adid));
 
         log.info("ad="+ad);
+
+        return ad;
+    }
+    @ResponseBody
+    @RequestMapping("/updateNewStatus")
+    public Ad updateNewStatus(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) {
+
+        String adid  = request.getParameter("adid") ;
+        String adstatus = request.getParameter("adstatus") ;
+
+        log.info("adid="+adid+";adstatus="+adstatus);
+
+        Ad ad= adService.getByAdId(adid);
+
+        if(adstatus.equals("10")){//创建广告提交状态
+            if(ad.getStatus()==10){
+                log.info("可以修改!");
+                adstatus="0";//新创建的广告设置为未审核状态
+                adService.updateStatus(adstatus,ad.getId());//提交变为待审核状态
+                ad= adService.getByAdId(adid);
+
+            }
+
+        }
+        log.info("adid="+ad.getAdId()+";adStatus="+ad.getStatus());
 
         return ad;
     }
