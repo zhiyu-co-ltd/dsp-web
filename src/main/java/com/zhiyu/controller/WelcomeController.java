@@ -35,7 +35,11 @@ class WelcomeController {
     @Autowired
     private FinancialService financialService;
 
-	@RequestMapping("/index")
+    @Autowired
+    private MediaService mediaService;
+
+
+    @RequestMapping("/index")
 	public String welcome(Map<String, Object> model,HttpServletRequest request) {
 
 		Cookie[] cookie = request.getCookies();
@@ -389,6 +393,16 @@ class WelcomeController {
                     Random r = new Random();
                     model.put("userNumbers",  r.nextInt(5000000));//定向人数
                     model.put("pvNumbers",    r.nextInt(100000000));//定向pv
+                    model.put("adprice1",    "0.50");//定向pv
+                    model.put("adprice2",    "1.00");//定向pv
+                    //已经设定的定向投放平台
+                    String pdb_platform=ad.getPdbPlatform();
+                    model.put("pdb_platform",    pdb_platform);
+
+                    //可选择的媒体定向平台列表
+                    List<Media> mediaList=mediaService.getAll();
+                    model.put("mediaList",    mediaList);//定向媒体列表
+
                     returnUrl="gg_dingx";
                     break;
                 }
