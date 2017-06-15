@@ -390,14 +390,17 @@ class WelcomeController {
                     model.put("NetworkType", ad.getNetworkType());
                     model.put("TelecomOperator", ad.getTelecomOperator());
                     model.put("GenderType", ad.getGenderType());
+                    model.put("DeliveryType", ad.getDeliveryType());//投放类型
+                   // model.put("DeliveryType", "5");//投放类型
                     Random r = new Random();
                     model.put("userNumbers",  r.nextInt(5000000));//定向人数
                     model.put("pvNumbers",    r.nextInt(100000000));//定向pv
                     model.put("adprice1",    "0.50");//定向pv
                     model.put("adprice2",    "1.00");//定向pv
+
                     //已经设定的定向投放平台
                     String pdb_platform=ad.getPdbPlatform();
-                    model.put("pdb_platform",    pdb_platform);
+                    model.put("pdb_platform", pdb_platform);
 
                     //可选择的媒体定向平台列表
                     List<Media> mediaList=mediaService.getAll();

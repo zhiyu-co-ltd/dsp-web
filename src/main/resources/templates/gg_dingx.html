@@ -1814,16 +1814,16 @@
 										</div>
 												<div class="clearfix">
 													<span class="left" style="display: block;width: 54px;margin-right: 30px;">性别</span>
-													<div class="clearfix danxuan left">
-														<a href="javascript:;">
-															<em></em> 不限
-														</a>
-														<a href="javascript:;">
-															<em></em> 女
-														</a>
-														<a href="javascript:;">
-															<em></em> 男
-														</a>
+													<div class="clearfix danxuan ">
+                                                        <span th:if="${GenderType}!='0'"><input name="GenderType" type="radio" value="0"  /> </span>
+                                                        <span th:if="${GenderType}=='0'"><input name="GenderType" type="radio" value="0" checked="true" /> </span>
+                                                        不限&nbsp;
+                                                        <span th:if="${GenderType}!='1'"><input name="GenderType" type="radio" value="1"  /> </span>
+                                                        <span th:if="${GenderType}=='1'"><input name="GenderType" type="radio" value="1" checked="true" /> </span>
+                                                        女&nbsp;
+                                                        <span th:if="${GenderType}!='2'"><input name="GenderType" type="radio" value="2"  /> </span>
+                                                        <span th:if="${GenderType}=='2'"><input name="GenderType" type="radio" value="2" checked="true" /> </span>
+                                                        男&nbsp;
 													</div>
 												</div>
 											</div>
@@ -1832,18 +1832,24 @@
 											<span class="left yixuan_name">付费模式</span>
 											<div class="yixuan_rt">
 												<div class="clearfix danxuan">
-                                                    <input name="Fruit" type="radio" value="0"/> CPC&nbsp;
-
-                                                    <input name="Fruit" type="radio" value="1"/> CPM&nbsp;
-
-                                                    <input name="Fruit" type="radio" value="2"/> CPT&nbsp;
-
-                                                    <input name="Fruit" type="radio" value="3"/> CPA&nbsp;
-
-                                                    <input name="Fruit" type="radio" value="4"/> CPS&nbsp;
-
-                                                    <input name="Fruit" type="radio" value="5"/> CPD
-
+                                                    <span th:if="${DeliveryType}!='0'"><input name="delivery_type" type="radio" value="0"  /> </span>
+													<span th:if="${DeliveryType}=='0'"><input name="delivery_type" type="radio" value="0" checked="true" /> </span>
+													CPC&nbsp;
+                                                    <span th:if="${DeliveryType}!='1'"><input name="delivery_type" type="radio" value="1"  /> </span>
+                                                    <span th:if="${DeliveryType}=='1'"><input name="delivery_type" type="radio" value="1" checked="true" /> </span>
+                                                    CPM&nbsp;
+                                                    <span th:if="${DeliveryType}!='2'"><input name="delivery_type" type="radio" value="2"  /> </span>
+                                                    <span th:if="${DeliveryType}=='2'"><input name="delivery_type" type="radio" value="2" checked="true" /> </span>
+                                                    CPS&nbsp;
+                                                    <span th:if="${DeliveryType}!='3'"><input name="delivery_type" type="radio" value="3"  /> </span>
+                                                    <span th:if="${DeliveryType}=='3'"><input name="delivery_type" type="radio" value="3" checked="true" /> </span>
+                                                    CPD&nbsp;
+                                                    <span th:if="${DeliveryType}!='4'"><input name="delivery_type" type="radio" value="4"  /> </span>
+                                                    <span th:if="${DeliveryType}=='4'"><input name="delivery_type" type="radio" value="4" checked="true" /> </span>
+                                                    CPA&nbsp;
+                                                    <span th:if="${DeliveryType}!='5'"><input name="delivery_type" type="radio" value="5"  /> </span>
+                                                    <span th:if="${DeliveryType}=='5'"><input name="delivery_type" type="radio" value="5" checked="true" /> </span>
+                                                    CPT&nbsp;
 												</div>
 											</div>
 										</div>
@@ -1851,7 +1857,10 @@
 											<span class="left yixuan_name">PDB</span>
 											<div class="yixuan_rt">
                                                 <div class="clearfix danxuan">
-                                                <input th:each="media:${mediaList}" th:value="${media.getMediaId()}" name="pdbplatform" type="checkbox"/>111
+													<span th:each="media:${mediaList}">
+                                                       <input  th:value="${media.getMediaId()}" name="pdbplatform" type="checkbox" th:checked="false" /><span th:text="${media.getName()}"></span>
+													</span>
+
                                                 </div>
                                             </div>
 										</div>
