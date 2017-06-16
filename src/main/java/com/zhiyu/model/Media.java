@@ -1,5 +1,6 @@
 package com.zhiyu.model;
 
+import javax.persistence.Column;
 import javax.persistence.Table;
 
 /**
@@ -9,7 +10,8 @@ import javax.persistence.Table;
 public class Media extends BaseEntity{
 
     private String name;
-    private String MediaId;
+    @Column(name="media_id")
+    private String media_id;
 
 
     public String getName() {
@@ -21,11 +23,11 @@ public class Media extends BaseEntity{
     }
 
     public String getMediaId() {
-        return MediaId;
+        return media_id;
     }
 
     public void setMediaId(String mediaId) {
-        MediaId = mediaId;
+        mediaId = media_id;
     }
 
 }

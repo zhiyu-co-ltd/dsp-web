@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 @Controller
 class WelcomeController {
@@ -400,11 +398,26 @@ class WelcomeController {
 
                     //已经设定的定向投放平台
                     String pdb_platform=ad.getPdbPlatform();
-                    model.put("pdb_platform", pdb_platform);
+                 //   pdb_platform="11111122223333;222;1111111";//测试数据
+                     String[] arr=pdb_platform.split(";");
+//                    List<String> pdbList = Arrays.asList(arr);
+//                    log.info("pdbList="+pdbList.size());
+//                    model.put("pdbList", pdbList);
 
                     //可选择的媒体定向平台列表
                     List<Media> mediaList=mediaService.getAll();
-                    model.put("mediaList",    mediaList);//定向媒体列表
+                    List<Media> mediaListNew = new ArrayList();
+                    for(int j=0;j<mediaList.size();j++) {
+                        Media media=(Media) mediaList.toArray()[j];
+                        for(int m=0;m<arr.length;m++) {
+                            if(media.getMediaId().equals(arr[m])){
+                                media.setId(0);
+                            }
+                        }
+                        mediaListNew.add(media);
+                    }
+                    log.info("mediaListNew="+mediaListNew.size());
+                    model.put("mediaList",    mediaListNew);//定向媒体列表
 
                     returnUrl="gg_dingx";
                     break;

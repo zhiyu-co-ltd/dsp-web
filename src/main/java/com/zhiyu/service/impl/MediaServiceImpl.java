@@ -39,7 +39,7 @@ public class MediaServiceImpl implements MediaService {
     private MediaMapper mediaMapper;
 
     public List<Media> getAll() {
-        return mediaMapper.selectAll();
+        return mediaMapper.getAll();
     }
 
 }

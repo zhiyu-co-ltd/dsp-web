@@ -11,6 +11,15 @@
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 		<script type="text/javascript" src="js/select.js"></script>
 		<script type="text/javascript" src="js/jquery-ztree-2.5.js"></script>
+
+		<script>
+			//判断pdb是否为已经设置的投放平台,如设置checked属性设置为true
+		  function pdbSet(pdbid) {
+		      alert("pdbid="+pdbid);
+			  document.getElementById(pdbid).checked = "true";
+		  }
+		</script>
+
 		<script type="text/javascript">
 			//全局变量,树1 , 树2
 			var Tree1, Tree2;
@@ -1858,7 +1867,8 @@
 											<div class="yixuan_rt">
                                                 <div class="clearfix danxuan">
 													<span th:each="media:${mediaList}">
-                                                       <input  th:value="${media.getMediaId()}" name="pdbplatform" type="checkbox" th:checked="false" /><span th:text="${media.getName()}"></span>
+                                                         <span th:if="${media.getId()}!=0"> <input th:value="${media.getMediaId()}" name="pdbplatform" type="checkbox" /><span th:text="${media.getName()}"></span></span>
+                                                         <span th:if="${media.getId()}==0"> <input th:value="${media.getMediaId()}" name="pdbplatform" type="checkbox"  checked="true"/><span th:text="${media.getName()}"></span></span>
 													</span>
 
                                                 </div>
