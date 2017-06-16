@@ -385,7 +385,14 @@ class WelcomeController {
                     model.put("launch_area", ad.getLaunchArea());
                     model.put("launch_people", ad.getLaunchPeople());
                     model.put("OperateSystem", ad.getOperateSystem());
-                    model.put("NetworkType", ad.getNetworkType());
+//                    //获取网络类型
+//                    String NetworkType=ad.getNetworkType();
+//                    pdb_platform="11111122223333;222;1111111";//测试数据
+//                    String[] arr=pdb_platform.split(";");
+//                  List<String> pdbList = Arrays.asList(arr);
+//                    model.put("NetworkTypeList", NetworkTypeList);
+
+
                     model.put("TelecomOperator", ad.getTelecomOperator());
                     model.put("GenderType", ad.getGenderType());
                     model.put("DeliveryType", ad.getDeliveryType());//投放类型
@@ -398,7 +405,7 @@ class WelcomeController {
 
                     //已经设定的定向投放平台
                     String pdb_platform=ad.getPdbPlatform();
-                 //   pdb_platform="11111122223333;222;1111111";//测试数据
+                    pdb_platform="11111122223333;222;1111111";//测试数据
                      String[] arr=pdb_platform.split(";");
 //                    List<String> pdbList = Arrays.asList(arr);
 //                    log.info("pdbList="+pdbList.size());

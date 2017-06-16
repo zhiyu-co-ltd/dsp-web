@@ -1640,7 +1640,9 @@
 										<div class="clearfix yixuan">
 											<span class="left yixuan_name">已选条件：</span>
 											<div class="yixuan_rt">
-												操作系统：<span th:text="${OperateSystem}"></span>；联网方式：<span th:text="${NetworkType}"></span>；运营商：<span th:text="${TelecomOperator}"></span>；地域：<span th:text="${launch_area}"></span>；商业兴趣：<span th:text="${launch_people}"></span>；性别：<span th:text="${GenderType}"></span>；
+												操作系统：<span th:if="${OperateSystem}==0">不限</span><span th:if="${OperateSystem}==1">Android</span><span th:if="${OperateSystem}==2">Ios</span>；
+                                                联网方式：<span th:each="media:${mediaList}"></span>；
+                                                运营商：<span th:text="${TelecomOperator}"></span>；地域：<span th:text="${launch_area}"></span>；商业兴趣：<span th:text="${launch_people}"></span>；性别：<span th:if="${GenderType}==0">不限</span><span th:if="${GenderType}==1">女</span><span th:if="${GenderType}==2">男</span>；
 											</div>
 										</div>
 									</div>
@@ -1652,81 +1654,39 @@
 													<span class="left" style="color: #333;">
 												操作系统： 
 											</span>
-													<div class="left clearfix dx_duoxuan">
-														<a href="javascript:;">
-															<em></em>
-															<span>不限</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span>Windows</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span>Android</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span> IOS</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span>其他</span>
-														</a>
+													<div class="clearfix dx_duoxuan">
+                                                       <!-- <input th:value="0" name="OperateSystem" type="checkbox" />&nbsp;不限&nbsp;&nbsp;-->
+                                                        <span th:if="${OperateSystem}!='0'"><input name="OperateSystem" type="radio" value="0"  /> </span>
+                                                        <span th:if="${OperateSystem}=='0'"><input name="OperateSystem" type="radio" value="0" checked="true" /> </span>
+                                                        不限&nbsp;
+                                                        <span th:if="${OperateSystem}!='1'"><input name="OperateSystem" type="radio" value="1"  /> </span>
+                                                        <span th:if="${OperateSystem}=='1'"><input name="OperateSystem" type="radio" value="1" checked="true" /> </span>
+                                                        Android&nbsp;
+                                                        <span th:if="${OperateSystem}!='2'"><input name="OperateSystem" type="radio" value="2"  /> </span>
+                                                        <span th:if="${OperateSystem}=='2'"><input name="OperateSystem" type="radio" value="2" checked="true" /> </span>
+                                                        Ios&nbsp;
 													</div>
 												</div>
 												<div class="clearfix gx_gp">
 													<span class="left" style="color: #333;">
 												联网方式：  
 											</span>
-													<div class="left clearfix dx_duoxuan">
-														<a href="javascript:;">
-															<em></em>
-															<span>不限</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span>WIFI</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span>3G </span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span> 4G</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span>其他</span>
-														</a>
+													<div class="clearfix dx_duoxuan">
+                                                       <!-- <input th:value="0" name="NetworkType" type="checkbox" />&nbsp;不限&nbsp;&nbsp;-->
+                                                        <input th:value="1" name="NetworkType" type="checkbox" />&nbsp;WIFI&nbsp;&nbsp;
+                                                        <input th:value="2" name="NetworkType" type="checkbox" />&nbsp;3G&nbsp;&nbsp;
+                                                        <input th:value="3" name="NetworkType" type="checkbox" />&nbsp;4G&nbsp;&nbsp;
 													</div>
 												</div>
 												<div class="clearfix gx_gp">
 													<span class="left" style="color: #333;">
-												运营商：
+												运&nbsp;营&nbsp;商：
 											</span>
-													<div class="left clearfix dx_duoxuan">
-														<a href="javascript:;">
-															<em></em>
-															<span>不限</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span>移动</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span>联通</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span>电信</span>
-														</a>
-														<a href="javascript:;">
-															<em></em>
-															<span>其他</span>
-														</a>
+													<div class="clearfix dx_duoxuan">
+                                                       <!-- <input th:value="0" name="TelecomOperator" type="checkbox" />&nbsp;不限&nbsp;&nbsp;-->
+                                                        <input th:value="1" name="TelecomOperator" type="checkbox" />&nbsp;移动&nbsp;&nbsp;
+                                                        <input th:value="2" name="TelecomOperator" type="checkbox" />&nbsp;联通&nbsp;&nbsp;
+                                                        <input th:value="3" name="TelecomOperator" type="checkbox" />&nbsp;电信&nbsp;&nbsp;
 													</div>
 												</div>
 											</div>
@@ -1866,6 +1826,7 @@
 											<span class="left yixuan_name">PDB</span>
 											<div class="yixuan_rt">
                                                 <div class="clearfix danxuan">
+                                                   <!-- <input th:value="0" name="pdbplatform" type="checkbox" />全选-->
 													<span th:each="media:${mediaList}">
                                                          <span th:if="${media.getId()}!=0"> <input th:value="${media.getMediaId()}" name="pdbplatform" type="checkbox" /><span th:text="${media.getName()}"></span></span>
                                                          <span th:if="${media.getId()}==0"> <input th:value="${media.getMediaId()}" name="pdbplatform" type="checkbox"  checked="true"/><span th:text="${media.getName()}"></span></span>
