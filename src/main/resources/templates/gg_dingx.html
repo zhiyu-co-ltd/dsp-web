@@ -1641,8 +1641,9 @@
 											<span class="left yixuan_name">已选条件：</span>
 											<div class="yixuan_rt">
 												操作系统：<span th:if="${OperateSystem}==0">不限</span><span th:if="${OperateSystem}==1">Android</span><span th:if="${OperateSystem}==2">Ios</span>；
-                                                联网方式：<span th:each="media:${mediaList}"></span>；
-                                                运营商：<span th:text="${TelecomOperator}"></span>；地域：<span th:text="${launch_area}"></span>；商业兴趣：<span th:text="${launch_people}"></span>；性别：<span th:if="${GenderType}==0">不限</span><span th:if="${GenderType}==1">女</span><span th:if="${GenderType}==2">男</span>；
+                                                联网方式：<span th:each="networkType:${NetworkTypeList}"><span th:if="${networkType}==0">WIFI;&nbsp;</span><span th:if="${networkType}==1">3G;&nbsp;</span><span th:if="${networkType}==2">4G;</span></span>
+                                                运营商：<span th:each="telecomOperator:${telecomOperatorList}"><span th:if="${telecomOperator}==0">移动;&nbsp;</span><span th:if="${telecomOperator}==1">联通;&nbsp;</span><span th:if="${telecomOperator}==2">电信;</span></span>
+												地域：<span th:text="${launch_area}"></span>；商业兴趣：<span th:text="${launch_people}"></span>；性别：<span th:if="${GenderType}==0">不限</span><span th:if="${GenderType}==1">女</span><span th:if="${GenderType}==2">男</span>；
 											</div>
 										</div>
 									</div>
@@ -1673,10 +1674,12 @@
 											</span>
 													<div class="clearfix dx_duoxuan">
                                                        <!-- <input th:value="0" name="NetworkType" type="checkbox" />&nbsp;不限&nbsp;&nbsp;-->
-                                                        <input th:value="1" name="NetworkType" type="checkbox" />&nbsp;WIFI&nbsp;&nbsp;
-                                                        <input th:value="2" name="NetworkType" type="checkbox" />&nbsp;3G&nbsp;&nbsp;
-                                                        <input th:value="3" name="NetworkType" type="checkbox" />&nbsp;4G&nbsp;&nbsp;
-													</div>
+                                                        <span th:each="networkType:${NetworkTypeList}">
+                                                            <span th:if="${networkType.getStatus()}!='1'"><input th:value="${networkType.getCheckValue()}" name="NetworkType" type="checkbox" />&nbsp;<span th:text="${networkType.getName()}"></span>&nbsp;&nbsp;</span>
+                                                            <span th:if="${networkType.getStatus()}=='1'"><input th:value="${networkType.getCheckValue()}" name="NetworkType" type="checkbox" checked="true"/>&nbsp;<span th:text="${networkType.getName()}"></span>&nbsp;&nbsp;</span>
+														</span>
+                                                    </div>
+
 												</div>
 												<div class="clearfix gx_gp">
 													<span class="left" style="color: #333;">
@@ -1684,9 +1687,10 @@
 											</span>
 													<div class="clearfix dx_duoxuan">
                                                        <!-- <input th:value="0" name="TelecomOperator" type="checkbox" />&nbsp;不限&nbsp;&nbsp;-->
-                                                        <input th:value="1" name="TelecomOperator" type="checkbox" />&nbsp;移动&nbsp;&nbsp;
-                                                        <input th:value="2" name="TelecomOperator" type="checkbox" />&nbsp;联通&nbsp;&nbsp;
-                                                        <input th:value="3" name="TelecomOperator" type="checkbox" />&nbsp;电信&nbsp;&nbsp;
+                                                        <span th:each="telecom:${TelecomList}">
+                                                            <span th:if="${telecom.getStatus()}!='1'"><input th:value="${telecom.getCheckValue()}" name="telecom" type="checkbox" />&nbsp;<span th:text="${telecom.getName()}"></span>&nbsp;&nbsp;</span>
+                                                            <span th:if="${telecom.getStatus()}=='1'"><input th:value="${telecom.getCheckValue()}" name="telecom" type="checkbox" checked="true"/>&nbsp;<span th:text="${telecom.getName()}"></span>&nbsp;&nbsp;</span>
+														</span>
 													</div>
 												</div>
 											</div>

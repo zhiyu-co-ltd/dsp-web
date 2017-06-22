@@ -385,15 +385,69 @@ class WelcomeController {
                     model.put("launch_area", ad.getLaunchArea());
                     model.put("launch_people", ad.getLaunchPeople());
                     model.put("OperateSystem", ad.getOperateSystem());
-//                    //获取网络类型
-//                    String NetworkType=ad.getNetworkType();
-//                    pdb_platform="11111122223333;222;1111111";//测试数据
-//                    String[] arr=pdb_platform.split(";");
-//                  List<String> pdbList = Arrays.asList(arr);
-//                    model.put("NetworkTypeList", NetworkTypeList);
+
+                  //获取网络类型
+                    String NetworkType=ad.getNetworkType();
+                    NetworkType="0;2";//测试数据
+                    String[] arr1=NetworkType.split(";");
+                    String networks="0;1;2";
+                    String[] arr3=networks.split(";");
+                    List<CheckPojo> NetworkTypeList = new ArrayList();
+                    for(int m=0;m<arr3.length;m++){
+                        CheckPojo check=new CheckPojo();
+                           for(int h=0;h<arr1.length;h++){
+                               log.info("m="+m);
+                               log.info("h="+h);
+                               if(arr3[m].equals(arr1[h])){
+                                   check.setCheckValue(arr3[m]);
+                                   check.setStatus("1");
+                               }
+                           }
+                        if(m==0){
+                            check.setName("WIFI");
+                        } if(m==1){
+                            check.setName("3G");
+                        }if(m==2){
+                            check.setName("4G");
+                        }
+                        NetworkTypeList.add(check);
+                    }
+
+                    log.info("networkTypessize="+NetworkTypeList.size());
+                    model.put("NetworkTypeList", NetworkTypeList);
 
 
-                    model.put("TelecomOperator", ad.getTelecomOperator());
+                      //获取运营商类型
+                    String TelecomOperator=ad.getTelecomOperator();
+                    TelecomOperator="1;2";//测试数据
+                    String[] arr2=TelecomOperator.split(";");
+                    String Telecom="0;1;2";
+                    String[] arr4=Telecom.split(";");
+                    List<CheckPojo> TelecomList = new ArrayList();
+                    for(int m=0;m<arr4.length;m++){
+                        CheckPojo check=new CheckPojo();
+                        for(int h=0;h<arr2.length;h++){
+                            log.info("m="+m);
+                            log.info("h="+h);
+                            if(arr4[m].equals(arr2[h])){
+                                check.setCheckValue(arr4[m]);
+                                check.setStatus("1");
+                            }
+                        }
+                        if(m==0){
+                            check.setName("移动");
+                        } if(m==1){
+                            check.setName("联通");
+                        }if(m==2){
+                            check.setName("电信");
+                        }
+                        TelecomList.add(check);
+                    }
+
+                    log.info("TelecomListsize="+TelecomList.size());
+                    model.put("TelecomList", TelecomList);
+
+
                     model.put("GenderType", ad.getGenderType());
                     model.put("DeliveryType", ad.getDeliveryType());//投放类型
                    // model.put("DeliveryType", "5");//投放类型
@@ -406,7 +460,7 @@ class WelcomeController {
                     //已经设定的定向投放平台
                     String pdb_platform=ad.getPdbPlatform();
                     pdb_platform="11111122223333;222;1111111";//测试数据
-                     String[] arr=pdb_platform.split(";");
+                    String[] arr=pdb_platform.split(";");
 //                    List<String> pdbList = Arrays.asList(arr);
 //                    log.info("pdbList="+pdbList.size());
 //                    model.put("pdbList", pdbList);

@@ -26,11 +26,11 @@ public class Ad extends BaseEntity{
     @Column(name="offer_price")
     private Double offer_price;
     @Column(name="telecom_operator")
-    private int telecom_operator;
+    private String telecom_operator;
     @Column(name="network_type")
-    private int network_type;
+    private String network_type;
     @Column(name="operate_system")
-    private int operate_system;
+    private String operate_system;
     @Column(name="pdb_platform")
     private String pdb_platform;
     @Column(name="gender_type")
@@ -106,27 +106,27 @@ public class Ad extends BaseEntity{
         offer_price = offerPrice;
     }
 
-    public int getTelecomOperator() {
+    public String getTelecomOperator() {
         return telecom_operator;
     }
 
-    public void setTelecomOperator(int telecomOperator) {
+    public void setTelecomOperator(String telecomOperator) {
         telecom_operator = telecomOperator;
     }
 
-    public int getNetworkType() {
+    public String getNetworkType() {
         return network_type;
     }
 
-    public void setNetworkType(int networkType) {
+    public void setNetworkType(String networkType) {
         network_type = networkType;
     }
 
-    public int getOperateSystem() {
+    public String getOperateSystem() {
         return operate_system;
     }
 
-    public void setOperateSystem(int operateSystem) {
+    public void setOperateSystem(String operateSystem) {
         operate_system = operateSystem;
     }
 
