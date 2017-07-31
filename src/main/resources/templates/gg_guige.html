@@ -121,7 +121,86 @@
 				$(this).parents(".zli").after("<li class='zli'>"+AddContent+"</li>");
 			}
 
-        //获取广告类型
+			//增加文字创意
+			function addMaterialWenZi(type){
+				alert("type="+type);
+				var content="";
+				var obj = document.getElementsByName('wenzi'+type);
+				var num=obj.length+1;
+				alert("num="+num);
+				var ss="";
+
+				if(type=="1"){
+					content="8*1";
+					ss="8";
+
+				}if(type=="2"){
+					content="16*1";
+					ss="16";
+
+				}if(type=="3"){
+					content="24*1";
+					ss="24";
+
+				}if(type=="4"){
+					content="40*1";
+					ss="40";
+
+				}
+
+				var AddContent="<li class=\"zli\">"+
+						"<div class=\"clearfix guigexuanze\">"+
+						"<div>"+
+						"<input id=\"wenzi"+type+"_"+num+"\" name=\"wenzi"+type+"\" type=\"checkbox\">"+
+						"<label for=\"wenzi"+type+"_"+num+"\"></label>"+
+						"</div>"+
+						"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
+						"<div class=\"clearfix g_nam\"> <span class=\"g_name_lf\">名称：</span> <input type=\"text\" placeholder=\"\" /></div>"+
+						"<div class=\"g_update\"> <textarea placeholder=\"请输入创意文字内容……\"></textarea>"+
+						"<span class=\"xianzhi\">0/"+ss+"</span></div>"+
+						"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> 新增创意 </div></li>"
+				//alert("AddContent="+AddContent);
+				$(this).parents(".zli").after("<li class='zli'>"+AddContent+"</li>");
+			}
+			//增加视频创意
+			function addMaterialShiPing(type){
+				alert("type="+type);
+				var content="";
+				var obj = document.getElementsByName('shipin'+type);
+				var num=obj.length+1;
+				alert("num="+num);
+
+				if(type=="1"){
+					content="280*200(7:5)";
+
+				}if(type=="2"){
+					content="600*500(6:5)";
+
+				}if(type=="3"){
+					content="960*640(3:2)";
+
+				}if(type=="4"){
+					content="600*300(2:1)";
+				}if(type=="5"){
+					content="800*120(20:3)";
+				}
+
+				var AddContent="<li class=\"zli\">"+
+						"<div class=\"clearfix guigexuanze\">"+
+						"<div>"+
+						"<input id=\"shipin"+type+"_"+num+"\" name=\"shipin"+type+"\" type=\"checkbox\">"+
+						"<label for=\"shipin"+type+"_"+num+"\"></label>"+
+						"</div>"+
+						"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
+						"<div class=\"clearfix g_nam\"> <span class=\"g_name_lf\">名称：</span> <input type=\"text\" placeholder=\"\" /></div>"+
+						"<div class=\"xxl_lf sp_up_small\"> <div class=\"guig_btn_lf\"> 上传缩略图 <input type=\"file\" /> </div>"+
+						"<p class=\"gug_text\"> 100KB以内的<br/> jpg,png,gif图片 </p> </div>"+
+						"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> 新增创意 </div></li>"
+				//alert("AddContent="+AddContent);
+				$(this).parents(".zli").after("<li class='zli'>"+AddContent+"</li>");
+			}
+
+			//获取广告类型
         function getType(type){
 
             var index=type;
@@ -676,9 +755,9 @@
 								    			<ul class="clearfix guige_ul">
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="wenzi1" name="wenzi1" type="checkbox">
-					       <label for="wenzi1"></label>
+								    							<div>
+					       <input id="wenzi1_1" name="wenzi1" type="checkbox">
+					       <label for="wenzi1_1"></label>
 				        </div>
 								    					         <span class="left">规格1：8*1</span>
 								    					</div>
@@ -688,20 +767,20 @@
 								    					</div>
 								    					<div class="g_update">
 								    						<textarea placeholder="请输入创意文字内容……"></textarea>
-								    						<span class="xianzhi">0/16</span>
+								    						<span class="xianzhi">0/8</span>
 								    					</div>
 								    					<div class="clearfix guig_btn">
 								    						
 								    						<div class="xinzeng zengjia" style="margin: 0px auto;">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialWenZi('1')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    			   <li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="wenzi2" name="wenzi2" type="checkbox">
-					       <label for="wenzi2"></label>
+								    							<div>
+					       <input id="wenzi2_1" name="wenzi2" type="checkbox">
+					       <label for="wenzi2_1"></label>
 				        </div>
 								    					         <span class="left">规格2：16*1</span>
 								    					</div>
@@ -716,15 +795,15 @@
 								    					<div class="clearfix guig_btn">
 								    						
 								    						<div class="xinzeng zengjia" style="margin: 0px auto;">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialWenZi('2')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="wenzi3" name="wenzi3" type="checkbox">
-					       <label for="wenzi3"></label>
+								    							<div>
+					       <input id="wenzi3_1" name="wenzi3" type="checkbox">
+					       <label for="wenzi3_1"></label>
 				        </div>
 								    					         <span class="left">规格3：24*1</span>
 								    					</div>
@@ -734,20 +813,20 @@
 								    					</div>
 								    					<div class="g_update">
 								    						<textarea placeholder="请输入创意文字内容……"></textarea>
-								    						<span class="xianzhi">0/16</span>
+								    						<span class="xianzhi">0/24</span>
 								    					</div>
 								    					<div class="clearfix guig_btn">
 								    						
 								    						<div class="xinzeng zengjia" style="margin: 0px auto;">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialWenZi('3')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="wenzi4" name="wenzi4" type="checkbox">
-					       <label for="wenzi4"></label>
+								    							<div>
+					       <input id="wenzi4_1" name="wenzi4" type="checkbox">
+					       <label for="wenzi4_1"></label>
 				        </div>
 								    					         <span class="left">规格4：40*1</span>
 								    					</div>
@@ -757,12 +836,12 @@
 								    					</div>
 								    					<div class="g_update">
 								    						<textarea placeholder="请输入创意文字内容……"></textarea>
-								    						<span class="xianzhi">0/16</span>
+								    						<span class="xianzhi">0/40</span>
 								    					</div>
 								    					<div class="clearfix guig_btn">
 								    						
 								    						<div class="xinzeng zengjia" style="margin: 0px auto;">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialWenZi('4')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
@@ -3161,9 +3240,9 @@ wmv，avi，mpg，mpeg，mp4
 								    			<ul class="clearfix guige_ul sp_ul">
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="sp1" name="sp1" type="checkbox">
-					       <label for="sp1"></label>
+								    							<div class="">
+					       <input id="shipin1_1" name="shipin1" type="checkbox">
+					       <label for="shipin1_1"></label>
 				        </div>
 								    					         <span class="left">规格1：280*200(7:5)</span>
 								    					</div>
@@ -3185,15 +3264,15 @@ jpg,png,gif图片
 								    					<div class="clearfix guig_btn" >
 								    						
 								    						<div class="xinzeng zengjia" style="margin: 0px auto;">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialShiPing('1')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="sp2" name="sp2" type="checkbox">
-					       <label for="sp2"></label>
+								    							<div>
+					       <input id="shipin2_1" name="shipin2" type="checkbox">
+					       <label for="shipin2_1"></label>
 				        </div>
 								    					         <span class="left">规格2：600*500(6:5)</span>
 								    					</div>
@@ -3215,15 +3294,15 @@ jpg,png,gif图片
 								    					<div class="clearfix guig_btn" >
 								    						
 								    						<div class="xinzeng zengjia" style="margin: 0px auto;">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialShiPing('2')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="sp3" name="sp3" type="checkbox">
-					       <label for="sp3"></label>
+								    							<div>
+					       <input id="shipin3_1" name="shipin3" type="checkbox">
+					       <label for="shipin3_1"></label>
 				        </div>
 								    					         <span class="left">规格3：960*640(3:2)</span>
 								    					</div>
@@ -3245,15 +3324,15 @@ jpg,png,gif图片
 								    					<div class="clearfix guig_btn" >
 								    						
 								    						<div class="xinzeng zengjia" style="margin: 0px auto;">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialShiPing('3')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="sp4" name="sp4" type="checkbox">
-					       <label for="sp4"></label>
+								    							<div>
+					       <input id="shipin4_1" name="shipin4" type="checkbox">
+					       <label for="shipin4_1"></label>
 				        </div>
 								    					         <span class="left">规格4：600*300(2:1)</span>
 								    					</div>
@@ -3275,15 +3354,15 @@ jpg,png,gif图片
 								    					<div class="clearfix guig_btn" >
 								    						
 								    						<div class="xinzeng zengjia" style="margin: 0px auto;">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialShiPing('4')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="sp5" name="sp5" type="checkbox">
-					       <label for="sp5"></label>
+								    							<div>
+					       <input id="shipin5_1" name="shipin5" type="checkbox">
+					       <label for="shipin5_1"></label>
 				        </div>
 								    					         <span class="left">规格5：800*120(20:3)</span>
 								    					</div>
@@ -3305,7 +3384,7 @@ jpg,png,gif图片
 								    					<div class="clearfix guig_btn" >
 								    						
 								    						<div class="xinzeng zengjia" style="margin: 0px auto;">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialShiPing('5')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
