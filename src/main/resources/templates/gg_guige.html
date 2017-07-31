@@ -10,6 +10,117 @@
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 		<script type="text/javascript" src="js/select.js"></script>
         <script>
+
+			//增加banner图片创意
+			function addMaterialTupian(type){
+				alert("type="+type);
+				var content="";
+				var obj = document.getElementsByName('tupian'+type);
+				var num=obj.length+1;
+				alert("num="+num);
+
+				if(type=="1"){
+					content="600*100";
+
+				}if(type=="2"){
+					content="600*200";
+
+				}
+
+			var AddContent="<li class=\"zli\">"+
+						"<div class=\"clearfix guigexuanze\">"+
+						"<div>"+
+						"<input id=\"tupian"+type+"_"+num+"\" name=\"tupian"+type+"\" type=\"checkbox\">"+
+						"<label for=\"tupian"+type+"_"+num+"\"></label>"+
+						"</div>"+
+						"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
+				"<div class=\"clearfix g_nam\"> <span class=\"g_name_lf\">名称：</span> <input type=\"text\" placeholder=\"\" /> </div>"+
+					"<div class=\"g_update\"> <div class=\"g_update_text\">"
+					  +"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
+				      "<img src=\"\" /> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input type=\"file\" /> </div>"+
+						"<div class=\"xinzeng right zengjia\">+新增创意 </div> </div> </li>"
+				//alert("AddContent="+AddContent);
+				$(this).parents(".zli").after("<li class='zli'>"+AddContent+"</li>");
+			}
+
+			//增加插屏图片创意
+			function addMaterialChaPing(type){
+				alert("type="+type);
+				var content="";
+				var obj = document.getElementsByName('chaping'+type);
+				var num=obj.length+1;
+				alert("num="+num);
+
+				if(type=="1"){
+					content="600*500(6:5)";
+
+				}if(type=="2"){
+					content="600*800(3:4)";
+
+				}if(type=="3"){
+					content="640*960(2:3)";
+
+				}if(type=="4"){
+					content="480*800(3:5)";
+
+				}if(type=="5"){
+					content="720*1280(9:16)";
+
+				}
+
+				var AddContent="<li class=\"zli\">"+
+						"<div class=\"clearfix guigexuanze\">"+
+						"<div>"+
+						"<input id=\"chaping"+type+"_"+num+"\" name=\"chaping"+type+"\" type=\"checkbox\">"+
+						"<label for=\"chaping"+type+"_"+num+"\"></label>"+
+						"</div>"+
+						"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
+						"<div class=\"clearfix g_nam\"> <span class=\"g_name_lf\">名称：</span> <input type=\"text\" placeholder=\"\" /> </div>"+
+						"<div class=\"g_update\"> <div class=\"g_update_text\">"
+						+"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
+						"<img src=\"\" /> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input type=\"file\" /> </div>"+
+						"<div class=\"xinzeng right zengjia\">+新增创意 </div> </div> </li>"
+				//alert("AddContent="+AddContent);
+				$(this).parents(".zli").after("<li class='zli'>"+AddContent+"</li>");
+			}
+			//增加插屏图片创意
+			function addMaterialKaiPing(type){
+				alert("type="+type);
+				var content="";
+				var obj = document.getElementsByName('kaiping'+type);
+				var num=obj.length+1;
+				alert("num="+num);
+
+				if(type=="1"){
+					content="600*800(3:4)";
+
+				}if(type=="2"){
+					content="480*800(3:5))";
+
+				}if(type=="3"){
+					content="640*960(2:3)";
+
+				}if(type=="4"){
+					content="720*1280(9:16)";
+
+				}
+
+				var AddContent="<li class=\"zli\">"+
+						"<div class=\"clearfix guigexuanze\">"+
+						"<div>"+
+						"<input id=\"kaiping"+type+"_"+num+"\" name=\"kaiping"+type+"\" type=\"checkbox\">"+
+						"<label for=\"kaiping"+type+"_"+num+"\"></label>"+
+						"</div>"+
+						"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
+						"<div class=\"clearfix g_nam\"> <span class=\"g_name_lf\">名称：</span> <input type=\"text\" placeholder=\"\" /> </div>"+
+						"<div class=\"g_update\"> <div class=\"g_update_text\">"
+						+"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
+						"<img src=\"\" /> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input type=\"file\" /> </div>"+
+						"<div class=\"xinzeng right zengjia\">+新增创意 </div> </div> </li>"
+				//alert("AddContent="+AddContent);
+				$(this).parents(".zli").after("<li class='zli'>"+AddContent+"</li>");
+			}
+
         //获取广告类型
         function getType(type){
 
@@ -202,9 +313,9 @@
 
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput11" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput11"></label>
+								    							<div>
+					       <input id="tupian1_1" name="tupian1" type="checkbox">
+					       <label for="tupian1_1"></label>
 				        </div>
                                                             <span class="left">规格1：600*100</span>
 								    					</div>
@@ -225,16 +336,16 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialTupian('1')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput12" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput12"></label>
+								    							<div>
+					       <input id="tupian2_1" name="tupian2" type="checkbox">
+					       <label for="tupian2_1"></label>
 				        </div>
 															<span class="left">规格2：600*200</span>
 								    					</div>
@@ -255,7 +366,7 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialTupian('2')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
@@ -277,9 +388,9 @@
 								    			<ul class="clearfix guige_ul">
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput4" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput4"></label>
+								    							<div>
+					       <input id="chaping1_1" name="chaping1" type="checkbox">
+					       <label for="chaping1_1"></label>
 				        </div>
 								    					         <span class="left">规格1：600*500(6:5)</span>
 								    					</div>
@@ -300,15 +411,15 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
-								    						</div>
+																<a href="javascript:void(0)" onClick="addMaterialChaPing('1')">新增创意</a>
+															</div>
 								    					</div>
 								    				</li>
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput4" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput4"></label>
+								    							<div >
+					       <input id="chaping2_1" name="chaping2" type="checkbox">
+					       <label for="chaping2_1"></label>
 				        </div>
                                                             <span class="left">规格2：600*800(3:4)</span>
 								    					</div>
@@ -329,15 +440,15 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialChaPing('2')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>							    				
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput4" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput4"></label>
+								    							<div>
+					       <input id="chaping3_1" name="chaping3" type="checkbox">
+					       <label for="chaping3_1"></label>
 				        </div>
 								    					         <span class="left">规格3：640*960(2:3)</span>
 								    					</div>
@@ -358,15 +469,15 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialChaPing('3')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput4" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput4"></label>
+								    							<div >
+					       <input id="chaping4_1" name="chaping4" type="checkbox">
+					       <label for="chaping4_1"></label>
 				        </div>
 								    					         <span class="left">规格4：480*800(3:5)</span>
 								    					</div>
@@ -387,15 +498,15 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialChaPing('4')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput4" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput4"></label>
+								    							<div>
+					       <input id="chaping5_1" name="chaping5" type="checkbox">
+					       <label for="chaping5_1"></label>
 				        </div>
 								    					         <span class="left">规格5：720*1280(9:16)</span>
 								    					</div>
@@ -416,7 +527,7 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialChaPing('5')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
@@ -435,9 +546,9 @@
 								    			<ul class="clearfix guige_ul">
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput7" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput7"></label>
+								    							<div>
+					       <input id="kaiping1_1" name="kaiping1" type="checkbox">
+					       <label for="kaiping1_1"></label>
 				        </div>
 								    					         <span class="left">规格1：600*800(3:4)</span>
 								    					</div>
@@ -458,15 +569,15 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
-								    						</div>
+																<a href="javascript:void(0)" onClick="addMaterialkaiPing('5')">新增创意</a>
+															</div>
 								    					</div>
 								    				</li>
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput8" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput8"></label>
+								    							<div>
+					       <input id="kaiping2_1" name="kaiping2" type="checkbox">
+					       <label for="kaiping2_1"></label>
 				        </div>
 								    					         <span class="left">规格2：480*800(3:5)</span>
 								    					</div>
@@ -487,15 +598,15 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialkaiPing('5')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput8" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput8"></label>
+								    							<div >
+					       <input id="kaiping3_1" name="kaiping3" type="checkbox">
+					       <label for="kaiping3_1"></label>
 				        </div>
 								    					         <span class="left">规格3：640*960(2:3)</span>
 								    					</div>
@@ -516,15 +627,15 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialkaiPing('5')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
-								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput8" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput8"></label>
+								    							<div>
+					       <input id="kaiping4_1" name="kaiping4" type="checkbox">
+					       <label for="kaiping4_1"></label>
 				        </div>
 								    					         <span class="left">规格4：720*1280(9:16)</span>
 								    					</div>
@@ -545,7 +656,7 @@
 								    							<input type="file" />
 								    						</div>
 								    						<div class="xinzeng right zengjia">
-								    							新增创意
+																<a href="javascript:void(0)" onClick="addMaterialkaiPing('5')">新增创意</a>
 								    						</div>
 								    					</div>
 								    				</li>
@@ -566,8 +677,8 @@
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput10" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput10"></label>
+					       <input id="wenzi1" name="wenzi1" type="checkbox">
+					       <label for="wenzi1"></label>
 				        </div>
 								    					         <span class="left">规格1：8*1</span>
 								    					</div>
@@ -589,8 +700,8 @@
 								    			   <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput11" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput11"></label>
+					       <input id="wenzi2" name="wenzi2" type="checkbox">
+					       <label for="wenzi2"></label>
 				        </div>
 								    					         <span class="left">规格2：16*1</span>
 								    					</div>
@@ -612,8 +723,8 @@
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput12" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput12"></label>
+					       <input id="wenzi3" name="wenzi3" type="checkbox">
+					       <label for="wenzi3"></label>
 				        </div>
 								    					         <span class="left">规格3：24*1</span>
 								    					</div>
@@ -635,8 +746,8 @@
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput13" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput13"></label>
+					       <input id="wenzi4" name="wenzi4" type="checkbox">
+					       <label for="wenzi4"></label>
 				        </div>
 								    					         <span class="left">规格4：40*1</span>
 								    					</div>
@@ -690,8 +801,8 @@
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput20" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput20"></label>
+					       <input id="ptxxl1" name="ptxxl1" type="checkbox">
+					       <label for="ptxxl1"></label>
 				        </div>
 								    					         <span class="left">规格1：240*240</span>
 								    					</div>
@@ -730,8 +841,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput21" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput21"></label>
+					       <input id="ptxxl2" name="ptxxl2" type="checkbox">
+					       <label for="ptxxl2"></label>
 				        </div>
 								    					         <span class="left">规格2：300*300</span>
 								    					</div>
@@ -770,8 +881,8 @@ jpg,jpeg,png图片
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput22" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput22"></label>
+					       <input id="ptxxl3" name="ptxxl3" type="checkbox">
+					       <label for="ptxxl3"></label>
 				        </div>
 								    					         <span class="left">规格3：320*320</span>
 								    					</div>
@@ -824,8 +935,8 @@ jpg,jpeg,png图片
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput30" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput30"></label>
+					       <input id="kpxxl1" name="kpxxl1" type="checkbox">
+					       <label for="kpxxl1"></label>
 				        </div>
 								    					         <span class="left">规格1：600*500（6:5）</span>
 								    					</div>
@@ -875,8 +986,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput31" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput31"></label>
+					       <input id="kpxxl2" name="kpxxl2" type="checkbox">
+					       <label for="kpxxl2"></label>
 				        </div>
 								    					         <span class="left">规格2：600*800(3:4)</span>
 								    					</div>
@@ -926,8 +1037,8 @@ jpg,jpeg,png图片
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput32" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput32"></label>
+					       <input id="kpxxl3" name="kpxxl3" type="checkbox">
+					       <label for="kpxxl3"></label>
 				        </div>
 								    					         <span class="left">规格3：640*960(2:3)</span>
 								    					</div>
@@ -977,8 +1088,8 @@ jpg,jpeg,png图片
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput33" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput33"></label>
+					       <input id="kpxxl4" name="kpxxl4" type="checkbox">
+					       <label for="kpxxl4"></label>
 				        </div>
 								    					         <span class="left">规格4：480*800(3:5)</span>
 								    					</div>
@@ -1028,8 +1139,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput34" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput34"></label>
+					       <input id="kpxxl5" name="kpxxl5" type="checkbox">
+					       <label for="kpxxl5"></label>
 				        </div>
 								    					         <span class="left">规格5：720*1280(9:16)</span>
 								    					</div>
@@ -1100,8 +1211,8 @@ jpg,jpeg,png图片
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput60" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput60"></label>
+					       <input id="zt_yhsl1" name="zt_yhsl1" type="checkbox">
+					       <label for="zt_yhsl1"></label>
 				        </div>
 								    					         <span class="left">规格1：280*200(7:5)</span>
 								    					</div>
@@ -1173,8 +1284,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput61" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput61"></label>
+					       <input id="zt_yhsl2" name="zt_yhsl2" type="checkbox">
+					       <label for="zt_yhsl2"></label>
 				        </div>
 								    					         <span class="left">规格2：600*500(6:5)</span>
 								    					</div>
@@ -1246,8 +1357,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput62" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput62"></label>
+					       <input id="zt_yhsl3" name="zt_yhsl3" type="checkbox">
+					       <label for="zt_yhsl3"></label>
 				        </div>
 								    					         <span class="left">规格3：960*640(3:2)</span>
 								    					</div>
@@ -1319,8 +1430,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput63" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput63"></label>
+					       <input id="zt_yhsl4" name="zt_yhsl4" type="checkbox">
+					       <label for="zt_yhsl4"></label>
 				        </div>
 								    					         <span class="left">规格4：600*300(2:1)</span>
 								    					</div>
@@ -1392,8 +1503,8 @@ jpg,jpeg,png图片
 								    			     <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput64" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput64"></label>
+					       <input id="zt_yhsl5" name="zt_yhsl5" type="checkbox">
+					       <label for="zt_yhsl5"></label>
 				        </div>
 								    					         <span class="left">规格5：800*120(20:3)</span>
 								    					</div>
@@ -1480,8 +1591,8 @@ jpg,jpeg,png图片
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput70" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput70"></label>
+					       <input id="zt_lhsl1" name="zt_lhsl1" type="checkbox">
+					       <label for="zt_lhsl1"></label>
 				        </div>
 								    					         <span class="left">规格1：280*200(7:5)</span>
 								    					</div>
@@ -1604,8 +1715,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput71" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput71"></label>
+					       <input id="zt_lhsl2" name="zt_lhsl2" type="checkbox">
+					       <label for="zt_lhsl2"></label>
 				        </div>
 								    					         <span class="left">规格2：600*500(6:5)</span>
 								    					</div>
@@ -1728,8 +1839,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput72" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput72"></label>
+					       <input id="zt_lhsl3" name="zt_lhsl3" type="checkbox">
+					       <label for="zt_lhsl3"></label>
 				        </div>
 								    					         <span class="left">规格3：960*640(3:2)</span>
 								    					</div>
@@ -1852,8 +1963,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput73" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput73"></label>
+					       <input id="zt_lhsl4" name="zt_lhsl4" type="checkbox">
+					       <label for="zt_lhsl4"></label>
 				        </div>
 								    					         <span class="left">规格4：600*300(2:1)</span>
 								    					</div>
@@ -1976,8 +2087,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput74" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput74"></label>
+					       <input id="zt_lhsl5" name="zt_lhsl5" type="checkbox">
+					       <label for="zt_lhsl5"></label>
 				        </div>
 								    					         <span class="left">规格5：800*120(20:3)</span>
 								    					</div>
@@ -2115,8 +2226,8 @@ jpg,jpeg,png图片
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput80" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput80"></label>
+					       <input id="zt_shsl1" name="zt_shsl1" type="checkbox">
+					       <label for="zt_shsl1"></label>
 				        </div>
 								    					         <span class="left">规格1：280*200(7:5)</span>
 								    					</div>
@@ -2290,8 +2401,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput81" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput81"></label>
+					       <input id="zt_shsl2" name="zt_shsl2" type="checkbox">
+					       <label for="zt_shsl2"></label>
 				        </div>
 								    					         <span class="left">规格2：600*500(6:5)</span>
 								    					</div>
@@ -2465,8 +2576,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput82" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput82"></label>
+					       <input id="zt_shsl3" name="zt_shsl3" type="checkbox">
+					       <label for="zt_shsl3"></label>
 				        </div>
 								    					         <span class="left">规格3：960*640(3:2)</span>
 								    					</div>
@@ -2640,8 +2751,8 @@ jpg,jpeg,png图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput83" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput83"></label>
+					       <input id="zt_shsl4" name="zt_shsl4" type="checkbox">
+					       <label for="zt_shsl4"></label>
 				        </div>
 								    					         <span class="left">规格4：600*300(2:1)</span>
 								    					</div>
@@ -2815,8 +2926,8 @@ jpg,jpeg,png图片
 								    			     <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput84" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput84"></label>
+					       <input id="zt_shsl5" name="zt_shsl5" type="checkbox">
+					       <label for="zt_shsl5"></label>
 				        </div>
 								    					         <span class="left">规格5：800*120(20:3)</span>
 								    					</div>
@@ -3051,8 +3162,8 @@ wmv，avi，mpg，mpeg，mp4
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput90" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput90"></label>
+					       <input id="sp1" name="sp1" type="checkbox">
+					       <label for="sp1"></label>
 				        </div>
 								    					         <span class="left">规格1：280*200(7:5)</span>
 								    					</div>
@@ -3081,8 +3192,8 @@ jpg,png,gif图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput91" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput91"></label>
+					       <input id="sp2" name="sp2" type="checkbox">
+					       <label for="sp2"></label>
 				        </div>
 								    					         <span class="left">规格2：600*500(6:5)</span>
 								    					</div>
@@ -3111,8 +3222,8 @@ jpg,png,gif图片
 								    			    <li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput92" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput92"></label>
+					       <input id="sp3" name="sp3" type="checkbox">
+					       <label for="sp3"></label>
 				        </div>
 								    					         <span class="left">规格3：960*640(3:2)</span>
 								    					</div>
@@ -3141,8 +3252,8 @@ jpg,png,gif图片
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput93" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput93"></label>
+					       <input id="sp4" name="sp4" type="checkbox">
+					       <label for="sp4"></label>
 				        </div>
 								    					         <span class="left">规格4：600*300(2:1)</span>
 								    					</div>
@@ -3171,8 +3282,8 @@ jpg,png,gif图片
 								    				<li class="zli">
 								    					<div class="clearfix guigexuanze">
 								    							<div class="checkboxFive left gx">
-					       <input id="checkboxFiveInput94" name="checkname" type="checkbox">
-					       <label for="checkboxFiveInput94"></label>
+					       <input id="sp5" name="sp5" type="checkbox">
+					       <label for="sp5"></label>
 				        </div>
 								    					         <span class="left">规格5：800*120(20:3)</span>
 								    					</div>
