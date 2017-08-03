@@ -15,6 +15,53 @@
       <script src="js/respond.src.js"></script>
            <!--<![endif]-->
 		<script>
+			//登录js
+			function login(){
+				//alert("login");
+				var _form = document.getElementById("login_alert");
+				var _inputs = _form.getElementsByTagName("input");
+				var email;
+				var password;
+				var path="/login";
+				var flagEmail=true;
+				var flagPassword=true;
+				for (var i = 0; i < _inputs.length; i++) {
+					if(_inputs[i].name.toString()=="email"){
+						email=_inputs[i].value;
+						if(email==null){
+							flagEmail=false;
+						}  else{
+							if(email.indexOf("@")<=-1){
+								flagEmail=false;
+							}
+						}
+
+					}
+					if(_inputs[i].name.toString()=="password"){
+						password=_inputs[i].value;
+						if(password==null||password==""){
+							flagPassword=false;
+						}
+					}
+				}
+				//alert("flagPassword="+flagPassword);
+				//alert("flagEmail="+flagEmail);
+				if(flagEmail==false){
+					document.getElementById("loginEmail").style.display="";
+				}else{
+					document.getElementById("loginEmail").style.display="none";
+				}
+				if(flagPassword==false){
+					document.getElementById("loginPassword").style.display="";
+				}else{
+					document.getElementById("loginPassword").style.display="none";
+				}
+				if(flagEmail&&flagPassword) {
+					_form.action = path + "?email=" + email + "&password=" + password;
+					_form.submit();
+				}
+
+			}
 		//注册js
 		function register(){
 		//alert("register");

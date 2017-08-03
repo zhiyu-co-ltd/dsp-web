@@ -342,6 +342,7 @@ class WelcomeController {
 
                         model.put("adname", ad.getName());
                         model.put("adtype", ad.getAdType());
+                      //  model.put("adtype", "5");//测试数据
                         log.info("adtype="+ad.getAdType());
                         List<MaterialImage> materialImageList=materialImageService.findMaterialImageByAdId(adid);
                         for(int k=0;k<materialImageList.size();k++){
