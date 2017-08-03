@@ -252,9 +252,10 @@ $(function() {
 	});
 });
 //新增
-$(".guige_ul .zengjia").live("click",function () {
-	var ozj=$(this).parents(".zli").html();
-	$(this).parents(".zli").after("<li class='zli'>"+ozj+"</li>");
-})
+// $(".guige_ul .zengjia").live("click",function () {
+// 	var ozj=$(this).parents(".zli").html();
+// 	//alert("ozj="+ozj);
+// 	$(this).parents(".zli").after("<li class='zli'>"+ozj+"</li>");
+// })
 
 
