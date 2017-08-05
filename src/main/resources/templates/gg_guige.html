@@ -56,8 +56,8 @@
 					+"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
 					"<img src=\"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input type=\"file\"/> </div>"+
 					"<div class=\"xinzeng right zengjia\"><a href=\"javascript:void(0)\" onClick=\"addMaterialTupian('"+type+"')\">新增创意</a></div> </div>"
-			       // alert("AddContent="+AddContent);
-			        insertDo(AddContent,"banner");
+			// alert("AddContent="+AddContent);
+			insertDo(AddContent,"banner");
 		}
 		//增加插屏图片创意
 		function addMaterialChaPing(type){
@@ -96,7 +96,7 @@
 					+"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
 					"<img src=\"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input type=\"file\"/> </div>"+
 					"<div class=\"xinzeng right zengjia\"><a href=\"javascript:void(0)\" onClick=\"addMaterialChaPing('"+type+"')\">新增创意</a></div> </div>"
-			         insertDo(AddContent,"chaping");
+			insertDo(AddContent,"chaping");
 		}
 		//增加插屏图片创意
 		function addMaterialKaiPing(type){
@@ -132,7 +132,7 @@
 					+"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
 					"<img src=\"\" /> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input type=\"file\" /> </div>"+
 					"<div class=\"xinzeng right zengjia\"><a href=\"javascript:void(0)\" onClick=\"addMaterialKaiPing('"+type+"')\">新增创意</a></div> </div>"
-			        insertDo(AddContent,"kaiping");
+			insertDo(AddContent,"kaiping");
 		}
 
 		//增加文字创意
@@ -173,7 +173,7 @@
 					"<div class=\"g_update\"> <textarea placeholder=\"请输入创意文字内容……\"></textarea>"+
 					"<span class=\"xianzhi\">0/"+ss+"</span></div>"+
 					"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialWenZi('"+type+"')\">新增创意</a></div></div>"
-			        insertDo(AddContent,"wenzi");
+			insertDo(AddContent,"wenzi");
 		}
 
 		//增加普通信息流 创意
@@ -207,7 +207,7 @@
 					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p><img src=\"\"/> </div>"+
 					"<div class=\"right xxl_rt\"> <div class=\"xxl_rt_tl\"> <input type=\"text\"/> </div> <div class=\"xxl_rt_con\"><textarea></textarea> </div> </div></div>"+
 					"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialPtxxl('"+type+"')\">新增创意</a></div></div>"
-			        insertDo(AddContent,"ptxxl");
+			insertDo(AddContent,"ptxxl");
 		}
 		//增加卡片信息流创意
 		function addMaterialKpxxl(type){
@@ -247,52 +247,52 @@
 					"<div class=\"right xxl_rt\"> <div class=\"xxl_rt_tl\"> <input type=\"text\"/> </div> <div class=\"xxl_rt_con\"><textarea></textarea> </div> </div></div>"+
 					"<div class=\"clearfix xxl_big\"> <div class=\"guig_btn_lf\">本地上传<input type=\"file\"/> </div>"+
 					"<p style=\"text-align: center;color: #999;\">"+content+"<br/>30KB以内的jpg,jpeg,png图片）</p><img src=\"\"/> </div>"+
-			        "<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialKpxxl('"+type+"')\">新增创意</a></div></div>"
-			         //alert("AddContent="+AddContent);
-			         insertDo(AddContent,"kpxxl");
+					"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialKpxxl('"+type+"')\">新增创意</a></div></div>"
+			//alert("AddContent="+AddContent);
+			insertDo(AddContent,"kpxxl");
 
 		}
-		//增加卡片信息流创意
+		//增加组图一行三列信息流创意
 		function addMaterialZt_Yhsl(type){
 			alert("type="+type);
 			var content="";
-			var obj = document.getElementsByName('kpxxl'+type);
+			var obj = document.getElementsByName('zt_yhsl'+type);
 			var num=obj.length+1;
 			alert("num="+num);
 
 			if(type=="1"){
-				content="600*500（6:5)";
+				content="280*200(7:5)";
 
 			}if(type=="2"){
-				content="600*800(3:4)";
+				content="600*500(6:5)";
 
 			}if(type=="3"){
-				content="640*960(2:3)";
+				content="960*640(3:2)";
 
 			}if(type=="4"){
-				content="480*800(3:5)";
+				content="600*300(2:1)";
 
 			}if(type=="5"){
-				content="720*1280(9:16)";
+				content="800*120(20:3)";
 
 			}
 
 			var AddContent=
 					"<div class=\"clearfix guigexuanze\">"+
 					"<div>"+
-					"<input id=\"kpxxl"+type+"_"+num+"\" name=\"kpxxl"+type+"\" type=\"checkbox\"/>"+
-					"<label for=\"kpxxl"+type+"_"+num+"\"></label>"+
+					"<input id=\"zt_yhsl"+type+"_"+num+"\" name=\"zt_yhsl"+type+"\" type=\"checkbox\"/>"+
+					"<label for=\"zt_yhsl"+type+"_"+num+"\"></label>"+
 					"</div>"+
 					"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
 					"<div class=\"clearfix g_nam\">名称:<input type=\"text\" placeholder=\"\" /></div>"+
-					"<div class=\"clearfix xxl\"> <div class=\"xxl_lf left\"> <div class=\"guig_btn_lf\">本地上传 <input type=\"file\" /> </div>"+
-					"<p class=\"gug_tex\">"+"240*240"+"<br/>jpg,jpeg,png图片<img src=\"\"/> </div>"+
-					"<div class=\"right xxl_rt\"> <div class=\"xxl_rt_tl\"> <input type=\"text\"/> </div> <div class=\"xxl_rt_con\"><textarea></textarea> </div> </div></div>"+
-					"<div class=\"clearfix xxl_big\"> <div class=\"guig_btn_lf\">本地上传<input type=\"file\"/> </div>"+
-					"<p style=\"text-align: center;color: #999;\">"+content+"<br/>30KB以内的jpg,jpeg,png图片）</p><img src=\"\" /> </div>"
-			        "<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> 新增创意 </div>"
-			//alert("AddContent="+AddContent);
-			$(this).parents(".zli").after("<li class='zli'>"+AddContent+"</li>");
+					"<div class=\"clearfix\"><div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+					"<p class=\"gug_text\">"+content+"<br />jpg,jpeg,png图片</p> <img src=\"\" /> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
+			"<div class=\"clearfix\"><div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+			"<p class=\"gug_text\">"+content+"<br />jpg,jpeg,png图片</p> <img src=\"\" /> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
+			"<div class=\"clearfix\"><div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+			"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialZt_Yhsl('"+type+"')\">新增创意</a></div></div>"
+			alert("AddContent="+AddContent);
+			insertDo(AddContent,"zt_yhsl");
 		}
 		//增加视频创意
 		function addMaterialShiPing(type){
@@ -328,7 +328,7 @@
 					"<div class=\"xxl_lf sp_up_small\"> <div class=\"guig_btn_lf\"> 上传缩略图 <input type=\"file\" /> </div>"+
 					"<p class=\"gug_text\"> 100KB以内的<br/> jpg,png,gif图片 </p> </div>"+
 					"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"><a href=\"javascript:void(0)\" onClick=\"addMaterialShiPing('"+type+"')\">新增创意</a></div>"
-			        insertDo(AddContent,"shipin");
+			insertDo(AddContent,"shipin");
 		}
 
 		//获取广告类型
@@ -1415,7 +1415,7 @@
 												<div class="zutucon active">
 													<div class="clearfix">
 														<div class="left guige_con_lf">
-															<ul class="clearfix guige_ul xinxil_ul ztu_ul">
+															<ul class="clearfix guige_ul xinxil_ul ztu_ul" id="zt_yhsl">
 																<li class="zli">
 																	<div class="clearfix guigexuanze">
 																		<div>
@@ -1485,7 +1485,7 @@
 																	<div class="clearfix guig_btn">
 
 																		<div class="xinzeng zengjia" style="margin: 0px auto;">
-																			新增创意
+																			<a href="javascript:void(0)" onClick="addMaterialZt_Yhsl('1')">新增创意</a>
 																		</div>
 																	</div>
 																</li>
@@ -1558,7 +1558,7 @@
 																	<div class="clearfix guig_btn">
 
 																		<div class="xinzeng zengjia" style="margin: 0px auto;">
-																			新增创意
+																			<a href="javascript:void(0)" onClick="addMaterialZt_Yhsl('2')">新增创意</a>
 																		</div>
 																	</div>
 																</li>
@@ -1631,7 +1631,7 @@
 																	<div class="clearfix guig_btn">
 
 																		<div class="xinzeng zengjia" style="margin: 0px auto;">
-																			新增创意
+																			<a href="javascript:void(0)" onClick="addMaterialZt_Yhsl('3')">新增创意</a>
 																		</div>
 																	</div>
 																</li>
@@ -1704,7 +1704,7 @@
 																	<div class="clearfix guig_btn">
 
 																		<div class="xinzeng zengjia" style="margin: 0px auto;">
-																			新增创意
+																			<a href="javascript:void(0)" onClick="addMaterialZt_Yhsl('4')">新增创意</a>
 																		</div>
 																	</div>
 																</li>
@@ -1777,7 +1777,7 @@
 																	<div class="clearfix guig_btn">
 
 																		<div class="xinzeng zengjia" style="margin: 0px auto;">
-																			新增创意
+																			<a href="javascript:void(0)" onClick="addMaterialZt_lhsl('5')">新增创意</a>
 																		</div>
 																	</div>
 																</li>
