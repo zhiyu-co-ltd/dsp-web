@@ -295,6 +295,55 @@
 			alert("AddContent="+AddContent);
 			insertDo(AddContent,"zt_yhsl");
 		}
+		//增加组图二行三列信息流创意
+		function addMaterialZt_Lhsl(type){
+			alert("type="+type);
+			var content="";
+			var obj = document.getElementsByName('zt_lhsl'+type);
+			var num=obj.length+1;
+			alert("num="+num);
+
+			if(type=="1"){
+				content="280*200(7:5)";
+
+			}if(type=="2"){
+				content="600*500(6:5)";
+
+			}if(type=="3"){
+				content="960*640(3:2)";
+
+			}if(type=="4"){
+				content="600*300(2:1)";
+
+			}if(type=="5"){
+				content="800*120(20:3)";
+
+			}
+
+			var AddContent=
+					"<div class=\"clearfix guigexuanze\">"+
+					"<div>"+
+					"<input id=\"zt_lhsl"+type+"_"+num+"\" name=\"zt_lhsl"+type+"\" type=\"checkbox\"/>"+
+					"<label for=\"zt_lhsl"+type+"_"+num+"\"></label>"+
+					"</div>"+
+					"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
+					"<div class=\"clearfix g_nam\">名称:<input type=\"text\" placeholder=\"\" /></div>"+
+					"<div class=\"clearfix\"><div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
+					"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
+					"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em></div></div>" +
+					"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+			"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
+			"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+			"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
+			"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+			"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em></div></div></div>"+
+					"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin:0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialZt_Lhsl('"+type+"')\">新增创意</a></div></div>"
+			alert("AddContent="+AddContent);
+			insertDo(AddContent,"zt_lhsl");
+		}
 		//增加视频创意
 		function addMaterialShiPing(type){
 			alert("type="+type);
@@ -1796,7 +1845,7 @@
 												<div class="zutucon">
 													<div class="clearfix">
 														<div class="left guige_con_lf">
-															<ul class="clearfix guige_ul xinxil_ul ztu_ul">
+															<ul class="clearfix guige_ul xinxil_ul ztu_ul"  id="zt_lhsl">
 																<li class="zli">
 																	<div class="clearfix guigexuanze">
 																		<div>
@@ -1917,7 +1966,7 @@
 																	<div class="clearfix guig_btn">
 
 																		<div class="xinzeng zengjia" style="margin: 0px auto;">
-																			新增创意
+																			<a href="javascript:void(0)" onClick="addMaterialZt_Lhsl('1')">新增创意</a>
 																		</div>
 																	</div>
 																</li>
@@ -2041,7 +2090,7 @@
 																	<div class="clearfix guig_btn">
 
 																		<div class="xinzeng zengjia" style="margin: 0px auto;">
-																			新增创意
+																			<a href="javascript:void(0)" onClick="addMaterialZt_Lhsl('2')">新增创意</a>
 																		</div>
 																	</div>
 																</li>
@@ -2165,7 +2214,7 @@
 																	<div class="clearfix guig_btn">
 
 																		<div class="xinzeng zengjia" style="margin: 0px auto;">
-																			新增创意
+																			<a href="javascript:void(0)" onClick="addMaterialZt_Lhsl('3')">新增创意</a>
 																		</div>
 																	</div>
 																</li>
@@ -2289,7 +2338,7 @@
 																	<div class="clearfix guig_btn">
 
 																		<div class="xinzeng zengjia" style="margin: 0px auto;">
-																			新增创意
+																			<a href="javascript:void(0)" onClick="addMaterialZt_Lhsl('4')">新增创意</a>
 																		</div>
 																	</div>
 																</li>
@@ -2413,7 +2462,7 @@
 																	<div class="clearfix guig_btn">
 
 																		<div class="xinzeng zengjia" style="margin: 0px auto;">
-																			新增创意
+																			<a href="javascript:void(0)" onClick="addMaterialZt_Lhsl('5')">新增创意</a>
 																		</div>
 																	</div>
 																</li>
