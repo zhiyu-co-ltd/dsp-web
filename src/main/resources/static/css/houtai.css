@@ -280,7 +280,7 @@ body{background: #f2f4f8;}
 .lianjie{width: 299px!important;margin-right: 0px!important;}
 .genzong{width: 349px!important;margin-right: 0px!important;}
 .gg_btn{padding: 50px 0px;text-align: center;}
-.gg_btn a{display: inline-block;margin: 0px 38px;width: 95px;line-height: 38px;border: 1px solid #999999;border-radius: 5px;}
+.gg_btn a{display: inline-block;margin: 0px 38px;width: 60px;line-height: 38px;border: 1px solid #999999;border-radius: 5px;}
 .gg_btn a:hover{background: #14acf9;border: 1px solid #0093dd;color: #fff;}
 .teding{width: 646px;height: 280px;background: #fff;border-radius: 10px;position: fixed;left: 50%;margin-left: -343px;top: 50%;margin-top: -180px;z-index: 1000;padding: 40px;padding-right: 0px;display: none;}
 .teding_dian em{border: 1px solid #ddd;border-radius: 5px;overflow: hidden;width: 14px;height: 14px;display: inline-block;vertical-align: -3px;margin-right: 10px;}

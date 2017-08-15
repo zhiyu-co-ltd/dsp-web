@@ -356,6 +356,7 @@ class WelcomeController {
 
                     model.put("adplanid", adplanid);
                     model.put("adid", adid);
+                    model.put("userid", userId);
                     returnUrl="gg_guige";
                     break;
                 }

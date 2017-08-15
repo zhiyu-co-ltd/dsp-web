@@ -7,6 +7,7 @@ import com.zhiyu.service.AdService;
 import com.zhiyu.service.MaterialImageService;
 import com.zhiyu.service.UserService;
 import com.zhiyu.util.DateUtil;
+import com.zhiyu.util.FileUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 /**
  * Created by zhaojianfan on 17/3/12.
@@ -316,6 +320,43 @@ public class MaterialController {
         log.info("object="+object);
 
         return object;
+    }
+ //上传物料图片
+    @ResponseBody
+    @RequestMapping("/uploadMaterial")
+    public String uploadMaterial(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+        log.info("------uploadMaterial------");
+        String adid = request.getParameter("adid") ;
+        String userid = request.getParameter("userid");
+        String adplanid = request.getParameter("adplanid");
+        log.info("------adid="+adid+"--;userid="+userid+";adplanid="+adplanid);
+        List<MultipartFile> files =((MultipartHttpServletRequest)request).getFiles("Filestupian1");
+        log.info("files="+files.size());
+        MultipartFile file = null;
+
+        for (int i =0; i< files.size(); ++i) {
+            log.info("i="+i);
+            file = files.get(i);
+
+            if (!file.isEmpty()) {
+
+                try {
+
+                    byte[] bytes = file.getBytes();
+                    FileUtil fileUtil = new FileUtil();
+                    fileUtil.uploadFile(bytes,"111","111");
+
+                }catch(Exception e){
+                    log.info("uploadMaterial="+e.toString());
+                }
+            }else {
+                log.info("You failed to upload " + i + " because the file was empty.");
+            }
+        }
+        Cookie Usercookie = new Cookie("userId",userid);
+        Usercookie.setMaxAge(60*60*24*7);//保留7天
+        response.addCookie(Usercookie);
+        return "gg_guige?adid="+adid+"&adplanid="+adplanid;
     }
 
 }

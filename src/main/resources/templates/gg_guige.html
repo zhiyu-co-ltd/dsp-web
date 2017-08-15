@@ -10,6 +10,15 @@
 	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 	<script type="text/javascript" src="js/select.js"></script>
 	<script>
+
+		//保存banner图片创意
+		function SaveMaterialTupian(){
+			alert("1111");
+			var _form = document.getElementById("tupian");
+			//_form.action = path + "?email=" + email + "&password=" + password;
+			_form.submit();
+
+		}
 		//js插入元素内容
 		function insertAfter( newElement, targetElement ){ // newElement是要追加的元素 targetElement 是指定元素的位置
 			var parent = targetElement.parentNode; // 找到指定元素的父节点
@@ -624,7 +633,11 @@
 
 								<div class="guige_con clearfix active">
 									<div class="left guige_con_lf">
-										<ul class="clearfix guige_ul" id="banner">
+										<form action="/uploadMaterial" method="POST" enctype="multipart/form-data" id="tupian">
+											<input type="hidden" name="adid" th:value="${adid}"/>
+											<input type="hidden" name="userid" th:value="${userid}"/>
+											<input type="hidden" name="adplanid" th:value="${adplanid}"/>
+											<ul class="clearfix guige_ul" id="banner">
 
 											<li class="zli">
 												<div class="clearfix guigexuanze">
@@ -648,7 +661,7 @@
 												<div class="clearfix guig_btn">
 													<div class="left guig_btn_lf">
 														本地上传
-														<input type="file" />
+														<input type="file" name="Filestupian1"/>
 													</div>
 													<div class="xinzeng right zengjia">
 														<a href="javascript:void(0)" onClick="addMaterialTupian('1')">新增创意</a>
@@ -678,7 +691,7 @@
 												<div class="clearfix guig_btn">
 													<div class="left guig_btn_lf">
 														本地上传
-														<input type="file" />
+														<input type="file" name="Filestupian1"/>
 													</div>
 													<div class="xinzeng right zengjia">
 														<a href="javascript:void(0)" onClick="addMaterialTupian('2')">新增创意</a>
@@ -687,10 +700,12 @@
 											</li>
 
 										</ul>
+										</form>
 										<div class="dashed"></div>
 										<div class="gg_btn">
 											<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 											<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+											<a href="javascript:void(0)" onclick="SaveMaterialTupian()" class="btn_blue">保存</a>
 											<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 										</div>
 									</div>
