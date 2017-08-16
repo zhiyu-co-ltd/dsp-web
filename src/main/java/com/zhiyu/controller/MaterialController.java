@@ -330,19 +330,42 @@ public class MaterialController {
         String userid = request.getParameter("userid");
         String adplanid = request.getParameter("adplanid");
         log.info("------adid="+adid+"--;userid="+userid+";adplanid="+adplanid);
-        List<MultipartFile> files =((MultipartHttpServletRequest)request).getFiles("Filestupian1");
-        log.info("files="+files.size());
+        List<MultipartFile> filestupian1 =((MultipartHttpServletRequest)request).getFiles("Filestupian1");
+        log.info("files1="+filestupian1.size());
         MultipartFile file = null;
 
-        for (int i =0; i< files.size(); ++i) {
+        for (int i =0; i< filestupian1.size(); ++i) {
             log.info("i="+i);
-            file = files.get(i);
+            file = filestupian1.get(i);
 
             if (!file.isEmpty()) {
 
                 try {
 
                     byte[] bytes = file.getBytes();
+                    FileUtil fileUtil = new FileUtil();
+                    fileUtil.uploadFile(bytes,"111","111");
+
+                }catch(Exception e){
+                    log.info("uploadMaterial="+e.toString());
+                }
+            }else {
+                log.info("You failed to upload " + i + " because the file was empty.");
+            }
+        }
+        List<MultipartFile> filestupian2 =((MultipartHttpServletRequest)request).getFiles("Filestupian2");
+        log.info("files2="+filestupian2.size());
+        MultipartFile file2 = null;
+
+        for (int i =0; i< filestupian2.size(); ++i) {
+            log.info("i="+i);
+            file2= filestupian2.get(i);
+
+            if (!file2.isEmpty()) {
+
+                try {
+
+                    byte[] bytes = file2.getBytes();
                     FileUtil fileUtil = new FileUtil();
                     fileUtil.uploadFile(bytes,"111","111");
 

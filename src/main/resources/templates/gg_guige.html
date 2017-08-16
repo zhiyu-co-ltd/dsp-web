@@ -10,7 +10,17 @@
 	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 	<script type="text/javascript" src="js/select.js"></script>
 	<script>
-
+		//保存banner图片创意
+		function OnchangeImage(fileid,imgeid){
+			alert("fileid="+fileid);
+			alert("imgeid="+imgeid);
+			var f = document.getElementById(fileid).files[0];
+			alert("f="+f);
+			var src = window.URL.createObjectURL(f);
+			alert("src="+src);
+			document.getElementById(imgeid).src=src;
+			document.getElementById(imgeid).style.opacity="1";
+		}
 		//保存banner图片创意
 		function SaveMaterialTupian(){
 			alert("1111");
@@ -63,7 +73,7 @@
 					"<div class=\"clearfix g_nam\"> 名称: <input placeholder=\"\" type=\"text\"  /> </div>"+
 					"<div class=\"g_update\"> <div class=\"g_update_text\">"
 					+"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
-					"<img src=\"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input type=\"file\"/> </div>"+
+					"<img src=\"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input type=\"file\" name=\"Filestupian"+type+"\"/> </div>"+
 					"<div class=\"xinzeng right zengjia\"><a href=\"javascript:void(0)\" onClick=\"addMaterialTupian('"+type+"')\">新增创意</a></div> </div>"
 			// alert("AddContent="+AddContent);
 			insertDo(AddContent,"banner");
@@ -656,12 +666,12 @@
 														<p>600*100</p>
 														(100KB以内的jpg,jpeg,png图片)
 													</div>
-													<img src="" />
-												</div>
+													<img src="" id="imagetupian1_1"/>
+													</div>
 												<div class="clearfix guig_btn">
 													<div class="left guig_btn_lf">
 														本地上传
-														<input type="file" name="Filestupian1"/>
+														<input id="filetupian1_1" type="file" name="Filestupian1" onchange="OnchangeImage('filetupian1_1','imagetupian1_1')"/>
 													</div>
 													<div class="xinzeng right zengjia">
 														<a href="javascript:void(0)" onClick="addMaterialTupian('1')">新增创意</a>
@@ -686,12 +696,12 @@
 														<p>600*200</p>
 														(100KB以内的jpg,jpeg,png图片)
 													</div>
-													<img src="" />
+													<img src="" id="imagetupian2_1"/>
 												</div>
 												<div class="clearfix guig_btn">
 													<div class="left guig_btn_lf">
 														本地上传
-														<input type="file" name="Filestupian1"/>
+														<input id="filetupian2_1" type="file" name="Filestupian2" value="" onchange="OnchangeImage('filetupian2_1','imagetupian2_1')"/>
 													</div>
 													<div class="xinzeng right zengjia">
 														<a href="javascript:void(0)" onClick="addMaterialTupian('2')">新增创意</a>
