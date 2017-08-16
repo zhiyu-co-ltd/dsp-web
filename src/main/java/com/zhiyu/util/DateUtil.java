@@ -36,9 +36,16 @@ public class DateUtil {
         String result = format.format(today);
           return result;
        }
+
+    public static long getTime()
+    {
+        long time=Calendar.getInstance().getTimeInMillis();
+
+        return time;
+    }
     public static void main(String[] args) {
 
-        System.out.println(DateUtil.getPastDate(30));
+        System.out.println(DateUtil.getTime());
     }
 
 }

@@ -330,6 +330,9 @@ public class MaterialController {
         String userid = request.getParameter("userid");
         String adplanid = request.getParameter("adplanid");
         log.info("------adid="+adid+"--;userid="+userid+";adplanid="+adplanid);
+
+        String path="/Users/zhaojianfan/project/zhiyu/dsp2017/dsp-web/src/main/resources/static/webImage/";
+
         List<MultipartFile> filestupian1 =((MultipartHttpServletRequest)request).getFiles("Filestupian1");
         log.info("files1="+filestupian1.size());
         MultipartFile file = null;
@@ -344,7 +347,7 @@ public class MaterialController {
 
                     byte[] bytes = file.getBytes();
                     FileUtil fileUtil = new FileUtil();
-                    fileUtil.uploadFile(bytes,"111","111");
+                    fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
 
                 }catch(Exception e){
                     log.info("uploadMaterial="+e.toString());
@@ -367,7 +370,8 @@ public class MaterialController {
 
                     byte[] bytes = file2.getBytes();
                     FileUtil fileUtil = new FileUtil();
-                    fileUtil.uploadFile(bytes,"/Users/zhaojianfan/project/zhiyu/dsp2017/dsp-web/src/main/resources/static/webImage/",i+".jpg");
+                    fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+
 
                 }catch(Exception e){
                     log.info("uploadMaterial="+e.toString());
