@@ -73,7 +73,7 @@
 					"<div class=\"clearfix g_nam\"> 名称: <input placeholder=\"\" type=\"text\"  /> </div>"+
 					"<div class=\"g_update\"> <div class=\"g_update_text\">"
 					+"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
-					"<img src=\"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input type=\"file\" name=\"Filestupian"+type+"\"/> </div>"+
+					"<img src=\"\" id=\"imagetupian"+type+"_"+num+"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input id=\"filetupian"+type+"_"+num+"\" type=\"file\" name=\"Filestupian"+type+"\" onchange=\"OnchangeImage('filetupian"+type+"_"+num+"','imagetupian"+type+"_"+num+"')\"/> </div>"+
 					"<div class=\"xinzeng right zengjia\"><a href=\"javascript:void(0)\" onClick=\"addMaterialTupian('"+type+"')\">新增创意</a></div> </div>"
 			// alert("AddContent="+AddContent);
 			insertDo(AddContent,"banner");
