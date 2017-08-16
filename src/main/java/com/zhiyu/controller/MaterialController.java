@@ -367,7 +367,7 @@ public class MaterialController {
 
                     byte[] bytes = file2.getBytes();
                     FileUtil fileUtil = new FileUtil();
-                    fileUtil.uploadFile(bytes,"111","111");
+                    fileUtil.uploadFile(bytes,"/Users/zhaojianfan/project/zhiyu/dsp2017/dsp-web/src/main/resources/static/webImage/",i+".jpg");
 
                 }catch(Exception e){
                     log.info("uploadMaterial="+e.toString());
