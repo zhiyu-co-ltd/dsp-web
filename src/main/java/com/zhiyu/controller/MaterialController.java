@@ -330,32 +330,103 @@ public class MaterialController {
         String userid = request.getParameter("userid");
         String adplanid = request.getParameter("adplanid");
         log.info("------adid="+adid+"--;userid="+userid+";adplanid="+adplanid);
-
         String path="/Users/zhaojianfan/project/zhiyu/dsp2017/dsp-web/src/main/resources/static/webImage/";
 
-        List<MultipartFile> filestupian1 =((MultipartHttpServletRequest)request).getFiles("Filestupian1");
-        log.info("files1="+filestupian1.size());
-        MultipartFile file = null;
+//        String[] tupianCheck1s = request.getParameterValues("tupianCheck1");
+//        if(tupianCheck1s!=null) {
+//            log.info("------tupianCheck1s=" + tupianCheck1s.length);
+//            for (int i = 0; i < tupianCheck1s.length; i++) {
+//                String tupianCheck = tupianCheck1s[i];
+//                log.info("------tupianCheck1=" + tupianCheck);
+//            }
+//        }
 
-        for (int i =0; i< filestupian1.size(); ++i) {
-            log.info("i="+i);
-            file = filestupian1.get(i);
+//        String[] tupianCheck2s = request.getParameterValues("tupianCheck2");
+//        if(tupianCheck2s!=null) {
+//            log.info("------tupianCheck2s=" + tupianCheck2s.length);
+//            for (int i = 0; i < tupianCheck2s.length; i++) {
+//                String tupianCheck = tupianCheck2s[i];
+//                log.info("------tupianCheck2=" + tupianCheck);
+//            }
+//        }
+        String[] tupianName1s = request.getParameterValues("tupianName1");
+        log.info("------tupianName1s="+tupianName1s.length);
+        for(int i=0;i<tupianName1s.length;i++){
+            String tupianName=tupianName1s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("tupianCheck1_"+(i+1));
+                log.info("------tupianCheck=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    MultipartFile file= ((MultipartHttpServletRequest)request).getFile("Filestupian1_"+(i+1));
+                    log.info("----file="+file.getSize());
+                    if (file!=null) {
+                        try {
+                            byte[] bytes = file.getBytes();
+                            FileUtil fileUtil = new FileUtil();
+                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
 
-            if (!file.isEmpty()) {
-
-                try {
-
-                    byte[] bytes = file.getBytes();
-                    FileUtil fileUtil = new FileUtil();
-                    fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
-
-                }catch(Exception e){
-                    log.info("uploadMaterial="+e.toString());
+                        }catch(Exception e){
+                            log.info("uploadMaterial="+e.toString());
+                        }
+                    }else {
+                        log.info("You failed to upload " + i + " because the file was empty.");
+                    }
                 }
-            }else {
-                log.info("You failed to upload " + i + " because the file was empty.");
             }
+            log.info("------tupianName="+tupianName);
         }
+        String[] tupianName2s = request.getParameterValues("tupianName2");
+        log.info("------tupianName2s="+tupianName2s.length);
+        for(int i=0;i<tupianName2s.length;i++){
+            String tupianName=tupianName2s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("tupianCheck2_"+(i+1));
+                log.info("------tupianCheck=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    MultipartFile file= ((MultipartHttpServletRequest)request).getFile("Filestupian2_"+(i+1));
+                    log.info("----file="+file.getSize());
+                    if (file!=null) {
+                        try {
+                            byte[] bytes = file.getBytes();
+                            FileUtil fileUtil = new FileUtil();
+                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+
+                        }catch(Exception e){
+                            log.info("uploadMaterial="+e.toString());
+                        }
+                    }else {
+                        log.info("You failed to upload " + i + " because the file was empty.");
+                    }
+                }
+            }
+            log.info("------tupianName="+tupianName);
+        }
+//        String path="/Users/zhaojianfan/project/zhiyu/dsp2017/dsp-web/src/main/resources/static/webImage/";
+//
+//        List<MultipartFile> filestupian1 =((MultipartHttpServletRequest)request).getFiles("Filestupian1");
+//        log.info("files1="+filestupian1.size());
+//        MultipartFile file = null;
+//
+//        for (int i =0; i< filestupian1.size(); ++i) {
+//            log.info("i="+i);
+//            file = filestupian1.get(i);
+//            if (!file.isEmpty()) {
+//
+//                try {
+//
+//                    byte[] bytes = file.getBytes();
+//                    FileUtil fileUtil = new FileUtil();
+//                    fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+//
+//                }catch(Exception e){
+//                    log.info("uploadMaterial="+e.toString());
+//                }
+//            }else {
+//                log.info("You failed to upload " + i + " because the file was empty.");
+//            }
+//        }
         List<MultipartFile> filestupian2 =((MultipartHttpServletRequest)request).getFiles("Filestupian2");
         log.info("files2="+filestupian2.size());
         MultipartFile file2 = null;

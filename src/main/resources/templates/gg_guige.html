@@ -51,7 +51,7 @@
 		function addMaterialTupian(type){
 			alert("type="+type);
 			var content="";
-			var obj = document.getElementsByName('tupian'+type);
+			var obj = document.getElementsByName('tupianName'+type);
 			var num=obj.length+1;
 			alert("num="+num);
 
@@ -66,14 +66,14 @@
 			var AddContent=
 					"<div class=\"clearfix guigexuanze\">"+
 					"<div>"+
-					"<input id=\"tupian"+type+"_"+num+"\" name=\"tupian"+type+"\" type=\"checkbox\"/>"+
-					"<label for=\"tupian"+type+"_"+num+"\"></label>"+
+					"<input id=\"tupianCheck"+type+"_"+num+"\" name=\"tupianCheck"+type+"_"+num+"\" type=\"checkbox\"/>"+
+					"<label for=\"tupianCheck"+type+"_"+num+"\"></label>"+
 					"</div>"+
 					"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
-					"<div class=\"clearfix g_nam\"> 名称: <input placeholder=\"\" type=\"text\"  /> </div>"+
+					"<div class=\"clearfix g_nam\"> 名称: <input placeholder=\"请输入名称\" type=\"text\" id=\"tupianName"+type+"_"+num+"\" name=\"tupianName"+type+"\"/> </div>"+
 					"<div class=\"g_update\"> <div class=\"g_update_text\">"
 					+"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
-					"<img src=\"\" id=\"imagetupian"+type+"_"+num+"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input id=\"filetupian"+type+"_"+num+"\" type=\"file\" name=\"Filestupian"+type+"\" onchange=\"OnchangeImage('filetupian"+type+"_"+num+"','imagetupian"+type+"_"+num+"')\"/> </div>"+
+					"<img src=\"\" id=\"imagetupian"+type+"_"+num+"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input id=\"filetupian"+type+"_"+num+"\" type=\"file\" name=\"Filestupian"+type+"_"+num+"\" onchange=\"OnchangeImage('filetupian"+type+"_"+num+"','imagetupian"+type+"_"+num+"')\"/> </div>"+
 					"<div class=\"xinzeng right zengjia\"><a href=\"javascript:void(0)\" onClick=\"addMaterialTupian('"+type+"')\">新增创意</a></div> </div>"
 			// alert("AddContent="+AddContent);
 			insertDo(AddContent,"banner");
@@ -307,10 +307,10 @@
 					"<div class=\"clearfix\"><div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
 					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
 					"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
-			"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
+					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
 					"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
-			"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em></div></div></div>"+
-			"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin:0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialZt_Yhsl('"+type+"')\">新增创意</a></div></div>"
+					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em></div></div></div>"+
+					"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin:0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialZt_Yhsl('"+type+"')\">新增创意</a></div></div>"
 			alert("AddContent="+AddContent);
 			insertDo(AddContent,"zt_yhsl");
 		}
@@ -409,11 +409,11 @@
 					"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
 					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em></div></div>" +
 					"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
-			"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
-			"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
-			"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
-			"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
-			"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em></div></div></div>"+
+					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
+					"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em> </div> </div>"+
+					"<div class=\"zutu_nr left\"><div class=\"xxl_lf\"><div class=\"guig_btn_lf\">本地上传<input type=\"file\" /></div>"+
+					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p> <img src=\"\"/> </div><div class=\"zutu_mess\"> <input type=\"text\" /> <em></em></div></div></div>"+
 					"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin:0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialZt_Shsl('"+type+"')\">新增创意</a></div></div>"
 			alert("AddContent="+AddContent);
 			insertDo(AddContent,"zt_shsl");
@@ -649,67 +649,67 @@
 											<input type="hidden" name="adplanid" th:value="${adplanid}"/>
 											<ul class="clearfix guige_ul" id="banner">
 
-											<li class="zli">
-												<div class="clearfix guigexuanze">
-													<div>
-														<input id="tupian1_1" name="tupian1" type="checkbox">
-														<label for="tupian1_1"></label>
+												<li class="zli">
+													<div class="clearfix guigexuanze">
+														<div>
+															<input id="tupianCheck1_1" name="tupianCheck1_1" type="checkbox"/>
+															<label for="tupianCheck1_1"></label>
+														</div>
+														<span class="left">规格1：600*100</span>
 													</div>
-													<span class="left">规格1：600*100</span>
-												</div>
-												<div class="clearfix g_name">
-													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="" />
-												</div>
-												<div class="g_update">
-													<div class="g_update_text">
-														<p>600*100</p>
-														(100KB以内的jpg,jpeg,png图片)
+													<div class="clearfix g_name">
+														<span class="g_name_lf">名称：</span>
+														<input type="text" placeholder="请输入名称" id="tupianName1_1" name="tupianName1" value=""/>
 													</div>
-													<img src="" id="imagetupian1_1"/>
+													<div class="g_update">
+														<div class="g_update_text">
+															<p>600*100</p>
+															(100KB以内的jpg,jpeg,png图片)
+														</div>
+														<img src="" id="imagetupian1_1"/>
 													</div>
-												<div class="clearfix guig_btn">
-													<div class="left guig_btn_lf">
-														本地上传
-														<input id="filetupian1_1" type="file" name="Filestupian1" onchange="OnchangeImage('filetupian1_1','imagetupian1_1')"/>
+													<div class="clearfix guig_btn">
+														<div class="left guig_btn_lf">
+															本地上传
+															<input id="filetupian1_1" type="file" name="Filestupian1_1" onchange="OnchangeImage('filetupian1_1','imagetupian1_1')"/>
+														</div>
+														<div class="xinzeng right zengjia">
+															<a href="javascript:void(0)" onClick="addMaterialTupian('1')">新增创意</a>
+														</div>
 													</div>
-													<div class="xinzeng right zengjia">
-														<a href="javascript:void(0)" onClick="addMaterialTupian('1')">新增创意</a>
-													</div>
-												</div>
-											</li>
+												</li>
 
-											<li class="zli">
-												<div class="clearfix guigexuanze">
-													<div>
-														<input id="tupian2_1" name="tupian2" type="checkbox">
-														<label for="tupian2_1"></label>
+												<li class="zli">
+													<div class="clearfix guigexuanze">
+														<div>
+															<input id="tupianCheck2_1" name="tupianCheck2_1" type="checkbox">
+															<label for="tupianCheck2_1"></label>
+														</div>
+														<span class="left">规格2：600*200</span>
 													</div>
-													<span class="left">规格2：600*200</span>
-												</div>
-												<div class="clearfix g_name">
-													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="" />
-												</div>
-												<div class="g_update">
-													<div class="g_update_text">
-														<p>600*200</p>
-														(100KB以内的jpg,jpeg,png图片)
+													<div class="clearfix g_name">
+														<span class="g_name_lf">名称：</span>
+														<input type="text" placeholder="请输入名称" id="tupianName2_1" name="tupianName2" value=""/>
 													</div>
-													<img src="" id="imagetupian2_1"/>
-												</div>
-												<div class="clearfix guig_btn">
-													<div class="left guig_btn_lf">
-														本地上传
-														<input id="filetupian2_1" type="file" name="Filestupian2" value="" onchange="OnchangeImage('filetupian2_1','imagetupian2_1')"/>
+													<div class="g_update">
+														<div class="g_update_text">
+															<p>600*200</p>
+															(100KB以内的jpg,jpeg,png图片)
+														</div>
+														<img src="" id="imagetupian2_1"/>
 													</div>
-													<div class="xinzeng right zengjia">
-														<a href="javascript:void(0)" onClick="addMaterialTupian('2')">新增创意</a>
+													<div class="clearfix guig_btn">
+														<div class="left guig_btn_lf">
+															本地上传
+															<input id="filetupian2_1" type="file" name="Filestupian2_1" value="" onchange="OnchangeImage('filetupian2_1','imagetupian2_1')"/>
+														</div>
+														<div class="xinzeng right zengjia">
+															<a href="javascript:void(0)" onClick="addMaterialTupian('2')">新增创意</a>
+														</div>
 													</div>
-												</div>
-											</li>
+												</li>
 
-										</ul>
+											</ul>
 										</form>
 										<div class="dashed"></div>
 										<div class="gg_btn">
