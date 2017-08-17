@@ -8,6 +8,7 @@ import com.zhiyu.service.MaterialImageService;
 import com.zhiyu.service.UserService;
 import com.zhiyu.util.DateUtil;
 import com.zhiyu.util.FileUtil;
+import com.zhiyu.util.MyUUID;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -362,10 +363,19 @@ public class MaterialController {
                     log.info("----file="+file.getSize());
                     if (file!=null) {
                         try {
+                            String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
                             fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
-
+                            MaterialImage materialImage=new MaterialImage();
+                            materialImage.setName(tupianName);
+                            materialImage.setSize("600*200");
+                            materialImage.setAdId(adid);
+                            materialImage.setMaterialId(MyUUID.getUUID());
+                            materialImage.setStatus("0");//待审核
+                            materialImage.setType(0);//banner
+                            materialImage.setImageUrl(imageUrl);
+                            materialImageService.save(materialImage);
                         }catch(Exception e){
                             log.info("uploadMaterial="+e.toString());
                         }
@@ -374,7 +384,6 @@ public class MaterialController {
                     }
                 }
             }
-            log.info("------tupianName="+tupianName);
         }
         String[] tupianName2s = request.getParameterValues("tupianName2");
         log.info("------tupianName2s="+tupianName2s.length);
@@ -389,9 +398,21 @@ public class MaterialController {
                     log.info("----file="+file.getSize());
                     if (file!=null) {
                         try {
+                            String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
+                            log.info("------tupianName="+tupianName);
+                            log.info("------imageUrl="+DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            MaterialImage materialImage=new MaterialImage();
+                            materialImage.setName(tupianName);
+                            materialImage.setSize("600*200");
+                            materialImage.setAdId(adid);
+                            materialImage.setMaterialId(MyUUID.getUUID());
+                            materialImage.setStatus("0");//待审核
+                            materialImage.setType(0);//banner
+                            materialImage.setImageUrl(imageUrl);
+                            materialImageService.save(materialImage);
 
                         }catch(Exception e){
                             log.info("uploadMaterial="+e.toString());
@@ -401,7 +422,6 @@ public class MaterialController {
                     }
                 }
             }
-            log.info("------tupianName="+tupianName);
         }
 //        String path="/Users/zhaojianfan/project/zhiyu/dsp2017/dsp-web/src/main/resources/static/webImage/";
 //
@@ -427,30 +447,30 @@ public class MaterialController {
 //                log.info("You failed to upload " + i + " because the file was empty.");
 //            }
 //        }
-        List<MultipartFile> filestupian2 =((MultipartHttpServletRequest)request).getFiles("Filestupian2");
-        log.info("files2="+filestupian2.size());
-        MultipartFile file2 = null;
-
-        for (int i =0; i< filestupian2.size(); ++i) {
-            log.info("i="+i);
-            file2= filestupian2.get(i);
-
-            if (!file2.isEmpty()) {
-
-                try {
-
-                    byte[] bytes = file2.getBytes();
-                    FileUtil fileUtil = new FileUtil();
-                    fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
-
-
-                }catch(Exception e){
-                    log.info("uploadMaterial="+e.toString());
-                }
-            }else {
-                log.info("You failed to upload " + i + " because the file was empty.");
-            }
-        }
+//        List<MultipartFile> filestupian2 =((MultipartHttpServletRequest)request).getFiles("Filestupian2");
+//        log.info("files2="+filestupian2.size());
+//        MultipartFile file2 = null;
+//
+//        for (int i =0; i< filestupian2.size(); ++i) {
+//            log.info("i="+i);
+//            file2= filestupian2.get(i);
+//
+//            if (!file2.isEmpty()) {
+//
+//                try {
+//
+//                    byte[] bytes = file2.getBytes();
+//                    FileUtil fileUtil = new FileUtil();
+//                    fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+//
+//
+//                }catch(Exception e){
+//                    log.info("uploadMaterial="+e.toString());
+//                }
+//            }else {
+//                log.info("You failed to upload " + i + " because the file was empty.");
+//            }
+//        }
         Cookie Usercookie = new Cookie("userId",userid);
         Usercookie.setMaxAge(60*60*24*7);//保留7天
         response.addCookie(Usercookie);

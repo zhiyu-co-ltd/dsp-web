@@ -29,7 +29,7 @@ CREATE TABLE `T_Material_Image` (
   `material_id` varchar(128) NOT NULL,
   `image_url` varchar(128) NOT NULL COMMENT 'banner图片地址',
   `size` varchar(20) NOT NULL COMMENT 'banner图片尺寸',
-  `createtime` datetime NOT NULL COMMENT '创建时间',
+  `createtime` TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP COMMENT  '创建时间',
   `type` int(8) NOT NULL COMMENT '类型：0:banner;1:插屏；2:开屏',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

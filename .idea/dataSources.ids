@@ -422,7 +422,8 @@
       <column id="101" parent="11" name="createtime">
         <comment>创建时间</comment>
         <mandatory>1</mandatory>
-        <data-type>datetime|0</data-type>
+        <data-type>timestamp|0</data-type>
+        <default-expression>CURRENT_TIMESTAMP</default-expression>
       </column>
       <column id="102" parent="11" name="type">
         <comment>类型：0:banner;1:插屏；2:开屏</comment>
@@ -980,8 +981,10 @@
         <primary>1</primary>
       </key>
       <column id="219" parent="22" name="id">
+        <comment>主键</comment>
         <mandatory>1</mandatory>
         <data-type>int(8)|0</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="220" parent="22" name="name">
         <comment>媒体名称</comment>
