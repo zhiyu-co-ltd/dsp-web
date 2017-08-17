@@ -324,7 +324,7 @@ public class MaterialController {
     }
  //上传物料图片
     @ResponseBody
-    @RequestMapping("/uploadMaterial")
+    @RequestMapping("/uploadMaterialTupian")
     public String uploadMaterial(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
         log.info("------uploadMaterial------");
         String adid = request.getParameter("adid") ;
