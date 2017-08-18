@@ -325,8 +325,8 @@ public class MaterialController {
  //上传物料图片
     @ResponseBody
     @RequestMapping("/uploadMaterialTupian")
-    public String uploadMaterial(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
-        log.info("------uploadMaterial------");
+    public String uploadMaterialTupian(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+        log.info("------uploadMaterialTupian------");
         String adid = request.getParameter("adid") ;
         String userid = request.getParameter("userid");
         String adplanid = request.getParameter("adplanid");
@@ -476,5 +476,195 @@ public class MaterialController {
         response.addCookie(Usercookie);
         return "gg_guige?adid="+adid+"&adplanid="+adplanid;
     }
+    //上传图片物料
+    @ResponseBody
+    @RequestMapping("/uploadMaterialChaping")
+    public String uploadMaterialChaping(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+        log.info("------uploadMaterialChaping------");
+        String adid = request.getParameter("adid") ;
+        String userid = request.getParameter("userid");
+        String adplanid = request.getParameter("adplanid");
+        log.info("------adid="+adid+"--;userid="+userid+";adplanid="+adplanid);
+        String path="/Users/zhaojianfan/project/zhiyu/dsp2017/dsp-web/src/main/resources/static/webImage/";
+        String[] chapingName1s = request.getParameterValues("chapingName1");
+        log.info("------chapingName1s="+chapingName1s.length);
+        for(int i=0;i<chapingName1s.length;i++){
+            String tupianName=chapingName1s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("chapingCheck1_"+(i+1));
+                log.info("------chapingCheck1=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    MultipartFile file= ((MultipartHttpServletRequest)request).getFile("FilesChaping1_"+(i+1));
+                    log.info("----file="+file.getSize());
+                    if (file!=null) {
+                        try {
+                            String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
+                            byte[] bytes = file.getBytes();
+                            FileUtil fileUtil = new FileUtil();
+                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            MaterialImage materialImage=new MaterialImage();
+                            materialImage.setName(tupianName);
+                            materialImage.setSize("600*500");
+                            materialImage.setAdId(adid);
+                            materialImage.setMaterialId(MyUUID.getUUID());
+                            materialImage.setStatus("0");//待审核
+                            materialImage.setType(1);//banner
+                            materialImage.setImageUrl(imageUrl);
+                            materialImageService.save(materialImage);
+                        }catch(Exception e){
+                            log.info("uploadMaterial="+e.toString());
+                        }
+                    }else {
+                        log.info("You failed to upload " + i + " because the file was empty.");
+                    }
+                }
+            }
+        }
+        String[] chapingName2s = request.getParameterValues("chapingName2");
+        log.info("------chapingName2s="+chapingName2s.length);
+        for(int i=0;i<chapingName2s.length;i++){
+            String tupianName=chapingName2s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("chapingCheck2_"+(i+1));
+                log.info("------chapingCheck2=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    MultipartFile file= ((MultipartHttpServletRequest)request).getFile("FilesChaping2_"+(i+1));
+                    log.info("----file="+file.getSize());
+                    if (file!=null) {
+                        try {
+                            String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
+                            byte[] bytes = file.getBytes();
+                            FileUtil fileUtil = new FileUtil();
+                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            MaterialImage materialImage=new MaterialImage();
+                            materialImage.setName(tupianName);
+                            materialImage.setSize("600*800");
+                            materialImage.setAdId(adid);
+                            materialImage.setMaterialId(MyUUID.getUUID());
+                            materialImage.setStatus("0");//待审核
+                            materialImage.setType(1);//banner
+                            materialImage.setImageUrl(imageUrl);
+                            materialImageService.save(materialImage);
+                        }catch(Exception e){
+                            log.info("uploadMaterial="+e.toString());
+                        }
+                    }else {
+                        log.info("You failed to upload " + i + " because the file was empty.");
+                    }
+                }
+            }
+        }
+        String[] chapingName3s = request.getParameterValues("chapingName3");
+        log.info("------chapingName3s="+chapingName3s.length);
+        for(int i=0;i<chapingName3s.length;i++){
+            String tupianName=chapingName3s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("chapingCheck3_"+(i+1));
+                log.info("------chapingCheck3=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    MultipartFile file= ((MultipartHttpServletRequest)request).getFile("FilesChaping3_"+(i+1));
+                    log.info("----file="+file.getSize());
+                    if (file!=null) {
+                        try {
+                            String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
+                            byte[] bytes = file.getBytes();
+                            FileUtil fileUtil = new FileUtil();
+                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            MaterialImage materialImage=new MaterialImage();
+                            materialImage.setName(tupianName);
+                            materialImage.setSize("640*960");
+                            materialImage.setAdId(adid);
+                            materialImage.setMaterialId(MyUUID.getUUID());
+                            materialImage.setStatus("0");//待审核
+                            materialImage.setType(1);//banner
+                            materialImage.setImageUrl(imageUrl);
+                            materialImageService.save(materialImage);
+                        }catch(Exception e){
+                            log.info("uploadMaterial="+e.toString());
+                        }
+                    }else {
+                        log.info("You failed to upload " + i + " because the file was empty.");
+                    }
+                }
+            }
+        }
+        String[] chapingName4s = request.getParameterValues("chapingName4");
+        log.info("------chapingName4s="+chapingName4s.length);
+        for(int i=0;i<chapingName4s.length;i++){
+            String tupianName=chapingName4s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("chapingCheck4_"+(i+1));
+                log.info("------chapingCheck4=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    MultipartFile file= ((MultipartHttpServletRequest)request).getFile("FilesChaping4_"+(i+1));
+                    log.info("----file="+file.getSize());
+                    if (file!=null) {
+                        try {
+                            String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
+                            byte[] bytes = file.getBytes();
+                            FileUtil fileUtil = new FileUtil();
+                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            MaterialImage materialImage=new MaterialImage();
+                            materialImage.setName(tupianName);
+                            materialImage.setSize("480*800");
+                            materialImage.setAdId(adid);
+                            materialImage.setMaterialId(MyUUID.getUUID());
+                            materialImage.setStatus("0");//待审核
+                            materialImage.setType(1);//banner
+                            materialImage.setImageUrl(imageUrl);
+                            materialImageService.save(materialImage);
+                        }catch(Exception e){
+                            log.info("uploadMaterial="+e.toString());
+                        }
+                    }else {
+                        log.info("You failed to upload " + i + " because the file was empty.");
+                    }
+                }
+            }
+        }
+        String[] chapingName5s = request.getParameterValues("chapingName5");
+        log.info("------chapingName5s="+chapingName5s.length);
+        for(int i=0;i<chapingName5s.length;i++){
+            String tupianName=chapingName5s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("chapingCheck5_"+(i+1));
+                log.info("------chapingCheck5=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    MultipartFile file= ((MultipartHttpServletRequest)request).getFile("FilesChaping5_"+(i+1));
+                    log.info("----file="+file.getSize());
+                    if (file!=null) {
+                        try {
+                            String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
+                            byte[] bytes = file.getBytes();
+                            FileUtil fileUtil = new FileUtil();
+                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            MaterialImage materialImage=new MaterialImage();
+                            materialImage.setName(tupianName);
+                            materialImage.setSize("720*1280");
+                            materialImage.setAdId(adid);
+                            materialImage.setMaterialId(MyUUID.getUUID());
+                            materialImage.setStatus("0");//待审核
+                            materialImage.setType(1);//banner
+                            materialImage.setImageUrl(imageUrl);
+                            materialImageService.save(materialImage);
+                        }catch(Exception e){
+                            log.info("uploadMaterial="+e.toString());
+                        }
+                    }else {
+                        log.info("You failed to upload " + i + " because the file was empty.");
+                    }
+                }
+            }
+        }
 
+        Cookie Usercookie = new Cookie("userId",userid);
+        Usercookie.setMaxAge(60*60*24*7);//保留7天
+        response.addCookie(Usercookie);
+        return "gg_guige?adid="+adid+"&adplanid="+adplanid;
+    }
 }

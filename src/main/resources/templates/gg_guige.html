@@ -23,8 +23,8 @@
 		}
 		//保存banner图片创意
 		function SaveMaterialTupian(){
-			alert("tupian");
-			var _form = document.getElementById("tupian");
+			alert("bannerTupian");
+			var _form = document.getElementById("bannerTupian");
 			//_form.action = path + "?email=" + email + "&password=" + password;
 			_form.submit();
 
@@ -32,7 +32,7 @@
 		//保存chaping图片创意
 		function SaveMaterialChaping(){
 			alert("chaping");
-			var _form = document.getElementById("chaping");
+			var _form = document.getElementById("chapingTupian");
 			//_form.action = path + "?email=" + email + "&password=" + password;
 			_form.submit();
 
@@ -52,7 +52,7 @@
 			var lastObj = objUl.children[objLen-1];
 			var p = document.createElement("li"); // 创建一个元素节点
 			p.innerHTML = AddContent;
-			//alert("p.innerHTML ="+p.innerHTML );
+		   alert("p.innerHTML ="+p.innerHTML );
 			insertAfter(p,lastObj); // 因为js没有直接追加到指定元素后面的方法 所以要自己创建一个方法
 		}
 		//增加banner图片创意
@@ -651,7 +651,7 @@
 
 								<div class="guige_con clearfix active">
 									<div class="left guige_con_lf">
-										<form action="/uploadMaterialTupian" method="POST" enctype="multipart/form-data" id="tupian">
+										<form action="/uploadMaterialTupian" method="POST" enctype="multipart/form-data" id="bannerTupian">
 											<input type="hidden" name="adid" th:value="${adid}"/>
 											<input type="hidden" name="userid" th:value="${userid}"/>
 											<input type="hidden" name="adplanid" th:value="${adplanid}"/>
@@ -716,7 +716,6 @@
 														</div>
 													</div>
 												</li>
-
 											</ul>
 										</form>
 										<div class="dashed"></div>
@@ -733,7 +732,7 @@
 
 								<div class="guige_con clearfix">
 									<div class="left guige_con_lf">
-										<form action="/uploadMaterialChaPing" method="POST" enctype="multipart/form-data" id="tupian">
+										<form action="/uploadMaterialChaping" method="POST" enctype="multipart/form-data" id="chapingTupian">
 											<input type="hidden" name="adid" th:value="${adid}"/>
 											<input type="hidden" name="userid" th:value="${userid}"/>
 											<input type="hidden" name="adplanid" th:value="${adplanid}"/>
@@ -828,7 +827,7 @@
 											<li class="zli">
 												<div class="clearfix guigexuanze">
 													<div >
-														<input id="chapingCheck4_1" name="chapingName4" type="checkbox"/>
+														<input id="chapingCheck4_1" name="chapingCheck4_1" type="checkbox"/>
 														<label for="chapingCheck4_1"></label>
 													</div>
 													<span class="left">规格4：480*800(3:5)</span>
@@ -857,7 +856,7 @@
 											<li class="zli">
 												<div class="clearfix guigexuanze">
 													<div>
-														<input id="chaping5_1" name="chaping5" type="checkbox">
+														<input id="chaping5_1" name="chapingCheck5_1" type="checkbox">
 														<label for="chaping5_1"></label>
 													</div>
 													<span class="left">规格5：720*1280(9:16)</span>
