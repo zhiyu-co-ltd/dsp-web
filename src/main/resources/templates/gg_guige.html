@@ -12,12 +12,12 @@
 	<script>
 		//js显示图片
 		function OnchangeImage(fileid,imgeid){
-			alert("fileid="+fileid);
-			alert("imgeid="+imgeid);
+			//alert("fileid="+fileid);
+			//alert("imgeid="+imgeid);
 			var f = document.getElementById(fileid).files[0];
-			alert("f="+f);
+			//alert("f="+f);
 			var src = window.URL.createObjectURL(f);
-			alert("src="+src);
+			//alert("src="+src);
 			document.getElementById(imgeid).src=src;
 			document.getElementById(imgeid).style.opacity="1";
 		}
@@ -52,7 +52,7 @@
 			var lastObj = objUl.children[objLen-1];
 			var p = document.createElement("li"); // 创建一个元素节点
 			p.innerHTML = AddContent;
-		   alert("p.innerHTML ="+p.innerHTML );
+		  // alert("p.innerHTML ="+p.innerHTML );
 			insertAfter(p,lastObj); // 因为js没有直接追加到指定元素后面的方法 所以要自己创建一个方法
 		}
 		//增加banner图片创意
@@ -114,14 +114,14 @@
 			var AddContent=
 					"<div class=\"clearfix guigexuanze\">"+
 					"<div>"+
-					"<input id=\"chapingCheck"+type+"_"+num+"\" name=\"chaping"+type+"_"+num+"\" type=\"checkbox\"/>"+
+					"<input id=\"chapingCheck"+type+"_"+num+"\" name=\"chapingCheck"+type+"_"+num+"\" type=\"checkbox\"/>"+
 					"<label for=\"chapingCheck"+type+"_"+num+"\"></label>"+
 					"</div>"+
 					"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
 					"<div class=\"clearfix g_nam\"> 名称： <input  placeholder=\"请输入名称\" type=\"text\" id=\"chapingName"+type+"_"+num+"\" name=\"chapingName"+type+"\"/> </div>"+
 					"<div class=\"g_update\"> <div class=\"g_update_text\">"
 					+"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
-					"<img src=\"\" id=\"imagechaping"+type+"_"+num+"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input id=\"filechaping"+type+"_"+num+"\" type=\"file\" name=\"Fileschaping"+type+"_"+num+"\" onchange=\"OnchangeImage('filechaping"+type+"_"+num+"','imagechaping"+type+"_"+num+"')\"/></div>"+
+					"<img src=\"\" id=\"imagechaping"+type+"_"+num+"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input id=\"filechaping"+type+"_"+num+"\" type=\"file\" name=\"FilesChaping"+type+"_"+num+"\" onchange=\"OnchangeImage('filechaping"+type+"_"+num+"','imagechaping"+type+"_"+num+"')\"/></div>"+
 					"<div class=\"xinzeng right zengjia\"><a href=\"javascript:void(0)\" onClick=\"addMaterialChaPing('"+type+"')\">新增创意</a></div> </div>"
 			insertDo(AddContent,"chaping");
 		}
