@@ -37,6 +37,14 @@
 			_form.submit();
 
 		}
+		//保存kaiping图片创意
+		function SaveMaterialKaiping(){
+			alert("Kaiping");
+			var _form = document.getElementById("kaipingTupian");
+			//_form.action = path + "?email=" + email + "&password=" + password;
+			_form.submit();
+
+		}
 		//js插入元素内容
 		function insertAfter( newElement, targetElement ){ // newElement是要追加的元素 targetElement 是指定元素的位置
 			var parent = targetElement.parentNode; // 找到指定元素的父节点
@@ -129,7 +137,7 @@
 		function addMaterialKaiPing(type){
 			alert("type="+type);
 			var content="";
-			var obj = document.getElementsByName('kaiping'+type);
+			var obj = document.getElementsByName('kaipingName'+type);
 			var num=obj.length+1;
 			alert("num="+num);
 
@@ -150,14 +158,14 @@
 			var AddContent=
 					"<div class=\"clearfix guigexuanze\">"+
 					"<div>"+
-					"<input id=\"kaiping"+type+"_"+num+"\" name=\"kaiping"+type+"\" type=\"checkbox\">"+
-					"<label for=\"kaiping"+type+"_"+num+"\"></label>"+
+					"<input id=\"kaipingCheck"+type+"_"+num+"\" name=\"kaipingCheck"+type+"_"+num+"\" type=\"checkbox\">"+
+					"<label for=\"kaipingCheck"+type+"_"+num+"\"></label>"+
 					"</div>"+
 					"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
-					"<div class=\"clearfix g_nam\">名称<input type=\"text\" placeholder=\"\" /> </div>"+
+					"<div class=\"clearfix g_nam\">名称:<input  placeholder=\"请输入名称\" type=\"text\" id=\"kaipingName"+type+"_"+num+"\" name=\"kaipingName"+type+"\"/>  </div>"+
 					"<div class=\"g_update\"> <div class=\"g_update_text\">"
 					+"<p>"+content+"</p> (100KB以内的jpg,jpeg,png图片) </div>"+
-					"<img src=\"\" /> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input type=\"file\" /> </div>"+
+					"<img src=\"\" id=\"imagekaiping"+type+"_"+num+"\"/> </div> <div class=\"clearfix guig_btn\"> <div class=\"left guig_btn_lf\">本地上传 <input id=\"filekaiping"+type+"_"+num+"\" type=\"file\" name=\"FilesKaiping"+type+"_"+num+"\" onchange=\"OnchangeImage('filekaiping"+type+"_"+num+"','imagekaiping"+type+"_"+num+"')\"/> </div>"+
 					"<div class=\"xinzeng right zengjia\"><a href=\"javascript:void(0)\" onClick=\"addMaterialKaiPing('"+type+"')\">新增创意</a></div> </div>"
 			insertDo(AddContent,"kaiping");
 		}
@@ -896,30 +904,34 @@
 								</div>
 								<div class="guige_con clearfix">
 									<div class="left guige_con_lf">
+										<form action="/uploadMaterialKaiping" method="POST" enctype="multipart/form-data" id="kaipingTupian">
+											<input type="hidden" name="adid" th:value="${adid}"/>
+											<input type="hidden" name="userid" th:value="${userid}"/>
+											<input type="hidden" name="adplanid" th:value="${adplanid}"/>
 										<ul class="clearfix guige_ul" id="kaiping">
 											<li class="zli">
 												<div class="clearfix guigexuanze">
 													<div>
-														<input id="kaiping1_1" name="kaiping1_1" type="checkbox">
-														<label for="kaiping1_1"></label>
+														<input id="kaipingCheck1_1" name="kaipingCheck1_1" type="checkbox">
+														<label for="kaipingCheck1_1"></label>
 													</div>
 													<span class="left">规格1：600*800(3:4)</span>
 												</div>
 												<div class="clearfix g_name">
 													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="" />
+													<input type="text" placeholder="请输入名称" id="kaipingName1_1" name="kaipingName1" value=""/>
 												</div>
 												<div class="g_update">
 													<div class="g_update_text">
 														<p>600*800</p>
 														(100KB以内的jpg,jpeg,png图片)
 													</div>
-													<img src="" />
+													<img src="" id="imagekaiping1_1"/>
 												</div>
 												<div class="clearfix guig_btn">
 													<div class="left guig_btn_lf">
 														本地上传
-														<input type="file" />
+														<input id="filekaiping1_1" type="file" name="FilesKaiping1_1" value="" onchange="OnchangeImage('filekaiping1_1','imagekaiping1_1')"/>
 													</div>
 													<div class="xinzeng right zengjia">
 														<a href="javascript:void(0)" onClick="addMaterialKaiPing('1')">新增创意</a>
@@ -929,26 +941,26 @@
 											<li class="zli">
 												<div class="clearfix guigexuanze">
 													<div>
-														<input id="kaiping2_1" name="kaiping2" type="checkbox">
-														<label for="kaiping2_1"></label>
+														<input id="kaipingCheck2_1" name="kaipingCheck2_1" type="checkbox">
+														<label for="kaipingCheck2_1"></label>
 													</div>
 													<span class="left">规格2：480*800(3:5)</span>
 												</div>
 												<div class="clearfix g_name">
 													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="" />
+													<input type="text" placeholder="请输入名称" id="kaipingName2_1" name="kaipingName2" value=""/>
 												</div>
 												<div class="g_update">
 													<div class="g_update_text">
 														<p>480*800</p>
 														(100KB以内的jpg,jpeg,png图片)
 													</div>
-													<img src="" />
+													<img src="" id="imagekaiping2_1"/>
 												</div>
 												<div class="clearfix guig_btn">
 													<div class="left guig_btn_lf">
 														本地上传
-														<input type="file" />
+														<input id="filekaiping2_1" type="file" name="FilesKaiping2_1" value="" onchange="OnchangeImage('filekaiping2_1','imagekaiping2_1')"/>
 													</div>
 													<div class="xinzeng right zengjia">
 														<a href="javascript:void(0)" onClick="addMaterialKaiPing('2')">新增创意</a>
@@ -958,26 +970,26 @@
 											<li class="zli">
 												<div class="clearfix guigexuanze">
 													<div >
-														<input id="kaiping3_1" name="kaiping3" type="checkbox">
-														<label for="kaiping3_1"></label>
+														<input id="kaipingCheck3_1" name="kaipingCheck3_1" type="checkbox">
+														<label for="kaipingCheck3_1"></label>
 													</div>
 													<span class="left">规格3：640*960(2:3)</span>
 												</div>
 												<div class="clearfix g_name">
 													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="" />
+													<input type="text" placeholder="请输入名称" id="kaipingName3_1" name="kaipingName3" value=""/>
 												</div>
 												<div class="g_update">
 													<div class="g_update_text">
 														<p>640*960</p>
 														(100KB以内的jpg,jpeg,png图片)
 													</div>
-													<img src="" />
+													<img src="" id="imagekaiping3_1"/>
 												</div>
 												<div class="clearfix guig_btn">
 													<div class="left guig_btn_lf">
 														本地上传
-														<input type="file" />
+														<input id="filekaiping3_1" type="file" name="FilesKaiping3_1" value="" onchange="OnchangeImage('filekaiping3_1','imagekaiping3_1')"/>
 													</div>
 													<div class="xinzeng right zengjia">
 														<a href="javascript:void(0)" onClick="addMaterialKaiPing('3')">新增创意</a>
@@ -987,39 +999,39 @@
 											<li class="zli">
 												<div class="clearfix guigexuanze">
 													<div>
-														<input id="kaiping4_1" name="kaiping4" type="checkbox">
-														<label for="kaiping4_1"></label>
+														<input id="kaipingCheck4_1" name="kaipingCheck4_1" type="checkbox">
+														<label for="kaipingCheck4_1"></label>
 													</div>
 													<span class="left">规格4：720*1280(9:16)</span>
 												</div>
 												<div class="clearfix g_name">
 													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="" />
+													<input type="text" placeholder="请输入名称" id="kaipingName4_1" name="kaipingName4" value=""/>
 												</div>
 												<div class="g_update">
 													<div class="g_update_text">
 														<p>720*1280</p>
 														(100KB以内的jpg,jpeg,png图片)
 													</div>
-													<img src="" />
+													<img src="" id="imagekaiping4_1"/>
 												</div>
 												<div class="clearfix guig_btn">
 													<div class="left guig_btn_lf">
 														本地上传
-														<input type="file" />
+														<input id="filekaiping4_1" type="file" name="FilesKaiping4_1" value="" onchange="OnchangeImage('filekaiping4_1','imagekaiping4_1')"/>
 													</div>
 													<div class="xinzeng right zengjia">
 														<a href="javascript:void(0)" onClick="addMaterialKaiPing('4')">新增创意</a>
 													</div>
 												</div>
 											</li>
-
 										</ul>
+										</form>
 										<div class="dashed"></div>
 										<div class="gg_btn">
 											<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 											<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
-											<a href="javascript:void(0)" onclick="SaveMaterialTupian()" class="btn_blue">保存</a>
+											<a href="javascript:void(0)" onclick="SaveMaterialKaiping()" class="btn_blue">保存</a>
 											<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 										</div>
 									</div>
