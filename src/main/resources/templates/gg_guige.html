@@ -48,7 +48,7 @@
 		//保存wenzi图片创意
 		function SaveMaterialWenzi(){
 			alert("wenzi");
-			var _form = document.getElementById("wenzi");
+			var _form = document.getElementById("wenziContent");
 			//_form.action = path + "?email=" + email + "&password=" + password;
 			_form.submit();
 
@@ -182,7 +182,7 @@
 		function addMaterialWenZi(type){
 			alert("type="+type);
 			var content="";
-			var obj = document.getElementsByName('wenzi'+type);
+			var obj = document.getElementsByName('wenziName'+type);
 			var num=obj.length+1;
 			alert("num="+num);
 			var ss="";
@@ -208,12 +208,12 @@
 			var AddContent=
 					"<div class=\"clearfix guigexuanze\">"+
 					"<div>"+
-					"<input id=\"wenzi"+type+"_"+num+"\" name=\"wenzi"+type+"\" type=\"checkbox\"/>"+
-					"<label for=\"wenzi"+type+"_"+num+"\"></label>"+
+					"<input id=\"wenziCheck"+type+"_"+num+"\" name=\"wenziCheck"+type+"_"+num+"\" type=\"checkbox\"/>"+
+					"<label for=\"wenziCheck"+type+"_"+num+"\"></label>"+
 					"</div>"+
 					"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
-					"<div class=\"clearfix g_nam\">名称：<input type=\"text\" placeholder=\"\"/></div>"+
-					"<div class=\"g_update\"> <textarea placeholder=\"请输入创意文字内容……\"></textarea>"+
+					"<div class=\"clearfix g_nam\">名称：<input type=\"text\" placeholder=\"请输入名称\" id=\"wenziName"+type+"_"+num+"\" name=\"wenziName"+type+"\"/></div>"+
+					"<div class=\"g_update\"> <textarea placeholder=\"请输入创意文字内容……\" id=\"filewenzi"+type+"_"+num+"\" type=\"text\" name=\"FilesWenzi"+type+"_"+num+"\"></textarea>"+
 					"<span class=\"xianzhi\">0/"+ss+"</span></div>"+
 					"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialWenZi('"+type+"')\">新增创意</a></div></div>"
 			insertDo(AddContent,"wenzi");
@@ -1047,7 +1047,7 @@
 								</div>
 								<div class="guige_con clearfix">
 									<div class="left guige_con_lf">
-										<form action="/uploadMaterialWenzi" method="POST" enctype="multipart/form-data" id="wenzi">
+										<form action="/uploadMaterialWenzi" method="POST" enctype="multipart/form-data" id="wenziContent">
 											<input type="hidden" name="adid" th:value="${adid}"/>
 											<input type="hidden" name="userid" th:value="${userid}"/>
 											<input type="hidden" name="adplanid" th:value="${adplanid}"/>
@@ -1062,7 +1062,7 @@
 												</div>
 												<div class="clearfix g_name">
 													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="请输入名称" id="wenziName1_1" name="wenziName1" value=""/>
+													<input type="text" placeholder="请输入名称" id="wenziName1_1" name="wenziName1"/>
 												</div>
 												<div class="g_update">
 													<textarea id="filewenzi1_1" type="text" name="FilesWenzi1_1" value="" placeholder="请输入创意文字内容……"></textarea>

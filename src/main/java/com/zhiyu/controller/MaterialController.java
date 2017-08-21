@@ -931,7 +931,7 @@ public class MaterialController {
         String[] wenziName4s = request.getParameterValues("wenziName4");
         log.info("------wenziName4s="+wenziName4s.length);
         for(int i=0;i<wenziName4s.length;i++){
-            String tupianName=wenziName1s[i];
+            String tupianName=wenziName4s[i];
             if(tupianName!=null&&!"".equals(tupianName)){
                 String tupianCheck=request.getParameter("wenziCheck4_"+(i+1));
                 log.info("------wenziCheck4_=" + tupianCheck);
