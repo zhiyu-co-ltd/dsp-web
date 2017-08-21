@@ -45,6 +45,14 @@
 			_form.submit();
 
 		}
+		//保存wenzi图片创意
+		function SaveMaterialWenzi(){
+			alert("wenzi");
+			var _form = document.getElementById("wenzi");
+			//_form.action = path + "?email=" + email + "&password=" + password;
+			_form.submit();
+
+		}
 		//js插入元素内容
 		function insertAfter( newElement, targetElement ){ // newElement是要追加的元素 targetElement 是指定元素的位置
 			var parent = targetElement.parentNode; // 找到指定元素的父节点
@@ -1039,21 +1047,25 @@
 								</div>
 								<div class="guige_con clearfix">
 									<div class="left guige_con_lf">
+										<form action="/uploadMaterialWenzi" method="POST" enctype="multipart/form-data" id="wenzi">
+											<input type="hidden" name="adid" th:value="${adid}"/>
+											<input type="hidden" name="userid" th:value="${userid}"/>
+											<input type="hidden" name="adplanid" th:value="${adplanid}"/>
 										<ul class="clearfix guige_ul" id="wenzi">
 											<li class="zli">
 												<div class="clearfix guigexuanze">
 													<div>
-														<input id="wenzi1_1" name="wenzi1" type="checkbox">
-														<label for="wenzi1_1"></label>
+														<input id="wenziCheck1_1" name="wenziCheck1_1" type="checkbox">
+														<label for="wenziCheck1_1"></label>
 													</div>
 													<span class="left">规格1：8*1</span>
 												</div>
 												<div class="clearfix g_name">
 													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="" />
+													<input type="text" placeholder="请输入名称" id="wenziName1_1" name="wenziName1" value=""/>
 												</div>
 												<div class="g_update">
-													<textarea placeholder="请输入创意文字内容……"></textarea>
+													<textarea id="filewenzi1_1" type="text" name="FilesWenzi1_1" value="" placeholder="请输入创意文字内容……"></textarea>
 													<span class="xianzhi">0/8</span>
 												</div>
 												<div class="clearfix guig_btn">
@@ -1066,17 +1078,17 @@
 											<li class="zli">
 												<div class="clearfix guigexuanze">
 													<div>
-														<input id="wenzi2_1" name="wenzi2" type="checkbox">
-														<label for="wenzi2_1"></label>
+														<input id="wenziCheck2_1" name="wenziCheck2_1" type="checkbox">
+														<label for="wenziCheck2_1"></label>
 													</div>
 													<span class="left">规格2：16*1</span>
 												</div>
 												<div class="clearfix g_name">
 													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="" />
+													<input type="text" placeholder="请输入名称" id="wenziName2_1" name="wenziName2" value=""/>
 												</div>
 												<div class="g_update">
-													<textarea placeholder="请输入创意文字内容……"></textarea>
+													<textarea id="filewenzi2_1" type="text" name="FilesWenzi2_1" value="" placeholder="请输入创意文字内容……"></textarea>
 													<span class="xianzhi">0/16</span>
 												</div>
 												<div class="clearfix guig_btn">
@@ -1089,17 +1101,17 @@
 											<li class="zli">
 												<div class="clearfix guigexuanze">
 													<div>
-														<input id="wenzi3_1" name="wenzi3" type="checkbox">
-														<label for="wenzi3_1"></label>
+														<input id="wenziCheck3_1" name="wenziCheck3_1" type="checkbox">
+														<label for="wenziCheck3_1"></label>
 													</div>
 													<span class="left">规格3：24*1</span>
 												</div>
 												<div class="clearfix g_name">
 													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="" />
+													<input type="text" placeholder="请输入名称" id="wenziName3_1" name="wenziName3" value=""/>
 												</div>
 												<div class="g_update">
-													<textarea placeholder="请输入创意文字内容……"></textarea>
+													<textarea id="filewenzi3_1" type="text" name="FilesWenzi3_1" value="" placeholder="请输入创意文字内容……"></textarea>
 													<span class="xianzhi">0/24</span>
 												</div>
 												<div class="clearfix guig_btn">
@@ -1112,17 +1124,17 @@
 											<li class="zli">
 												<div class="clearfix guigexuanze">
 													<div>
-														<input id="wenzi4_1" name="wenzi4" type="checkbox">
-														<label for="wenzi4_1"></label>
+														<input id="wenziCheck4_1" name="wenziCheck4_1" type="checkbox">
+														<label for="wenziCheck4_1"></label>
 													</div>
 													<span class="left">规格4：40*1</span>
 												</div>
 												<div class="clearfix g_name">
 													<span class="g_name_lf">名称：</span>
-													<input type="text" placeholder="" />
+													<input type="text" placeholder="请输入名称" id="wenziName4_1" name="wenziName4" value=""/>
 												</div>
 												<div class="g_update">
-													<textarea placeholder="请输入创意文字内容……"></textarea>
+													<textarea id="filewenzi4_1" type="text" name="FilesWenzi4_1" value="" placeholder="请输入创意文字内容……"></textarea>
 													<span class="xianzhi">0/40</span>
 												</div>
 												<div class="clearfix guig_btn">
@@ -1133,12 +1145,13 @@
 												</div>
 											</li>
 										</ul>
+										</form>
 										<div class="dashed"></div>
-
 
 										<div class="gg_btn">
 											<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 											<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+											<a href="javascript:void(0)" onclick="SaveMaterialWenzi()" class="btn_blue">保存</a>
 											<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 										</div>
 									</div>

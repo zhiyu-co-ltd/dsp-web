@@ -13,6 +13,15 @@ public class MaterialText extends BaseEntity{
     private String Content;
     private String MaterialId;
     private String AdId;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getName() {
         return Name;
