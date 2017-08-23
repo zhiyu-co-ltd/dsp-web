@@ -831,20 +831,20 @@ public class MaterialController {
 
     //上传图片物料
     @ResponseBody
-    @RequestMapping("/uploadMaterialWenzi")
-    public String uploadMaterialWenzi(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
-        log.info("------uploadMaterialWenzi------");
+    @RequestMapping("/uploadMaterialPtxxl")
+    public String uploadMaterialPtxxl(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+        log.info("------uploadMaterialPtxxl------");
         String adid = request.getParameter("adid") ;
         String userid = request.getParameter("userid");
         String adplanid = request.getParameter("adplanid");
         log.info("------adid="+adid+"--;userid="+userid+";adplanid="+adplanid);
-        String[] wenziName1s = request.getParameterValues("wenziName1");
-        log.info("------wenziName1s="+wenziName1s.length);
-        for(int i=0;i<wenziName1s.length;i++){
-            String tupianName=wenziName1s[i];
+        String[] ptxxlName1s = request.getParameterValues("ptxxlName1");
+        log.info("------ptxxlName1s="+ptxxlName1s.length);
+        for(int i=0;i<ptxxlName1s.length;i++){
+            String tupianName=ptxxlName1s[i];
             if(tupianName!=null&&!"".equals(tupianName)){
-                String tupianCheck=request.getParameter("wenziCheck1_"+(i+1));
-                log.info("------wenziCheck1_=" + tupianCheck);
+                String tupianCheck=request.getParameter("ptxxlCheck1_"+(i+1));
+                log.info("------ptxxlCheck1_=" + tupianCheck);
                 if("on".equals(tupianCheck)){
                     log.info("----saving----");
                   String wenziContent=request.getParameter("FilesWenzi1_1");
@@ -855,96 +855,6 @@ public class MaterialController {
                             materialText.setName(tupianName);
                             materialText.setContent(wenziContent);
                             materialText.setSize("8*1");
-                            materialText.setAdId(adid);
-                            materialText.setMaterialId(MyUUID.getUUID());
-                            materialText.setStatus("0");//待审核
-                            materialTextService.save(materialText);
-                        }catch(Exception e){
-                            log.info("uploadMaterial="+e.toString());
-                        }
-                    }else {
-                        log.info("You failed to upload " + i + " because the file was empty.");
-                    }
-                }
-            }
-        }
-        String[] wenziName2s = request.getParameterValues("wenziName2");
-        log.info("------wenziName2s="+wenziName2s.length);
-        for(int i=0;i<wenziName2s.length;i++){
-            String tupianName=wenziName2s[i];
-            if(tupianName!=null&&!"".equals(tupianName)){
-                String tupianCheck=request.getParameter("wenziCheck2_"+(i+1));
-                log.info("------wenziCheck2_=" + tupianCheck);
-                if("on".equals(tupianCheck)){
-                    log.info("----saving----");
-                    String wenziContent=request.getParameter("FilesWenzi2_1");
-                    log.info("----wenziContent="+wenziContent);
-                    if (wenziContent!=null) {
-                        try {
-                            MaterialText materialText=new MaterialText();
-                            materialText.setName(tupianName);
-                            materialText.setContent(wenziContent);
-                            materialText.setSize("16*1");
-                            materialText.setAdId(adid);
-                            materialText.setMaterialId(MyUUID.getUUID());
-                            materialText.setStatus("0");//待审核
-                            materialTextService.save(materialText);
-                        }catch(Exception e){
-                            log.info("uploadMaterial="+e.toString());
-                        }
-                    }else {
-                        log.info("You failed to upload " + i + " because the file was empty.");
-                    }
-                }
-            }
-        }
-        String[] wenziName3s = request.getParameterValues("wenziName3");
-        log.info("------wenziName3s="+wenziName3s.length);
-        for(int i=0;i<wenziName3s.length;i++){
-            String tupianName=wenziName3s[i];
-            if(tupianName!=null&&!"".equals(tupianName)){
-                String tupianCheck=request.getParameter("wenziCheck3_"+(i+1));
-                log.info("------wenziCheck3_=" + tupianCheck);
-                if("on".equals(tupianCheck)){
-                    log.info("----saving----");
-                    String wenziContent=request.getParameter("FilesWenzi3_1");
-                    log.info("----wenziContent="+wenziContent);
-                    if (wenziContent!=null) {
-                        try {
-                            MaterialText materialText=new MaterialText();
-                            materialText.setName(tupianName);
-                            materialText.setContent(wenziContent);
-                            materialText.setSize("24*1");
-                            materialText.setAdId(adid);
-                            materialText.setMaterialId(MyUUID.getUUID());
-                            materialText.setStatus("0");//待审核
-                            materialTextService.save(materialText);
-                        }catch(Exception e){
-                            log.info("uploadMaterial="+e.toString());
-                        }
-                    }else {
-                        log.info("You failed to upload " + i + " because the file was empty.");
-                    }
-                }
-            }
-        }
-        String[] wenziName4s = request.getParameterValues("wenziName4");
-        log.info("------wenziName4s="+wenziName4s.length);
-        for(int i=0;i<wenziName4s.length;i++){
-            String tupianName=wenziName4s[i];
-            if(tupianName!=null&&!"".equals(tupianName)){
-                String tupianCheck=request.getParameter("wenziCheck4_"+(i+1));
-                log.info("------wenziCheck4_=" + tupianCheck);
-                if("on".equals(tupianCheck)){
-                    log.info("----saving----");
-                    String wenziContent=request.getParameter("FilesWenzi4_1");
-                    log.info("----wenziContent="+wenziContent);
-                    if (wenziContent!=null) {
-                        try {
-                            MaterialText materialText=new MaterialText();
-                            materialText.setName(tupianName);
-                            materialText.setContent(wenziContent);
-                            materialText.setSize("40*1");
                             materialText.setAdId(adid);
                             materialText.setMaterialId(MyUUID.getUUID());
                             materialText.setStatus("0");//待审核

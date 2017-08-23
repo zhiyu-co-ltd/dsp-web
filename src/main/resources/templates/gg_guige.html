@@ -53,6 +53,14 @@
 			_form.submit();
 
 		}
+		//保存普通信息流图片创意
+		function SaveMaterialPtxxl(){
+			alert("ptxxl");
+			var _form = document.getElementById("PtxxlTupian");
+			//_form.action = path + "?email=" + email + "&password=" + password;
+			_form.submit();
+
+		}
 		//js插入元素内容
 		function insertAfter( newElement, targetElement ){ // newElement是要追加的元素 targetElement 是指定元素的位置
 			var parent = targetElement.parentNode; // 找到指定元素的父节点
@@ -1178,37 +1186,41 @@
 									<div class="xxl_main">
 										<div class="xxl_con active clearfix">
 											<div class="left guige_con_lf">
+												<form action="/uploadMaterialPtxxl" method="POST" enctype="multipart/form-data" id="PtxxlTupian">
+													<input type="hidden" name="adid" th:value="${adid}"/>
+													<input type="hidden" name="userid" th:value="${userid}"/>
+													<input type="hidden" name="adplanid" th:value="${adplanid}"/>
 												<ul class="clearfix guige_ul xinxil_ul" id="ptxxl">
 													<li class="zli">
 														<div class="clearfix guigexuanze">
 															<div>
-																<input id="ptxxl1_1" name="ptxxl1" type="checkbox"/>
-																<label for="ptxxl1_1"></label>
+																<input id="ptxxlCheck1_1" name="ptxxlCheck1_1" type="checkbox"/>
+																<label for="ptxxlCheck1_1"></label>
 															</div>
 															<span class="left">规格1：240*240</span>
 														</div>
 														<div class="clearfix g_name">
 															<span class="g_name_lf">名称：</span>
-															<input type="text" placeholder="" />
+															<input type="text" placeholder="请输入名称" id="ptxxlName1_1" name="ptxxlName1" value=""/>
 														</div>
 														<div class="clearfix xxl">
 															<div class="xxl_lf left">
 																<div class="guig_btn_lf">
 																	本地上传
-																	<input type="file">
+																	<input id="fileptxxl1_1" type="file" name="Filesptxxl1_1" onchange="OnchangeImage('fileptxxl1_1','imageptxxl1_1')"/>
 																</div>
 																<p class="gug_text">
 																	240*240<br />
 																	jpg,jpeg,png图片
 																</p>
-																<img src="" />
+																<img src="" id="imageptxxl1_1"/>
 															</div>
 															<div class="right xxl_rt">
 																<div class="xxl_rt_tl">
-																	<input type="text" />
+																	<input type="text" placeholder="请输入广告语" name="ptxxlNameAd1_1" />
 																</div>
 																<div class="xxl_rt_con">
-																	<textarea></textarea>
+																	<textarea  type="text" name="FilesPtxxl1_1"  placeholder="请输入创意文字内容……"></textarea>
 																</div>
 															</div>
 														</div>
@@ -1221,33 +1233,33 @@
 													<li class="zli">
 														<div class="clearfix guigexuanze">
 															<div>
-																<input id="ptxxl2_1" name="ptxxl2" type="checkbox"/>
-																<label for="ptxxl2_1"></label>
+																<input id="ptxxlCheck2_1" name="ptxxlCheck2_1" type="checkbox"/>
+																<label for="ptxxlCheck2_1"></label>
 															</div>
 															<span class="left">规格2：300*300</span>
 														</div>
 														<div class="clearfix g_name">
 															<span class="g_name_lf">名称：</span>
-															<input type="text" placeholder="" />
+															<input type="text" placeholder="请输入名称" id="ptxxlName2_1" name="ptxxlName2" value=""/>
 														</div>
 														<div class="clearfix xxl">
 															<div class="xxl_lf left">
 																<div class="guig_btn_lf">
 																	本地上传
-																	<input type="file">
+																	<input id="fileptxxl2_1" type="file" name="Filesptxxl2_1" onchange="OnchangeImage('fileptxxl2_1','imageptxxl2_1')"/>
 																</div>
 																<p class="gug_text">
 																	300*300<br />
 																	jpg,jpeg,png图片
 																</p>
-																<img src="" />
+																<img src="" id="imageptxxl2_1"/>
 															</div>
 															<div class="right xxl_rt">
 																<div class="xxl_rt_tl">
-																	<input type="text" />
+																	<input type="text" placeholder="请输入广告语" name="ptxxlNameAd2_1" />
 																</div>
 																<div class="xxl_rt_con">
-																	<textarea></textarea>
+																	<textarea  type="text" name="FilesPtxxl2_1"  placeholder="请输入创意文字内容……"></textarea>
 																</div>
 															</div>
 														</div>
@@ -1260,33 +1272,33 @@
 													<li class="zli">
 														<div class="clearfix guigexuanze">
 															<div>
-																<input id="ptxxl3_1" name="ptxxl3" type="checkbox"/>
-																<label for="ptxxl3_1"></label>
+																<input id="ptxxlCheck3_1" name="ptxxlCheck3_1" type="checkbox"/>
+																<label for="ptxxlCheck3_1"></label>
 															</div>
 															<span class="left">规格3：320*320</span>
 														</div>
 														<div class="clearfix g_name">
 															<span class="g_name_lf">名称：</span>
-															<input type="text" placeholder="" />
+															<input type="text" placeholder="请输入名称" id="ptxxlName3_1" name="ptxxlName3" value=""/>
 														</div>
 														<div class="clearfix xxl">
 															<div class="xxl_lf left">
 																<div class="guig_btn_lf">
 																	本地上传
-																	<input type="file">
+																	<input id="fileptxxl3_1" type="file" name="Filesptxxl3_1" onchange="OnchangeImage('fileptxxl3_1','imageptxxl3_1')"/>
 																</div>
 																<p class="gug_text">
 																	320*320<br />
 																	jpg,jpeg,png图片
 																</p>
-																<img src="" />
+																<img src="" id="imageptxxl3_1"/>
 															</div>
 															<div class="right xxl_rt">
 																<div class="xxl_rt_tl">
-																	<input type="text" />
+																	<input type="text" placeholder="请输入广告语" name="ptxxlNameAd3_1" />
 																</div>
 																<div class="xxl_rt_con">
-																	<textarea></textarea>
+																	<textarea  type="text" name="FilesPtxxl3_1"  placeholder="请输入创意文字内容……"></textarea>
 																</div>
 															</div>
 														</div>
@@ -1298,10 +1310,12 @@
 													</li>
 
 												</ul>
+												</form>
 												<div class="dashed"></div>
 												<div class="gg_btn">
 													<a th:href="@{/guanggao.html(adplanid=${adplanid})}">取消</a>
 													<a th:href="@{/gg_xinjian.html(adid=${adid},adplanid=${adplanid})}">上一步</a>
+													<a href="javascript:void(0)" onclick="SaveMaterialPtxxl()" class="btn_blue">保存</a>
 													<a th:href="@{/gg_dingx.html(adid=${adid},adplanid=${adplanid})}" class="btn_blue">下一步</a>
 												</div>
 											</div>
