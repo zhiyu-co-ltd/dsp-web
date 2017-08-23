@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/sql/T_Adplan.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/sql/T_Financial.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/sql/T_Material_Image.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/sql/T_Material_Ptxxl.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/sql/T_Material_Text.sql" dialect="H2" />
     <file url="file://$PROJECT_DIR$/src/main/resources/sql/T_Media.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/sql/T_Stat_Gather_Info.sql" dialect="MySQL" />
