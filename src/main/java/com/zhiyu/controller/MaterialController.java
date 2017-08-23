@@ -3,10 +3,12 @@ package com.zhiyu.controller;
 import com.zhiyu.model.Ad;
 import com.zhiyu.model.MaterialImage;
 import com.zhiyu.model.MaterialText;
+import com.zhiyu.model.MaterialPtxxl;
 import com.zhiyu.model.User;
 import com.zhiyu.service.AdService;
 import com.zhiyu.service.MaterialImageService;
 import com.zhiyu.service.MaterialTextService;
+import com.zhiyu.service.MaterialPtxxlService;
 import com.zhiyu.service.UserService;
 import com.zhiyu.util.DateUtil;
 import com.zhiyu.util.FileUtil;
@@ -45,6 +47,8 @@ public class MaterialController {
     @Autowired
     private MaterialTextService materialTextService;
 
+    @Autowired
+    private MaterialPtxxlService materialPtxxlService;
 
 
     //    @RequestMapping("/addAd")
@@ -371,7 +375,7 @@ public class MaterialController {
                             String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
                             MaterialImage materialImage=new MaterialImage();
                             materialImage.setName(tupianName);
                             materialImage.setSize("600*200");
@@ -507,7 +511,7 @@ public class MaterialController {
                             String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
                             MaterialImage materialImage=new MaterialImage();
                             materialImage.setName(tupianName);
                             materialImage.setSize("600*500");
@@ -542,7 +546,7 @@ public class MaterialController {
                             String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
                             MaterialImage materialImage=new MaterialImage();
                             materialImage.setName(tupianName);
                             materialImage.setSize("600*800");
@@ -577,7 +581,7 @@ public class MaterialController {
                             String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
                             MaterialImage materialImage=new MaterialImage();
                             materialImage.setName(tupianName);
                             materialImage.setSize("640*960");
@@ -612,7 +616,7 @@ public class MaterialController {
                             String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
                             MaterialImage materialImage=new MaterialImage();
                             materialImage.setName(tupianName);
                             materialImage.setSize("480*800");
@@ -647,7 +651,7 @@ public class MaterialController {
                             String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
                             MaterialImage materialImage=new MaterialImage();
                             materialImage.setName(tupianName);
                             materialImage.setSize("720*1280");
@@ -699,7 +703,7 @@ public class MaterialController {
                             String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
                             MaterialImage materialImage=new MaterialImage();
                             materialImage.setName(tupianName);
                             materialImage.setSize("600*800");
@@ -734,7 +738,7 @@ public class MaterialController {
                             String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
                             MaterialImage materialImage=new MaterialImage();
                             materialImage.setName(tupianName);
                             materialImage.setSize("480*800");
@@ -769,7 +773,7 @@ public class MaterialController {
                             String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
                             MaterialImage materialImage=new MaterialImage();
                             materialImage.setName(tupianName);
                             materialImage.setSize("640*960");
@@ -804,7 +808,7 @@ public class MaterialController {
                             String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
                             byte[] bytes = file.getBytes();
                             FileUtil fileUtil = new FileUtil();
-                            fileUtil.uploadFile(bytes,path,DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg");
+                            fileUtil.uploadFile(bytes,path,imageUrl);
                             MaterialImage materialImage=new MaterialImage();
                             materialImage.setName(tupianName);
                             materialImage.setSize("720*1280");
@@ -828,26 +832,25 @@ public class MaterialController {
         response.addCookie(Usercookie);
         return "gg_guige?adid="+adid+"&adplanid="+adplanid;
     }
-
     //上传图片物料
     @ResponseBody
-    @RequestMapping("/uploadMaterialPtxxl")
-    public String uploadMaterialPtxxl(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
-        log.info("------uploadMaterialPtxxl------");
+    @RequestMapping("/uploadMaterialWenzi")
+    public String uploadMaterialWenzi(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+        log.info("------uploadMaterialWenzi------");
         String adid = request.getParameter("adid") ;
         String userid = request.getParameter("userid");
         String adplanid = request.getParameter("adplanid");
         log.info("------adid="+adid+"--;userid="+userid+";adplanid="+adplanid);
-        String[] ptxxlName1s = request.getParameterValues("ptxxlName1");
-        log.info("------ptxxlName1s="+ptxxlName1s.length);
-        for(int i=0;i<ptxxlName1s.length;i++){
-            String tupianName=ptxxlName1s[i];
+        String[] wenziName1s = request.getParameterValues("wenziName1");
+        log.info("------wenziName1s="+wenziName1s.length);
+        for(int i=0;i<wenziName1s.length;i++){
+            String tupianName=wenziName1s[i];
             if(tupianName!=null&&!"".equals(tupianName)){
-                String tupianCheck=request.getParameter("ptxxlCheck1_"+(i+1));
-                log.info("------ptxxlCheck1_=" + tupianCheck);
+                String tupianCheck=request.getParameter("wenziCheck1_"+(i+1));
+                log.info("------wenziCheck1_=" + tupianCheck);
                 if("on".equals(tupianCheck)){
                     log.info("----saving----");
-                  String wenziContent=request.getParameter("FilesWenzi1_1");
+                    String wenziContent=request.getParameter("FilesWenzi1_"+(i+1));
                     log.info("----wenziContent="+wenziContent);
                     if (wenziContent!=null) {
                         try {
@@ -864,6 +867,157 @@ public class MaterialController {
                         }
                     }else {
                         log.info("You failed to upload " + i + " because the file was empty.");
+                    }
+                }
+            }
+        }
+        String[] wenziName2s = request.getParameterValues("wenziName2");
+        log.info("------wenziName2s="+wenziName2s.length);
+        for(int i=0;i<wenziName2s.length;i++){
+            String tupianName=wenziName2s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("wenziCheck2_"+(i+1));
+                log.info("------wenziCheck2_=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    String wenziContent=request.getParameter("FilesWenzi2_"+(i+1));
+                    log.info("----wenziContent="+wenziContent);
+                    if (wenziContent!=null) {
+                        try {
+                            MaterialText materialText=new MaterialText();
+                            materialText.setName(tupianName);
+                            materialText.setContent(wenziContent);
+                            materialText.setSize("16*1");
+                            materialText.setAdId(adid);
+                            materialText.setMaterialId(MyUUID.getUUID());
+                            materialText.setStatus("0");//待审核
+                            materialTextService.save(materialText);
+                        }catch(Exception e){
+                            log.info("uploadMaterial="+e.toString());
+                        }
+                    }else {
+                        log.info("You failed to upload " + i + " because the file was empty.");
+                    }
+                }
+            }
+        }
+        String[] wenziName3s = request.getParameterValues("wenziName3");
+        log.info("------wenziName3s="+wenziName3s.length);
+        for(int i=0;i<wenziName3s.length;i++){
+            String tupianName=wenziName3s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("wenziCheck3_"+(i+1));
+                log.info("------wenziCheck3_=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    String wenziContent=request.getParameter("FilesWenzi3_"+(i+1));
+                    log.info("----wenziContent="+wenziContent);
+                    if (wenziContent!=null) {
+                        try {
+                            MaterialText materialText=new MaterialText();
+                            materialText.setName(tupianName);
+                            materialText.setContent(wenziContent);
+                            materialText.setSize("24*1");
+                            materialText.setAdId(adid);
+                            materialText.setMaterialId(MyUUID.getUUID());
+                            materialText.setStatus("0");//待审核
+                            materialTextService.save(materialText);
+                        }catch(Exception e){
+                            log.info("uploadMaterial="+e.toString());
+                        }
+                    }else {
+                        log.info("You failed to upload " + i + " because the file was empty.");
+                    }
+                }
+            }
+        }
+        String[] wenziName4s = request.getParameterValues("wenziName4");
+        log.info("------wenziName4s="+wenziName4s.length);
+        for(int i=0;i<wenziName4s.length;i++){
+            String tupianName=wenziName4s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("wenziCheck4_"+(i+1));
+                log.info("------wenziCheck4_=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    String wenziContent=request.getParameter("FilesWenzi4_"+(i+1));
+                    log.info("----wenziContent="+wenziContent);
+                    if (wenziContent!=null) {
+                        try {
+                            MaterialText materialText=new MaterialText();
+                            materialText.setName(tupianName);
+                            materialText.setContent(wenziContent);
+                            materialText.setSize("40*1");
+                            materialText.setAdId(adid);
+                            materialText.setMaterialId(MyUUID.getUUID());
+                            materialText.setStatus("0");//待审核
+                            materialTextService.save(materialText);
+                        }catch(Exception e){
+                            log.info("uploadMaterial="+e.toString());
+                        }
+                    }else {
+                        log.info("You failed to upload " + i + " because the file was empty.");
+                    }
+                }
+            }
+        }
+
+        Cookie Usercookie = new Cookie("userId",userid);
+        Usercookie.setMaxAge(60*60*24*7);//保留7天
+        response.addCookie(Usercookie);
+        return "gg_guige?adid="+adid+"&adplanid="+adplanid;
+    }
+
+    //上传图片物料
+    @ResponseBody
+    @RequestMapping("/uploadMaterialPtxxl")
+    public String uploadMaterialPtxxl(Map<String, Object> model, HttpServletRequest request,HttpServletResponse response) {
+        log.info("------uploadMaterialPtxxl------");
+        String adid = request.getParameter("adid") ;
+        String userid = request.getParameter("userid");
+        String adplanid = request.getParameter("adplanid");
+        log.info("------adid="+adid+"--;userid="+userid+";adplanid="+adplanid);
+        String path="/Users/zhaojianfan/project/zhiyu/dsp2017/dsp-web/src/main/resources/static/webImage/";
+        String[] ptxxlName1s = request.getParameterValues("ptxxlName1");
+        log.info("------ptxxlName1s="+ptxxlName1s.length);
+        for(int i=0;i<ptxxlName1s.length;i++){
+            String tupianName=ptxxlName1s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("ptxxlCheck1_"+(i+1));
+                log.info("------ptxxlCheck1_=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    String ptxxlNameAd=request.getParameter("ptxxlNameAd1_"+(i+1));
+                    log.info("----ptxxlNameAd="+ptxxlNameAd);
+                    String FilesPtxxl=request.getParameter("FilesPtxxl1_"+(i+1));
+                    log.info("----FilesPtxxl="+FilesPtxxl);
+                    if (ptxxlNameAd!=null) {
+                        MultipartFile file = ((MultipartHttpServletRequest) request).getFile("Filesptxxl1_" + (i + 1));
+                        log.info("----file=" + file.getSize());
+                        if (file != null) {
+                            try {
+
+                                String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
+                                byte[] bytes = file.getBytes();
+                                FileUtil fileUtil = new FileUtil();
+                                fileUtil.uploadFile(bytes,path,imageUrl);
+
+                                MaterialPtxxl materialPtxll = new MaterialPtxxl();
+                                materialPtxll.setName(tupianName);
+                                materialPtxll.setContentAd(ptxxlNameAd);
+                                materialPtxll.setFileAd(FilesPtxxl);
+                                materialPtxll.setImage_url(imageUrl);
+                                materialPtxll.setSize("240*240");
+                                materialPtxll.setAdId(adid);
+                                materialPtxll.setMaterialId(MyUUID.getUUID());
+                                materialPtxll.setStatus("0");//待审核
+                                materialPtxxlService.save(materialPtxll);
+                            } catch (Exception e) {
+                                log.info("uploadMaterial=" + e.toString());
+                            }
+                        } else {
+                            log.info("You failed to upload " + i + " because the file was empty.");
+                        }
                     }
                 }
             }
