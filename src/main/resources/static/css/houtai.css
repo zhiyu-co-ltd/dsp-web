@@ -378,7 +378,7 @@ body{background: #f2f4f8;}
 .xxl_main .guige_rt_img{top: 50px;}
 .shipin_tl select{height: 25px;width: 98px;border: 1px solid #a0a0a0;margin-right: 20px;}
 .shipin_tl{line-height: 25px;margin-top: 10px;}
-.shipin_tl input{height: 25px;width: 48px;border: 1px solid #a0a0a0;padding: 0px 5px;line-height: 25px;margin-left: 5px;margin-right: 5px;}
+.shipin_tl input{height: 25px;border: 1px solid #a0a0a0;padding: 0px 5px;line-height: 25px;margin-left: 5px;margin-right: 5px;}
 .bofang_main{margin-left: 20px;cursor: pointer;}
 .bofang_main em{display: block;width: 14px;height: 14px;border:1px solid #ddd;border-radius: 50%;margin-top: 4.5px;margin-right: 5px;}
 .bofang_main_h em{background: url(../images/jian_11.png) no-repeat;}

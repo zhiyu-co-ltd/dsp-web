@@ -1338,10 +1338,6 @@
 														</div>
 														<div class="clearfix xxl">
 															<div class="xxl_lf left">
-																<div class="guig_btn_lf">
-																	本地上传
-																	<input type="file">
-																</div>
 																<p class="gug_text">
 																	240*240<br />
 																	jpg,jpeg,png图片
@@ -1358,10 +1354,6 @@
 															</div>
 														</div>
 														<div class="clearfix xxl_big">
-															<div class="guig_btn_lf">
-																本地上传
-																<input type="file">
-															</div>
 															<p style="text-align: center;color: #999;">
 																600*500<br />
 																（30KB以内的jpg,jpeg,png图片）
@@ -1369,7 +1361,17 @@
 															<img src="" />
 														</div>
 														<div class="clearfix guig_btn">
-															<div class="xinzeng zengjia" style="margin: 0px auto;">
+															<div class="left guig_btn_lf">
+																上传icon
+																<input id="filetupian1_1" type="file" name="Filestupian1_1" onchange="OnchangeImage('filetupian1_1','imagetupian1_1')"/>
+															</div>
+															<div class="left guig_btn_lf"></div>
+
+															<div class="left guig_btn_lf">
+																上传图片
+																<input id="filetupian1_1" type="file" name="Filestupian1_1" onchange="OnchangeImage('filetupian1_1','imagetupian1_1')"/>
+															</div>
+															<div class="xinzeng right zengjia">
 																<a href="javascript:void(0)" onClick="addMaterialKpxxl('1')">新增创意</a>
 															</div>
 														</div>
@@ -3512,41 +3514,44 @@
 								        			类型：
 								        		</span>
 										<select class="left">
-											<option>in-app</option>
-											<option>in-pc</option>
+											<option value="0">in-app</option>
+											<option value="1">in-game</option>
+											<option value="2">视频前贴片</option>
+											<option value="3">视频后贴片</option>
 										</select>
 										<span class="left">
 								        			播放时长：
 								        		</span>
 										<div class="clearfix bofang">
 											<div class="left bofang_main clearfix bofang_main_h">
-												<em class="left"></em>
+												<span class="left" ><input name="playTime" type="radio" value="0"/> </span>
 												<span class="left">15s</span>
 											</div>
-											<div class="left bofang_main clearfix">
-												<em class="left"></em>
+											<div class="left bofang_main clearfix bofang_main_h">
+												<span class="left" ><input name="playTime" type="radio" value="1"/> </span>
 												<span class="left">30s</span>
 											</div>
 											<div class="left bofang_main clearfix">
-												<em class="left"></em>
-												<span class="left">自定义：</span>
-												<input type="text" class="left" />
+
+												<span class="left" ><input name="playTime" type="radio" value="2"/> </span>
+												<span class="left">自定义</span>
+												<input type="text" class="left" width="48px"/>
 												<span class="left">s</span>
+
 											</div>
 										</div>
 									</div>
 									<div class="clearfix  shipin_main">
 										<div class="left guige_con_lf">
 											<div class="xxl_lf sp_up">
-												<div class="guig_btn_lf">
-													本地上传
-													<input type="file">
-												</div>
 												<p class="gug_text">
 													支持格式：rm，rmvb，<br />
 													wmv，avi，mpg，mpeg，mp4
 												</p>
-
+											</div>
+											<div class="guig_btn_lf">
+												本地上传
+												<input type="file">
 											</div>
 											<div class="dashed"></div>
 											<ul class="clearfix guige_ul sp_ul" id="shipin">
