@@ -231,7 +231,7 @@
 		function addMaterialPtxxl(type){
 			alert("type="+type);
 			var content="";
-			var obj = document.getElementsByName('ptxxl'+type);
+			var obj = document.getElementsByName('ptxxlName'+type);
 			var num=obj.length+1;
 			alert("num="+num);
 
@@ -249,15 +249,15 @@
 			var AddContent=
 					"<div class=\"clearfix guigexuanze\">"+
 					"<div>"+
-					"<input id=\"ptxxl"+type+"_"+num+"\" name=\"ptxxl"+type+"\" type=\"checkbox\"/>"+
-					"<label for=\"ptxxl"+type+"_"+num+"\"></label>"+
+					"<input id=\"ptxxlCheck"+type+"_"+num+"\" name=\"ptxxlCheck"+type+"_"+num+"\" type=\"checkbox\"/>"+
+					"<label for=\"ptxxlCheck"+type+"_"+num+"\"></label>"+
 					"</div>"+
 					"<span class=\"left\">规格"+type+"："+content+"</span>"+"</div>"+
-					"<div class=\"clearfix g_nam\">名称:<input type=\"text\" placeholder=\"\" /></div>"+
-					"<div class=\"clearfix xxl\"> <div class=\"xxl_lf left\"> <div class=\"guig_btn_lf\">本地上传 <input type=\"file\" /> </div>"+
-					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p><img src=\"\"/> </div>"+
-					"<div class=\"right xxl_rt\"> <div class=\"xxl_rt_tl\"> <input type=\"text\"/> </div> <div class=\"xxl_rt_con\"><textarea></textarea> </div> </div></div>"+
-					"<div class=\"clearfix guig_btn\"> <div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialPtxxl('"+type+"')\">新增创意</a></div></div>"
+					"<div class=\"clearfix g_nam\">名称:<input type=\"text\" placeholder=\"请输入名称\" id=\"ptxxlName"+type+"_"+num+"\" name=\"ptxxlName"+type+"\"/></div>"+
+					"<div class=\"clearfix xxl\"> <div class=\"xxl_lf left\">" +
+					"<p class=\"gug_text\">"+content+"<br/>jpg,jpeg,png图片</p><img src=\"\" id=\"imageptxxl"+type+"_"+num+"\"/> </div>"+
+					"<div class=\"right xxl_rt\"> <div class=\"xxl_rt_tl\"> <input name=\"ptxxlNameAd"+type+"_"+num+"\" placeholder=\"请输入广告语\" type=\"text\"/> </div> <div class=\"xxl_rt_con\"><textarea name=\"FilesPtxxl"+type+"_"+num+"\" placeholder=\"请输入创意文字内容……\"></textarea> </div> </div></div>"+
+					"<div class=\"clearfix guig_btn\"><div class=\"guig_btn_lf\">本地上传<input id=\"fileptxxl"+type+"_"+num+"\" type=\"file\" name=\"Filesptxxl"+type+"_"+num+"\" onchange=\"OnchangeImage('fileptxxl"+type+"_"+num+"','imageptxxl"+type+"_"+num+"')\"/> </div><div class=\"xinzeng zengjia\" style=\"margin: 0px auto;\"> <a href=\"javascript:void(0)\" onClick=\"addMaterialPtxxl('"+type+"')\">新增创意</a></div></div>"
 			insertDo(AddContent,"ptxxl");
 		}
 		//增加卡片信息流创意
@@ -1221,7 +1221,6 @@
 															</div>
 														</div>
 														<div class="clearfix guig_btn">
-
 															<div class="left guig_btn_lf">
 																本地上传
 																<input id="fileptxxl1_1" type="file" name="Filesptxxl1_1" value="" onchange="OnchangeImage('fileptxxl1_1','imageptxxl1_1')"/>
@@ -1245,10 +1244,7 @@
 														</div>
 														<div class="clearfix xxl">
 															<div class="xxl_lf left">
-																<div class="guig_btn_lf">
-																	本地上传
-																	<input id="fileptxxl2_1" type="file" name="Filesptxxl2_1" value="" onchange="OnchangeImage('fileptxxl2_1','imageptxxl2_1')"/>
-																</div>
+
 																<p class="gug_text">
 																	300*300<br />
 																	jpg,jpeg,png图片
@@ -1265,6 +1261,10 @@
 															</div>
 														</div>
 														<div class="clearfix guig_btn">
+															<div class="guig_btn_lf">
+																本地上传
+																<input id="fileptxxl2_1" type="file" name="Filesptxxl2_1" value="" onchange="OnchangeImage('fileptxxl2_1','imageptxxl2_1')"/>
+															</div>
 															<div class="xinzeng zengjia" style="margin: 0px auto;">
 																<a href="javascript:void(0)" onClick="addMaterialPtxxl('2')">新增创意</a>
 															</div>
@@ -1284,10 +1284,6 @@
 														</div>
 														<div class="clearfix xxl">
 															<div class="xxl_lf left">
-																<div class="guig_btn_lf">
-																	本地上传
-																	<input id="fileptxxl3_1" type="file" name="Filesptxxl3_1" onchange="OnchangeImage('fileptxxl3_1','imageptxxl3_1')"/>
-																</div>
 																<p class="gug_text">
 																	320*320<br />
 																	jpg,jpeg,png图片
@@ -1304,12 +1300,15 @@
 															</div>
 														</div>
 														<div class="clearfix guig_btn">
+															<div class="guig_btn_lf">
+																本地上传
+																<input id="fileptxxl3_1" type="file" name="Filesptxxl3_1" onchange="OnchangeImage('fileptxxl3_1','imageptxxl3_1')"/>
+															</div>
 															<div class="xinzeng zengjia" style="margin: 0px auto;">
 																<a href="javascript:void(0)" onClick="addMaterialPtxxl('3')">新增创意</a>
 															</div>
 														</div>
 													</li>
-
 												</ul>
 												</form>
 												<div class="dashed"></div>

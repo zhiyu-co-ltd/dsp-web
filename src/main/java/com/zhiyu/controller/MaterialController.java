@@ -1021,7 +1021,99 @@ public class MaterialController {
                     }
                 }
             }
+
         }
+        String[] ptxxlName2s = request.getParameterValues("ptxxlName2");
+        log.info("------ptxxlName2s="+ptxxlName2s.length);
+        for(int i=0;i<ptxxlName2s.length;i++){
+            String tupianName=ptxxlName2s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("ptxxlCheck2_"+(i+1));
+                log.info("------ptxxlCheck2_=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    String ptxxlNameAd=request.getParameter("ptxxlNameAd2_"+(i+1));
+                    log.info("----ptxxlNameAd="+ptxxlNameAd);
+                    String FilesPtxxl=request.getParameter("FilesPtxxl2_"+(i+1));
+                    log.info("----FilesPtxxl="+FilesPtxxl);
+                    if (ptxxlNameAd!=null) {
+                        MultipartFile file = ((MultipartHttpServletRequest) request).getFile("Filesptxxl2_" + (i + 1));
+                        log.info("----file=" + file.getSize());
+                        if (file != null) {
+                            try {
+
+                                String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
+                                byte[] bytes = file.getBytes();
+                                FileUtil fileUtil = new FileUtil();
+                                fileUtil.uploadFile(bytes,path,imageUrl);
+
+                                MaterialPtxxl materialPtxll = new MaterialPtxxl();
+                                materialPtxll.setName(tupianName);
+                                materialPtxll.setContentAd(ptxxlNameAd);
+                                materialPtxll.setFileAd(FilesPtxxl);
+                                materialPtxll.setImage_url(imageUrl);
+                                materialPtxll.setSize("300*300");
+                                materialPtxll.setAdId(adid);
+                                materialPtxll.setMaterialId(MyUUID.getUUID());
+                                materialPtxll.setStatus("0");//待审核
+                                materialPtxxlService.save(materialPtxll);
+                            } catch (Exception e) {
+                                log.info("uploadMaterial=" + e.toString());
+                            }
+                        } else {
+                            log.info("You failed to upload " + i + " because the file was empty.");
+                        }
+                    }
+                }
+            }
+
+        }
+        String[] ptxxlName3s = request.getParameterValues("ptxxlName3");
+        log.info("------ptxxlName3s="+ptxxlName3s.length);
+        for(int i=0;i<ptxxlName3s.length;i++){
+            String tupianName=ptxxlName3s[i];
+            if(tupianName!=null&&!"".equals(tupianName)){
+                String tupianCheck=request.getParameter("ptxxlCheck3_"+(i+1));
+                log.info("------ptxxlCheck3_=" + tupianCheck);
+                if("on".equals(tupianCheck)){
+                    log.info("----saving----");
+                    String ptxxlNameAd=request.getParameter("ptxxlNameAd3_"+(i+1));
+                    log.info("----ptxxlNameAd="+ptxxlNameAd);
+                    String FilesPtxxl=request.getParameter("FilesPtxxl3_"+(i+1));
+                    log.info("----FilesPtxxl="+FilesPtxxl);
+                    if (ptxxlNameAd!=null) {
+                        MultipartFile file = ((MultipartHttpServletRequest) request).getFile("Filesptxxl3_" + (i + 1));
+                        log.info("----file=" + file.getSize());
+                        if (file != null) {
+                            try {
+
+                                String imageUrl=DateUtil.getDay()+"_"+DateUtil.getTime()+".jpg";
+                                byte[] bytes = file.getBytes();
+                                FileUtil fileUtil = new FileUtil();
+                                fileUtil.uploadFile(bytes,path,imageUrl);
+
+                                MaterialPtxxl materialPtxll = new MaterialPtxxl();
+                                materialPtxll.setName(tupianName);
+                                materialPtxll.setContentAd(ptxxlNameAd);
+                                materialPtxll.setFileAd(FilesPtxxl);
+                                materialPtxll.setImage_url(imageUrl);
+                                materialPtxll.setSize("320*320");
+                                materialPtxll.setAdId(adid);
+                                materialPtxll.setMaterialId(MyUUID.getUUID());
+                                materialPtxll.setStatus("0");//待审核
+                                materialPtxxlService.save(materialPtxll);
+                            } catch (Exception e) {
+                                log.info("uploadMaterial=" + e.toString());
+                            }
+                        } else {
+                            log.info("You failed to upload " + i + " because the file was empty.");
+                        }
+                    }
+                }
+            }
+
+        }
+
 
         Cookie Usercookie = new Cookie("userId",userid);
         Usercookie.setMaxAge(60*60*24*7);//保留7天
